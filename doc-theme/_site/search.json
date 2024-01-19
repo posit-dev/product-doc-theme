@@ -7,6 +7,7 @@
     "text": "File 2",
     "crumbs": [
       "Versions",
+      "Stuff",
       "Getting Started",
       "File 2"
     ]
@@ -79,6 +80,7 @@
     "text": "File 1\nSomething here too",
     "crumbs": [
       "Versions",
+      "Stuff",
       "Getting Started",
       "File 1"
     ]
