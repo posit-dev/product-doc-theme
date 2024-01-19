@@ -1,0 +1,153 @@
+---
+title: "Posit Documentation Theme"
+---
+
+This is a Quarto website. Reference the [Quarto docs](https://quarto.org) for more information.
+
+## Header two
+
+Deploy all the work you create in R & Python with Posit Connect, including Shiny, Streamlit, Bokeh, and Dash applications. Quarto documents. Jupyter Notebooks. Models. Reports. Dashboards. Even APIs. With customizable access controls and authentication options that make IT[^1] happy.
+
+[^1]: Information Technology
+
+Other examples:
+
+- The [`Server.DataDir`](../appendix/configuration/index.md#Server.DataDir) directory
+    containing all variable data used by Posit Connect.
+- The [`SQLite.Dir`](../appendix/configuration/index.md#SQLite.Dir) directory, which
+    can optionally be placed outside the data directory.
+- Configuration directories, including `/etc/rstudio-connect`.
+- The [`Server.TempDir`](../appendix/configuration/index.md#Server.TempDir) directory contains a `connect-workspaces` sub-directory with per-process temporary directories.
+
+## Code blocks
+
+```bash
+# Posit Workbench
+helm repo add rstudio https://helm.rstudio.com
+
+# Pull the latest versions of the Helm charts
+helm repo update
+```
+
+```{.bash filename="Terminal"}
+cat i-am-not-a-cat.txt
+```
+
+```r
+library(sparklyr)
+
+sc <- spark_connect(
+  cluster_id = "Enter here your cluster ID",
+  method = "databricks_connect"
+)
+```
+
+### Code tabs
+
+::: {.panel-tabset}
+## RHEL
+###### RHEL 9
+```bash
+$ curl -O https://download2.rstudio.org/server/rhel9/x86_64/rstudio-workbench-rhel-{{< var version >}}-x86_64.rpm
+$ sudo yum install rstudio-workbench-rhel-{{< var version >}}-x86_64.rpm
+```
+
+###### RHEL 8
+```bash
+$ curl -O https://download2.rstudio.org/server/rhel8/x86_64/rstudio-workbench-rhel-{{< var version >}}-x86_64.rpm
+$ sudo yum install rstudio-workbench-rhel-{{< var version >}}-x86_64.rpm
+```
+
+###### RHEL/CentOS 7 / Amazon Linux 2
+```bash
+$ curl -O https://download2.rstudio.org/server/centos7/x86_64/rstudio-workbench-rhel-{{< var version >}}-x86_64.rpm
+$ sudo yum install rstudio-workbench-rhel-{{< var version >}}-x86_64.rpm
+```
+
+## Ubuntu
+###### Ubuntu 22
+```bash
+$ sudo apt-get install gdebi-core
+$ curl -O https://download2.rstudio.org/server/jammy/amd64/rstudio-workbench-{{< var version >}}-amd64.deb
+$ sudo gdebi rstudio-workbench-{{< var version >}}-amd64.deb
+```
+
+###### Ubuntu 20 / Debian 10/11/12
+```bash
+$ sudo apt-get install gdebi-core
+$ curl -O https://download2.rstudio.org/server/focal/amd64/rstudio-workbench-{{< var version >}}-amd64.deb
+$ sudo gdebi rstudio-workbench-{{< var version >}}-amd64.deb
+```
+
+## SUSE 15 SP5 / openSUSE 15.5
+```bash
+$ curl -O https://download2.rstudio.org/server/opensuse15/x86_64/rstudio-workbench-{{< var version >}}-x86_64.rpm
+$ sudo zypper install rstudio-workbench-{{< var version >}}-x86_64.rpm
+```
+:::
+
+## Other elements
+
+### Callouts
+
+::: {.callout-note}
+Something here
+:::
+
+::: {.callout-tip}
+Something here
+:::
+
+::: {.callout-warning}
+Something here
+:::
+
+
+::: {.callout-important}
+Something here
+:::
+
+
+::: {.callout-note collapse="true"}
+## Expand me
+Something here
+:::
+
+::: {.callout-tip collapse="true"}
+## Expand me
+Something here
+:::
+
+::: {.callout-warning collapse="true"}
+## Expand me
+Something here
+:::
+
+::: {.callout-important collapse="true"}
+## Expand me
+Something here
+:::
+
+
+### Quotes
+
+>Something really interesting here.
+
+### Lists
+
+- Unordered list
+  - Unordered list
+    - Unordered list
+- Unordered list
+- Unordered list
+
+1. first
+2. second
+3. third
+
+
+### Images
+
+Below, is an image.
+
+![Testing out the alt text styles.](/images/posit-logo-fullcolor-TM.svg)

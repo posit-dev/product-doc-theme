@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: fd279e77-1ef0-4758-b3de-556936e1fe0d
+      url: 'https://ashley.quarto.pub/posit-product-documentation'

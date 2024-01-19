@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "files/file-2.html",
+    "href": "files/file-2.html",
+    "title": "File 2",
+    "section": "",
+    "text": "File 2",
+    "crumbs": [
+      "Versions",
+      "Getting Started",
+      "File 2"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posit Documentation Theme",
+    "section": "",
+    "text": "This is a Quarto website. Reference the Quarto docs for more information.",
+    "crumbs": [
+      "Versions",
+      "Stuff",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#header-two",
+    "href": "index.html#header-two",
+    "title": "Posit Documentation Theme",
+    "section": "Header two",
+    "text": "Header two\nDeploy all the work you create in R & Python with Posit Connect, including Shiny, Streamlit, Bokeh, and Dash applications. Quarto documents. Jupyter Notebooks. Models. Reports. Dashboards. Even APIs. With customizable access controls and authentication options that make IT1 happy.\nOther examples:\n\nThe Server.DataDir directory containing all variable data used by Posit Connect.\nThe SQLite.Dir directory, which can optionally be placed outside the data directory.\nConfiguration directories, including /etc/rstudio-connect.\nThe Server.TempDir directory contains a connect-workspaces sub-directory with per-process temporary directories.",
+    "crumbs": [
+      "Versions",
+      "Stuff",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#code-blocks",
+    "href": "index.html#code-blocks",
+    "title": "Posit Documentation Theme",
+    "section": "Code blocks",
+    "text": "Code blocks\n# Posit Workbench\nhelm repo add rstudio https://helm.rstudio.com\n\n# Pull the latest versions of the Helm charts\nhelm repo update\n\n\nTerminal\n\ncat i-am-not-a-cat.txt\n\nlibrary(sparklyr)\n\nsc &lt;- spark_connect(\n  cluster_id = \"Enter here your cluster ID\",\n  method = \"databricks_connect\"\n)\n\nCode tabs\n\nRHELUbuntuSUSE 15 SP5 / openSUSE 15.5\n\n\n\nRHEL 9\n$ curl -O https://download2.rstudio.org/server/rhel9/x86_64/rstudio-workbench-rhel-?var:version-x86_64.rpm\n$ sudo yum install rstudio-workbench-rhel-?var:version-x86_64.rpm\n\n\nRHEL 8\n$ curl -O https://download2.rstudio.org/server/rhel8/x86_64/rstudio-workbench-rhel-?var:version-x86_64.rpm\n$ sudo yum install rstudio-workbench-rhel-?var:version-x86_64.rpm\n\n\nRHEL/CentOS 7 / Amazon Linux 2\n$ curl -O https://download2.rstudio.org/server/centos7/x86_64/rstudio-workbench-rhel-?var:version-x86_64.rpm\n$ sudo yum install rstudio-workbench-rhel-?var:version-x86_64.rpm\n\n\n\n\nUbuntu 22\n$ sudo apt-get install gdebi-core\n$ curl -O https://download2.rstudio.org/server/jammy/amd64/rstudio-workbench-?var:version-amd64.deb\n$ sudo gdebi rstudio-workbench-?var:version-amd64.deb\n\n\nUbuntu 20 / Debian 10/11/12\n$ sudo apt-get install gdebi-core\n$ curl -O https://download2.rstudio.org/server/focal/amd64/rstudio-workbench-?var:version-amd64.deb\n$ sudo gdebi rstudio-workbench-?var:version-amd64.deb\n\n\n\n$ curl -O https://download2.rstudio.org/server/opensuse15/x86_64/rstudio-workbench-?var:version-x86_64.rpm\n$ sudo zypper install rstudio-workbench-?var:version-x86_64.rpm",
+    "crumbs": [
+      "Versions",
+      "Stuff",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#other-elements",
+    "href": "index.html#other-elements",
+    "title": "Posit Documentation Theme",
+    "section": "Other elements",
+    "text": "Other elements\n\nCallouts\n\n\n\n\n\n\nNote\n\n\n\nSomething here\n\n\n\n\n\n\n\n\nTip\n\n\n\nSomething here\n\n\n\n\n\n\n\n\nWarning\n\n\n\nSomething here\n\n\n\n\n\n\n\n\nImportant\n\n\n\nSomething here\n\n\n\n\n\n\n\n\nExpand me\n\n\n\n\n\nSomething here\n\n\n\n\n\n\n\n\n\nExpand me\n\n\n\n\n\nSomething here\n\n\n\n\n\n\n\n\n\nExpand me\n\n\n\n\n\nSomething here\n\n\n\n\n\n\n\n\n\nExpand me\n\n\n\n\n\nSomething here\n\n\n\n\n\nQuotes\n\nSomething really interesting here.\n\n\n\nLists\n\nUnordered list\n\nUnordered list\n\nUnordered list\n\n\nUnordered list\nUnordered list\n\n\nfirst\nsecond\nthird\n\n\n\nImages\nBelow, is an image.\n\n\n\nTesting out the alt text styles.",
+    "crumbs": [
+      "Versions",
+      "Stuff",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Posit Documentation Theme",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nInformation Technology↩︎",
+    "crumbs": [
+      "Versions",
+      "Stuff",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "files/file-1.html",
+    "href": "files/file-1.html",
+    "title": "File 1",
+    "section": "",
+    "text": "File 1\nSomething here too",
+    "crumbs": [
+      "Versions",
+      "Getting Started",
+      "File 1"
+    ]
+  }
+]
