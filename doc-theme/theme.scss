@@ -6,8 +6,7 @@
 /*-- scss:variables --*/
 
 // scss-docs-start color-variables
-
-$primary: #447099; /*posit-blue*/
+$posit-blue: #447099;
 $posit-dark-blue-1: #305775;
 $posit-dark-blue-2: #213D4F;
 $posit-orange:  #EE6331;
@@ -17,14 +16,18 @@ $posit-green:   #72994E;
 $posit-burgundy:#9A4665;
 $posit-burgundy-1:#78384F;
 $posit-burgundy-2:#542938;
+
+$primary: $posit-blue;
 // scss-docs-end color-variables
 
 // Typography
 // Font, line-height, and color for body text, headings, and more.
 
 //scss-font-start font-variables
-$font-family-sans-serif: "Open Sans",   system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-size-base: 1rem !default;
+$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, system-ui;
+$font-family-monospace: "Source Code Pro", monospace;
+$font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-size-base: 1rem;
 // scss-docs-end font-variables
 
 $body-color: $posit-gray;
@@ -32,6 +35,13 @@ $body-color: $posit-gray;
 // scss-docs-start font-sizes
 $h1-font-size:44px;
 $h2-font-size:28px;
+
+h1 {
+  size: $h1-font-size;
+}
+h2 {
+  size: $h2-font-size;
+}
 // scss-docs-end font-sizes
 
 
@@ -66,7 +76,7 @@ $list-group-color: $primary !default;
 }
 
 .nav-link {
-    font-family: Source Code Pro,monospace;
+    font-family: $font-family-monospace;
     text-transform: uppercase;
     letter-spacing: .03em;
     font-size: 14px !important;
@@ -74,7 +84,7 @@ $list-group-color: $primary !default;
 }
 
 .nav-footer {
-    font-family: Source Code Pro,monospace;
+    font-family: $font-family-monospace;
     text-transform: uppercase;
     font-size: 14px;
     border-top: solid #0000001a .01em;
