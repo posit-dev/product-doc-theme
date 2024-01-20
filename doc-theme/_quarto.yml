@@ -34,7 +34,7 @@ website:
     search: true
     pinned: false
     contents:
-      - section: "Stuff"
+      - section: "The Theme"
         contents:
           - text: "Introduction"
             href: index.qmd
