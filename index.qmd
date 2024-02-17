@@ -2,8 +2,6 @@
 title: "Posit Documentation Theme Example"
 format:
   posit-docs-html: default
-author: MF Docs
-date: last-modified
 ---
 
 ## Level Two
