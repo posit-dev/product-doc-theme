@@ -1,0 +1,7 @@
+project:
+  title: "Posit Documentation"
+  type: posit-docs
+  
+format:
+  posit-docs-html:
+    toc: true

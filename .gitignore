@@ -4,3 +4,8 @@
 .Ruserdata
 .DS_Store
 
+template.html
+template_files/
+
+/.quarto/
+_site/
