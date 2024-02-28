@@ -35,7 +35,7 @@ contributes:
             href: https://solutions.posit.co
   formats:
     html:
-      theme: [cosmo, theme.scss]
+      theme: [theme.scss]
       link-external-icon: true
       link-external-newwindow: true
       toc: true
