@@ -10,9 +10,13 @@ First, install the extension:
 quarto add posit-dev/product-doc-theme
 ```
 
-Next, set `posit-docs-html` as the theme in `_quarto.yml`:
+Next, update your project type and format in `_quarto.yml`:
 
 ```yaml
+project:
+  title: "Posit Documentation"
+  type: posit-docs
+
 format:
   posit-docs-html: default
 ```
