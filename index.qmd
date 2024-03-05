@@ -1,0 +1,35 @@
+---
+title: "Posit Documentation Theme Example"
+format:
+  posit-docs-html: default
+---
+
+## Level Two
+
+### Level Three
+
+### Another Level Three
+
+## Level Two Again
+
+::: panel-tabset
+
+### RHEL
+
+```bash
+$ yum
+```
+
+### Ubuntu | Debian
+
+```bash
+$ dpkg
+```
+
+### SUSE
+
+```bash
+$ zypper
+```
+
+:::
