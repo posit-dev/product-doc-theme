@@ -27,11 +27,10 @@ contributes:
         search: true
         pinned: false
       page-footer:
-        left: 
-          - text: © 2024 Posit Software, PBC 
-            url: "https://posit.co"
+        left: |
+          <Copyright placeholder - replace in project>
         center: |
-          Posit Product 12345 
+          <Posit Product version - replace in project> 
 
         right:
           - icon: book
