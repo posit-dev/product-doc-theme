@@ -31,8 +31,9 @@ contributes:
           <Copyright placeholder - replace in project>
         center: |
           <Posit Product version - replace in project> 
-
         right:
+          - icon: house
+            href: https://posit.co
           - icon: book
             href: https://docs.posit.co
           - icon: question-circle-fill
