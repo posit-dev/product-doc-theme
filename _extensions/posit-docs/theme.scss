@@ -80,6 +80,12 @@ $list-group-color: $primary !default;
     font-weight: 500;
 }
 
+/* Posit logo - navbar or footer */
+#navbar-right-logo {
+  width: 70px;
+  min-width: 70px;
+}
+
 .nav-link {
     font-family: $font-family-monospace;
     text-transform: uppercase;
@@ -173,21 +179,21 @@ ol.groovyAlpha {
     counter-reset: list-counter;
   }
   
-  ol.groovyAlpha li {
-    counter-increment: list-counter;
-  }
-  
-  ol.groovyAlpha li > p:before {
-    content: counter(list-counter, lower-alpha);
-    width: 16px;
-    height: 16px;
-    text-align: center;
-    margin-right: 10px;
-    color: #fff;
-    background-color: #fc403b;
-    display: inline-block;
-    border-radius: 8px;
-    font-size: 9px;
-    line-height: 16px;
-    vertical-align: middle;
-  }
+ol.groovyAlpha li {
+  counter-increment: list-counter;
+}
+
+ol.groovyAlpha li > p:before {
+  content: counter(list-counter, lower-alpha);
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  margin-right: 10px;
+  color: #fff;
+  background-color: #fc403b;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 9px;
+  line-height: 16px;
+  vertical-align: middle;
+}

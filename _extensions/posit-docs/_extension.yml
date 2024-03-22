@@ -38,6 +38,8 @@ contributes:
             href: https://support.posit.co/hc/en-us
           - icon: lightbulb-fill
             href: https://solutions.posit.co
+          - text: "<img src='_extensions/posit-docs/assets/images/posit-logo-black-TM.svg' id='navbar-right-logo'>"
+            url: "https://posit.co"
   formats:
     html:
       theme: [theme.scss]
