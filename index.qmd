@@ -8,7 +8,7 @@ format:
 
 ### Level Three
 
-### Another Level Three
+### Another Level Three {.preview-header} 
 
 ## Level Two Again
 
