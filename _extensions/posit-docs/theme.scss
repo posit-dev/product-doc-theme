@@ -18,6 +18,11 @@ $posit-burgundy-1:#78384F;
 $posit-burgundy-2:#542938;
 
 $primary: $posit-blue;
+
+// Feature preview heading colors
+$preview-header: #EE6331; /* posit orange, contrast: 8.45 */
+$preview-header-border: darken($preview-header, 5%);
+
 // scss-docs-end color-variables
 
 // Typography
@@ -128,4 +133,35 @@ $list-group-color: $primary !default;
 /* List disc colors */
 li::marker {
     color: $primary;
+}
+
+/* the feature PREVIEW header */
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header {
+  content: "Preview feature";
+  margin-left: 1em;
+  position: relative;
+  border-radius: 50rem !important;
+  top: -0.5em;
+}
+
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header,
+div span.preview-feature {
+  color: $preview-header;
+  border: 1px solid $preview-header-border;
+  font-weight: 400;
+  font-size: 9pt !important;
+  padding: 0rem 0.4rem;
+}
+
+div span.preview-feature {
+  margin-left: 1em;
+  text-transform: uppercase;
 }
