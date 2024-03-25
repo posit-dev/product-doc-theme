@@ -39,7 +39,7 @@ $body-color: $posit-gray;
 
 // scss-docs-start font-sizes
 $h1-font-size:44px;
-$h2-font-size:28px;
+$h2-font-size:28px;x
 
 h1 {
   size: $h1-font-size;
@@ -81,9 +81,16 @@ $list-group-color: $primary !default;
 }
 
 /* Posit logo - navbar or footer */
-#navbar-right-logo {
+#footer-right-posit-logo {
   width: 70px;
   min-width: 70px;
+}
+
+#footer-right-logo {
+  width: 20px;
+  min-width: 20px;
+  margin-left: -3px !important;
+  margin-right: -3px !important;
 }
 
 .nav-link {
