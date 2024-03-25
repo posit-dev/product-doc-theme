@@ -32,13 +32,13 @@ contributes:
         center: |
           <Posit Product version - replace in project> 
         right:
-          - icon: book
-            href: https://docs.posit.co
           - icon: question-circle-fill
             href: https://support.posit.co/hc/en-us
           - icon: lightbulb-fill
             href: https://solutions.posit.co
-          - text: "<img src='_extensions/posit-docs/assets/images/posit-logo-black-TM.svg' id='navbar-right-logo'>"
+          - text: "<img src='_extensions/posit-docs/assets/images/posit-guide-ltmd.svg' id='navbar-right-logo'>"
+            href: https://docs.posit.co
+          - text: "<img src='_extensions/posit-docs/assets/images/posit-logo-black-TM.svg' id='navbar-right-posit-logo'>"
             url: "https://posit.co"
   formats:
     html:
