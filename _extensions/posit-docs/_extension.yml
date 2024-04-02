@@ -27,7 +27,7 @@ contributes:
         search: true
         pinned: false
       page-footer:
-      # Copyright example/format: Copyright © 2009-2024 Posit Software, PBC. All Rights Reserved.
+      # Copyright example/format: Copyright © 2009-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
       # Posit Product version example: Posit Product YYYY.MM.X
         left: |          
           <Copyright placeholder - replace in project>
