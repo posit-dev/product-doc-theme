@@ -48,8 +48,8 @@ right:
 
 #### Footer
 
-- Copyright: Since the product copyright dates should be represented as a range and is dependent on the product, override the entry in your project's `quarto.yml` file.
-- Posit Product version: Since some products choose to autmate this entry with a version variable, it should be added/configured in your project's `quarto.yml` file.
+- **Copyright:** Since the product copyright dates should be represented as a range and is dependent on the product, override the entry in your project's `quarto.yml` file.
+- **Posit Product version:** Since some products choose to autmate this entry with a version variable, it should be added/configured in your project's `quarto.yml` file.
 
 Example:
 
@@ -62,3 +62,14 @@ page-footer:
 ```
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
+
+- **Footer icons:** The following icons (assets) cause build errors. Additional steps need to be taken to resolve the errors and for the icons to be added to your site:
+    - Copy the following assets from the `_extensions/posit-docs/assets/images/` directory to a directory within your local project:
+        - `posit-guide-ltmd.svg`
+        - `posit-logo-black-TM.svg`
+    
+    - In the `_extensions/posit-docs/_extension.yml`, update the following paths to point to the location of the assets within your local project:
+          - text: "<img src='<path to assets>' id='footer-right-logo'>"
+            href: https://docs.posit.co
+          - text: "<img src='<path to assets>' id='footer-right-posit-logo'>"
+            href: "https://posit.co"
