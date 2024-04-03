@@ -63,6 +63,8 @@ page-footer:
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
 
+>Breaking - must resolve Footer icon build issues manually:
+
 - **Footer icons:** The following icons (assets) cause build errors. Additional steps need to be taken to resolve the errors and for the icons to be added to your site:
     - Copy the following assets from the `_extensions/posit-docs/assets/images/` directory to a directory within your local project:
         - `posit-guide-ltmd.svg`
