@@ -21,57 +21,75 @@ format:
   posit-docs-html: default
 ```
 
+> [!WARNING]
+> If you use `format: html` to perform any modifications to pages or
+> directories, rewrite those settings in terms of `format: posit-docs-html`.
+
+
 ### Additional configuration entries
 
 The following entries may be unique to each product. Please review the following and make manual updates to your project, as required.
 
-#### Nav bar
+#### Navbar
 
-If you have existing `navbar: right` entries in your project's `_quarto.yml`:
-
-```
-navbar:
-   right:
-```
-
-Then, copy/paste the following into your project's `_quarto.yml` and then comment out these entries in the `posit-docs/_extension.yml`:
+Use the following `website.navbar.right` entries in your `_quarto.yml`,
+merging with other entries if you have them:
 
 ```
-right:
-  - icon: "list"
-    menu:
-      - text: "docs.posit.co"
-        href: "https://docs.posit.co"
-      - text: "Posit Support"
-        href: "https://support.posit.co/hc/en-us/"
+website:
+  navbar:
+    right:
+      - icon: "list"
+        menu:
+          - text: "docs.posit.co"
+            href: "https://docs.posit.co"
+          - text: "Posit Support"
+            href: "https://support.posit.co/hc/en-us/"
 ```
 
 #### Footer
 
-- **Copyright:** Since the product copyright dates should be represented as a range and is dependent on the product, override the entry in your project's `quarto.yml` file.
-- **Posit Product version:** Since some products choose to autmate this entry with a version variable, it should be added/configured in your project's `quarto.yml` file.
-
-Example:
+Use the following `website.page-footer` in your `_quarto.yml`:
 
 ```
-page-footer:
-        left: |
-          <Copyright placeholder - replace in project>
-        center: |
-          <Posit Product version - replace in project> 
+website:
+  page-footer:
+    left: |
+      Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
+    center: |
+      Posit PRODUCT {{< env PRODUCT_VERSION >}}
+    right:
+      - icon: question-circle-fill
+        href: "https://support.posit.co/hc/en-us"
+      - icon: lightbulb-fill
+        href: "https://solutions.posit.co/"
+      - text: "<img src='/images/posit-guide-ltmd.svg' id='footer-right-logo'>"
+        href: "https://docs.posit.co/"
+      - text: "<img src='/images/posit-logo-black-TM.svg' id='footer-right-posit-logo'>"
+        href: "https://posit.co/"
 ```
+
+Make the following modifications:
+
+-   **Copyright:** Copyright dates are represented as a range from the year of
+    first product release until now. Adapt the example for your product and
+    how that information is made available.
+
+-   **Product name:** Replace the `PRODUCT` placeholder with the product name.
+
+-   **Product version:** Adapt the version for your product based on how that
+    information is made available.
+
+-   **Images:** Copy the two images from the extension into your project.
+
+    For example, you may have a top-level `images` directory:
+
+    ```bash
+    cp _extensions/posit-dev/posit-docs/assets/images/posit-guide-ltmd.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/posit-logo-black-TM.svg images
+    ```
+
+    These images are also available [from
+    GitHub](https://github.com/posit-dev/product-doc-theme/tree/main/_extensions/posit-docs/assets/images).
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
-
->Breaking - must resolve Footer icon build issues manually:
-
-- **Footer icons:** The following icons (assets) cause build errors. Additional steps need to be taken to resolve the errors and for the icons to be added to your site:
-    - Copy the following assets from the `_extensions/posit-docs/assets/images/` directory to a directory within your local project:
-        - `posit-guide-ltmd.svg`
-        - `posit-logo-black-TM.svg`
-    
-    - In the `_extensions/posit-docs/_extension.yml`, uncomment and update the following paths to point to the location of the assets within your local project:
-          - text: "<img src='<path to assets>' id='footer-right-logo'>"
-            href: https://docs.posit.co
-          - text: "<img src='<path to assets>' id='footer-right-posit-logo'>"
-            href: "https://posit.co"
