@@ -68,7 +68,7 @@ By copy/pasting and editing these entries into your project's yml, those entries
         - `posit-guide-ltmd.svg`
         - `posit-logo-black-TM.svg`
     
-    - In the `_extensions/posit-docs/_extension.yml`, update the following paths to point to the location of the assets within your local project:
+    - In the `_extensions/posit-docs/_extension.yml`, uncomment and update the following paths to point to the location of the assets within your local project:
           - text: "<img src='<path to assets>' id='footer-right-logo'>"
             href: https://docs.posit.co
           - text: "<img src='<path to assets>' id='footer-right-posit-logo'>"
