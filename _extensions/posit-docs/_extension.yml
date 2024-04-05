@@ -21,7 +21,9 @@ contributes:
         pinned: false
   formats:
     html:
-      theme: [theme.scss]
+      theme: 
+        light: theme.scss
+        dark: theme-dark.scss
       link-external-icon: true
       link-external-newwindow: true
       toc: true
