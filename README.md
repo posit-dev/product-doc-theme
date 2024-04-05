@@ -25,15 +25,14 @@ format:
 > If you use `format: html` to perform any modifications to pages or
 > directories, rewrite those settings in terms of `format: posit-docs-html`.
 
-
 ### Additional configuration entries
 
 The following entries may be unique to each product. Please review the following and make manual updates to your project, as required.
 
 #### Navbar
 
-Use the following `website.navbar.right` entries in your `_quarto.yml`,
-merging with other entries if you have them:
+If you have `website.navbar.right` entries in your `_quarto.yml`,
+merge the following with the existing entries:
 
 ```
 website:
