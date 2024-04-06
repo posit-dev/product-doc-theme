@@ -63,6 +63,7 @@ $navbar-fg: #ffffff; //dark theme change
 $navbar-hl: #000000;
 $navbar-brand: $body-color;
 $navbar-brand-hl: $navbar-brand;
+$footer-bg: $posit-gray;
 //$navbar-brand-font-size: 14px !default;
 
 // scss-docs-start list-group-variables
@@ -74,7 +75,7 @@ $list-group-color: $primary !default;
 // Settings for the `<body>` element.
 
 //$body-color:                $posit-green !default;
-$body-bg:                   #000000 !default;
+$body-bg:                   #16212B !default;
 
 //$body-secondary-color:      rgba($body-color, .75) !default;
 //$body-secondary-bg:         $gray-200 !default;
