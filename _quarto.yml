@@ -3,12 +3,23 @@ project:
   type: posit-docs
   
 website:
+  page-navigation: true
   sidebar:
     contents:
       - text: "Introduction"
         href: index.qmd
-      - text: "Page 1"
-        href: index.qmd
+      - section: "Getting Started"
+        contents:
+          - index-2.qmd
+          - section: "Installation"
+            contents:
+              - text: "Overview"
+                href: index.qmd
+              - text: "Install Workbench"
+                href: index.qmd
+              - index.qmd
+              - index.qmd
+          - index.qmd
   page-footer:
     left: |
       Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.

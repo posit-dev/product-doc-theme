@@ -18,6 +18,7 @@ $posit-burgundy-1:#78384F;
 $posit-burgundy-2:#542938;
 $primary: $posit-blue;
 $dark-md-body: #ADAFAE;
+$dark-md-background: #16212B;
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -39,7 +40,7 @@ $font-size-base: 1rem;
 
 $body-color: $dark-md-body;
 
-// scss-docs-start font-sizes
+// scss-docs-start font-sizes - seems that I have to keep these in the style sheet?
 $h1-font-size:44px;
 $h2-font-size:28px;x
 
@@ -53,152 +54,53 @@ h2 {
 
 // Headings - dark mode changes
 // scss-docs-start headings-variables
-//$headings-font-weight: 300 !important;
-$headings-color: #ffffff; //dark theme change
+$headings-color: #ffffff; //dark mode change
 // scss-docs-end headings-variables
 
-//  Customize the navbar - dark theme changes
+//  Customize the navbar - dark mode changes
 $navbar-bg: $posit-dark-blue-2;
-$navbar-fg: #ffffff; //dark theme change
-$navbar-hl: #000000;
-$navbar-brand: $body-color;
-$navbar-brand-hl: $navbar-brand;
-$footer-bg: $posit-gray;
-//$navbar-brand-font-size: 14px !default;
+$navbar-fg: #ffffff; 
 
-// scss-docs-start list-group-variables
-$list-group-color: $primary !default;
-// scss-docs-end list-group-variables
 
 // Body
 //
 // Settings for the `<body>` element.
 
 //$body-color:                $posit-green !default;
-$body-bg:                   #16212B !default;
-
-//$body-secondary-color:      rgba($body-color, .75) !default;
-//$body-secondary-bg:         $gray-200 !default;
-
-//$body-tertiary-color:       rgba($body-color, .5) !default;
-//$body-tertiary-bg:          $gray-100 !default;
-
-//$body-emphasis-color:       $black !default;
-
+$body-bg:                   $dark-md-background !default; // dark mode change
 
 // CSS overrides
 
-.navbar {
-  box-shadow: 0 0 0.2rem #0000001a, 0 0.1rem 0.4rem #0003;
-  transition: transform .25s cubic-bezier(.1,.7,.1,1),box-shadow .25s;
-}
-
 .navbar-title {
-    font-family: $font-family-sans-serif;
-    font-size:  $font-size-base;
-    font-weight: 500;
     color: #ffffff; // dark theme change
 }
 
-.navbar .dropdown-item {
-    padding: .4rem .5rem;
-    background: $posit-dark-blue-1;
-}
-
-/* Posit logo - navbar or footer */
-#footer-right-posit-logo {
-  width: 70px;
-  min-width: 70px;
-}
-
-.nav-link {
-    font-family: $font-family-monospace;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-}
-
 .nav-footer {
-    //font-family: $font-family-monospace;
-    //text-transform: uppercase;
-    //font-size: 14px;
-    //border-top: solid #0000001a .01em;
-    //align-items: center !important;
     color:  #ffffff !important; // dark mode change
 }
 
-// Footer icons - Dark mode change
+// Footer icons - dark mode change
 .nav-footer a {
   color: #ffffff !important;
 }
 
-/* Tabs */ 
-
-.nav-tabs .nav-link {
-    text-transform: none !important;
-    font-family: $font-family-sans-serif;
-}
+// Tabs - dark mode changes
 
 .nav-tabs .nav-link.active {
     color: #ffffff !important;
 }
 
-/* Mini TOC */
-.sidebar nav[role=doc-toc]>ul li a {
-    text-transform: none !important;
-    font-family: $font-family-sans-serif;
-    font-size: 16px;
-    font-weight: 300 !important;
-    letter-spacing: .05em !important;
-}
-
-/* Left nav - letter spacing */
-.sidebar-navigation li a {
-    letter-spacing: .03em;
-    font-size: 16px;
-}
-
-
-/* Posit logo - footer */
-#footer-logo {
-    width: 70px;
-    min-width: 70px;
-}
-
-/* Footer */
-.nav-footer .nav-footer-center {
-    min-height: min-content;
-}
-
-/* List disc colors */
-li::marker {
-    color: $primary;
-}
-
-//Commenting out items that I don't need to change for dark theme
-/* the feature PREVIEW header
-.preview-header > h1:after,
-.preview-header > h2:after,
-.preview-header > h3:after,
-.preview-header > h4:after,
-header h1 .preview-header {
-  content: "Preview feature";
-  margin-left: 1em;
-  position: relative;
-  border-radius: 50rem !important;
-  top: -0.5em;
-}
-
+// Preview header - dark mode change
 .preview-header > h1:after,
 .preview-header > h2:after,
 .preview-header > h3:after,
 .preview-header > h4:after,
 header h1 .preview-header,
 div span.preview-feature {
-  color: $preview-header;
+  background-color: $preview-header;
+  color:#ffffff;
   border: 1px solid $preview-header-border;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 9pt !important;
   padding: 0rem 0.4rem;
 }
@@ -208,34 +110,15 @@ div span.preview-feature {
   text-transform: uppercase;
 }
 
-*/
-
-/* Callout steps for images with multiple items/steps shown in single image */
-ol.groovyAlpha {
-    list-style: none;
-    counter-reset: list-counter;
-  }
-  
-ol.groovyAlpha li {
-  counter-increment: list-counter;
-}
+// Groovy list - dark mode change
 
 ol.groovyAlpha li > p:before {
   content: counter(list-counter, lower-alpha);
-  width: 16px;
-  height: 16px;
-  text-align: center;
-  margin-right: 10px;
-  color: #fff;
-  background-color: #fc403b;
-  display: inline-block;
-  border-radius: 8px;
-  font-size: 9px;
-  line-height: 16px;
-  vertical-align: middle;
+  color: #000;
+  font-weight: 600;
 }
 
-// Code block elements
+// Code block elements - dark mode
 
 code span.ex {
     font-weight: bold;
@@ -253,8 +136,4 @@ code span.ot {
 
 code span.st {
     color: greenyellow;
-}
-
-.code-copy-button:hover {
-    color: #000000 !important;
 }
