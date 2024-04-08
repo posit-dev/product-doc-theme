@@ -81,7 +81,7 @@ $list-group-color: $primary !default;
 }
 
 /* Posit logo - navbar or footer */
-#footer-right-posit-logo {
+#footer-right-full-posit-logo {
   width: 70px;
   min-width: 70px;
 }
@@ -89,6 +89,13 @@ $list-group-color: $primary !default;
 #footer-right-logo {
   width: 20px;
   min-width: 20px;
+  margin-left: -3px !important;
+  margin-right: -3px !important;
+}
+
+#footer-right-posit-logo {
+  width: 17px;
+  min-width: 17px;
   margin-left: -3px !important;
   margin-right: -3px !important;
 }
@@ -204,3 +211,4 @@ ol.groovyAlpha li > p:before {
   line-height: 16px;
   vertical-align: middle;
 }
+
