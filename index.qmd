@@ -96,3 +96,26 @@ $ zypper
 ```
 
 :::
+
+### Level three
+
+:::{.callout-note}
+Something
+:::
+
+:::{.callout-tip}
+Something
+:::
+
+:::{.callout-caution}
+Something
+:::
+
+:::{.callout-warning}
+Something
+:::
+
+:::{.callout-important}
+Something
+:::
+

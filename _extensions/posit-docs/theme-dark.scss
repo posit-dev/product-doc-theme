@@ -17,7 +17,7 @@ $posit-burgundy:#9A4665;
 $posit-burgundy-1:#78384F;
 $posit-burgundy-2:#542938;
 $primary: $posit-blue;
-$dark-md-body: #ADAFAE;
+$dark-md-body: hsla(0,0%,100%,.6);
 $dark-md-background: #16212B;
 
 // Feature preview heading colors
@@ -39,6 +39,7 @@ $font-size-base: 1rem;
 //font and body color - dark theme changes
 
 $body-color: $dark-md-body;
+$popover-bg: $posit-green !default; // check this
 
 // scss-docs-start font-sizes - seems that I have to keep these in the style sheet?
 $h1-font-size:44px;
@@ -68,6 +69,13 @@ $navbar-fg: #ffffff;
 
 //$body-color:                $posit-green !default;
 $body-bg:                   $dark-md-background !default; // dark mode change
+
+// Code block 
+// Copy button - dark mode changes
+
+$btn-code-copy-color: $posit-blue;
+$btn-code-copy-color-active: #ffffff;
+$callout-icon-scale: 70%;
 
 // CSS overrides
 
@@ -120,9 +128,13 @@ ol.groovyAlpha li > p:before {
 
 // Code block elements - dark mode
 
+pre > code.sourceCode > span {
+  color: #003B4F;
+}
+
 code span.ex {
     font-weight: bold;
-    color: #000000;
+    color: #003B4F;
 }
 
 code span.dt {
@@ -136,4 +148,31 @@ code span.ot {
 
 code span.st {
     color: greenyellow;
+}
+
+// Callouts - dark mode changes
+
+div.callout-note.callout-style-default>.callout-header {
+  background-color: #0d6efd !important;
+  color: $dark-md-background;
+}
+
+div.callout-tip.callout-style-default>.callout-header {
+  background-color: #198754 !important;
+  color: $dark-md-background;
+}
+
+div.callout-caution.callout-style-default>.callout-header {
+  background-color: #fd7e14 !important;
+  color: $dark-md-background;
+}
+
+div.callout-warning.callout-style-default>.callout-header {
+  background-color: #ffc107 !important;
+  color: $dark-md-background;
+}
+
+div.callout-important.callout-style-default>.callout-header {
+  background-color: #dc3545 !important;
+  color: $dark-md-background;
 }
