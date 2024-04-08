@@ -85,6 +85,7 @@ $callout-icon-scale: 70%;
 
 .nav-footer {
     color:  #ffffff !important; // dark mode change
+    border-top: solid $posit-gray 1px;
 }
 
 // Footer icons - dark mode change
@@ -176,3 +177,4 @@ div.callout-important.callout-style-default>.callout-header {
   background-color: #dc3545 !important;
   color: $dark-md-background;
 }
+

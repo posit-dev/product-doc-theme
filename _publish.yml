@@ -1,0 +1,4 @@
+- source: project
+  connect:
+    - id: 900701dc-368b-4922-99c7-c7f0debadd8c
+      url: 'https://colorado.posit.co/rsc/content/900701dc-368b-4922-99c7-c7f0debadd8c/'
