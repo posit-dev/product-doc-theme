@@ -123,6 +123,11 @@ $list-group-color: $primary !default;
     font-family: $font-family-sans-serif;
 }
 
+/* Sidebar and toc */
+.sidebar-item-container .active {
+  font-weight: 600;
+}
+
 /* Mini TOC */
 .sidebar nav[role=doc-toc]>ul li a {
     text-transform: none !important;
@@ -137,7 +142,6 @@ $list-group-color: $primary !default;
     letter-spacing: .03em;
     font-size: 16px;
 }
-
 
 /* Posit logo - footer */
 #footer-logo {

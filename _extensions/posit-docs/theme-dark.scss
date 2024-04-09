@@ -39,7 +39,7 @@ $font-size-base: 1rem;
 //font and body color - dark theme changes
 
 $body-color: $dark-md-body;
-$popover-bg: $posit-green !default; // check this
+$popover-bg: $posit-green !default; // check this - citation previews
 
 // scss-docs-start font-sizes - seems that I have to keep these in the style sheet?
 $h1-font-size:44px;
@@ -73,7 +73,7 @@ $body-bg:                   $dark-md-background !default; // dark mode change
 // Code block 
 // Copy button - dark mode changes
 
-$btn-code-copy-color: $posit-blue;
+$btn-code-copy-color: $posit-dark-blue-2;
 $btn-code-copy-color-active: #ffffff;
 $callout-icon-scale: 70%;
 
@@ -97,6 +97,12 @@ $callout-icon-scale: 70%;
 
 .nav-tabs .nav-link.active {
     color: #ffffff !important;
+}
+
+// Sidebar and toc
+
+.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
+    color: $posit-blue !important;
 }
 
 // Preview header - dark mode change
