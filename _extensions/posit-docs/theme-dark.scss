@@ -101,6 +101,14 @@ $callout-icon-scale: 70%;
 
 // Sidebar and toc
 
+.sidebar-navigation li a{
+  color: #ffffff;
+}
+
+.sidebar-navigation li a:hover{
+  color: inherit;
+}
+
 .sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
     color: $posit-blue !important;
 }

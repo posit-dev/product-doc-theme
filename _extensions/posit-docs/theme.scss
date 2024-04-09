@@ -124,10 +124,17 @@ $list-group-color: $primary !default;
 }
 
 /* Sidebar and toc */
+
+/* Left nav */
 .sidebar-item-container .active {
-  font-weight: 600;
+  font-weight: 500;
 }
 
+/* Left nav - letter spacing */
+.sidebar-navigation li a {
+  letter-spacing: .03em;
+  font-size: 16px;
+}
 /* Mini TOC */
 .sidebar nav[role=doc-toc]>ul li a {
     text-transform: none !important;
@@ -137,11 +144,10 @@ $list-group-color: $primary !default;
     letter-spacing: .05em !important;
 }
 
-/* Left nav - letter spacing */
-.sidebar-navigation li a {
-    letter-spacing: .03em;
-    font-size: 16px;
+.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+    font-weight: 500 !important;
 }
+
 
 /* Posit logo - footer */
 #footer-logo {
