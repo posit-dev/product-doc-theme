@@ -16,9 +16,9 @@ $posit-green:   #72994E;
 $posit-burgundy:#9A4665;
 $posit-burgundy-1:#78384F;
 $posit-burgundy-2:#542938;
-$primary: $posit-blue;
+$primary: $posit-teal;
 $dark-md-body: hsla(0,0%,100%,.6);
-$dark-md-background: #16212B;
+$dark-md-background: #0C1721;
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -59,7 +59,7 @@ $headings-color: #ffffff; //dark mode change
 // scss-docs-end headings-variables
 
 //  Customize the navbar - dark mode changes
-$navbar-bg: $posit-dark-blue-2;
+$navbar-bg: lighten($dark-md-background, 5%);
 $navbar-fg: #ffffff; 
 
 
@@ -67,10 +67,29 @@ $navbar-fg: #ffffff;
 //
 // Settings for the `<body>` element.
 
-//$body-color:                $posit-green !default;
-$body-bg:                   $dark-md-background !default; // dark mode change
+//$body-color: $posit-green !default;
+$body-bg: $dark-md-background !default; // dark mode change
 
-// Code block 
+// Code blocks
+
+// Code block title
+
+.quarto-dark .code-with-filename .code-with-filename-file {
+  background-color: #000000 !important;
+  border: none;
+}
+
+.code-with-filename strong {
+  color: #6E9AC3;
+}
+
+// Code block background
+$code-block-bg: lighten($dark-md-background, 10%);
+
+//$monobackgroundcolor: $dark-md-background !default;
+
+
+
 // Copy button - dark mode changes
 
 $btn-code-copy-color: $posit-dark-blue-2;
@@ -110,7 +129,7 @@ $callout-icon-scale: 70%;
 }
 
 .sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    color: $posit-blue !important;
+    color: $posit-teal !important;
 }
 
 // Preview header - dark mode change
@@ -144,25 +163,25 @@ ol.groovyAlpha li > p:before {
 // Code block elements - dark mode
 
 pre > code.sourceCode > span {
-  color: #003B4F;
+  //color: #003B4F;
 }
 
 code span.ex {
-    font-weight: bold;
-    color: #003B4F;
+    //font-weight: bold;
+    color: #ffffff;
 }
 
 code span.dt {
-    color: purple;
-    font-style: inherit;
+  color: #FFABCA;
+    //font-style: inherit;
 }
 
 code span.ot {
-    color: rgb(60, 222, 222);
+    //color: rgb(60, 222, 222);
 }
 
 code span.st {
-    color: greenyellow;
+    //color: greenyellow;
 }
 
 // Callouts - dark mode changes
