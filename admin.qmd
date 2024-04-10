@@ -6,6 +6,9 @@ subtitle: Version {{< env PRODUCT_VERSION >}}
 This is a stub page modeling a top-level collection of documentation, such as
 a product admin guide.
 
+This page should have a left-hand sidebar with repetitive links to the
+[Installation](install.qmd) page.
+
 ## More
 
 You may learn more.
