@@ -152,6 +152,11 @@ div span.preview-feature {
   text-transform: uppercase;
 }
 
+/* List disc colors */
+li::marker {
+  color: $posit-teal;
+}
+
 // Groovy list - dark mode change
 
 ol.groovyAlpha li > p:before {

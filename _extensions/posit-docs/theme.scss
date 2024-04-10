@@ -16,7 +16,6 @@ $posit-green:   #72994E;
 $posit-burgundy:#9A4665;
 $posit-burgundy-1:#78384F;
 $posit-burgundy-2:#542938;
-
 $primary: $posit-blue;
 
 // Feature preview heading colors
@@ -135,6 +134,7 @@ $list-group-color: $primary !default;
   letter-spacing: .03em;
   font-size: 16px;
 }
+
 /* Mini TOC */
 .sidebar nav[role=doc-toc]>ul li a {
     text-transform: none !important;
@@ -145,7 +145,7 @@ $list-group-color: $primary !default;
 }
 
 .sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
 }
 
 
