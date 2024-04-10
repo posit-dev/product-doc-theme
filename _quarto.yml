@@ -1,8 +1,30 @@
 project:
-  title: "Posit Documentation"
   type: posit-docs
   
 website:
+  title: 'Posit Product Documentation <small>Version {{< env PRODUCT_VERSION >}}</small>'
+  navbar:
+    left:
+      - text: "Home"
+        href: "index.qmd"
+      - text: "Admin Guide"
+        file: "admin.qmd"
+      - text: "User Guide"
+        file: "user.qmd"
+
+  sidebar:
+    - id: admin-guide
+      title: "Admin Guide"
+      contents:
+        - admin.qmd
+        - install.qmd
+
+    - id: user-guide
+      title: "User Guide"
+      contents:
+        - user.qmd
+        - sharing.qmd
+
   page-footer:
     left: |
       Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.

@@ -1,0 +1,15 @@
+---
+title: Posit Product Admin Guide
+subtitle: Version {{< env PRODUCT_VERSION >}}
+---
+
+This is a stub page modeling a top-level collection of documentation, such as
+a product admin guide.
+
+## More
+
+You may learn more.
+
+### Problems
+
+You may not learn more.

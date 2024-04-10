@@ -7,7 +7,6 @@ contributes:
     project:
       type: website
     website:
-      title: 
       favicon: "assets/images/favicon.svg"
       bread-crumbs: true
       navbar:
@@ -24,8 +23,10 @@ contributes:
       sidebar:
         style: "floating"
         collapse-level: 1
-        search: true
         pinned: false
+      search:
+        copy-button: true
+        show-item-context: true
   formats:
     html:
       theme: [theme.scss]
