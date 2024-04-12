@@ -16,14 +16,7 @@ Next, update your project type and format in `_quarto.yml`:
 project:
   title: "Posit Documentation"
   type: posit-docs
-
-format:
-  posit-docs-html: default
 ```
-
-> [!WARNING]
-> If you use `format: html` to perform any modifications to pages or
-> directories, rewrite those settings in terms of `format: posit-docs-html`.
 
 ### Additional configuration entries
 
@@ -99,7 +92,7 @@ Configure Google Analytics using a snippet like the following.
 
 ```yaml
 format:
-  posit-docs-html:
+  html:
     include-in-header: _analytics.html
 ```
 
