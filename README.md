@@ -92,3 +92,44 @@ Make the following modifications:
     GitHub](https://github.com/posit-dev/product-doc-theme/tree/main/_extensions/posit-docs/assets/images).
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
+
+#### Analytics
+
+Configure Google Analytics using a snippet like the following.
+
+```yaml
+format:
+  posit-docs-html:
+    include-in-header: _analytics.html
+```
+
+This uses the [`_analytics.html`](_analytics.html) and
+[`_variables.yml`](_variables.yml) files in the example project. For Posit
+product documentation hosted on <https://docs.posit.co/>, copy these files
+into your project.
+
+## Development
+
+If you are modifying this extension, use Quarto to preview your changes
+against the sample project defined here.
+
+```bash
+quarto preview
+```
+
+### Release
+
+To release a new version of this theme:
+
+1.  Make sure that the extension declares the target version. Update
+    [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml),
+    then commit and merge that change to `main`.
+
+2.  Tag the target commit and push the tag.
+
+    ```bash
+    git tag -a v1.1.0 -m 'Release 1.1.0'
+    git push origin v1.1.0
+    ```
+
+3.  Create a GitHub release from [that tag](https://github.com/posit-dev/product-doc-theme/tags).

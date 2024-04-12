@@ -80,6 +80,13 @@ $list-group-color: $primary !default;
     font-weight: 500;
 }
 
+/* Style for the version included in the website title */
+.navbar-title small {
+    font-size: 14px;
+    display: block;
+    padding-left: 1em;
+}
+
 /* Posit logo - navbar or footer */
 #footer-right-posit-logo {
   width: 70px;

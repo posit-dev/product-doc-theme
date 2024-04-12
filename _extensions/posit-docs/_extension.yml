@@ -7,7 +7,6 @@ contributes:
     project:
       type: website
     website:
-      title: 
       favicon: "assets/images/favicon.svg"
       bread-crumbs: true
       navbar:
@@ -21,11 +20,10 @@ contributes:
              href: "https://docs.posit.co"
            - text: "Posit Support"
              href: "https://support.posit.co/hc/en-us/"
-      sidebar:
-        style: "floating"
-        collapse-level: 1
-        search: true
-        pinned: false
+      search:
+        copy-button: true
+        show-item-context: true
+    format: posit-docs-html
   formats:
     html:
       theme: [theme.scss]
