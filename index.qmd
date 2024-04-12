@@ -1,7 +1,5 @@
 ---
 title: "Posit Documentation Theme Example"
-format:
-  posit-docs-html: default
 ---
 
 ## Level Two
