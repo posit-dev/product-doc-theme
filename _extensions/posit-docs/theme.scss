@@ -150,10 +150,14 @@ $list-group-color: $primary !default;
     min-height: min-content;
 }
 
-/* List disc colors */
-li::marker {
-    color: $primary;
-}
+// Font
+
+/* Body font */
+body {
+  letter-spacing: -0.2px !important;
+ }
+
+// Specialty headers
 
 /* the feature PREVIEW header */
 .preview-header > h1:after,
@@ -186,6 +190,12 @@ div span.preview-feature {
   text-transform: uppercase;
 }
 
+// Lists
+
+/* List disc colors */
+li::marker {
+  color: $primary;
+}
 
 /* Callout steps for images with multiple items/steps shown in single image */
 ol.groovyAlpha {
