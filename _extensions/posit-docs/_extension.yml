@@ -29,3 +29,4 @@ contributes:
         link-external-icon: true
         link-external-newwindow: true
         toc: true
+        toc-expand: true
