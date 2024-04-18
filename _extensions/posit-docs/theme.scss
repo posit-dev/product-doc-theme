@@ -128,13 +128,13 @@ $list-group-color: $primary !default;
     text-transform: none !important;
     font-family: $font-family-sans-serif;
     font-size: 16px;
-    font-weight: 300 !important;
-    letter-spacing: .05em !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.2px !important;
 }
 
 /* Left nav - letter spacing */
 .sidebar-navigation li a {
-    letter-spacing: .03em;
+    letter-spacing: -0.2px;
     font-size: 16px;
 }
 
