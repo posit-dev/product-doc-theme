@@ -127,7 +127,6 @@ $list-group-color: $primary !default;
 .sidebar nav[role=doc-toc]>ul li a {
     text-transform: none !important;
     font-family: $font-family-sans-serif;
-    font-size: 16px;
     font-weight: 400 !important;
     letter-spacing: -0.2px !important;
 }
@@ -135,7 +134,7 @@ $list-group-color: $primary !default;
 /* Left nav - letter spacing */
 .sidebar-navigation li a {
     letter-spacing: -0.2px;
-    font-size: 16px;
+    line-height: normal;
 }
 
 
