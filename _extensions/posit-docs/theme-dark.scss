@@ -3,6 +3,7 @@
 // import font
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+
 /*-- scss:variables --*/
 
 // scss-docs-start color-variables
@@ -191,28 +192,48 @@ code span.st {
 
 // Callouts - dark mode changes
 
-div.callout-note.callout-style-default>.callout-header {
-  background-color: #0d6efd !important;
+.callout.callout-style-default:not(.no-icon) div.callout-title-container {
   color: $dark-md-background;
 }
 
+div.callout-note.callout {
+  border: #0d6efd solid .5px;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+  background-color: #4481c5 !important;
+}
+
+div.callout-tip.callout {
+  border: #198754 solid .5px;
+}
+
 div.callout-tip.callout-style-default>.callout-header {
-  background-color: #198754 !important;
-  color: $dark-md-background;
+  background-color: #2a885c !important;
+}
+
+div.callout-caution.callout {
+  border: #fd7e14 solid .5px;
 }
 
 div.callout-caution.callout-style-default>.callout-header {
   background-color: #fd7e14 !important;
-  color: $dark-md-background;
+
+}
+
+div.callout-warning.callout {
+  border: #ffc107 solid .5px;
 }
 
 div.callout-warning.callout-style-default>.callout-header {
-  background-color: #ffc107 !important;
-  color: $dark-md-background;
+  background-color: #f6d36a !important;
+}
+
+div.callout-important.callout {
+  border: #dc3545 solid .5px;
 }
 
 div.callout-important.callout-style-default>.callout-header {
-  background-color: #dc3545 !important;
-  color: $dark-md-background;
+  background-color: #da4e5b !important;
 }
 
