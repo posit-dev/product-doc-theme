@@ -26,8 +26,8 @@ contributes:
     format:
       html:
         theme: 
-          light: theme.scss
-          dark: theme-dark.scss
+          light: [theme.scss]
+          dark: [theme-dark.scss]
         link-external-icon: true
         link-external-newwindow: true
         toc: true
