@@ -1,0 +1,7 @@
+---
+title: Posit Product User Guide
+subtitle: Version {{< env PRODUCT_VERSION >}}
+---
+
+This is a stub page modeling a top-level collection of documentation, such as
+a product user guide.

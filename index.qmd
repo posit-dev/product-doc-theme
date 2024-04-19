@@ -1,7 +1,5 @@
 ---
 title: "Posit Documentation Theme Example"
-format:
-  posit-docs-html: default
 ---
 
 ## Level Two
@@ -99,25 +97,47 @@ $ zypper
 
 :::
 
-### Level three
+## Level two: callouts
 
-:::{.callout-note}
-Something
+Code-first means using code first. Does that mean we never do things manually?
+No. Hands-on is delightful.
+
+::: {.callout-note}
+This is a note.
 :::
 
-:::{.callout-tip}
-Something
+::: {.callout-warning}
+This is a warning.
 :::
 
-:::{.callout-caution}
-Something
+::: {.callout-important}
+This is important.
 :::
 
-:::{.callout-warning}
-Something
+::: {.callout-tip}
+This is a tip.
 :::
 
-:::{.callout-important}
-Something
+::: {.callout-caution}
+This is a cautionary tale.
 :::
 
+::: {.callout-note collapse="true"}
+This is a collapsed note.
+:::
+
+::: {.callout-note}
+## Some notes are not
+
+This is a note with an alternate title.
+:::
+
+## Level two: coding
+
+```r
+cat("cats are cats\n")
+```
+
+```python
+print("snakes are not cats")
+```
