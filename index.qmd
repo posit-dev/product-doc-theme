@@ -4,9 +4,28 @@ title: "Posit Documentation Theme Example"
 
 ## Level Two
 
+Some text for level two.
+
 ### Level Three
 
+Some text for level three.
+
 ### Another Level Three {.preview-header} 
+
+Some text for another level three
+
+#### Level four
+
+Four levels deep. How far can we go?
+
+##### Level five
+
+Five is jive.
+
+###### Level six
+
+Six is deep enough! Stop!
+
 
 ## Level Two Again
 
