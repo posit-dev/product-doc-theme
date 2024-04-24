@@ -86,21 +86,6 @@ Make the following modifications:
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
 
-#### Analytics
-
-Configure Google Analytics using a snippet like the following.
-
-```yaml
-format:
-  html:
-    include-in-header: _analytics.html
-```
-
-This uses the [`_analytics.html`](_analytics.html) and
-[`_variables.yml`](_variables.yml) files in the example project. For Posit
-product documentation hosted on <https://docs.posit.co/>, copy these files
-into your project.
-
 ## Development
 
 If you are modifying this extension, use Quarto to preview your changes
