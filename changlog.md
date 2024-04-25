@@ -1,7 +1,7 @@
-# unreleased
+# v3.0.0
 
-* Automatically configure analytics. Projects no longer need a copy of
-  `_analytics.html` or the `analytics.google` entry in `_variables.yml`.
+* (Breaking) Automatically configure analytics. Projects no longer need a copy
+  of `_analytics.html` or the `analytics.google` entry in `_variables.yml`.
 
 # v2.0.1
 
@@ -11,8 +11,8 @@
 
 # v2.0.0
 
-* Remove `posit-docs-html` and have the `posit-docs` project type directly
-  modify the `html` format.
+* (Breaking) Remove `posit-docs-html` and have the `posit-docs` project type
+  directly modify the `html` format.
 
 # v1.2.0
 
