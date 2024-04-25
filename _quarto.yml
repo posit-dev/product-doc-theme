@@ -1,5 +1,8 @@
 project:
   type: posit-docs
+  render:
+    - "*.qmd"
+    - "!changelog.md"
   
 website:
   title: 'Posit Product Documentation <small>Version {{< env PRODUCT_VERSION >}}</small>'
