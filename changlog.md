@@ -1,4 +1,4 @@
-# v3.0.0
+# v3.0.0 (unreleased)
 
 * (Breaking) Automatically configure analytics. Projects no longer need a copy
   of `_analytics.html` or the `analytics.google` entry in `_variables.yml`.

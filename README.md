@@ -99,9 +99,13 @@ quarto preview
 
 To release a new version of this theme:
 
-1.  Make sure that the extension declares the target version. Update
-    [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml),
-    then commit and merge that change to `main`.
+1.  Make sure that the extension declares the target version and documents its
+    changes.
+
+    1.  Update [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml)
+    1.  Update [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md)
+
+    Commit and merge both changes to `main`.
 
 2.  Tag the target commit and push the tag.
 
