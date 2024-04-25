@@ -6,7 +6,7 @@
      function gtag() { dataLayer.push(arguments) }
      /* Set up integration and send page view */
      gtag("js", new Date())
-     gtag("config", "{{< var analytics.google >}}")
+     gtag("config", "GTM-KHBDBW7")
 
      /* Register virtual event handlers */
      document.addEventListener("DOMContentLoaded", function () {
@@ -22,7 +22,7 @@
          /* Send page view on location change */
          if (typeof location$ !== "undefined")
              location$.subscribe(function (url) {
-                 gtag("config", "{{< var analytics.google >}}", {
+                 gtag("config", "GTM-KHBDBW7", {
                      page_path: url.pathname
                  })
              })
@@ -30,7 +30,7 @@
      /* Create script tag */
      var script = document.createElement("script")
      script.async = true
-     script.src = "https://www.googletagmanager.com/gtag/js?id={{< var analytics.google >}}"
+     script.src = "https://www.googletagmanager.com/gtag/js?id=GTM-KHBDBW7"
 
      /* Inject script tag */
      var container = document.getElementsByTagName("head")[0]

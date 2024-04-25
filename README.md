@@ -86,21 +86,6 @@ Make the following modifications:
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
 
-#### Analytics
-
-Configure Google Analytics using a snippet like the following.
-
-```yaml
-format:
-  html:
-    include-in-header: _analytics.html
-```
-
-This uses the [`_analytics.html`](_analytics.html) and
-[`_variables.yml`](_variables.yml) files in the example project. For Posit
-product documentation hosted on <https://docs.posit.co/>, copy these files
-into your project.
-
 ## Development
 
 If you are modifying this extension, use Quarto to preview your changes
@@ -114,9 +99,13 @@ quarto preview
 
 To release a new version of this theme:
 
-1.  Make sure that the extension declares the target version. Update
-    [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml),
-    then commit and merge that change to `main`.
+1.  Make sure that the extension declares the target version and documents its
+    changes.
+
+    1.  Update [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml)
+    1.  Update [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md)
+
+    Commit and merge both changes to `main`.
 
 2.  Tag the target commit and push the tag.
 
