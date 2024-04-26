@@ -1,0 +1,19 @@
+# Confirms that the example site can be rendered using the extension.
+
+name: Render
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  render-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4 
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.4.550
+      - name: Render site
+        uses: quarto-dev/quarto-actions/render@v2
