@@ -7,7 +7,7 @@ Shared theme for Posit product documentation
 First, install the extension:
 
 ```bash
-quarto add posit-dev/product-doc-theme
+quarto add posit-dev/product-doc-theme@v3.0.0
 ```
 
 Next, update your project type and format in `_quarto.yml`:
@@ -102,8 +102,15 @@ To release a new version of this theme:
 1.  Make sure that the extension declares the target version and documents its
     changes.
 
-    1.  Update [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml)
-    1.  Update [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md)
+    1.  Update
+        [`README.md`](https://github.com/posit-dev/product-doc-theme/blob/main/README.md);
+        installation instructions reference the latest release version.
+    1.  Update
+        [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml);
+        the extension declares its version.
+    1.  Update
+        [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md);
+        make sure recent changes are announced.
 
     Commit and merge both changes to `main`.
 
