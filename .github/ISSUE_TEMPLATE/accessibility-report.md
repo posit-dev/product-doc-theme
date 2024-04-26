@@ -1,7 +1,7 @@
 ---
 name: Accessibility issue report
 about: Create a report to help us improve
-title: '[Accessibility: ]'
+title: '[Accessibility]: '
 labels: 'accessibility'
 assignees: ''
 
