@@ -106,6 +106,13 @@ $list-group-color: $primary !default;
     letter-spacing: .03em;
     font-size: 14px !important;
     font-weight: 500 !important;
+    color: $posit-gray !important;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: #000000 !important;
+  font-weight: 700 !important;
 }
 
 .nav-footer {
@@ -121,6 +128,7 @@ $list-group-color: $primary !default;
 .nav-tabs .nav-link {
     text-transform: none !important;
     font-family: $font-family-sans-serif;
+    color: $posit-gray !important;
 }
 
 /* Sidebar and toc */

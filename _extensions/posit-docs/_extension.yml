@@ -15,6 +15,7 @@ contributes:
         logo-alt: "Posit Documentation"  
         right:
          - icon: "list"
+           aria-label: 'Drop-down menu for additional Posit resources'
            menu:
            - text: "docs.posit.co"
              href: "https://docs.posit.co"
