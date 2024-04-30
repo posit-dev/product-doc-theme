@@ -12,7 +12,7 @@ contributes:
       navbar:
         pinned: true
         logo: "assets/images/posit-icon-fullcolor.svg"
-        logo-alt: "Posit Documentation"  
+        logo-alt: "Posit Documentation"
         right:
          - icon: "list"
            aria-label: 'Drop-down menu for additional Posit resources'
