@@ -1,5 +1,3 @@
-# unreleased
-
 # v.3.1.0
 
 * Add alt-text to footer logos/icons
