@@ -38,7 +38,7 @@ $body-color: $posit-gray;
 
 // scss-docs-start font-sizes
 $h1-font-size:44px;
-$h2-font-size:28px;x
+$h2-font-size:28px;
 
 h1 {
   size: $h1-font-size;
@@ -112,6 +112,13 @@ $list-group-color: $primary !default;
     letter-spacing: .03em;
     font-size: 14px !important;
     font-weight: 500 !important;
+    color: $posit-gray !important;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: #000000 !important;
+  font-weight: 700 !important;
 }
 
 .nav-footer {
@@ -127,6 +134,20 @@ $list-group-color: $primary !default;
 .nav-tabs .nav-link {
     text-transform: none !important;
     font-family: $font-family-sans-serif;
+    color: $posit-gray !important;
+}
+
+/* Sidebar and toc */
+
+/* Left nav */
+.sidebar-item-container .active {
+  font-weight: 500;
+}
+
+/* Left nav - letter spacing */
+.sidebar-navigation li a {
+  letter-spacing: .03em;
+  font-size: 16px;
 }
 
 /* Sidebar and toc */
@@ -154,12 +175,11 @@ $list-group-color: $primary !default;
     font-weight: 700 !important;
 }
 
-    /* Left nav - letter spacing */
+/* Left nav - letter spacing */
 .sidebar-navigation li a {
     letter-spacing: -0.2px;
     line-height: normal;
 }
-
 
 /* Posit logo - footer */
 #footer-logo {
