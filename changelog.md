@@ -2,10 +2,10 @@
 
 # v.3.1.0
 
-- Add alt-text to footer logos/icons
-- Navigation bar:
-    - Correct the contrast for navigation bar text between color and background
-    - Right menu drop-down: Adds `aria-label` to resolve focusable descendants `aria-hidden="true"` which prevented interactive elements from being available to users of assistive technologies.
+* Add alt-text to footer logos/icons
+* Navigation bar:
+    * Correct the contrast for navigation bar text between color and background
+    * Right menu drop-down: Adds `aria-label` to resolve focusable descendants `aria-hidden="true"` which prevented interactive elements from being available to users of assistive technologies.
 
 # v3.0.0
 
