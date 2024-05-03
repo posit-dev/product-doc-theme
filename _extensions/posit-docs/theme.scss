@@ -243,3 +243,30 @@ ol.groovyAlpha li > p:before {
   line-height: 16px;
   vertical-align: middle;
 }
+
+
+// Callouts
+
+div.callout-warning .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/do_not_touch_FILL0_wght400_GRAD0_opsz24.svg') !important;
+}
+
+div.callout-warning.callout {
+  border-left-color: #dc3545 !important;
+}
+
+div.callout-warning.callout-style-default>.callout-header {
+  background-color: #fcebec !important;
+}
+
+div.callout-important .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
+}
+
+div.callout-important.callout {
+  border-left-color: #ffc107 !important;
+}
+
+div.callout-important.callout-style-default>.callout-header {
+  background-color: #fff9e6 !important;
+}

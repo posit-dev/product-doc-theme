@@ -106,21 +106,24 @@ No. Hands-on is delightful.
 This is a note.
 :::
 
-::: {.callout-warning}
-This is a warning.
+::: {.callout-tip}
+This is a tip. It's not necessary but may improve our user's experience.
 :::
 
 ::: {.callout-important}
-This is important.
+This is important; don't ignore this information.
 :::
 
-::: {.callout-tip}
-This is a tip.
-:::
 
 ::: {.callout-caution}
-This is a cautionary tale.
+This cautionary tale explains hazards that could damage a product, including data loss.
 :::
+
+
+::: {.callout-warning}
+Only use the warning callout to explain dangers that may result in personal injury or death. 
+:::
+
 
 ::: {.callout-note collapse="true"}
 This is a collapsed note.
