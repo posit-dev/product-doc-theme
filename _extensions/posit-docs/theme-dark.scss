@@ -18,7 +18,11 @@ $posit-light-orange-1: #EDCCBF;
 $posit-light-orange-2: #EBA38C;
 $posit-dark-orange-1: #Ab4D26;
 $posit-dark-orange-2: #80361C;
+$posit-dark-orange-3: #451F12;
 $posit-gray:    #404041;
+$posit-light-gray-1: #C2C2C4;
+$posit-light-gray-2: #949494;
+$posit-dark-gray-1: #333333;
 $posit-teal:    #419599;
 $posit-green:   #72994E;
 $posit-burgundy:#9A4665;
@@ -104,7 +108,7 @@ $code-block-bg: lighten($dark-md-background, 10%);
 
 // Copy button - dark mode changes
 
-$btn-code-copy-color: $posit-dark-blue-2;
+$btn-code-copy-color: $posit-light-blue-2;
 $btn-code-copy-color-active: #ffffff;
 $callout-icon-scale: 70%;
 
@@ -142,7 +146,7 @@ font-weight: 700 !important;
 // Tabs - dark mode changes
 
 .nav-tabs .nav-link.active {
-    color: #ffffff !important;
+    color: $posit-teal !important;
 }
 
 // Sidebar and toc
@@ -217,7 +221,11 @@ code span.st {
 }
 
 
-
+// Inline code 
+p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
 
 // Callouts
 
@@ -245,10 +253,10 @@ div.callout-note.callout-style-default>.callout-header {
 //Warning
 
 div.callout-warning.callout {
-  border-left-color: $posit-dark-orange-2 !important;
-  border-right: 1px solid $posit-dark-orange-2 !important;
-  border-top: 1px solid $posit-dark-orange-2 !important;
-  border-bottom: 1px solid $posit-dark-orange-2 !important; 
+  border-left-color: $posit-dark-orange-3 !important;
+  border-right: 1px solid $posit-dark-orange-3 !important;
+  border-top: 1px solid $posit-dark-orange-3 !important;
+  border-bottom: 1px solid $posit-dark-orange-3 !important; 
 }
 
 div.callout-warning .callout-icon::before {
@@ -256,7 +264,7 @@ div.callout-warning .callout-icon::before {
 }
 
 div.callout-warning.callout-style-default>.callout-header {
-  background-color: $posit-orange !important;
+  background-color: $posit-dark-orange-2 !important;
 }
 
 // Important
@@ -274,4 +282,10 @@ div.callout-important .callout-icon::before {
 
 div.callout-important.callout-style-default>.callout-header {
   background-color: $posit-burgundy !important;
+}
+
+// Tables
+
+th {
+    color: $posit-light-gray-1 !important;
 }

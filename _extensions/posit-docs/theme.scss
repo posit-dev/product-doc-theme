@@ -16,7 +16,10 @@ $posit-light-orange-1: #EDCCBF;
 $posit-light-orange-2: #EBA38C;
 $posit-dark-orange-1: #Ab4D26;
 $posit-dark-orange-2: #80361C;
+$posit-dark-orange-3: #451F12;
 $posit-gray:    #404041;
+$posit-light-gray-1: #C2C2C4;
+$posit-light-gray-2: #949494;
 $posit-dark-gray-1: #333333;
 $posit-teal:    #419599;
 $posit-light-teal-1: #C2D9D9;
@@ -145,7 +148,7 @@ $list-group-color: $primary !default;
 .nav-tabs .nav-link {
     text-transform: none !important;
     font-family: $font-family-sans-serif;
-    color: $posit-gray !important;
+    //color: $posit-gray !important;
 }
 
 /* Sidebar and toc */
