@@ -103,6 +103,21 @@ $callout-icon-scale: 70%;
     color: #ffffff; // dark theme change
 }
 
+.nav-link {
+  font-family: $font-family-monospace;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+color: $posit-teal !important;
+font-weight: 700 !important;
+}
+
 .nav-footer {
     color:  #ffffff !important; // dark mode change
     border-top: solid $posit-gray 1px;
