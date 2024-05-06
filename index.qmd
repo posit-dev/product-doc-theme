@@ -6,6 +6,9 @@ title: "Posit Documentation Theme Example"
 
 Some text for level two.
 
+[Test link](https://docs.posit.co)
+
+
 ### Level Three
 
 Some text for level three.
@@ -68,9 +71,6 @@ Only use the warning callout to explain dangers that may result in personal inju
 ::: {.callout-important}
 This is important; don't ignore this information.
 :::
-
-
-
 
 
 

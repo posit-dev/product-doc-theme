@@ -8,15 +8,26 @@
 
 // scss-docs-start color-variables
 $posit-blue: #447099;
+$posit-light-blue-1: #D1DBE5;
+$posit-light-blue-2:  #A2B8CB;
+$posit-light-blue-3: #7494B1;
 $posit-dark-blue-1: #305775;
 $posit-dark-blue-2: #213D4F;
 $posit-orange:  #EE6331;
+$posit-light-orange-1: #EDCCBF;
+$posit-light-orange-2: #EBA38C;
+$posit-dark-orange-1: #Ab4D26;
+$posit-dark-orange-2: #80361C;
 $posit-gray:    #404041;
 $posit-teal:    #419599;
 $posit-green:   #72994E;
 $posit-burgundy:#9A4665;
-$posit-burgundy-1:#78384F;
-$posit-burgundy-2:#542938;
+$posit-light-burgundy-1:#D9C4CC;
+$posit-light-burgundy-2:#BF96A3;
+$posit-light-burgundy-3: #A67380;
+$posit-dark-burgundy-1:#78384F;
+$posit-dark-burgundy-2:#542938;
+$posit-dark-burgundy-3:#2E171F;
 $primary: $posit-teal;
 $dark-md-body: hsla(0,0%,100%,.6);
 $dark-md-background: #0C1721;
@@ -207,17 +218,20 @@ code span.st {
 
 
 
-.callout.callout-style-default:not(.no-icon) div.callout-title-container {
-  color: $dark-md-background;
-}
+
 // Callouts
+
+.callout.callout-style-default:not(.no-icon) div.callout-title-container {
+  color: #ffffff;
+}
+
 //Warning
 div.callout-warning .callout-icon::before {
   //background-image: url( '_extensions/posit-docs/assets/images/do_not_touch_FILL0_wght400_GRAD0_opsz24.svg') !important;
 }
 
 div.callout-warning.callout {
-  border-left-color: $posit-orange !important;
+  border-left-color: $posit-dark-orange-2 !important;
 }
 
 div.callout-warning.callout-style-default>.callout-header {
@@ -230,7 +244,7 @@ div.callout-important .callout-icon::before {
 }
 
 div.callout-important.callout {
-  border-left-color: $posit-burgundy !important;
+  border-left-color: $posit-dark-burgundy-2 !important;
 }
 
 div.callout-important.callout-style-default>.callout-header {
@@ -244,7 +258,7 @@ div.callout-important.callout-style-default>.callout-header {
 //}
 
 div.callout-note.callout {
-  border-left-color: $posit-blue !important;
+  border-left-color: $posit-dark-blue-2 !important;
 }
 
 div.callout-note.callout-style-default>.callout-header {
