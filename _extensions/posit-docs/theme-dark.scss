@@ -222,16 +222,37 @@ code span.st {
 // Callouts
 
 .callout.callout-style-default:not(.no-icon) div.callout-title-container {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+// Note
+
+div.callout-note.callout {
+  border-left-color: $posit-dark-blue-2 !important;
+  border-right: 1px solid $posit-dark-blue-2 !important;
+  border-top: 1px solid $posit-dark-blue-2 !important; 
+  border-bottom: 1px solid $posit-dark-blue-2 !important; 
+}
+
+div.callout-note .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/info-circle-dm.svg') !important;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+  background-color: $posit-blue !important;
 }
 
 //Warning
-div.callout-warning .callout-icon::before {
-  //background-image: url( '_extensions/posit-docs/assets/images/do_not_touch_FILL0_wght400_GRAD0_opsz24.svg') !important;
-}
 
 div.callout-warning.callout {
   border-left-color: $posit-dark-orange-2 !important;
+  border-right: 1px solid $posit-dark-orange-2 !important;
+  border-top: 1px solid $posit-dark-orange-2 !important;
+  border-bottom: 1px solid $posit-dark-orange-2 !important; 
+}
+
+div.callout-warning .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/exclamation-triangle-dm.svg') !important;
 }
 
 div.callout-warning.callout-style-default>.callout-header {
@@ -239,28 +260,18 @@ div.callout-warning.callout-style-default>.callout-header {
 }
 
 // Important
-div.callout-important .callout-icon::before {
-  background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
-}
 
 div.callout-important.callout {
   border-left-color: $posit-dark-burgundy-2 !important;
+  border-right: 1px solid $posit-dark-burgundy-2 !important;
+  border-top: 1px solid $posit-dark-burgundy-2 !important;
+  border-bottom: 1px solid $posit-dark-burgundy-2 !important;
+}
+
+div.callout-important .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle-dm.svg') !important;
 }
 
 div.callout-important.callout-style-default>.callout-header {
   background-color: $posit-burgundy !important;
-}
-
-// Note
-
-//div.callout-note .callout-icon::before {
- // background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
-//}
-
-div.callout-note.callout {
-  border-left-color: $posit-dark-blue-2 !important;
-}
-
-div.callout-note.callout-style-default>.callout-header {
-  background-color: $posit-blue !important;
 }

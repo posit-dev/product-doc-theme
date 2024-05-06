@@ -282,13 +282,27 @@ ol.groovyAlpha li > p:before {
   color: $posit-dark-gray-1 !important;
 }
 
-//Warning
-div.callout-warning .callout-icon::before {
-  //background-image: url( '_extensions/posit-docs/assets/images/do_not_touch_FILL0_wght400_GRAD0_opsz24.svg') !important;
+// Note
+
+div.callout-note.callout {
+  border-left-color: $posit-blue !important;
 }
 
+div.callout-note .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/info-circle.svg') !important;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+  background-color: $posit-light-blue-1 !important;
+}
+
+//Warning
 div.callout-warning.callout {
   border-left-color: $posit-orange !important;
+}
+
+div.callout-warning .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/exclamation-triangle.svg') !important;
 }
 
 div.callout-warning.callout-style-default>.callout-header {
@@ -296,28 +310,16 @@ div.callout-warning.callout-style-default>.callout-header {
 }
 
 // Important
-div.callout-important .callout-icon::before {
-  background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
-}
 
 div.callout-important.callout {
   border-left-color: $posit-burgundy !important;
 }
 
+div.callout-important .callout-icon::before {
+ background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
+}
+
+
 div.callout-important.callout-style-default>.callout-header {
   background-color: $posit-light-burgundy-1 !important;
-}
-
-// Note
-
-//div.callout-note .callout-icon::before {
- // background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
-//}
-
-div.callout-note.callout {
-  border-left-color: $posit-blue !important;
-}
-
-div.callout-note.callout-style-default>.callout-header {
-  background-color: $posit-light-blue-1 !important;
 }

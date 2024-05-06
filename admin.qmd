@@ -28,8 +28,7 @@ You may not learn more.
 1. Lists
 2. lists 
 3. lists
-   1. lists
-   2. Lists
-      1. Lists
-4. Lists
-5.    
+   a. lists
+   b. Lists
+      - Lists
+
