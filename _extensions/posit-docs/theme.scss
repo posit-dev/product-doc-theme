@@ -11,6 +11,7 @@ $posit-light-blue-1: #D1DBE5;
 $posit-light-blue-2: #A2B8CB;
 $posit-dark-blue-1: #305775;
 $posit-dark-blue-2: #213D4F;
+$posit-dark-blue-3: #17212B;
 $posit-orange:  #EE6331;
 $posit-light-orange-1: #EDCCBF;
 $posit-light-orange-2: #EBA38C;
@@ -30,6 +31,7 @@ $posit-light-burgundy-2:#BF96A3;
 $posit-light-burgundy-3: #A67380;
 $posit-dark-burgundy-1:#78384F;
 $posit-dark-burgundy-2:#542938;
+$posit-dark-burgundy-3:#2E171F;
 $primary: $posit-blue;
 
 // Feature preview heading colors
@@ -285,10 +287,14 @@ ol.groovyAlpha li > p:before {
   color: $posit-dark-gray-1 !important;
 }
 
+.callout.callout-style-default:not(.no-icon) div.callout-title-container {
+  color: #ffffff !important;
+}
+
 // Note
 
 div.callout-note.callout {
-  border-left-color: $posit-blue !important;
+  border-left-color: $posit-dark-blue-2 !important;
 }
 
 div.callout-note .callout-icon::before {
@@ -296,12 +302,12 @@ div.callout-note .callout-icon::before {
 }
 
 div.callout-note.callout-style-default>.callout-header {
-  background-color: $posit-light-blue-1 !important;
+  background-color: $posit-blue !important;
 }
 
-//Warning
+// Warning
 div.callout-warning.callout {
-  border-left-color: $posit-orange !important;
+  border-left-color: $posit-dark-orange-1 !important;
 }
 
 div.callout-warning .callout-icon::before {
@@ -309,13 +315,13 @@ div.callout-warning .callout-icon::before {
 }
 
 div.callout-warning.callout-style-default>.callout-header {
-  background-color: $posit-light-orange-1 !important;
+  background-color: $posit-orange !important;
 }
 
 // Important
 
 div.callout-important.callout {
-  border-left-color: $posit-burgundy !important;
+  border-left-color: $posit-dark-burgundy-3 !important;
 }
 
 div.callout-important .callout-icon::before {
@@ -324,5 +330,5 @@ div.callout-important .callout-icon::before {
 
 
 div.callout-important.callout-style-default>.callout-header {
-  background-color: $posit-light-burgundy-1 !important;
+  background-color: $posit-dark-burgundy-1 !important;
 }
