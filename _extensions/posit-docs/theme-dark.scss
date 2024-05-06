@@ -190,50 +190,48 @@ code span.st {
     //color: greenyellow;
 }
 
-// Callouts - dark mode changes
+
 
 .callout.callout-style-default:not(.no-icon) div.callout-title-container {
   color: $dark-md-background;
 }
-
-div.callout-note.callout {
-  border: #0d6efd solid .5px;
-}
-
-div.callout-note.callout-style-default>.callout-header {
-  background-color: #4481c5 !important;
-}
-
-div.callout-tip.callout {
-  border: #198754 solid .5px;
-}
-
-div.callout-tip.callout-style-default>.callout-header {
-  background-color: #2a885c !important;
-}
-
-div.callout-caution.callout {
-  border: #fd7e14 solid .5px;
-}
-
-div.callout-caution.callout-style-default>.callout-header {
-  background-color: #fd7e14 !important;
-
+// Callouts
+//Warning
+div.callout-warning .callout-icon::before {
+  //background-image: url( '_extensions/posit-docs/assets/images/do_not_touch_FILL0_wght400_GRAD0_opsz24.svg') !important;
 }
 
 div.callout-warning.callout {
-  border: #dc3545 solid .5px;
+  border-left-color: $posit-orange !important;
 }
 
 div.callout-warning.callout-style-default>.callout-header {
-  background-color: #f6d36a !important;
+  background-color: $posit-orange !important;
+}
+
+// Important
+div.callout-important .callout-icon::before {
+  background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
 }
 
 div.callout-important.callout {
-  border: #dc3545 solid .5px;
+  border-left-color: $posit-burgundy !important;
 }
 
 div.callout-important.callout-style-default>.callout-header {
-  background-color: #da4e5b !important;
+  background-color: $posit-burgundy !important;
 }
 
+// Note
+
+//div.callout-note .callout-icon::before {
+ // background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
+//}
+
+div.callout-note.callout {
+  border-left-color: $posit-blue !important;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+  background-color: $posit-blue !important;
+}
