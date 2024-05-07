@@ -11,7 +11,7 @@ Some text for level two.
 
 ### Level Three
 
-Some text for level three.
+Some text for level three and showing `inline-code` references.
 
 ### Another Level Three {.preview-header} 
 
@@ -54,6 +54,18 @@ $ zypper
 
 :::
 
+
+```{.txt filename="Output"}
+Checking Job Launcher configuration...
+Ensuring server-user is a Job Launcher admin...
+Getting list of Job Launcher clusters...
+Job launcher configured with the following clusters: Kubernetes, Local
+launcher-adhoc-clusters is empty - all clusters may be used to launch adhoc jobs
+launcher-sessions-clusters is empty - all clusters may be used to launch session jobs
+Waiting for job to finish...
+Job has finished running
+Job exited successfully
+```
 ## Level two: callouts
 
 Code-first means using code first. Does that mean we never do things manually?
