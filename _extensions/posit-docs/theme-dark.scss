@@ -131,6 +131,11 @@ color: $posit-teal !important;
 font-weight: 700 !important;
 }
 
+.dropdown-item:hover, .dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: #0F1C29 !important;
+}
+
 .nav-footer {
     color:  #ffffff !important; // dark mode change
     border-top: solid $posit-gray 1px;
