@@ -9,7 +9,7 @@ a product user guide.
 
 | Header                           | Usage                                                                              |
 |-----------------------------|-------------------------------------------|
-| X-CSRF-Token                     | CSRF attack prevention when running or upgrading from 2022.09 and earlier releases |
+| X-CSRF-Token                     | CSRF attack prevention when running or upgrading from `2022.09` and earlier releases |
 | X-Postback-ExitCode              | R processing                                                                       |
 | X-RS-CSRF-Token                  | CSRF attack prevention                                                             |
 | X-RS-Distributed-Event-Checksum  | Communication between nodes in a load balanced environment                         |
@@ -26,4 +26,4 @@ a product user guide.
 | X-RStudio-Session-Original-Uri   | Session management                                                                 |
 | X-RStudio-Virtual-Path           | Managing multiple sessions                                                         |
 
-:table here {.striped .hover}
+:This table is using the striped + hover Bootstrap classes {.striped .hover}
