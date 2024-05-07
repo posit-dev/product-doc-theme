@@ -6,6 +6,7 @@ subtitle: Version {{< env PRODUCT_VERSION >}}
 This is a stub page modeling a top-level collection of documentation, such as
 a product user guide.
 
+## Table
 
 | Header                           | Usage                                                                              |
 |-----------------------------|-------------------------------------------|
@@ -27,3 +28,11 @@ a product user guide.
 | X-RStudio-Virtual-Path           | Managing multiple sessions                                                         |
 
 :This table is using the striped + hover Bootstrap classes {.striped .hover}
+
+
+
+## Images
+
+A test image.
+
+![This is a test image](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg "testing for alt text stuff")
