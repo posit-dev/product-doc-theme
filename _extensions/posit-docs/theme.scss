@@ -287,10 +287,6 @@ ol.groovyAlpha li > p:before {
   color: $posit-dark-gray-1 !important;
 }
 
-.callout.callout-style-default:not(.no-icon) div.callout-title-container {
-  color: $posit-gray !important;
-}
-
 // Note
 
 div.callout-note.callout {
@@ -327,7 +323,6 @@ div.callout-important.callout {
 div.callout-important .callout-icon::before {
  background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
 }
-
 
 div.callout-important.callout-style-default>.callout-header {
   background-color: #F2DAE3 !important;

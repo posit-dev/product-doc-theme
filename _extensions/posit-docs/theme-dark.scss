@@ -233,6 +233,9 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
   color: #ffffff !important;
 }
 
+div.callout.callout-style-default>div.callout-header {
+ opacity: none;
+}
 // Note
 
 div.callout-note.callout {
@@ -253,10 +256,10 @@ div.callout-note.callout-style-default>.callout-header {
 //Warning
 
 div.callout-warning.callout {
-  border-left-color: $posit-dark-orange-3 !important;
-  border-right: 1px solid $posit-dark-orange-3 !important;
-  border-top: 1px solid $posit-dark-orange-3 !important;
-  border-bottom: 1px solid $posit-dark-orange-3 !important; 
+  border-left-color: $posit-dark-orange-2 !important;
+  border-right: 1px solid $posit-dark-orange-2 !important;
+  border-top: 1px solid $posit-dark-orange-2 !important;
+  border-bottom: 1px solid $posit-dark-orange-2 !important; 
 }
 
 div.callout-warning .callout-icon::before {
@@ -264,7 +267,7 @@ div.callout-warning .callout-icon::before {
 }
 
 div.callout-warning.callout-style-default>.callout-header {
-  background-color: $posit-dark-orange-2 !important;
+  background-color: $posit-dark-orange-1 !important;
 }
 
 // Important
@@ -287,5 +290,15 @@ div.callout-important.callout-style-default>.callout-header {
 // Tables
 
 th {
-    color: $posit-light-gray-1 !important;
+  //  color: $posit-light-gray-1 !important;
+}
+
+//.table>thead {
+  //background-color: $posit-gray;
+ //border: $body-color solid 1px;
+//}
+
+.table {
+  //background-color: $posit-gray;
+  border: rgba(255, 255, 255, .6) solid 1px !important;
 }
