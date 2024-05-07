@@ -104,15 +104,13 @@ $code-block-bg: lighten($dark-md-background, 10%);
 
 //$monobackgroundcolor: $dark-md-background !default;
 
-
-
 // Copy button - dark mode changes
 
 $btn-code-copy-color: $posit-light-blue-2;
 $btn-code-copy-color-active: #ffffff;
 $callout-icon-scale: 70%;
 
-// CSS overrides
+// Nav bar
 
 .navbar-title {
     color: #ffffff; // dark theme change
@@ -141,6 +139,12 @@ font-weight: 700 !important;
 // Footer icons - dark mode change
 .nav-footer a {
   color: #ffffff !important;
+}
+
+// Page navigation
+
+.nav-page .nav-page-text {
+  color: $posit-light-gray-1;
 }
 
 // Tabs - dark mode changes
@@ -289,16 +293,31 @@ div.callout-important.callout-style-default>.callout-header {
 
 // Tables
 
-th {
-  //  color: $posit-light-gray-1 !important;
+.table>:not(caption)>*>* {
+  border-top: 1px solid #11202E;
 }
 
-//.table>thead {
-  //background-color: $posit-gray;
- //border: $body-color solid 1px;
-//}
+th {
+  color: #ffffff !important;
+}
 
-.table {
-  //background-color: $posit-gray;
-  border: rgba(255, 255, 255, .6) solid 1px !important;
+//Striped table styles
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+  //--bs-table-color-type: $posit-dark-orange-1 !important;
+  --bs-table-bg-type: #11202E !important;
+}
+
+// Striped table hover
+
+.table-hover>tbody>tr:hover>* {
+  //--bs-table-color-state: var(--bs-table-hover-color);
+  --bs-table-bg-state: #0F1C29 !important;
+}
+
+// Table caption
+
+.panel-caption, .figure-caption, .subfigure-caption, .table-caption, figcaption, caption {
+  font-size: 1rem;
+  color: $body-color !important;
 }

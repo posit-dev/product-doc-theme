@@ -6,6 +6,7 @@ project:
   
 website:
   title: 'Posit Product Documentation <small>Version {{< env PRODUCT_VERSION >}}</small>'
+  page-navigation: true
   navbar:
     left:
       - text: "Home"
