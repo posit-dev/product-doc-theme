@@ -154,10 +154,22 @@ font-weight: 700 !important;
 
 // Tabs - dark mode changes
 
+
+
 .nav-tabs .nav-link.active {
     color: $posit-teal !important;
 }
 
+
+.nav-tabs .nav-link {
+  text-transform: none !important;
+  font-family: $font-family-sans-serif;
+  color: #ffffff !important;
+}
+
+.nav-tabs .nav-link:hover, .nav-link:focus {
+color: $posit-teal !important;
+}
 
 /* Pills */
 

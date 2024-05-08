@@ -176,7 +176,11 @@ body {
 .nav-tabs .nav-link {
     text-transform: none !important;
     font-family: $font-family-sans-serif;
-    //color: $posit-gray !important;
+    color: $posit-gray !important;
+}
+
+.nav-tabs .nav-link:hover, .nav-link:focus {
+  color: $posit-blue !important;
 }
 
 /* Pills */
