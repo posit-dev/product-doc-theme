@@ -8,6 +8,8 @@ a product user guide.
 
 ## Table
 
+This table uses the bootstrap `{.striped .hover}` classes:
+
 | Header                           | Usage                                                                              |
 |-----------------------------|-------------------------------------------|
 | X-CSRF-Token                     | CSRF attack prevention when running or upgrading from `2022.09` and earlier releases |
@@ -17,19 +19,20 @@ a product user guide.
 | X-RS-Distributed-Event-Timestamp | Communication between nodes in a load balanced environment                         |
 | X-RS-Launcher-Secret             | Inter-process communication with the Job Launcher                                  |
 | X-RS-Monitor-Shared-Secret       | Inter-process authentication                                                       |
-| X-RS-Session-Server-RPC-Cookie   | Inter-process authentication                                                       |
-| X-RS-Session-Server-RPC-Secret   | Inter-process authentication                                                       |
-| X-RStudio-Admin-LoginAsUser      | Admin dashboard management                                                         |
-| X-RStudio-Admin-Username         | Admin dashboard management                                                         |
-| X-RStudio-Base-Address           | Session management                                                                 |
-| X-RStudio-Refresh-Auth-Creds     | Authentication                                                                     |
-| X-RStudio-Session-Required       | Session management in load balanced environments                                   |
-| X-RStudio-Session-Original-Uri   | Session management                                                                 |
-| X-RStudio-Virtual-Path           | Managing multiple sessions                                                         |
-
 :This table is using the striped + hover Bootstrap classes {.striped .hover}
 
 
+This table is not using any bootstrap classes:
+
+| Header                           | Usage                                                                              |
+|-----------------------------|-------------------------------------------|
+| X-CSRF-Token                     | CSRF attack prevention when running or upgrading from `2022.09` and earlier releases |
+| X-Postback-ExitCode              | R processing                                                                       |
+| X-RS-CSRF-Token                  | CSRF attack prevention                                                             |
+| X-RS-Distributed-Event-Checksum  | Communication between nodes in a load balanced environment                         |
+| X-RS-Distributed-Event-Timestamp | Communication between nodes in a load balanced environment                         |
+| X-RS-Launcher-Secret             | Inter-process communication with the Job Launcher                                  |
+| X-RS-Monitor-Shared-Secret       | Inter-process authentication                                                       |
 
 ## Images
 
