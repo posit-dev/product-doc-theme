@@ -33,7 +33,7 @@ $posit-dark-burgundy-1:#78384F;
 $posit-dark-burgundy-2:#542938;
 $posit-dark-burgundy-3:#2E171F;
 $primary: $posit-teal;
-$dark-md-body: hsla(0,0%,100%,.6);
+$dark-md-body: $posit-light-gray-1;
 $dark-md-background: #0C1721;
 
 // Feature preview heading colors
@@ -156,6 +156,19 @@ font-weight: 700 !important;
 
 .nav-tabs .nav-link.active {
     color: $posit-teal !important;
+}
+
+
+/* Pills */
+
+.nav-pills .nav-link:hover, .nav-link:focus {
+  isolation: isolate;
+  color: $posit-teal !important;
+  border: none !important;
+}
+
+.nav-pills .nav-link.active, .nav-link:hover {
+  color: #ffffff !important;
 }
 
 // Sidebar and toc
@@ -299,7 +312,7 @@ div.callout-important.callout-style-default>.callout-header {
 // Tables
 
 .table>:not(caption)>*>* {
-  border-top: 1px solid #11202E;
+  border-top: 2px solid #101E2B;
 }
 
 th {
@@ -309,15 +322,15 @@ th {
 //Striped table styles
 
 .table-striped>tbody>tr:nth-of-type(odd)>* {
-  //--bs-table-color-type: $posit-dark-orange-1 !important;
-  --bs-table-bg-type: #11202E !important;
+ //--bs-table-bg-type: #001C2B !important;
+  --bs-table-bg-type: #101E2B !important;
 }
 
 // Striped table hover
 
 .table-hover>tbody>tr:hover>* {
   //--bs-table-color-state: var(--bs-table-hover-color);
-  --bs-table-bg-state: #0F1C29 !important;
+  --bs-table-bg-state: #001C2B !important;
 }
 
 // Table caption

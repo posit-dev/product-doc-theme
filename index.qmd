@@ -2,18 +2,18 @@
 title: "Posit Documentation Theme Example"
 ---
 
-## Level Two
+## Level two
 
 Some text for level two.
 
 [Test link](https://docs.posit.co)
 
 
-### Level Three
+### Level three
 
 Some text for level three and showing `inline-code` references.
 
-### Another Level Three {.preview-header} 
+### Another level three {.preview-header} 
 
 Some text for another level three
 
@@ -30,7 +30,30 @@ Five is jive.
 Six is deep enough! Stop!
 
 
-## Level Two Again
+## Level two: coding
+
+
+```r
+cat("cats are cats\n")
+```
+
+```python
+print("snakes are not cats")
+```
+
+```{.txt filename="Output or filenames"}
+Checking Job Launcher configuration...
+Ensuring server-user is a Job Launcher admin...
+Getting list of Job Launcher clusters...
+Job launcher configured with the following clusters: Kubernetes, Local
+launcher-adhoc-clusters is empty - all clusters may be used to launch adhoc jobs
+launcher-sessions-clusters is empty - all clusters may be used to launch session jobs
+Waiting for job to finish...
+Job has finished running
+Job exited successfully
+```
+
+### Tabsets and pills
 
 ::: panel-tabset
 
@@ -55,17 +78,31 @@ $ zypper
 :::
 
 
-```{.txt filename="Output"}
-Checking Job Launcher configuration...
-Ensuring server-user is a Job Launcher admin...
-Getting list of Job Launcher clusters...
-Job launcher configured with the following clusters: Kubernetes, Local
-launcher-adhoc-clusters is empty - all clusters may be used to launch adhoc jobs
-launcher-sessions-clusters is empty - all clusters may be used to launch session jobs
-Waiting for job to finish...
-Job has finished running
-Job exited successfully
+::: {.panel-tabset .nav-pills}
+
+### Pills
+You can use tabs and pills for text, code blocks, tables, etc.
+
+### RHEL
+
+```bash
+$ yum install rstudio-workbench-rhel
 ```
+
+### Table
+
+|       |                           |
+|-------|---------------------------|
+| Table | some text about the table |
+|Row | More stuff |
+
+
+### Image
+
+![This is a test image](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg "testing for alt text stuff")
+
+:::
+
 ## Level two: callouts
 
 Code-first means using code first. Does that mean we never do things manually?
@@ -86,7 +123,6 @@ This is important; don't ignore this information.
 
 
 
-
 ::: {.callout-note collapse="true"}
 This is a collapsed note.
 :::
@@ -96,16 +132,6 @@ This is a collapsed note.
 
 This is a note with an alternate title.
 :::
-
-## Level two: coding
-
-```r
-cat("cats are cats\n")
-```
-
-```python
-print("snakes are not cats")
-```
 
 ## Level two: lists
 

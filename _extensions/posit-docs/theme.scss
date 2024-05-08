@@ -84,6 +84,17 @@ $list-group-color: $primary !default;
 
 // CSS overrides
 
+// Font
+
+/* Body font */
+body {
+  letter-spacing: -0.2px !important;
+ }
+
+
+
+// Nav and footer
+
 .navbar {
   box-shadow: 0 0 0.2rem #0000001a, 0 0.1rem 0.4rem #0003;
   transition: transform .25s cubic-bezier(.1,.7,.1,1),box-shadow .25s;
@@ -109,15 +120,15 @@ $list-group-color: $primary !default;
 }
 
 #footer-right-logo {
-  width: 20px;
-  min-width: 20px;
+  width: 26px;
+  min-width: 26px;
   margin-left: -3px !important;
   margin-right: -3px !important;
 }
 
 #footer-right-posit-logo {
-  width: 17px;
-  min-width: 17px;
+  width: 18px;
+  min-width: 18px;
   margin-left: -3px !important;
   margin-right: -3px !important;
 }
@@ -137,13 +148,28 @@ $list-group-color: $primary !default;
   font-weight: 700 !important;
 }
 
+// Footer
+
 .nav-footer {
-    font-family: $font-family-monospace;
-    text-transform: uppercase;
-    font-size: 14px;
-    border-top: solid #0000001a .01em;
-    align-items: center !important;
+  font-family: $font-family-monospace;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-top: solid #0000001a .01em;
+  align-items: center !important;
 }
+
+.nav-footer .nav-footer-center {
+    min-height: min-content;
+}
+
+/* Posit logo - footer */
+#footer-logo {
+  width: 70px;
+  min-width: 70px;
+}
+
+
+// Tabs and pills
 
 /* Tabs */ 
 
@@ -153,20 +179,48 @@ $list-group-color: $primary !default;
     //color: $posit-gray !important;
 }
 
-/* Sidebar and toc */
+/* Pills */
 
-/* Left nav */
-.sidebar-item-container .active {
-  font-weight: 500;
+.nav-pills {
+  border: none !important;
 }
 
-/* Left nav - letter spacing */
-.sidebar-navigation li a {
-  letter-spacing: .03em;
-  font-size: 16px;
+.nav-pills, .panel-underline {
+  > .nav {
+    display: flex;
+    border: none !important;
+    flex-direction: row;
+    justify-content: center;
+    .nav-link {
+      cursor: pointer;
+    }
+  }
 }
 
-/* Sidebar and toc */
+.nav-pills > .nav .nav-link {
+  border: none !important;
+}
+
+.nav-pills, .panel-underline {
+  .tab-content {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+  }
+}
+
+
+.nav-pills .nav-link:hover, .nav-link:focus {
+  isolation: isolate;
+  color: $posit-blue!important;
+  border: none !important;
+}
+
+.nav-pills .nav-link.active, .nav-link:hover {
+  color: #ffffff !important;
+}
+
+// Sidebar and toc
 
 /* Left nav */
 .sidebar-item-container .active {
@@ -197,56 +251,6 @@ $list-group-color: $primary !default;
     line-height: normal;
 }
 
-/* Posit logo - footer */
-#footer-logo {
-    width: 70px;
-    min-width: 70px;
-}
-
-/* Footer */
-.nav-footer .nav-footer-center {
-    min-height: min-content;
-}
-
-// Font
-
-/* Body font */
-body {
-  letter-spacing: -0.2px !important;
- }
-
-// Specialty headers
-
-/* the feature PREVIEW header */
-.preview-header > h1:after,
-.preview-header > h2:after,
-.preview-header > h3:after,
-.preview-header > h4:after,
-header h1 .preview-header {
-  content: "Preview feature";
-  margin-left: 1em;
-  position: relative;
-  border-radius: 50rem !important;
-  top: -0.5em;
-}
-
-.preview-header > h1:after,
-.preview-header > h2:after,
-.preview-header > h3:after,
-.preview-header > h4:after,
-header h1 .preview-header,
-div span.preview-feature {
-  color: $preview-header;
-  border: 1px solid $preview-header-border;
-  font-weight: 400;
-  font-size: 9pt !important;
-  padding: 0rem 0.4rem;
-}
-
-div span.preview-feature {
-  margin-left: 1em;
-  text-transform: uppercase;
-}
 
 // Lists
 
@@ -287,7 +291,7 @@ ol.groovyAlpha li > p:before {
   color: $posit-dark-gray-1 !important;
 }
 
-// Note
+/* Note */
 
 div.callout-note.callout {
   border-left-color: $posit-blue !important;
@@ -301,7 +305,7 @@ div.callout-note.callout-style-default>.callout-header {
   background-color: #DCE7F2 !important;
 }
 
-// Warning
+/* Warning */
 div.callout-warning.callout {
   border-left-color: $posit-orange !important;
 }
@@ -314,7 +318,7 @@ div.callout-warning.callout-style-default>.callout-header {
   background-color: #FAD8CA !important;
 }
 
-// Important
+/* Important */
 
 div.callout-important.callout {
   border-left-color: $posit-burgundy!important;
@@ -326,4 +330,37 @@ div.callout-important .callout-icon::before {
 
 div.callout-important.callout-style-default>.callout-header {
   background-color: #F2DAE3 !important;
+}
+
+// Specialty headers
+
+/* the feature PREVIEW header */
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header {
+  content: "Preview feature";
+  margin-left: 1em;
+  position: relative;
+  border-radius: 50rem !important;
+  top: -0.5em;
+}
+
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header,
+div span.preview-feature {
+  color: $preview-header;
+  border: 1px solid $preview-header-border;
+  font-weight: 400;
+  font-size: 9pt !important;
+  padding: 0rem 0.4rem;
+}
+
+div span.preview-feature {
+  margin-left: 1em;
+  text-transform: uppercase;
 }
