@@ -179,6 +179,10 @@ body {
     color: $posit-gray !important;
 }
 
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #000000!important;
+}
+
 .nav-tabs .nav-link:hover, .nav-link:focus {
   color: $posit-blue !important;
 }
@@ -214,13 +218,17 @@ body {
 }
 
 
+.nav-pills .nav-link.active, .nav-pills .nav-item.show .nav-link {
+  color: #ffffff !important;
+}
+
 .nav-pills .nav-link:hover, .nav-link:focus {
   isolation: isolate;
   color: $posit-blue!important;
   border: none !important;
 }
 
-.nav-pills .nav-link.active, .nav-link:hover {
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
   color: #ffffff !important;
 }
 
