@@ -7,7 +7,7 @@
 
 Known issue:
 
-* Dark mode reloads cause flashing (Quarto has an open issue with plans to address in v1.5 or v16)
+* Dark mode reloads cause flashing (Quarto has an open issue with plans to address in v1.5 or v1.6)
 
 # v.3.1.0
 
