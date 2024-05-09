@@ -1,0 +1,369 @@
+/*-- scss:defaults --*/
+
+// import font
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+/*-- scss:variables --*/
+
+// scss-docs-start color-variables
+$posit-blue: #447099;
+$posit-light-blue-1: #d1dbe5;
+$posit-light-blue-2: #a2b8cb;
+$posit-light-blue-3: #7494b1;
+$posit-dark-blue-1: #305775;
+$posit-dark-blue-2: #213d4f;
+$posit-orange: #ee6331;
+$posit-light-orange-1: #edccbf;
+$posit-light-orange-2: #eba38c;
+$posit-dark-orange-1: #ab4d26;
+$posit-dark-orange-2: #80361c;
+$posit-dark-orange-3: #451f12;
+$posit-gray: #404041;
+$posit-light-gray-1: #c2c2c4;
+$posit-light-gray-2: #949494;
+$posit-dark-gray-1: #333333;
+$posit-teal: #419599;
+$posit-light-teal-1: #c2d9d9;
+$posit-light-teal-2: #94bdbf;
+$posit-light-teal-3: #70a3a6;
+$posit-dark-teal-1: #297075;
+$posit-dark-teal-2: #1f4f4f;
+$posit-dark-teal-3: #122b2b;
+$posit-green: #72994e;
+$posit-burgundy: #9a4665;
+$posit-light-burgundy-1: #d9c4cc;
+$posit-light-burgundy-2: #bf96a3;
+$posit-light-burgundy-3: #a67380;
+$posit-dark-burgundy-1: #78384f;
+$posit-dark-burgundy-2: #542938;
+$posit-dark-burgundy-3: #2e171f;
+$primary: $posit-teal;
+$dark-md-body: $posit-light-gray-1;
+$dark-md-background: #0c1721;
+
+// Feature preview heading colors
+$preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
+$preview-header-border: darken($preview-header, 5%);
+
+// scss-docs-end color-variables
+
+// Typography
+// Font, line-height, and color for body text, headings, and more.
+
+//scss-font-start font-variables
+$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
+  sans-serif, system-ui;
+$font-family-monospace: "Source Code Pro", monospace;
+$font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-size-base: 1rem;
+// scss-docs-end font-variables
+
+//font and body color
+
+$body-color: $dark-md-body;
+$popover-bg: $posit-green !default;
+
+// scss-docs-start font-sizes - seems that I have to keep these in the style sheet?
+$h1-font-size: 44px;
+$h2-font-size: 28px;
+x h1 {
+  size: $h1-font-size;
+}
+h2 {
+  size: $h2-font-size;
+}
+// scss-docs-end font-sizes
+
+// Headings
+// scss-docs-start headings-variables
+$headings-color: #ffffff;
+// scss-docs-end headings-variables
+
+//  Customize the navbar
+$navbar-bg: lighten($dark-md-background, 5%);
+$navbar-fg: #ffffff;
+
+// CSS overrides
+
+// Body
+//
+// Settings for the `<body>` element.
+
+//$body-color: $posit-green !default;
+$body-bg: $dark-md-background !default; // dark mode change
+
+// Nav and footer
+
+/* Nav bar */
+
+.navbar-title {
+  color: #ffffff; // dark theme change
+}
+
+.nav-link {
+  font-family: $font-family-monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: $posit-teal !important;
+  font-weight: 700 !important;
+}
+
+/* Nav bar  right hamburger menu */
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: #0f1c29 !important;
+}
+
+/* Footer */
+
+.nav-footer {
+  color: #ffffff !important;
+  border-top: solid $posit-gray 1px;
+}
+
+/* Footer icons */
+.nav-footer a {
+  color: #ffffff !important;
+}
+
+// Footnotes
+
+.footnote-back {
+  color: $posit-light-teal-2;
+}
+
+// Breadcrumbs
+
+.quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
+  color: $posit-light-gray-1 !important;
+}
+
+// Page navigation
+
+.nav-page .nav-page-text {
+  color: $posit-light-gray-1;
+}
+
+/* Inline code */
+p code:not(.sourceCode),
+li code:not(.sourceCode),
+td code:not(.sourceCode) {
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
+// Code blocks
+
+/* Code block title*/
+
+.quarto-dark .code-with-filename .code-with-filename-file {
+  background-color: #000000 !important;
+  border: none;
+}
+
+.code-with-filename strong {
+  color: #6e9ac3;
+}
+
+/* Code block background */
+$code-block-bg: lighten($dark-md-background, 10%);
+
+/* Copy button */
+
+$btn-code-copy-color: $posit-light-blue-2;
+$btn-code-copy-color-active: #ffffff;
+$callout-icon-scale: 70%;
+
+// Tabs and pills
+
+/* Tabs */
+
+.nav-tabs .nav-link.active {
+  color: $posit-teal !important;
+}
+
+.nav-tabs .nav-link {
+  text-transform: none !important;
+  font-family: $font-family-sans-serif;
+  color: #ffffff !important;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-link:focus {
+  color: $posit-teal !important;
+}
+
+/* Pills */
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: $posit-dark-teal-1 !important;
+}
+
+.nav-pills .nav-link:hover,
+.nav-link:focus {
+  isolation: isolate;
+  //  color: $posit-teal !important;
+  border: none !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+// Sidebar and toc
+
+/* Left nav - letter spacing */
+.sidebar-navigation li a {
+  color: #ffffff;
+}
+
+.sidebar-navigation li a:hover {
+  color: inherit;
+}
+
+.sidebar-item-container .active,
+div.sidebar-item-container .show > .nav-link,
+div.sidebar-item-container .sidebar-link > code {
+  color: $posit-teal !important;
+}
+
+// Lists
+
+/* List disc colors */
+li::marker {
+  color: $posit-teal;
+}
+
+// Callouts
+
+.callout.callout-style-default:not(.no-icon) div.callout-title-container {
+  color: #ffffff !important;
+}
+
+div.callout.callout-style-default > div.callout-header {
+  opacity: none;
+}
+
+/* Note */
+
+div.callout-note.callout {
+  border-left-color: $posit-dark-blue-2 !important;
+  border-right: 1px solid $posit-dark-blue-2 !important;
+  border-top: 1px solid $posit-dark-blue-2 !important;
+  border-bottom: 1px solid $posit-dark-blue-2 !important;
+}
+
+div.callout-note .callout-icon::before {
+  background-image: url("_extensions/posit-docs/assets/images/info-circle-dm.svg") !important;
+}
+
+div.callout-note.callout-style-default > .callout-header {
+  background-color: $posit-blue !important;
+}
+
+/* Warning */
+
+div.callout-warning.callout {
+  border-left-color: $posit-dark-orange-2 !important;
+  border-right: 1px solid $posit-dark-orange-2 !important;
+  border-top: 1px solid $posit-dark-orange-2 !important;
+  border-bottom: 1px solid $posit-dark-orange-2 !important;
+}
+
+div.callout-warning .callout-icon::before {
+  background-image: url("_extensions/posit-docs/assets/images/exclamation-triangle-dm.svg") !important;
+}
+
+div.callout-warning.callout-style-default > .callout-header {
+  background-color: $posit-dark-orange-1 !important;
+}
+
+/* Important */
+
+div.callout-important.callout {
+  border-left-color: $posit-dark-burgundy-2 !important;
+  border-right: 1px solid $posit-dark-burgundy-2 !important;
+  border-top: 1px solid $posit-dark-burgundy-2 !important;
+  border-bottom: 1px solid $posit-dark-burgundy-2 !important;
+}
+
+div.callout-important .callout-icon::before {
+  background-image: url("_extensions/posit-docs/assets/images/exclamation-circle-dm.svg") !important;
+}
+
+div.callout-important.callout-style-default > .callout-header {
+  background-color: $posit-burgundy !important;
+}
+
+// Tables
+
+.table > :not(caption) > * > * {
+  border-top: 2px solid #101e2b;
+}
+
+/* Striped table styles */
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  //--bs-table-bg-type: #001C2B !important;
+  --bs-table-bg-type: #101e2b !important;
+}
+
+/* Striped table hover */
+
+.table-hover > tbody > tr:hover > * {
+  //--bs-table-color-state: var(--bs-table-hover-color);
+  --bs-table-bg-state: #001c2b !important;
+}
+
+// Table caption
+
+.panel-caption,
+.figure-caption,
+.subfigure-caption,
+.table-caption,
+figcaption,
+caption {
+  font-size: 1rem;
+  color: $body-color !important;
+}
+
+// Specialty headers
+
+/* the feature PREVIEW header */
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header,
+div span.preview-feature {
+  background-color: $preview-header;
+  color: #ffffff;
+  border: 1px solid $preview-header-border;
+  font-weight: 600;
+  font-size: 9pt !important;
+  padding: 0rem 0.4rem;
+}
+
+div span.preview-feature {
+  margin-left: 1em;
+  text-transform: uppercase;
+}
+
+// Specialty lists
+// Groovy list - dark mode change
+
+ol.groovyAlpha li > p:before {
+  content: counter(list-counter, lower-alpha);
+  font-weight: 600;
+}

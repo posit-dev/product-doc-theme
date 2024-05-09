@@ -2,17 +2,21 @@
 title: "Posit Documentation Theme Example"
 ---
 
-## Level Two
+## Level two
 
 Some text for level two.
 
-### Level Three
+[Test link](https://docs.posit.co)
 
-Some text for level three.
+### Level three
 
-### Another Level Three {.preview-header} 
+Some text for level three and showing `inline-code` references.
 
-Some text for another level three
+### Another level three {.preview-header} 
+
+Here is a footnote reference,[^1] and another.
+
+[^1]: Here is the footnote.
 
 #### Level four
 
@@ -27,14 +31,87 @@ Five is jive.
 Six is deep enough! Stop!
 
 
-## Level Two Again
+## Level two: coding
 
-::: panel-tabset
+
+```r
+cat("cats are cats\n")
+```
+
+```python
+print("snakes are not cats")
+```
+
+```{.txt filename="Output or filenames"}
+Checking Job Launcher configuration...
+Ensuring server-user is a Job Launcher admin...
+Getting list of Job Launcher clusters...
+Job launcher configured with the following clusters: Kubernetes, Local
+launcher-adhoc-clusters is empty - all clusters may be used to launch adhoc jobs
+launcher-sessions-clusters is empty - all clusters may be used to launch session jobs
+Waiting for job to finish...
+Job has finished running
+Job exited successfully
+```
+
+### Tabsets and pills
+
+::: {.panel-tabset}
+### RHEL
+
+```bash
+$ yum install rstudio-workbench-rhel
+```
+
+### Ubuntu | Debian
+
+```bash
+$ dpkg
+```
+
+::: {.panel-tabset}
+### Ubuntu 22.04
+```bash
+$ You can nest tabsets
+```
+
+### Ubuntu 20.04
+```bash
+$ Nesting
+```
+:::
+
+
+### SUSE
+
+```bash
+$ zypper
+```
+
+:::
+
+
+::: {.panel-tabset .nav-pills}
+
+### Pills
+You can use tabs and pills for text, code blocks, tables, etc.
+
+### Code
+
+A single code block
+
+```bash
+$ yum install rstudio-workbench-rhel
+```
+
+Nested pills
+
+::: {.panel-tabset .nav-pills }
 
 ### RHEL
 
 ```bash
-$ yum
+$ yum install rstudio-workbench-rhel
 ```
 
 ### Ubuntu | Debian
@@ -51,6 +128,20 @@ $ zypper
 
 :::
 
+### Table
+
+|       |                           |
+|-------|---------------------------|
+| Table | some text about the table |
+|Row | More stuff |
+
+
+### Image
+
+![This is a test image](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg "testing for alt text stuff"){width=240}
+
+:::
+
 ## Level two: callouts
 
 Code-first means using code first. Does that mean we never do things manually?
@@ -60,21 +151,15 @@ No. Hands-on is delightful.
 This is a note.
 :::
 
+
 ::: {.callout-warning}
-This is a warning.
+Only use the warning callout to explain dangers that may result in personal injury or death. 
 :::
 
 ::: {.callout-important}
-This is important.
+This is important; don't ignore this information.
 :::
 
-::: {.callout-tip}
-This is a tip.
-:::
-
-::: {.callout-caution}
-This is a cautionary tale.
-:::
 
 ::: {.callout-note collapse="true"}
 This is a collapsed note.
@@ -85,16 +170,6 @@ This is a collapsed note.
 
 This is a note with an alternate title.
 :::
-
-## Level two: coding
-
-```r
-cat("cats are cats\n")
-```
-
-```python
-print("snakes are not cats")
-```
 
 ## Level two: lists
 
