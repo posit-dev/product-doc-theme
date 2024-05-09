@@ -1,46 +1,45 @@
 /*-- scss:defaults --*/
 
 // import font
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 /*-- scss:variables --*/
 
 // scss-docs-start color-variables
 $posit-blue: #447099;
-$posit-light-blue-1: #D1DBE5;
-$posit-light-blue-2:  #A2B8CB;
-$posit-light-blue-3: #7494B1;
+$posit-light-blue-1: #d1dbe5;
+$posit-light-blue-2: #a2b8cb;
+$posit-light-blue-3: #7494b1;
 $posit-dark-blue-1: #305775;
-$posit-dark-blue-2: #213D4F;
-$posit-orange:  #EE6331;
-$posit-light-orange-1: #EDCCBF;
-$posit-light-orange-2: #EBA38C;
-$posit-dark-orange-1: #Ab4D26;
-$posit-dark-orange-2: #80361C;
-$posit-dark-orange-3: #451F12;
-$posit-gray:    #404041;
-$posit-light-gray-1: #C2C2C4;
+$posit-dark-blue-2: #213d4f;
+$posit-orange: #ee6331;
+$posit-light-orange-1: #edccbf;
+$posit-light-orange-2: #eba38c;
+$posit-dark-orange-1: #ab4d26;
+$posit-dark-orange-2: #80361c;
+$posit-dark-orange-3: #451f12;
+$posit-gray: #404041;
+$posit-light-gray-1: #c2c2c4;
 $posit-light-gray-2: #949494;
 $posit-dark-gray-1: #333333;
 $posit-teal: #419599;
-$posit-light-teal-1: #C2D9D9;
-$posit-light-teal-2: #94BDBF;
-$posit-light-teal-3: #70A3A6;
+$posit-light-teal-1: #c2d9d9;
+$posit-light-teal-2: #94bdbf;
+$posit-light-teal-3: #70a3a6;
 $posit-dark-teal-1: #297075;
-$posit-dark-teal-2: #1F4F4F;
-$posit-dark-teal-3: #122B2B;
-$posit-green:   #72994E;
-$posit-burgundy:#9A4665;
-$posit-light-burgundy-1:#D9C4CC;
-$posit-light-burgundy-2:#BF96A3;
-$posit-light-burgundy-3: #A67380;
-$posit-dark-burgundy-1:#78384F;
-$posit-dark-burgundy-2:#542938;
-$posit-dark-burgundy-3:#2E171F;
+$posit-dark-teal-2: #1f4f4f;
+$posit-dark-teal-3: #122b2b;
+$posit-green: #72994e;
+$posit-burgundy: #9a4665;
+$posit-light-burgundy-1: #d9c4cc;
+$posit-light-burgundy-2: #bf96a3;
+$posit-light-burgundy-3: #a67380;
+$posit-dark-burgundy-1: #78384f;
+$posit-dark-burgundy-2: #542938;
+$posit-dark-burgundy-3: #2e171f;
 $primary: $posit-teal;
 $dark-md-body: $posit-light-gray-1;
-$dark-md-background: #0C1721;
+$dark-md-background: #0c1721;
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -52,7 +51,8 @@ $preview-header-border: darken($preview-header, 5%);
 // Font, line-height, and color for body text, headings, and more.
 
 //scss-font-start font-variables
-$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, system-ui;
+$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
+  sans-serif, system-ui;
 $font-family-monospace: "Source Code Pro", monospace;
 $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-size-base: 1rem;
@@ -64,10 +64,9 @@ $body-color: $dark-md-body;
 $popover-bg: $posit-green !default;
 
 // scss-docs-start font-sizes - seems that I have to keep these in the style sheet?
-$h1-font-size:44px;
-$h2-font-size:28px;x
-
-h1 {
+$h1-font-size: 44px;
+$h2-font-size: 28px;
+x h1 {
   size: $h1-font-size;
 }
 h2 {
@@ -82,7 +81,7 @@ $headings-color: #ffffff;
 
 //  Customize the navbar
 $navbar-bg: lighten($dark-md-background, 5%);
-$navbar-fg: #ffffff; 
+$navbar-fg: #ffffff;
 
 // CSS overrides
 
@@ -93,7 +92,6 @@ $navbar-fg: #ffffff;
 //$body-color: $posit-green !default;
 $body-bg: $dark-md-background !default; // dark mode change
 
-
 // Nav and footer
 
 /* Nav bar */
@@ -103,39 +101,39 @@ $body-bg: $dark-md-background !default; // dark mode change
 }
 
 .nav-link {
-font-family: $font-family-monospace;
-text-transform: uppercase;
-letter-spacing: .03em;
-font-size: 14px !important;
-font-weight: 500 !important;
-color: #fff !important;
+  font-family: $font-family-monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
 }
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-color: $posit-teal !important;
-font-weight: 700 !important;
+  color: $posit-teal !important;
+  font-weight: 700 !important;
 }
 
 /* Nav bar  right hamburger menu */
 
-.dropdown-item:hover, .dropdown-item:focus {
-color: var(--bs-dropdown-link-hover-color);
-background-color: #0F1C29 !important;
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: #0f1c29 !important;
 }
 
 /* Footer */
 
 .nav-footer {
-  color:  #ffffff !important;
+  color: #ffffff !important;
   border-top: solid $posit-gray 1px;
 }
 
 /* Footer icons */
 .nav-footer a {
-color: #ffffff !important;
+  color: #ffffff !important;
 }
-
 
 // Footnotes
 
@@ -143,8 +141,7 @@ color: #ffffff !important;
   color: $posit-light-teal-2;
 }
 
-
-// Breadcrumbs 
+// Breadcrumbs
 
 .quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
   color: $posit-light-gray-1 !important;
@@ -157,7 +154,9 @@ color: #ffffff !important;
 }
 
 /* Inline code */
-p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
+p code:not(.sourceCode),
+li code:not(.sourceCode),
+td code:not(.sourceCode) {
   background-color: #6e768166 !important;
   color: #ffffff;
 }
@@ -172,7 +171,7 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
 }
 
 .code-with-filename strong {
-  color: #6E9AC3;
+  color: #6e9ac3;
 }
 
 /* Code block background */
@@ -183,7 +182,6 @@ $code-block-bg: lighten($dark-md-background, 10%);
 $btn-code-copy-color: $posit-light-blue-2;
 $btn-code-copy-color-active: #ffffff;
 $callout-icon-scale: 70%;
-
 
 // Tabs and pills
 
@@ -199,41 +197,45 @@ $callout-icon-scale: 70%;
   color: #ffffff !important;
 }
 
-.nav-tabs .nav-link:hover, .nav-link:focus {
+.nav-tabs .nav-link:hover,
+.nav-link:focus {
   color: $posit-teal !important;
 }
 
 /* Pills */
 
-
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
   background-color: $posit-dark-teal-1 !important;
 }
 
-
-.nav-pills .nav-link:hover, .nav-link:focus {
+.nav-pills .nav-link:hover,
+.nav-link:focus {
   isolation: isolate;
-//  color: $posit-teal !important;
+  //  color: $posit-teal !important;
   border: none !important;
 }
 
-.nav-pills .nav-link.active, .nav-link:hover {
+.nav-pills .nav-link.active,
+.nav-link:hover {
   color: #ffffff !important;
 }
 
 // Sidebar and toc
 
 /* Left nav - letter spacing */
-.sidebar-navigation li a{
+.sidebar-navigation li a {
   color: #ffffff;
 }
 
-.sidebar-navigation li a:hover{
+.sidebar-navigation li a:hover {
   color: inherit;
 }
 
-.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    color: $posit-teal !important;
+.sidebar-item-container .active,
+div.sidebar-item-container .show > .nav-link,
+div.sidebar-item-container .sidebar-link > code {
+  color: $posit-teal !important;
 }
 
 // Lists
@@ -249,8 +251,8 @@ li::marker {
   color: #ffffff !important;
 }
 
-div.callout.callout-style-default>div.callout-header {
- opacity: none;
+div.callout.callout-style-default > div.callout-header {
+  opacity: none;
 }
 
 /* Note */
@@ -258,15 +260,15 @@ div.callout.callout-style-default>div.callout-header {
 div.callout-note.callout {
   border-left-color: $posit-dark-blue-2 !important;
   border-right: 1px solid $posit-dark-blue-2 !important;
-  border-top: 1px solid $posit-dark-blue-2 !important; 
-  border-bottom: 1px solid $posit-dark-blue-2 !important; 
+  border-top: 1px solid $posit-dark-blue-2 !important;
+  border-bottom: 1px solid $posit-dark-blue-2 !important;
 }
 
 div.callout-note .callout-icon::before {
-  background-image: url( '_extensions/posit-docs/assets/images/info-circle-dm.svg') !important;
+  background-image: url("_extensions/posit-docs/assets/images/info-circle-dm.svg") !important;
 }
 
-div.callout-note.callout-style-default>.callout-header {
+div.callout-note.callout-style-default > .callout-header {
   background-color: $posit-blue !important;
 }
 
@@ -276,14 +278,14 @@ div.callout-warning.callout {
   border-left-color: $posit-dark-orange-2 !important;
   border-right: 1px solid $posit-dark-orange-2 !important;
   border-top: 1px solid $posit-dark-orange-2 !important;
-  border-bottom: 1px solid $posit-dark-orange-2 !important; 
+  border-bottom: 1px solid $posit-dark-orange-2 !important;
 }
 
 div.callout-warning .callout-icon::before {
-  background-image: url( '_extensions/posit-docs/assets/images/exclamation-triangle-dm.svg') !important;
+  background-image: url("_extensions/posit-docs/assets/images/exclamation-triangle-dm.svg") !important;
 }
 
-div.callout-warning.callout-style-default>.callout-header {
+div.callout-warning.callout-style-default > .callout-header {
   background-color: $posit-dark-orange-1 !important;
 }
 
@@ -297,17 +299,17 @@ div.callout-important.callout {
 }
 
 div.callout-important .callout-icon::before {
-  background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle-dm.svg') !important;
+  background-image: url("_extensions/posit-docs/assets/images/exclamation-circle-dm.svg") !important;
 }
 
-div.callout-important.callout-style-default>.callout-header {
+div.callout-important.callout-style-default > .callout-header {
   background-color: $posit-burgundy !important;
 }
 
 // Tables
 
-.table>:not(caption)>*>* {
-  border-top: 2px solid #101E2B;
+.table > :not(caption) > * > * {
+  border-top: 2px solid #101e2b;
 }
 
 th {
@@ -316,21 +318,26 @@ th {
 
 /* Striped table styles */
 
-.table-striped>tbody>tr:nth-of-type(odd)>* {
- //--bs-table-bg-type: #001C2B !important;
-  --bs-table-bg-type: #101E2B !important;
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  //--bs-table-bg-type: #001C2B !important;
+  --bs-table-bg-type: #101e2b !important;
 }
 
 /* Striped table hover */
 
-.table-hover>tbody>tr:hover>* {
+.table-hover > tbody > tr:hover > * {
   //--bs-table-color-state: var(--bs-table-hover-color);
-  --bs-table-bg-state: #001C2B !important;
+  --bs-table-bg-state: #001c2b !important;
 }
 
 // Table caption
 
-.panel-caption, .figure-caption, .subfigure-caption, .table-caption, figcaption, caption {
+.panel-caption,
+.figure-caption,
+.subfigure-caption,
+.table-caption,
+figcaption,
+caption {
   font-size: 1rem;
   color: $body-color !important;
 }
@@ -345,7 +352,7 @@ th {
 header h1 .preview-header,
 div span.preview-feature {
   background-color: $preview-header;
-  color:#ffffff;
+  color: #ffffff;
   border: 1px solid $preview-header-border;
   font-weight: 600;
   font-size: 9pt !important;
@@ -356,7 +363,6 @@ div span.preview-feature {
   margin-left: 1em;
   text-transform: uppercase;
 }
-
 
 // Specialty lists
 // Groovy list - dark mode change
