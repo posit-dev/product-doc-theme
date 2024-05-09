@@ -92,30 +92,6 @@ A single code block
 $ yum install rstudio-workbench-rhel
 ```
 
-Nested tabset
-
-::: panel-tabset
-
-### RHEL
-
-```bash
-$ yum install rstudio-workbench-rhel
-```
-
-### Ubuntu | Debian
-
-```bash
-$ dpkg
-```
-
-### SUSE
-
-```bash
-$ zypper
-```
-
-:::
-
 ### Table
 
 |       |                           |
@@ -147,7 +123,6 @@ Only use the warning callout to explain dangers that may result in personal inju
 ::: {.callout-important}
 This is important; don't ignore this information.
 :::
-
 
 
 ::: {.callout-note collapse="true"}
