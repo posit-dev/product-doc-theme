@@ -8,14 +8,15 @@ Some text for level two.
 
 [Test link](https://docs.posit.co)
 
-
 ### Level three
 
 Some text for level three and showing `inline-code` references.
 
 ### Another level three {.preview-header} 
 
-Some text for another level three
+Here is a footnote reference,[^1] and another.
+
+[^1]: Here is the footnote.
 
 #### Level four
 
