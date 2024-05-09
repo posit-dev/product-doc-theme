@@ -187,6 +187,14 @@ body {
   font-size: 18px !important;
 }
 
+// Footnotes
+
+.footnote-back {
+  font-size: 16px !important;
+  font-weight: 900px !important;
+  color: $posit-dark-blue-1;
+}
+
 
 // Tabs and pills
 
@@ -369,7 +377,9 @@ div span.preview-feature {
 }
 
 // Specialty lists
+
 /* Callout steps for images with multiple items/steps shown in single image */
+
 ol.groovyAlpha {
     list-style: none;
     counter-reset: list-counter;
@@ -381,15 +391,15 @@ ol.groovyAlpha li {
 
 ol.groovyAlpha li > p:before {
   content: counter(list-counter, lower-alpha);
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   text-align: center;
   margin-right: 10px;
   color: #fff;
   background-color: #fc403b;
   display: inline-block;
-  border-radius: 8px;
-  font-size: 9px;
+  border-radius: 10px;
+  font-size: 14px;
   line-height: 16px;
   vertical-align: middle;
 }
