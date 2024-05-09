@@ -52,7 +52,7 @@ $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "N
 $font-size-base: 1rem;
 // scss-docs-end font-variables
 
-//font and body color - dark theme changes
+//font and body color
 
 $body-color: $dark-md-body;
 $popover-bg: $posit-green !default; // check this - citation previews
@@ -69,15 +69,16 @@ h2 {
 }
 // scss-docs-end font-sizes
 
-// Headings - dark mode changes
+// Headings
 // scss-docs-start headings-variables
-$headings-color: #ffffff; //dark mode change
+$headings-color: #ffffff;
 // scss-docs-end headings-variables
 
-//  Customize the navbar - dark mode changes
+//  Customize the navbar
 $navbar-bg: lighten($dark-md-background, 5%);
 $navbar-fg: #ffffff; 
 
+// CSS overrides
 
 // Body
 //
@@ -86,9 +87,92 @@ $navbar-fg: #ffffff;
 //$body-color: $posit-green !default;
 $body-bg: $dark-md-background !default; // dark mode change
 
+
+// Nav and footer
+
+/* Nav bar */
+
+.navbar-title {
+  color: #ffffff; // dark theme change
+}
+
+.nav-link {
+font-family: $font-family-monospace;
+text-transform: uppercase;
+letter-spacing: .03em;
+font-size: 14px !important;
+font-weight: 500 !important;
+color: #fff !important;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+color: $posit-teal !important;
+font-weight: 700 !important;
+}
+
+/* Nav bar  right hamburger menu */
+
+.dropdown-item:hover, .dropdown-item:focus {
+color: var(--bs-dropdown-link-hover-color);
+background-color: #0F1C29 !important;
+}
+
+
+/* Footer */
+
+.nav-footer {
+  color:  #ffffff !important;
+  border-top: solid $posit-gray 1px;
+}
+
+
+/* Footer icons */
+.nav-footer a {
+color: #ffffff !important;
+}
+
+// Page navigation
+
+.nav-page .nav-page-text {
+  color: $posit-light-gray-1;
+}
+
+// Code
+
+/* Code block elements */
+
+pre > code.sourceCode > span {
+  //color: #003B4F;
+}
+
+code span.ex {
+    //font-weight: bold;
+    color: #ffffff;
+}
+
+code span.dt {
+  color: #FFABCA;
+    //font-style: inherit;
+}
+
+code span.ot {
+    //color: rgb(60, 222, 222);
+}
+
+code span.st {
+    //color: greenyellow;
+}
+
+/* Inline code */
+p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
 // Code blocks
 
-// Code block title
+/* Code block title*/
 
 .quarto-dark .code-with-filename .code-with-filename-file {
   background-color: #000000 !important;
@@ -99,67 +183,25 @@ $body-bg: $dark-md-background !default; // dark mode change
   color: #6E9AC3;
 }
 
-// Code block background
+/* Code block background */
 $code-block-bg: lighten($dark-md-background, 10%);
 
 //$monobackgroundcolor: $dark-md-background !default;
 
-// Copy button - dark mode changes
+/* Copy button */
 
 $btn-code-copy-color: $posit-light-blue-2;
 $btn-code-copy-color-active: #ffffff;
 $callout-icon-scale: 70%;
 
-// Nav bar
 
-.navbar-title {
-    color: #ffffff; // dark theme change
-}
+// Tabs and pills
 
-.nav-link {
-  font-family: $font-family-monospace;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  color: #fff !important;
-}
-
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show {
-color: $posit-teal !important;
-font-weight: 700 !important;
-}
-
-.dropdown-item:hover, .dropdown-item:focus {
-  color: var(--bs-dropdown-link-hover-color);
-  background-color: #0F1C29 !important;
-}
-
-.nav-footer {
-    color:  #ffffff !important; // dark mode change
-    border-top: solid $posit-gray 1px;
-}
-
-// Footer icons - dark mode change
-.nav-footer a {
-  color: #ffffff !important;
-}
-
-// Page navigation
-
-.nav-page .nav-page-text {
-  color: $posit-light-gray-1;
-}
-
-// Tabs - dark mode changes
-
-
+/* Tabs */
 
 .nav-tabs .nav-link.active {
     color: $posit-teal !important;
 }
-
 
 .nav-tabs .nav-link {
   text-transform: none !important;
@@ -185,6 +227,7 @@ color: $posit-teal !important;
 
 // Sidebar and toc
 
+/* Left nav - letter spacing */
 .sidebar-navigation li a{
   color: #ffffff;
 }
@@ -197,68 +240,11 @@ color: $posit-teal !important;
     color: $posit-teal !important;
 }
 
-// Preview header - dark mode change
-.preview-header > h1:after,
-.preview-header > h2:after,
-.preview-header > h3:after,
-.preview-header > h4:after,
-header h1 .preview-header,
-div span.preview-feature {
-  background-color: $preview-header;
-  color:#ffffff;
-  border: 1px solid $preview-header-border;
-  font-weight: 600;
-  font-size: 9pt !important;
-  padding: 0rem 0.4rem;
-}
-
-div span.preview-feature {
-  margin-left: 1em;
-  text-transform: uppercase;
-}
+// Lists
 
 /* List disc colors */
 li::marker {
   color: $posit-teal;
-}
-
-// Groovy list - dark mode change
-
-ol.groovyAlpha li > p:before {
-  content: counter(list-counter, lower-alpha);
-  color: #000;
-  font-weight: 600;
-}
-
-// Code block elements - dark mode
-
-pre > code.sourceCode > span {
-  //color: #003B4F;
-}
-
-code span.ex {
-    //font-weight: bold;
-    color: #ffffff;
-}
-
-code span.dt {
-  color: #FFABCA;
-    //font-style: inherit;
-}
-
-code span.ot {
-    //color: rgb(60, 222, 222);
-}
-
-code span.st {
-    //color: greenyellow;
-}
-
-
-// Inline code 
-p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
-  background-color: #6e768166 !important;
-  color: #ffffff;
 }
 
 // Callouts
@@ -270,7 +256,8 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
 div.callout.callout-style-default>div.callout-header {
  opacity: none;
 }
-// Note
+
+/* Note */
 
 div.callout-note.callout {
   border-left-color: $posit-dark-blue-2 !important;
@@ -287,7 +274,7 @@ div.callout-note.callout-style-default>.callout-header {
   background-color: $posit-blue !important;
 }
 
-//Warning
+/* Warning */
 
 div.callout-warning.callout {
   border-left-color: $posit-dark-orange-2 !important;
@@ -304,7 +291,7 @@ div.callout-warning.callout-style-default>.callout-header {
   background-color: $posit-dark-orange-1 !important;
 }
 
-// Important
+/* Important */
 
 div.callout-important.callout {
   border-left-color: $posit-dark-burgundy-2 !important;
@@ -331,14 +318,14 @@ th {
   color: #ffffff !important;
 }
 
-//Striped table styles
+/* Striped table styles */
 
 .table-striped>tbody>tr:nth-of-type(odd)>* {
  //--bs-table-bg-type: #001C2B !important;
   --bs-table-bg-type: #101E2B !important;
 }
 
-// Striped table hover
+/* Striped table hover */
 
 .table-hover>tbody>tr:hover>* {
   //--bs-table-color-state: var(--bs-table-hover-color);
@@ -350,4 +337,36 @@ th {
 .panel-caption, .figure-caption, .subfigure-caption, .table-caption, figcaption, caption {
   font-size: 1rem;
   color: $body-color !important;
+}
+
+// Specialty headers
+
+/* the feature PREVIEW header */
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header,
+div span.preview-feature {
+  background-color: $preview-header;
+  color:#ffffff;
+  border: 1px solid $preview-header-border;
+  font-weight: 600;
+  font-size: 9pt !important;
+  padding: 0rem 0.4rem;
+}
+
+div span.preview-feature {
+  margin-left: 1em;
+  text-transform: uppercase;
+}
+
+
+// Specialty lists
+// Groovy list - dark mode change
+
+ol.groovyAlpha li > p:before {
+  content: counter(list-counter, lower-alpha);
+  color: #000;
+  font-weight: 600;
 }

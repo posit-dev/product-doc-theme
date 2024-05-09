@@ -50,6 +50,7 @@ $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "N
 $font-size-base: 1rem;
 // scss-docs-end font-variables
 
+//font and body color
 $body-color: $posit-gray;
 
 // scss-docs-start font-sizes
@@ -84,7 +85,9 @@ $list-group-color: $primary !default;
 
 // CSS overrides
 
-// Font
+// Body
+//
+// Settings for the `<body>` element.
 
 /* Body font */
 body {
@@ -92,8 +95,9 @@ body {
  }
 
 
-
 // Nav and footer
+
+/* Navbar */
 
 .navbar {
   box-shadow: 0 0 0.2rem #0000001a, 0 0.1rem 0.4rem #0003;
@@ -113,8 +117,6 @@ body {
     padding-left: 1em;
 }
 
-/* Posit logo - navbar or footer */
-
 .nav-link {
     font-family: $font-family-monospace;
     text-transform: uppercase;
@@ -130,37 +132,7 @@ body {
   font-weight: 700 !important;
 }
 
-// Footer
-
-
-#footer-right-full-posit-logo {
-  width: 70px;
-  min-width: 70px;
-}
-
-#footer-right-logo {
-  width: 24px;
-  min-width: 24px;
-  margin-left: -3px !important;
-  margin-right: -3px !important;
-  padding-top: 1px;
-}
-
-#footer-right-posit-logo {
-  width: 18px;
-  min-width: 18px;
-  margin-left: -3px !important;
-  margin-right: -3px !important;
-  padding-top: 1px;
-}
-
-.bi-question-circle-fill {
-  font-size: 18px !important;
-}
-
-.bi-lightbulb-fill {
-  font-size: 18px !important;
-}
+/* Footer */
 
 .nav-footer {
   font-family: $font-family-monospace;
@@ -174,10 +146,45 @@ body {
     min-height: min-content;
 }
 
-/* Posit logo - footer */
+/* Footer icons */
+
+/* Full Posit logo - currently, unused */
+#footer-right-full-posit-logo {
+  width: 70px;
+  min-width: 70px;
+}
+
+/* Posit guide book */
+#footer-right-logo {
+  width: 24px;
+  min-width: 24px;
+  margin-left: -3px !important;
+  margin-right: -3px !important;
+  padding-top: 1px;
+}
+
+/* Posit icon fullcolor */
+#footer-right-posit-logo {
+  width: 18px;
+  min-width: 18px;
+  margin-left: -3px !important;
+  margin-right: -3px !important;
+  padding-top: 1px;
+}
+
+/* Posit logo - footer 
 #footer-logo {
   width: 70px;
   min-width: 70px;
+}
+*/
+
+.bi-question-circle-fill {
+  font-size: 18px !important;
+}
+
+.bi-lightbulb-fill {
+  font-size: 18px !important;
 }
 
 
@@ -256,24 +263,23 @@ body {
   font-size: 16px;
 }
 
-/* Mini TOC */
-.sidebar nav[role=doc-toc]>ul li a {
-    text-transform: none !important;
-    font-family: $font-family-sans-serif;
-    font-weight: 400 !important;
-    letter-spacing: -0.2px !important;
-}
-
-.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
-    font-weight: 700 !important;
-}
-
 /* Left nav - letter spacing */
 .sidebar-navigation li a {
     letter-spacing: -0.2px;
     line-height: normal;
 }
 
+/* Mini TOC */
+.sidebar nav[role=doc-toc]>ul li a {
+  text-transform: none !important;
+  font-family: $font-family-sans-serif;
+  font-weight: 400 !important;
+  letter-spacing: -0.2px !important;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+  font-weight: 700 !important;
+}
 
 // Lists
 
@@ -281,32 +287,6 @@ body {
 li::marker {
   color: $primary;
 }
-
-/* Callout steps for images with multiple items/steps shown in single image */
-ol.groovyAlpha {
-    list-style: none;
-    counter-reset: list-counter;
-  }
-  
-ol.groovyAlpha li {
-  counter-increment: list-counter;
-}
-
-ol.groovyAlpha li > p:before {
-  content: counter(list-counter, lower-alpha);
-  width: 16px;
-  height: 16px;
-  text-align: center;
-  margin-right: 10px;
-  color: #fff;
-  background-color: #fc403b;
-  display: inline-block;
-  border-radius: 8px;
-  font-size: 9px;
-  line-height: 16px;
-  vertical-align: middle;
-}
-
 
 // Callouts
 
@@ -386,4 +366,30 @@ div span.preview-feature {
 div span.preview-feature {
   margin-left: 1em;
   text-transform: uppercase;
+}
+
+// Specialty lists
+/* Callout steps for images with multiple items/steps shown in single image */
+ol.groovyAlpha {
+    list-style: none;
+    counter-reset: list-counter;
+  }
+  
+ol.groovyAlpha li {
+  counter-increment: list-counter;
+}
+
+ol.groovyAlpha li > p:before {
+  content: counter(list-counter, lower-alpha);
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  margin-right: 10px;
+  color: #fff;
+  background-color: #fc403b;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 9px;
+  line-height: 16px;
+  vertical-align: middle;
 }
