@@ -61,7 +61,7 @@ $font-size-base: 1rem;
 //font and body color
 
 $body-color: $dark-md-body;
-$popover-bg: $posit-green !default; // check this - citation previews
+$popover-bg: $posit-green !default;
 
 // scss-docs-start font-sizes - seems that I have to keep these in the style sheet?
 $h1-font-size:44px;
@@ -156,32 +156,6 @@ color: #ffffff !important;
   color: $posit-light-gray-1;
 }
 
-// Code
-
-/* Code block elements */
-
-pre > code.sourceCode > span {
-  //color: #003B4F;
-}
-
-code span.ex {
-    //font-weight: bold;
-    color: #ffffff;
-}
-
-code span.dt {
-  color: #FFABCA;
-    //font-style: inherit;
-}
-
-code span.ot {
-    //color: rgb(60, 222, 222);
-}
-
-code span.st {
-    //color: greenyellow;
-}
-
 /* Inline code */
 p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
   background-color: #6e768166 !important;
@@ -203,8 +177,6 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
 
 /* Code block background */
 $code-block-bg: lighten($dark-md-background, 10%);
-
-//$monobackgroundcolor: $dark-md-background !default;
 
 /* Copy button */
 
