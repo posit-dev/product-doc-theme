@@ -114,24 +114,6 @@ body {
 }
 
 /* Posit logo - navbar or footer */
-#footer-right-full-posit-logo {
-  width: 70px;
-  min-width: 70px;
-}
-
-#footer-right-logo {
-  width: 26px;
-  min-width: 26px;
-  margin-left: -3px !important;
-  margin-right: -3px !important;
-}
-
-#footer-right-posit-logo {
-  width: 18px;
-  min-width: 18px;
-  margin-left: -3px !important;
-  margin-right: -3px !important;
-}
 
 .nav-link {
     font-family: $font-family-monospace;
@@ -149,6 +131,35 @@ body {
 }
 
 // Footer
+
+
+#footer-right-full-posit-logo {
+  width: 70px;
+  min-width: 70px;
+}
+
+#footer-right-logo {
+  width: 26px;
+  min-width: 26px;
+  margin-left: -3px !important;
+  margin-right: -3px !important;
+  padding-top: 1px;
+}
+
+#footer-right-posit-logo {
+  width: 18px;
+  min-width: 18px;
+  margin-left: -3px !important;
+  margin-right: -3px !important;
+}
+
+.bi-question-circle-fill {
+  font-size: 18px !important;
+}
+
+.bi-lightbulb-fill {
+  font-size: 18px !important;
+}
 
 .nav-footer {
   font-family: $font-family-monospace;
@@ -216,7 +227,6 @@ body {
     border: none;
   }
 }
-
 
 .nav-pills .nav-link.active, .nav-pills .nav-item.show .nav-link {
   color: #ffffff !important;
