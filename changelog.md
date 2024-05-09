@@ -1,3 +1,14 @@
+# unreleased
+
+* Add Posit dark mode theme
+* Resolves Callout colors issue (#57)
+* Fixed several style issues in default theme
+* Fixed several accessibility issues
+
+Known issue:
+
+* Dark mode reloads cause flashing (Quarto has an open issue with plans to address in v1.5 or v16)
+
 # v.3.1.0
 
 * Add alt-text to footer logos/icons
