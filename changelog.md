@@ -1,4 +1,4 @@
-# unreleased
+# v.4.0.0
 
 * Add Posit dark mode theme
 * Resolves Callout colors issue (#57)
