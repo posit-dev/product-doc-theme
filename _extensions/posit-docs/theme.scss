@@ -1,46 +1,46 @@
 /*-- scss:defaults --*/
 
 // import font
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 /*-- scss:variables --*/
 
 // scss-docs-start color-variables
 $posit-blue: #447099;
-$posit-light-blue-1: #D1DBE5;
-$posit-light-blue-2:  #A2B8CB;
-$posit-light-blue-3: #7494B1;
+$posit-light-blue-1: #d1dbe5;
+$posit-light-blue-2: #a2b8cb;
+$posit-light-blue-3: #7494b1;
 $posit-dark-blue-1: #305775;
-$posit-dark-blue-2: #213D4F;
-$posit-orange:  #EE6331;
-$posit-light-orange-1: #EDCCBF;
-$posit-light-orange-2: #EBA38C;
-$posit-dark-orange-1: #Ab4D26;
-$posit-dark-orange-2: #80361C;
-$posit-dark-orange-3: #451F12;
-$posit-gray:    #404041;
-$posit-light-gray-1: #C2C2C4;
+$posit-dark-blue-2: #213d4f;
+$posit-orange: #ee6331;
+$posit-light-orange-1: #edccbf;
+$posit-light-orange-2: #eba38c;
+$posit-dark-orange-1: #ab4d26;
+$posit-dark-orange-2: #80361c;
+$posit-dark-orange-3: #451f12;
+$posit-gray: #404041;
+$posit-light-gray-1: #c2c2c4;
 $posit-light-gray-2: #949494;
 $posit-dark-gray-1: #333333;
 $posit-teal: #419599;
-$posit-light-teal-1: #C2D9D9;
-$posit-light-teal-2: #94BDBF;
-$posit-light-teal-3: #70A3A6;
+$posit-light-teal-1: #c2d9d9;
+$posit-light-teal-2: #94bdbf;
+$posit-light-teal-3: #70a3a6;
 $posit-dark-teal-1: #297075;
-$posit-dark-teal-2: #1F4F4F;
-$posit-dark-teal-3: #122B2B;
-$posit-green:   #72994E;
-$posit-burgundy:#9A4665;
-$posit-light-burgundy-1:#D9C4CC;
-$posit-light-burgundy-2:#BF96A3;
-$posit-light-burgundy-3: #A67380;
-$posit-dark-burgundy-1:#78384F;
-$posit-dark-burgundy-2:#542938;
-$posit-dark-burgundy-3:#2E171F;
+$posit-dark-teal-2: #1f4f4f;
+$posit-dark-teal-3: #122b2b;
+$posit-green: #72994e;
+$posit-burgundy: #9a4665;
+$posit-light-burgundy-1: #d9c4cc;
+$posit-light-burgundy-2: #bf96a3;
+$posit-light-burgundy-3: #a67380;
+$posit-dark-burgundy-1: #78384f;
+$posit-dark-burgundy-2: #542938;
+$posit-dark-burgundy-3: #2e171f;
 $primary: $posit-teal;
 
 // Feature preview heading colors
-$preview-header: #EE6331; /* posit orange, contrast: 8.45 */
+$preview-header: #ee6331; /* posit orange, contrast: 8.45 */
 $preview-header-border: darken($preview-header, 5%);
 
 // scss-docs-end color-variables
@@ -49,7 +49,8 @@ $preview-header-border: darken($preview-header, 5%);
 // Font, line-height, and color for body text, headings, and more.
 
 //scss-font-start font-variables
-$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, system-ui;
+$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
+  sans-serif, system-ui;
 $font-family-monospace: "Source Code Pro", monospace;
 $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-size-base: 1rem;
@@ -59,8 +60,8 @@ $font-size-base: 1rem;
 $body-color: $posit-gray;
 
 // scss-docs-start font-sizes
-$h1-font-size:44px;
-$h2-font-size:28px;
+$h1-font-size: 44px;
+$h2-font-size: 28px;
 
 h1 {
   size: $h1-font-size;
@@ -69,7 +70,6 @@ h2 {
   size: $h2-font-size;
 }
 // scss-docs-end font-sizes
-
 
 // Headings
 // scss-docs-start headings-variables
@@ -97,38 +97,41 @@ $list-group-color: $primary !default;
 /* Body font */
 body {
   letter-spacing: -0.2px !important;
- }
-
+}
 
 // Nav and footer
 
 /* Navbar */
 
 .navbar {
-  box-shadow: 0 0 0.2rem #0000001a, 0 0.1rem 0.4rem #0003;
-  transition: transform .25s cubic-bezier(.1,.7,.1,1),box-shadow .25s;
+  box-shadow:
+    0 0 0.2rem #0000001a,
+    0 0.1rem 0.4rem #0003;
+  transition:
+    transform 0.25s cubic-bezier(0.1, 0.7, 0.1, 1),
+    box-shadow 0.25s;
 }
 
 .navbar-title {
-    font-family: $font-family-sans-serif;
-    font-size:  $font-size-base;
-    font-weight: 500;
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+  font-weight: 500;
 }
 
 /* Style for the version included in the website title */
 .navbar-title small {
-    font-size: 14px;
-    display: block;
-    padding-left: 1em;
+  font-size: 14px;
+  display: block;
+  padding-left: 1em;
 }
 
 .nav-link {
-    font-family: $font-family-monospace;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    color: $posit-gray !important;
+  font-family: $font-family-monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: $posit-gray !important;
 }
 
 .navbar-nav .nav-link.active,
@@ -143,12 +146,12 @@ body {
   font-family: $font-family-monospace;
   text-transform: uppercase;
   font-size: 14px;
-  border-top: solid #0000001a .01em;
+  border-top: solid #0000001a 0.01em;
   align-items: center !important;
 }
 
 .nav-footer .nav-footer-center {
-    min-height: min-content;
+  min-height: min-content;
 }
 
 /* Footer icons */
@@ -200,22 +203,23 @@ body {
   color: $posit-dark-blue-1;
 }
 
-
 // Tabs and pills
 
-/* Tabs */ 
+/* Tabs */
 
 .nav-tabs .nav-link {
-    text-transform: none !important;
-    font-family: $font-family-sans-serif;
-    color: $posit-gray !important;
+  text-transform: none !important;
+  font-family: $font-family-sans-serif;
+  color: $posit-gray !important;
 }
 
-.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-  color: #000000!important;
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #000000 !important;
 }
 
-.nav-tabs .nav-link:hover, .nav-link:focus {
+.nav-tabs .nav-link:hover,
+.nav-link:focus {
   color: $posit-blue !important;
 }
 
@@ -225,7 +229,8 @@ body {
   border: none !important;
 }
 
-.nav-pills, .panel-underline {
+.nav-pills,
+.panel-underline {
   > .nav {
     display: flex;
     border: none !important;
@@ -241,7 +246,8 @@ body {
   border: none !important;
 }
 
-.nav-pills, .panel-underline {
+.nav-pills,
+.panel-underline {
   .tab-content {
     padding-left: 0;
     padding-right: 0;
@@ -249,17 +255,20 @@ body {
   }
 }
 
-.nav-pills .nav-link.active, .nav-pills .nav-item.show .nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .nav-item.show .nav-link {
   color: #ffffff !important;
 }
 
-.nav-pills .nav-link:hover, .nav-link:focus {
+.nav-pills .nav-link:hover,
+.nav-link:focus {
   isolation: isolate;
-  color: $posit-blue!important;
+  color: $posit-blue !important;
   border: none !important;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
   color: #ffffff !important;
 }
 
@@ -272,25 +281,26 @@ body {
 
 /* Left nav - letter spacing */
 .sidebar-navigation li a {
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   font-size: 16px;
 }
 
 /* Left nav - letter spacing */
 .sidebar-navigation li a {
-    letter-spacing: -0.2px;
-    line-height: normal;
+  letter-spacing: -0.2px;
+  line-height: normal;
 }
 
 /* Mini TOC */
-.sidebar nav[role=doc-toc]>ul li a {
+.sidebar nav[role="doc-toc"] > ul li a {
   text-transform: none !important;
   font-family: $font-family-sans-serif;
   font-weight: 400 !important;
   letter-spacing: -0.2px !important;
 }
 
-.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+.sidebar nav[role="doc-toc"] ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
   font-weight: 700 !important;
 }
 
@@ -314,11 +324,11 @@ div.callout-note.callout {
 }
 
 div.callout-note .callout-icon::before {
-  background-image: url( '_extensions/posit-docs/assets/images/info-circle.svg') !important;
+  background-image: url("_extensions/posit-docs/assets/images/info-circle.svg") !important;
 }
 
-div.callout-note.callout-style-default>.callout-header {
-  background-color: #DCE7F2 !important;
+div.callout-note.callout-style-default > .callout-header {
+  background-color: #dce7f2 !important;
 }
 
 /* Warning */
@@ -327,25 +337,25 @@ div.callout-warning.callout {
 }
 
 div.callout-warning .callout-icon::before {
-  background-image: url( '_extensions/posit-docs/assets/images/exclamation-triangle.svg') !important;
+  background-image: url("_extensions/posit-docs/assets/images/exclamation-triangle.svg") !important;
 }
 
-div.callout-warning.callout-style-default>.callout-header {
-  background-color: #FAD8CA !important;
+div.callout-warning.callout-style-default > .callout-header {
+  background-color: #fad8ca !important;
 }
 
 /* Important */
 
 div.callout-important.callout {
-  border-left-color: $posit-burgundy!important;
+  border-left-color: $posit-burgundy !important;
 }
 
 div.callout-important .callout-icon::before {
- background-image: url( '_extensions/posit-docs/assets/images/exclamation-circle.svg') !important;
+  background-image: url("_extensions/posit-docs/assets/images/exclamation-circle.svg") !important;
 }
 
-div.callout-important.callout-style-default>.callout-header {
-  background-color: #F2DAE3 !important;
+div.callout-important.callout-style-default > .callout-header {
+  background-color: #f2dae3 !important;
 }
 
 // Specialty headers
@@ -386,10 +396,10 @@ div span.preview-feature {
 /* Callout steps for images with multiple items/steps shown in single image */
 
 ol.groovyAlpha {
-    list-style: none;
-    counter-reset: list-counter;
-  }
-  
+  list-style: none;
+  counter-reset: list-counter;
+}
+
 ol.groovyAlpha li {
   counter-increment: list-counter;
 }
