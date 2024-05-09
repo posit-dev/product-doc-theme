@@ -83,11 +83,37 @@ $ zypper
 ### Pills
 You can use tabs and pills for text, code blocks, tables, etc.
 
+### Code
+
+A single code block
+
+```bash
+$ yum install rstudio-workbench-rhel
+```
+
+Nested tabset
+
+::: panel-tabset
+
 ### RHEL
 
 ```bash
 $ yum install rstudio-workbench-rhel
 ```
+
+### Ubuntu | Debian
+
+```bash
+$ dpkg
+```
+
+### SUSE
+
+```bash
+$ zypper
+```
+
+:::
 
 ### Table
 
