@@ -99,7 +99,7 @@ $ yum install rstudio-workbench-rhel
 
 ### Image
 
-![This is a test image](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg "testing for alt text stuff")
+![This is a test image](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg "testing for alt text stuff"){width=240}
 
 :::
 
