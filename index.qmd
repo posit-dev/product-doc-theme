@@ -56,8 +56,7 @@ Job exited successfully
 
 ### Tabsets and pills
 
-::: panel-tabset
-
+::: {.panel-tabset}
 ### RHEL
 
 ```bash
@@ -69,6 +68,19 @@ $ yum install rstudio-workbench-rhel
 ```bash
 $ dpkg
 ```
+
+::: {.panel-tabset}
+### Ubuntu 22.04
+```bash
+$ You can nest tabsets
+```
+
+### Ubuntu 20.04
+```bash
+$ Nesting
+```
+:::
+
 
 ### SUSE
 
@@ -91,6 +103,30 @@ A single code block
 ```bash
 $ yum install rstudio-workbench-rhel
 ```
+
+Nested pills
+
+::: {.panel-tabset .nav-pills }
+
+### RHEL
+
+```bash
+$ yum install rstudio-workbench-rhel
+```
+
+### Ubuntu | Debian
+
+```bash
+$ dpkg
+```
+
+### SUSE
+
+```bash
+$ zypper
+```
+
+:::
 
 ### Table
 
