@@ -8,10 +8,10 @@
 // scss-docs-start color-variables
 $posit-blue: #447099;
 $posit-light-blue-1: #D1DBE5;
-$posit-light-blue-2: #A2B8CB;
+$posit-light-blue-2:  #A2B8CB;
+$posit-light-blue-3: #7494B1;
 $posit-dark-blue-1: #305775;
 $posit-dark-blue-2: #213D4F;
-$posit-dark-blue-3: #17212B;
 $posit-orange:  #EE6331;
 $posit-light-orange-1: #EDCCBF;
 $posit-light-orange-2: #EBA38C;
@@ -22,8 +22,13 @@ $posit-gray:    #404041;
 $posit-light-gray-1: #C2C2C4;
 $posit-light-gray-2: #949494;
 $posit-dark-gray-1: #333333;
-$posit-teal:    #419599;
+$posit-teal: #419599;
 $posit-light-teal-1: #C2D9D9;
+$posit-light-teal-2: #94BDBF;
+$posit-light-teal-3: #70A3A6;
+$posit-dark-teal-1: #297075;
+$posit-dark-teal-2: #1F4F4F;
+$posit-dark-teal-3: #122B2B;
 $posit-green:   #72994E;
 $posit-burgundy:#9A4665;
 $posit-light-burgundy-1:#D9C4CC;
@@ -32,7 +37,7 @@ $posit-light-burgundy-3: #A67380;
 $posit-dark-burgundy-1:#78384F;
 $posit-dark-burgundy-2:#542938;
 $posit-dark-burgundy-3:#2E171F;
-$primary: $posit-blue;
+$primary: $posit-teal;
 
 // Feature preview heading colors
 $preview-header: #EE6331; /* posit orange, contrast: 8.45 */
