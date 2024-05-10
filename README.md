@@ -65,14 +65,32 @@ website:
 
 Make the following modifications:
 
--   **Copyright:** Copyright dates are represented as a range from the year of
-    first product release until now. Adapt the example for your product and
-    how that information is made available.
-
 -   **Product name:** Replace the `PRODUCT` placeholder with the product name.
 
--   **Product version:** Adapt the version for your product based on how that
-    information is made available.
+-   **Product version:** Adapt the `PRODUCT_VERSION` variable for your product
+    based on how that information is made available. The example project gets
+    a default environment variable value from the
+    [`_environment`](https://quarto.org/docs/projects/environment.html) file.
+    
+    You may need to dynamically define `PRODUCT_VERSION` before rendering your
+    documentation.
+    
+    ```bash
+    export PRODUCT_VERSION=$(cat version.txt)
+    ```
+
+-   **Copyright:** Copyright dates are represented as a range from the year of
+    first product release until now. Adapt the `CURRENT_YEAR` variable for
+    your product and how that information is made available. The example
+    project gets a default environment variable value from the
+    [`_environment`](https://quarto.org/docs/projects/environment.html) file.
+
+    You may need to dynamically define `CURRENT_YEAR` before rendering your
+    documentation.
+    
+    ```bash
+    export CURRENT_YEAR=$(date "+%Y")
+    ```
 
 -   **Images:** Copy the two images from the extension into your project.
 
