@@ -1,4 +1,4 @@
-# v4.0.1 (unreleased)
+# v4.0.1
 
 * Fix path problem with callout icons by including them as inline Base64 data.
 * Add `_posit-colors.scss` file that is shared across style sheets.
