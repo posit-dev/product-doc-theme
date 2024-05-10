@@ -52,12 +52,14 @@ website:
       Posit PRODUCT {{< env PRODUCT_VERSION >}}
     right:
       - icon: question-circle-fill
+        aria-label: 'Link to Posit Support'
         href: "https://support.posit.co/hc/en-us"
       - icon: lightbulb-fill
+        aria-label: 'Link to Posit Solutions'
         href: "https://solutions.posit.co/"
-      - text: "<img src='/images/posit-guide-ltmd.svg' id='footer-right-logo'>"
+      - text: "<img alt='Link to Posit Documentation' src='/_extensions/posit-docs/assets/images/posit-guide-ltmd.svg' id='footer-right-logo'>"
         href: "https://docs.posit.co/"
-      - text: "<img src='/images/posit-logo-black-TM.svg' id='footer-right-posit-logo'>"
+      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
         href: "https://posit.co/"
 ```
 
