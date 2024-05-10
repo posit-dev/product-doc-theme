@@ -78,7 +78,7 @@ Make the following modifications:
 
     ```bash
     cp _extensions/posit-dev/posit-docs/assets/images/posit-guide-ltmd.svg images
-    cp _extensions/posit-dev/posit-docs/assets/images/posit-logo-black-TM.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/posit-icon-fullcolor.svg images
     ```
 
     These images are also available [from
