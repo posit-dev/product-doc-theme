@@ -1,4 +1,8 @@
-# v.4.0.0
+# v4.0.1 (unreleased)
+
+* Fix path problem with callout icons by including them as inline Base64 data.
+
+# v4.0.0
 
 * Add Posit dark mode theme
 * Resolves Callout colors issue (#57)
@@ -9,7 +13,7 @@ Known issue:
 
 * Dark mode reloads cause flashing (Quarto has an open issue with plans to address in v1.5 or v1.6)
 
-# v.3.1.0
+# v3.1.0
 
 * Add alt-text to footer logos/icons
 * Navigation bar:

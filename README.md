@@ -7,7 +7,7 @@ Shared theme for Posit product documentation
 First, install the extension:
 
 ```bash
-quarto add posit-dev/product-doc-theme@v3.0.0
+quarto add posit-dev/product-doc-theme@v4.0.0
 ```
 
 Next, update your project type and format in `_quarto.yml`:
@@ -52,12 +52,14 @@ website:
       Posit PRODUCT {{< env PRODUCT_VERSION >}}
     right:
       - icon: question-circle-fill
+        aria-label: 'Link to Posit Support'
         href: "https://support.posit.co/hc/en-us"
       - icon: lightbulb-fill
+        aria-label: 'Link to Posit Solutions'
         href: "https://solutions.posit.co/"
-      - text: "<img src='/images/posit-guide-ltmd.svg' id='footer-right-logo'>"
+      - text: "<img alt='Link to Posit Documentation' src='/_extensions/posit-docs/assets/images/posit-guide-ltmd.svg' id='footer-right-logo'>"
         href: "https://docs.posit.co/"
-      - text: "<img src='/images/posit-logo-black-TM.svg' id='footer-right-posit-logo'>"
+      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
         href: "https://posit.co/"
 ```
 
@@ -78,7 +80,7 @@ Make the following modifications:
 
     ```bash
     cp _extensions/posit-dev/posit-docs/assets/images/posit-guide-ltmd.svg images
-    cp _extensions/posit-dev/posit-docs/assets/images/posit-logo-black-TM.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/posit-icon-fullcolor.svg images
     ```
 
     These images are also available [from
