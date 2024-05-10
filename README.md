@@ -74,7 +74,7 @@ Make the following modifications:
 -   **Product version:** Adapt the version for your product based on how that
     information is made available.
 
--   **Images:** Copy the two images from the extension into your project.
+-   **Images:** Copy the two images from the extension into your project and update the `src` paths.
 
     For example, you may have a top-level `images` directory:
 
