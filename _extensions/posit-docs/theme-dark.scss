@@ -149,9 +149,10 @@ $code-block-bg: lighten($dark-md-background, 10%);
 
 /* Copy button */
 
-$btn-code-copy-color: $posit-light-blue-2;
-$btn-code-copy-color-active: #ffffff;
+$btn-code-copy-color: #ffffff;
+$btn-code-copy-color-active: $posit-orange;
 $callout-icon-scale: 70%;
+$tooltip-color:  #ffffff !default; // Copied! color 
 
 // Tabs and pills
 
