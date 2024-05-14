@@ -54,6 +54,16 @@ Job has finished running
 Job exited successfully
 ```
 
+```default
+The default language identifier; used sometimes for logs.
+```
+
+And now for a code block without any language identifier.
+
+```
+This is some text in a code block without a language tag.
+```
+
 ### Tabsets and pills
 
 ::: {.panel-tabset}
