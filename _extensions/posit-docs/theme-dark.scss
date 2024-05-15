@@ -133,6 +133,12 @@ td code:not(.sourceCode) {
 
 // Code blocks
 
+pre code:not(.sourceCode) {
+  background-color: #1a3146 !important;
+  color: #ffffff;
+  padding: 9px !important;
+}
+
 /* Code block title*/
 
 .quarto-dark .code-with-filename .code-with-filename-file {
