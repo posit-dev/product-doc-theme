@@ -187,6 +187,8 @@ body {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #000000 !important;
+  font-weight: 700 !important;
+  text-decoration: underline 1px $posit-orange !important; 
 }
 
 .nav-tabs .nav-link:hover,
@@ -229,6 +231,7 @@ body {
 .nav-pills .nav-link.active,
 .nav-pills .nav-item.show .nav-link {
   color: #ffffff !important;
+  text-decoration: none !important;
 }
 
 .nav-pills .nav-link:hover,
