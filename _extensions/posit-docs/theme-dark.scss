@@ -59,6 +59,10 @@ $navbar-fg: #ffffff;
 //
 // Settings for the `<body>` element.
 
+/* Body font */
+body {
+  font-weight: 400 !important;
+}
 //$body-color: $posit-green !default;
 $body-bg: $dark-md-background !default; // dark mode change
 
@@ -93,6 +97,53 @@ $body-bg: $dark-md-background !default; // dark mode change
   background-color: #0f1c29 !important;
 }
 
+/* Search results */
+
+.aa-DetachedOverlay a.search-result-link, #quarto-search-results a.search-result-link {
+  color: $posit-blue !important;
+  text-decoration: none;
+}
+
+.aa-DetachedOverlay .aa-Item .search-result-doc:not(.document-selectable) .search-result-title-container, #quarto-search-results .aa-Item .search-result-doc:not(.document-selectable) .search-result-title-container {
+  background-color: #c2c2c4 !important;
+  font-weight: 500 !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item, #quarto-search-results li.aa-Item[aria-selected=false] .search-item {
+  background-color: #ffffff !important;
+
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-section, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-title-container, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text-container, #quarto-search-results li.aa-Item[aria-selected=true] .search-item.search-result-more, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-section, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-title-container, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text-container {
+  color: #ffffff !important;
+  background-color: $posit-blue !important;
+  font-weight: 400 !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-title-container, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text-container, #quarto-search-results li.aa-Item[aria-selected=false] .search-item.search-result-more, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-section, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-title-container, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text-container {
+  color: #000000 !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item {
+    background-color: $posit-blue !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item mark.search-match, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-match.mark, #quarto-search-results li.aa-Item[aria-selected=false] .search-item mark.search-match, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-match.mark {
+  color: $posit-teal !important;
+  background-color: #ffffff !important;
+  font-weight:700 !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item.search-result-more, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-section, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-title-container, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text-container, #quarto-search-results li.aa-Item[aria-selected=false] .search-item.search-result-more, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-section, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-title-container, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text-container {
+  color: $posit-dark-gray-1 !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item mark.search-match, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-match.mark, #quarto-search-results li.aa-Item[aria-selected=true] .search-item mark.search-match, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-match.mark {
+  color: #000000 !important;
+  background-color: $posit-light-gray-1 !important;
+}
+
+.aa-Detache
 /* Footer */
 
 .nav-footer {
