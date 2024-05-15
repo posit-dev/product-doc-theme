@@ -7,7 +7,7 @@ Shared theme for Posit product documentation
 First, install the extension:
 
 ```bash
-quarto add posit-dev/product-doc-theme@v4.0.1
+quarto add posit-dev/product-doc-theme@v4.0.2
 ```
 
 Next, update your project type and format in `_quarto.yml`:

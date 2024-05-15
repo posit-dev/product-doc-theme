@@ -1,4 +1,4 @@
-# unreleased
+# v4.0.2
 
 * Fixed dark theme copy button "Copied" feedback that wasn't legible
 * Fixed dark theme code block without language identifier (unreadable)
