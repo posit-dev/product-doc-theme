@@ -163,7 +163,7 @@ This is a note.
 
 
 ::: {.callout-warning}
-Only use the warning callout to explain dangers that may result in personal injury or death. 
+Explains hazards that could damage a product, including data loss.
 :::
 
 ::: {.callout-important}
