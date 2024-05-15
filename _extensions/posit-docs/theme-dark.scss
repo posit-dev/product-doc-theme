@@ -100,6 +100,10 @@ $body-bg: $dark-md-background !default; // dark mode change
 
 /* Search results */
 
+.aa-DetachedOverlay .aa-SourceHeader .search-result-header, #quarto-search-results .aa-SourceHeader .search-result-header {
+  font-weight: 600 !important;
+}
+
 .aa-DetachedOverlay a.search-result-link, #quarto-search-results a.search-result-link {
   color: $posit-blue !important;
   text-decoration: none;
@@ -130,7 +134,7 @@ $body-bg: $dark-md-background !default; // dark mode change
 }
 
 .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item mark.search-match, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-match.mark, #quarto-search-results li.aa-Item[aria-selected=false] .search-item mark.search-match, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-match.mark {
-  color: $posit-teal !important;
+  color: $posit-dark-teal-1 !important;
   background-color: #ffffff !important;
   font-weight:700 !important;
 }
@@ -144,7 +148,6 @@ $body-bg: $dark-md-background !default; // dark mode change
   background-color: $posit-light-gray-1 !important;
 }
 
-.aa-Detache
 /* Footer */
 
 .nav-footer {
