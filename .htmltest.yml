@@ -1,0 +1,13 @@
+DirectoryPath: _site
+
+# allow for cosmetic images
+IgnoreAltEmpty: true
+
+# skip external links
+CheckExternal: false
+
+# Dark mode toggle includes an <a href="">
+IgnoreEmptyHref: true
+
+# Header toggle for "more items" includes an <a href="#">
+IgnoreInternalEmptyHash: true

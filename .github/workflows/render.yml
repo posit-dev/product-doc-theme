@@ -10,10 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.4.550
+          version: 1.4.557
       - name: Render site
         uses: quarto-dev/quarto-actions/render@v2
+      - name: Run htmltest
+        uses: wjdp/htmltest-action@master
+        with:
+          config: .htmltest.yml
