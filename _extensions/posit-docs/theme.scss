@@ -400,3 +400,9 @@ ol.groovyAlpha li > p:before {
   line-height: 16px;
   vertical-align: middle;
 }
+
+// Mermaid diagrams
+
+#mermaid-1 .nodeLabel {
+  font-weight: 700!important;
+}
