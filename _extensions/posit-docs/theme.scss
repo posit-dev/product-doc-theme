@@ -109,12 +109,15 @@ body {
   font-weight: 700 !important;
 }
 
+/* Adds separation between nav bar links and site title */
+.navbar-collapse {
+  margin-left: 50px !important;
+}
+
 /* Footer */
 
 .nav-footer {
-
   border-top: solid #0000001a 0.01em;
-
 }
 
 @media only screen and (max-width: 1200px) {
