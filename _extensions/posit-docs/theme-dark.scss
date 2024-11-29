@@ -76,11 +76,6 @@ $body-bg: $dark-md-background !default; // dark mode change
 }
 
 .nav-link {
-  font-family: $font-family-monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-size: 14px !important;
-  font-weight: 500 !important;
   color: #fff !important;
 }
 
@@ -182,6 +177,36 @@ $body-bg: $dark-md-background !default; // dark mode change
 p code:not(.sourceCode),
 li code:not(.sourceCode),
 td code:not(.sourceCode) {
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
+h1 code{
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
+h2 code{
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
+h3 code{
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
+h4 code{
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
+h5 code{
+  background-color: #6e768166 !important;
+  color: #ffffff;
+}
+
+h6 code{
   background-color: #6e768166 !important;
   color: #ffffff;
 }

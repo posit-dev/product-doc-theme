@@ -1,3 +1,13 @@
+# v5.0.0
+
+* Bumped minimum Quarto version requirement to `quarto-required: ">=1.5.57"`
+* 
+* Fixed inline-code in headings style
+* Fixed footer wrap (temp fixed) to hide footer once window hits a max-size
+* Disabled Google Analytics by default (new sites cannot have GA w/out cookie consent)
+* Adjusted font color, size, weight based on recommendations
+* Ajusted navbar font styling.
+
 # v4.0.2
 
 * Fixed dark theme copy button "Copied" feedback that wasn't legible
