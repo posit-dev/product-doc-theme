@@ -9,8 +9,6 @@ contributes:
     website:
       favicon: "assets/images/favicon.svg"
       bread-crumbs: true
-      cookie-consent:
-        type: express
       navbar:
         pinned: true
         logo: "assets/images/posit-icon-fullcolor.svg"
