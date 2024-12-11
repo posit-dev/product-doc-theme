@@ -8,6 +8,9 @@ contributes:
       type: website
     website:
       favicon: "assets/images/favicon.svg"
+      cookie-consent:
+        type: express
+        style: headline
       bread-crumbs: true
       navbar:
         pinned: true
@@ -33,5 +36,4 @@ contributes:
         link-external-newwindow: true
         toc: true
         toc-expand: true
-    # NEW SITES ONLY - DO NOT USE GOOGLE ANALYTICS - WE NEED TO ADD COOKIE CONSENT TO THEME. EXISTING SITES - YOU CAN ENABLE THE _ANALYTICS.HTML FILE BELOW TO CONTINUE USING GA
-       # include-in-header: "assets/_analytics.html"
+        include-in-header: "assets/_analytics.html"
