@@ -1,0 +1,8 @@
+::: {.callout-warning appearance="simple"}
+
+## Preview feature
+
+This feature is in preview. Preview features are unsupported and may face breaking changes in a future release. Any issues found in the feature will be addressed during the regular release schedule; they will not result in immediate patches or hotfixes.
+
+We encourage customers to try these features and we welcome any feedback via Posit Support, but we recommend that the feature not be used in production until it is in general availability (i.e., officially released as a full feature).  To provide feedback, please email your Posit Customer Success representative or <sales@posit.co> and specify that you are trialing this feature.
+:::
