@@ -39,6 +39,7 @@ cat("cats are cats\n")
 ```
 
 ```python
+# Comment
 print("snakes are not cats")
 ```
 

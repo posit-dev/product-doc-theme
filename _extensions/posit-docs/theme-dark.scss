@@ -219,6 +219,10 @@ pre code:not(.sourceCode) {
   padding: 9px !important;
 }
 
+code span.co {
+  font-style: inherit !important
+}
+
 /* Code block title*/
 
 .quarto-dark .code-with-filename .code-with-filename-file {
