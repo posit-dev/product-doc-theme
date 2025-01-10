@@ -167,11 +167,17 @@ No. Hands-on is delightful.
 This is a note.
 :::
 
+::: {.callout-tip}
+This is a note.
+:::
 
 ::: {.callout-warning}
 Explains hazards that could damage a product, including data loss.
 :::
 
+::: {.callout-caution}
+Explains hazards that could damage a product, including data loss.
+:::
 ::: {.callout-important}
 This is important; don't ignore this information.
 :::
