@@ -167,17 +167,11 @@ No. Hands-on is delightful.
 This is a note.
 :::
 
-::: {.callout-tip}
-This is a note.
-:::
 
 ::: {.callout-warning}
 Explains hazards that could damage a product, including data loss.
 :::
 
-::: {.callout-caution}
-Explains hazards that could damage a product, including data loss.
-:::
 ::: {.callout-important}
 This is important; don't ignore this information.
 :::
@@ -192,6 +186,19 @@ This is a collapsed note.
 
 This is a note with an alternate title.
 :::
+
+::: {.callout-note appearance="simple"}
+This is a simple note.
+:::
+
+::: {.callout-important appearance="simple"}
+This is a simple note.
+:::
+
+::: {.callout-warning appearance="simple"}
+This is a simple note.
+:::
+
 
 ## Level two: lists
 
