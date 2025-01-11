@@ -19,7 +19,7 @@ This table uses the bootstrap `{.striped .hover}` classes:
 | X-RS-Distributed-Event-Timestamp | Communication between nodes in a load balanced environment                         |
 | X-RS-Launcher-Secret             | Inter-process communication with the Job Launcher                                  |
 | X-RS-Monitor-Shared-Secret       | Inter-process authentication                                                       |
-:This table is using the striped + hover Bootstrap classes {.striped .hover}
+:This table is using the striped + hover `Bootstrap` classes {.striped .hover}
 
 
 This table is not using any bootstrap classes:
