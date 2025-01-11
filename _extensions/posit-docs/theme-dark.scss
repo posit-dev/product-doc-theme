@@ -225,7 +225,11 @@ pre code:not(.sourceCode) {
 }
 
 code span.co {
-  font-style: inherit !important
+  font-style: normal !important
+}
+
+code span.er {
+  text-decoration: none !important;
 }
 
 /* Code block title*/
