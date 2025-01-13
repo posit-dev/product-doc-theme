@@ -1,3 +1,12 @@
+# v5.1.0
+
+* Corrects several theme issues identified in Connect docs product testing.
+
+# v5.0.1
+
+* Removes cookie consent added by default
+* Updates README to provide additional direction for Google Analytics implementation due to lack of cookie consent
+
 # v5.0.0
 
 * Bumped minimum Quarto version requirement to `quarto-required: ">=1.5.57"`
