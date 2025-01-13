@@ -1,6 +1,6 @@
 title: posit-docs
 author: Ashley Henry, David Aja, Aron Atkins
-version: 5.0.0
+version: 5.1.1
 quarto-required: ">=1.5.57"
 contributes:
   project:
