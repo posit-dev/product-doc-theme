@@ -39,6 +39,7 @@ cat("cats are cats\n")
 ```
 
 ```python
+# Comment
 print("snakes are not cats")
 ```
 
@@ -185,6 +186,19 @@ This is a collapsed note.
 
 This is a note with an alternate title.
 :::
+
+::: {.callout-note appearance="simple"}
+This is a simple note.
+:::
+
+::: {.callout-important appearance="simple"}
+This is a simple note.
+:::
+
+::: {.callout-warning appearance="simple"}
+This is a simple note.
+:::
+
 
 ## Level two: lists
 

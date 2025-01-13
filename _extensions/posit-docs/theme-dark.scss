@@ -181,6 +181,11 @@ td code:not(.sourceCode) {
   color: #ffffff;
 }
 
+table caption code {
+  background-color: #6e768166;
+  color: #ffffff;
+}
+
 h1 code{
   background-color: #6e768166 !important;
   color: #ffffff;
@@ -217,6 +222,14 @@ pre code:not(.sourceCode) {
   background-color: #1a3146 !important;
   color: #ffffff;
   padding: 9px !important;
+}
+
+code span.co {
+  font-style: normal !important
+}
+
+code span.er {
+  text-decoration: none !important;
 }
 
 /* Code block title*/
@@ -334,6 +347,12 @@ div.callout-note.callout-style-default > .callout-header {
   background-color: $posit-blue !important;
 }
 
+.callout-note .callout-icon::before, .callout.callout-style-simple .callout-toggle::before {
+  background-size: 1rem 1rem;
+  background-color: $posit-blue;
+  border-radius: 1rem;
+}
+
 /* Warning */
 
 div.callout-warning.callout {
@@ -352,6 +371,11 @@ div.callout-warning.callout-style-default > .callout-header {
   background-color: $posit-dark-orange-1 !important;
 }
 
+.callout-warning .callout-icon::before, .callout.callout-style-simple .callout-toggle::before {
+  clip-path: polygon(50% 0%, 100% 90%, 0% 90%);
+  background-color: $posit-orange;
+}
+
 /* Important */
 
 div.callout-important.callout {
@@ -368,6 +392,12 @@ div.callout-important .callout-icon::before {
 
 div.callout-important.callout-style-default > .callout-header {
   background-color: $posit-burgundy !important;
+}
+
+.callout-important .callout-icon::before, .callout.callout-style-simple .callout-toggle::before {
+  background-size: 1rem 1rem;
+  background-color: $posit-burgundy;
+  border-radius: 1rem;
 }
 
 // Tables
