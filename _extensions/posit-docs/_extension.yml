@@ -33,5 +33,5 @@ contributes:
         link-external-newwindow: true
         toc: true
         toc-expand: true
-    # NEW SITES ONLY - DO NOT USE GOOGLE ANALYTICS - WE NEED TO ADD COOKIE CONSENT TO THEME. EXISTING SITES - YOU CAN ENABLE THE _ANALYTICS.HTML FILE BELOW TO CONTINUE USING GA
-       # include-in-header: "assets/_analytics.html"
+        include-in-header: "assets/_analytics.html"
+        include-before-body: "assets/_analytics-body.html"

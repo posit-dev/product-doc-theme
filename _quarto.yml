@@ -42,8 +42,7 @@ website:
   page-footer:
     left: |
       Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
-    center: |
-      Posit PRODUCT {{< env PRODUCT_VERSION >}}
+
     right:
       - icon: question-circle-fill
         aria-label: 'Link to Posit Support'
