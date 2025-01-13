@@ -4,15 +4,10 @@ Shared theme for Posit product documentation
 
 ## Usage
 
----
-**IMPORTANT - Change in Google Analytics Policy:** New documentation sites are not permitted to use Google Analytics due to a Posit Cookie Consent policy. Version 5+ of the theme disables Google Analytics by default. If your existing site is already using Google Analytics, uncomment the ` # include-in-header: "assets/_analytics.html"` line in the `_extension.yml` file.
-
----
-
 First, install the extension:
 
 ```bash
-quarto add posit-dev/product-doc-theme@v5.0.1
+quarto add posit-dev/product-doc-theme@v6.0.0
 ```
 
 Next, update your project type and format in `_quarto.yml`:
@@ -59,11 +54,11 @@ website:
       - icon: question-circle-fill
         aria-label: 'Link to Posit Support'
         href: "https://support.posit.co/hc/en-us"
+      - text: '<a href="#" id="open_preferences_center" title="Manage your cookie preferences"><i class="bi bi-cookie"></i></i></a>'
+        aria-label: 'Cookie Prefs'
       - icon: lightbulb-fill
         aria-label: 'Link to Posit Solutions'
         href: "https://solutions.posit.co/"
-      - text: "<img alt='Link to Posit Documentation' src='/_extensions/posit-docs/assets/images/posit-guide-ltmd.svg' id='footer-right-logo'>"
-        href: "https://docs.posit.co/"
       - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
         href: "https://posit.co/"
 ```
