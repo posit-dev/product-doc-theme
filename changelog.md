@@ -1,3 +1,8 @@
+# v5.1.1
+
+* Updating README with new patch version
+* Updating extension version (failed to bump in v5.1.0)
+
 # v5.1.0
 
 * Corrects several theme issues identified in Connect docs product testing.
