@@ -1,21 +1,24 @@
+# Current
+
+* Adds Cookie Consent prompt and styles to theme (Posit requirement)
+
 # v5.1.1
 
-* Updating README with new patch version
-* Updating extension version (failed to bump in v5.1.0)
+* Updated README with new patch version
+* Updated extension version (failed to bump in v5.1.0)
 
 # v5.1.0
 
-* Corrects several theme issues identified in Connect docs product testing.
+* Corrected several theme issues identified in Connect docs product testing.
 
 # v5.0.1
 
-* Removes cookie consent added by default
-* Updates README to provide additional direction for Google Analytics implementation due to lack of cookie consent
+* Removed cookie consent added by default
+* Updated README to provide additional direction for Google Analytics implementation due to lack of cookie consent
 
 # v5.0.0
 
 * Bumped minimum Quarto version requirement to `quarto-required: ">=1.5.57"`
-* 
 * Fixed inline-code in headings style
 * Fixed footer wrap (temp fixed) to hide footer once window hits a max-size
 * Disabled Google Analytics by default (new sites cannot have GA w/out cookie consent)
