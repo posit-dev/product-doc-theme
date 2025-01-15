@@ -1,12 +1,12 @@
-# Unreleased
+# v6.1.0
 
 * Bumps `env` `CURRENT_YEAR=2025`
 * Removes `display:none` footer style that hides footer below 1200px
 
 # v6.0.1
 
-* Bumps version in `_extensions` 
-* 
+* Bumps version in `_extensions`
+
 # v6.0.0
 
 * Adds Cookie Consent prompt and styles to theme (Posit requirement)
