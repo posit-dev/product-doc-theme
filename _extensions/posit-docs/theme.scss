@@ -120,12 +120,6 @@ body {
   border-top: solid #0000001a 0.01em;
 }
 
-@media only screen and (max-width: 1200px) {
-  .nav-footer {
-    display: none !important;
-  }
-}
-
 .nav-footer .nav-footer-center {
   min-height: min-content;
 }
