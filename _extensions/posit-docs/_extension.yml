@@ -9,10 +9,6 @@ contributes:
     website:
       favicon: "assets/images/favicon.svg"
       bread-crumbs: true
-      cookie-consent:
-        type: express
-        style: interstitial
-        policy-url: https://posit.co/privacy
       navbar:
         pinned: true
         logo: "assets/images/posit-icon-fullcolor.svg"
@@ -38,4 +34,3 @@ contributes:
         toc: true
         toc-expand: true
         include-in-header: "assets/_analytics.html"
-        include-before-body: "assets/_analytics-body.html"
