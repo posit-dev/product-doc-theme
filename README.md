@@ -4,6 +4,8 @@ Shared theme for Posit product documentation
 
 ## Usage
 
+**!!! WARNING: Cookie Consent will be managed by GTM (not the theme) in v7.0.0 of the theme. Please check with Ashley Henry prior to bumping your theme to latest / v7.0 so WebOps can opt the site in for tracking.**
+
 First, install the extension:
 
 ```bash
