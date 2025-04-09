@@ -1,3 +1,8 @@
+# v7.0.0
+
+* Bumps quarto version
+* Removes GTM and Cookie Consent from theme
+
 # v6.1.0
 
 * Bumps `env` `CURRENT_YEAR=2025`
