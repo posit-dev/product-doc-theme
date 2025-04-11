@@ -256,6 +256,21 @@ div.sourceCode {
   color: #ffffff !important;
 }
 
+// Download button
+
+ul.me-auto {
+  position: relative;
+  top: 0.75rem;
+}
+
+.menu-text.btn {
+  top: inherit;
+}
+li.nav-item span.btn.btn-primary {
+  position: relative;
+  top: -0.6rem;
+}
+
 // Sidebar and toc
 
 /* Left nav */
@@ -406,8 +421,3 @@ ol.groovyAlpha li > p:before {
   vertical-align: middle;
 }
 
-// Mermaid diagrams
-
-#mermaid-1 .nodeLabel {
-  font-weight: 700!important;
-}
