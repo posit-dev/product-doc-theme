@@ -33,4 +33,3 @@ contributes:
         link-external-newwindow: true
         toc: true
         toc-expand: true
-        include-in-header: "assets/_analytics.html"

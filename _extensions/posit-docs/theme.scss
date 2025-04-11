@@ -7,7 +7,7 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-blue;
+$primary: #3a78b1e6;
 
 // Feature preview heading colors
 $preview-header: #ee6331; /* posit orange, contrast: 8.45 */
@@ -248,13 +248,25 @@ body {
   color: #ffffff !important;
 }
 
-// Sidebar and toc
+// Code blocks
 
-/* Left nav */
-.sidebar-item-container .active {
-  font-weight: 500;
+div.sourceCode {
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px rgba(29, 31, 33, .14), 0px 2px 4px rgba(29, 31, 33, .16);
 }
 
+
+// Sidebar and toc
+
+// Sidebar
+
+div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
+  background-color: #F0F0F2;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  margin-left: -2px;
+  padding: 6px;
+}
 /* Left nav - letter spacing */
 .sidebar-navigation li a {
   letter-spacing: 0.03em;
@@ -280,12 +292,6 @@ body {
   font-weight: 700 !important;
 }
 
-// Lists
-
-/* List disc colors */
-li::marker {
-  color: $primary;
-}
 
 // Callouts
 
@@ -398,8 +404,17 @@ ol.groovyAlpha li > p:before {
   vertical-align: middle;
 }
 
-// Mermaid diagrams
+// Download button
 
-#mermaid-1 .nodeLabel {
-  font-weight: 700!important;
+ul.me-auto {
+  position: relative;
+  top: 0.75rem;
+}
+
+.menu-text.btn {
+  top: inherit;
+}
+li.nav-item span.btn.btn-primary {
+  position: relative;
+  top: -0.6rem;
 }

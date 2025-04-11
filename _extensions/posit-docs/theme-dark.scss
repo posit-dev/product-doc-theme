@@ -7,10 +7,14 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-teal;
-$dark-md-body: $posit-light-gray-1;
-$dark-md-background: #0c1721;
+$primary: #3a78b1;
+$dark-md-body: #f0f3f6;
+$dark-md-background:#0a0c10;
 
+//$body-color: $posit-green !default;
+$body-bg: $dark-md-background !default; // dark mode change
+
+$body-color: $posit-light-gray-1;
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
 $preview-header-border: darken($preview-header, 5%);
@@ -50,8 +54,7 @@ $headings-color: #ffffff;
 // scss-docs-end headings-variables
 
 //  Customize the navbar
-$navbar-bg: lighten($dark-md-background, 5%);
-$navbar-fg: #ffffff;
+$navbar-bg: #fff;
 
 // CSS overrides
 
@@ -71,17 +74,9 @@ $body-bg: $dark-md-background !default; // dark mode change
 
 /* Nav bar */
 
-.navbar-title {
-  color: #ffffff; // dark theme change
-}
-
-.nav-link {
-  color: #fff !important;
-}
-
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: $posit-teal !important;
+  color: $primary !important;
   font-weight: 700 !important;
 }
 
@@ -298,32 +293,29 @@ $tooltip-color:  #ffffff !default; // Copied! color
 
 .nav-pills .nav-link.active,
 .nav-link:hover {
-  color: #ffffff !important;
+  color: $primary !important;
 }
 
 // Sidebar and toc
 
-/* Left nav - letter spacing */
-.sidebar-navigation li a {
-  color: #ffffff;
+// Sidebar
+
+.sidebar-item-container  {
+  color: rgb(216, 43, 72) !important;
 }
+
+div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
+  background-color: #2b303c;
+  color: #fff !important;
+}
+
 
 .sidebar-navigation li a:hover {
-  color: inherit;
+  color: $primary;
+  font-weight: 700;
 }
 
-.sidebar-item-container .active,
-div.sidebar-item-container .show > .nav-link,
-div.sidebar-item-container .sidebar-link > code {
-  color: $posit-teal !important;
-}
 
-// Lists
-
-/* List disc colors */
-li::marker {
-  color: $posit-teal;
-}
 
 // Callouts
 
