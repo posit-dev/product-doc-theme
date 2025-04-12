@@ -318,6 +318,12 @@ div.sidebar-item-container .sidebar-link > code {
   color: $posit-teal !important;
 }
 
+.navbar-nav .nav-link.nav-link:hover,
+.navbar-nav .nav-link.show {
+  color: $posit-teal !important;
+}
+
+
 // Lists
 
 /* List disc colors */

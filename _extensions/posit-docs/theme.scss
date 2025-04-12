@@ -105,9 +105,16 @@ body {
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: #000000 !important;
+  color: $primary !important;
   font-weight: 700 !important;
 }
+
+.navbar-nav .nav-link.nav-link:hover,
+.navbar-nav .nav-link.show {
+  color: $primary !important;
+}
+
+
 
 /* Adds separation between nav bar links and site title */
 .navbar-collapse {
@@ -151,9 +158,9 @@ div.sourceCode {
 
 /* Posit icon fullcolor */
 #footer-right-posit-logo {
-  width: 18px;
-  min-width: 18px;
-  margin-left: -10px !important;
+  width: 16px;
+  min-width: 16px;
+  padding-bottom: 5px !important;
 }
 
 /* Posit logo - footer
@@ -258,18 +265,10 @@ div.sourceCode {
 
 // Download button
 
-ul.me-auto {
-  position: relative;
-  top: 0.5rem;
+.bi-github::before {
+  padding-top: 12px !important;
 }
 
-.menu-text.btn {
-  top: inherit;
-}
-li.nav-item span.btn.btn-primary {
-  position: relative;
-  top: -0.5rem;
-}
 
 // Sidebar and toc
 
