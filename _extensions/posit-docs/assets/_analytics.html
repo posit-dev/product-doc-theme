@@ -10,10 +10,9 @@
 <!-- Display cookie icon in footer in docs.posit.co/netlify.app URLs; hide icon on other URLs -->
 <script type="text/javascript">
 window.onload = function () {
-    const prefCenter = document.querySelector("#open_preferences_center");
-    const sURL = window.location.href;
-
+    const prefCenter = document.querySelector("li:has(#open_preferences_center)");
     if (prefCenter) { // Test for prefCenter ID presence
+        const sURL = window.location.href;
         // Show the icon only if the URL contains "docs.posit.co" or "netlify.app"
         if (sURL.includes("docs.posit.co") || sURL.includes("netlify.app")) {
             prefCenter.style.display = "inline";
