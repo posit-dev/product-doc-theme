@@ -10,6 +10,8 @@
 <!-- Display cookie icon in footer in docs.posit.co/netlify.app URLs; hide icon on other URLs -->
 <script type="text/javascript">
 window.onload = function () {
+    // target the <li> instead of the icon to allow screenreaders to properly
+    // calculate the size of the list when the icon is hidden
     const prefCenter = document.querySelector("li:has(#open_preferences_center)");
     if (prefCenter) { // Test for prefCenter ID presence
         const sURL = window.location.href;
