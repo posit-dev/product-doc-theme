@@ -4,12 +4,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 // import shared colors
-@import '_posit-colors';
+@import '_posit-colors'; 
+
+$blue: $posit-blue;
+$red: $posit-red;
+$orange: $posit-orange;
+$yellow: $posit-yellow;
+$green: $posit-green;
+$teal: $posit-teal;
+$cyan: #75A8D9; //this is from the rstudio logo, so might be reconsidered?
+$black: #000;
+$white: #fff;
+$gray: $posit-gray;
+$gray-dark: #343a40;
+$gray-100: #f8f8f8;
+$gray-200: #C2C2C4;
+$gray-300: #949494;
+$gray-400: #707073;
+$gray-500: #495057;
+$gray-600: #404041;
+$gray-700: #333333;
+$gray-800: #242426;
+$gray-900: #151515;
+$default: $gray-900;
+$secondary: $gray-400;
+$success: $green;
+$info: $yellow;
+$warning: $orange;
+$danger: $red;
 
 /*-- scss:variables --*/
-$primary: $posit-teal;
+$primary: darken($posit-light-blue-3, 1%);
 $dark-md-body: $posit-light-gray-1;
-$dark-md-background: #0c1721;
+$dark-md-background: #151515;
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -81,7 +108,7 @@ $body-bg: $dark-md-background !default; // dark mode change
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: $posit-teal !important;
+  color: darken($posit-light-blue-3, 1%) !important;
   font-weight: 700 !important;
 }
 
@@ -158,7 +185,7 @@ $body-bg: $dark-md-background !default; // dark mode change
 // Footnotes
 
 .footnote-back {
-  color: $posit-light-teal-2;
+  color: darken($posit-light-blue-3, 1%);
 }
 
 // Breadcrumbs
@@ -264,7 +291,7 @@ $tooltip-color:  #ffffff !default; // Copied! color
 /* Tabs */
 
 .nav-tabs .nav-link.active {
-  color: $posit-teal !important;
+  color: darken($posit-light-blue-3, 1%) !important;
 }
 
 .nav-tabs .nav-link {
@@ -275,7 +302,7 @@ $tooltip-color:  #ffffff !default; // Copied! color
 
 .nav-tabs .nav-link:hover,
 .nav-link:focus {
-  color: $posit-teal !important;
+  color: darken($posit-light-blue-3, 1%) !important;
 }
 
 .nav-tabs .nav-link.active,
@@ -292,7 +319,7 @@ $tooltip-color:  #ffffff !default; // Copied! color
 .nav-pills .nav-link:hover,
 .nav-link:focus {
   isolation: isolate;
-  //  color: $posit-teal !important;
+  //  color: darken($posit-light-blue-3, 1%) !important;
   border: none !important;
 }
 
@@ -315,14 +342,14 @@ $tooltip-color:  #ffffff !default; // Copied! color
 .sidebar-item-container .active,
 div.sidebar-item-container .show > .nav-link,
 div.sidebar-item-container .sidebar-link > code {
-  color: $posit-teal !important;
+  color: darken($posit-light-blue-3, 1%) !important;
 }
 
 // Lists
 
 /* List disc colors */
 li::marker {
-  color: $posit-teal;
+  color: darken($posit-light-blue-3, 1%);
 }
 
 // Callouts
