@@ -1,6 +1,6 @@
 # .github/workflows/preview.yml
 name: Deploy PR previews
-
+concurrency: preview-${{ github.ref }}
 on:
   pull_request:
     types:
@@ -8,23 +8,16 @@ on:
       - reopened
       - synchronize
       - closed
-
-concurrency: preview-${{ github.ref }}
-
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install and Build
-        if: github.event.action != 'closed' # You might want to skip the build if the PR has been closed
-        run: |
-          npm install
-          npm run build
-
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - uses: actions/checkout@v4
+      - run: npm i && npm run build
+        if: github.event.action != 'closed'
+      - uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: .
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
