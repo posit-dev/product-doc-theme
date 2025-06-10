@@ -1,0 +1,130 @@
+[
+  {
+    "objectID": "user.html",
+    "href": "user.html",
+    "title": "Posit Product User Guide",
+    "section": "",
+    "text": "This is a stub page modeling a top-level collection of documentation, such as a product user guide.",
+    "crumbs": [
+      "User Guide",
+      "Posit Product User Guide"
+    ]
+  },
+  {
+    "objectID": "user.html#table",
+    "href": "user.html#table",
+    "title": "Posit Product User Guide",
+    "section": "Table",
+    "text": "Table\nThis table uses the bootstrap {.striped .hover} classes:\n\nThis table is using the striped + hover Bootstrap classes\n\n\n\n\n\n\nHeader\nUsage\n\n\n\n\nX-CSRF-Token\nCSRF attack prevention when running or upgrading from 2022.09 and earlier releases\n\n\nX-Postback-ExitCode\nR processing\n\n\nX-RS-CSRF-Token\nCSRF attack prevention\n\n\nX-RS-Distributed-Event-Checksum\nCommunication between nodes in a load balanced environment\n\n\nX-RS-Distributed-Event-Timestamp\nCommunication between nodes in a load balanced environment\n\n\nX-RS-Launcher-Secret\nInter-process communication with the Job Launcher\n\n\nX-RS-Monitor-Shared-Secret\nInter-process authentication\n\n\n\nThis table is not using any bootstrap classes:\n\n\n\n\n\n\n\nHeader\nUsage\n\n\n\n\nX-CSRF-Token\nCSRF attack prevention when running or upgrading from 2022.09 and earlier releases\n\n\nX-Postback-ExitCode\nR processing\n\n\nX-RS-CSRF-Token\nCSRF attack prevention\n\n\nX-RS-Distributed-Event-Checksum\nCommunication between nodes in a load balanced environment\n\n\nX-RS-Distributed-Event-Timestamp\nCommunication between nodes in a load balanced environment\n\n\nX-RS-Launcher-Secret\nInter-process communication with the Job Launcher\n\n\nX-RS-Monitor-Shared-Secret\nInter-process authentication",
+    "crumbs": [
+      "User Guide",
+      "Posit Product User Guide"
+    ]
+  },
+  {
+    "objectID": "user.html#images",
+    "href": "user.html#images",
+    "title": "Posit Product User Guide",
+    "section": "Images",
+    "text": "Images\nThe image caption, title, and alt text can all be different.\n\n\n\nThis is a test image",
+    "crumbs": [
+      "User Guide",
+      "Posit Product User Guide"
+    ]
+  },
+  {
+    "objectID": "install.html",
+    "href": "install.html",
+    "title": "Installation",
+    "section": "",
+    "text": "This is a stub page modeling a sub-page within the admin guide.",
+    "crumbs": [
+      "Admin Guide",
+      "Subsection",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "grid.html",
+    "href": "grid.html",
+    "title": "Doc Guides - Grid",
+    "section": "",
+    "text": "Admin Guide\n    \n  \n  \n    \n      User Guide\n    \n  \n  \n    \n      Install Guide\n    \n  \n  \n    \n      How-to Guides\n    \n  \n  \n    \n      Cookbook\n    \n  \n  \n    \n      API Reference\n    \n  \n  \n    \n      Support\n    \n  \n  \n    \n      Licenses\n    \n  \n  \n    \n      Release Notes\n    \n  \n  \n    \n      Versions"
+  },
+  {
+    "objectID": "admin.html",
+    "href": "admin.html",
+    "title": "Posit Product Admin Guide",
+    "section": "",
+    "text": "This is a stub page modeling a top-level collection of documentation, such as a product admin guide.\nThis page should have a left-hand sidebar with repetitive links to the Installation page.",
+    "crumbs": [
+      "Admin Guide",
+      "Posit Product Admin Guide"
+    ]
+  },
+  {
+    "objectID": "admin.html#more",
+    "href": "admin.html#more",
+    "title": "Posit Product Admin Guide",
+    "section": "More",
+    "text": "More\nYou may learn more.\n\nProblems\nYou may not learn more.\n\nSomething\nSomething\n\nSomething\nSomething\n\nSomething\n\nSomething\n\nSomething\n\n\n\n\nLists\nlists\nlists\n\nlists\nLists\n\nLists",
+    "crumbs": [
+      "Admin Guide",
+      "Posit Product Admin Guide"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posit Documentation Theme Example",
+    "section": "",
+    "text": "Some text for level two.\nTest link\n\n\nSome text for level three and showing inline-code references.\n\n\n\nHere is a footnote reference,1 and another.\n\n\nFour levels deep. How far can we go?\n\n\nFive is jive.\n\n\nSix is deep enough! Stop!"
+  },
+  {
+    "objectID": "index.html#level-two",
+    "href": "index.html#level-two",
+    "title": "Posit Documentation Theme Example",
+    "section": "",
+    "text": "Some text for level two.\nTest link\n\n\nSome text for level three and showing inline-code references.\n\n\n\nHere is a footnote reference,1 and another.\n\n\nFour levels deep. How far can we go?\n\n\nFive is jive.\n\n\nSix is deep enough! Stop!"
+  },
+  {
+    "objectID": "index.html#level-two-coding",
+    "href": "index.html#level-two-coding",
+    "title": "Posit Documentation Theme Example",
+    "section": "Level two: coding",
+    "text": "Level two: coding\ncat(\"cats are cats\\n\")\n# Comment\nprint(\"snakes are not cats\")\n\n\nOutput or filenames\n\nChecking Job Launcher configuration...\nEnsuring server-user is a Job Launcher admin...\nGetting list of Job Launcher clusters...\nJob launcher configured with the following clusters: Kubernetes, Local\nlauncher-adhoc-clusters is empty - all clusters may be used to launch adhoc jobs\nlauncher-sessions-clusters is empty - all clusters may be used to launch session jobs\nWaiting for job to finish...\nJob has finished running\nJob exited successfully\n\nThe default language identifier; used sometimes for logs.\nAnd now for a code block without any language identifier.\nThis is some text in a code block without a language tag.\n\nTabsets and pills\n\nRHELUbuntu | DebianSUSE\n\n\n$ yum install rstudio-workbench-rhel\n\n\n$ dpkg\n\nUbuntu 22.04Ubuntu 20.04\n\n\n$ You can nest tabsets\n\n\n$ Nesting\n\n\n\n\n\n$ zypper\n\n\n\n\nPillsCodeTableImage\n\n\nYou can use tabs and pills for text, code blocks, tables, etc.\n\n\nA single code block\n$ yum install rstudio-workbench-rhel\nNested pills\n\nRHELUbuntu | DebianSUSE\n\n\n$ yum install rstudio-workbench-rhel\n\n\n$ dpkg\n\n\n$ zypper\n\n\n\n\n\n\n\n\nTable\nsome text about the table\n\n\nRow\nMore stuff\n\n\n\n\n\nExample of an informative image, with relevant alt text: \nExample of a decorative image, with empty alt text:"
+  },
+  {
+    "objectID": "index.html#level-two-callouts",
+    "href": "index.html#level-two-callouts",
+    "title": "Posit Documentation Theme Example",
+    "section": "Level two: callouts",
+    "text": "Level two: callouts\nCode-first means using code first. Does that mean we never do things manually? No. Hands-on is delightful.\n\n\n\n\n\n\nNote\n\n\n\nThis is a note.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nExplains hazards that could damage a product, including data loss.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is important; don’t ignore this information.\n\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nThis is a collapsed note.\n\n\n\n\n\n\n\n\n\nSome notes are not\n\n\n\nThis is a note with an alternate title.\n\n\n\n\n\n\n\n\nThis is a simple note.\n\n\n\n\n\n\n\n\n\nThis is a simple note.\n\n\n\n\n\n\n\n\n\nThis is a simple note."
+  },
+  {
+    "objectID": "index.html#level-two-lists",
+    "href": "index.html#level-two-lists",
+    "title": "Posit Documentation Theme Example",
+    "section": "Level two: lists",
+    "text": "Level two: lists\n\nUnordered list\n\nCompact\n\nant\n\nbear\ncat\ndog\n\nelephant\n\nfrog\ngiraffe\n\nhyena\niguana\n\njaguar\n\nkangaroo\nlion\nmouse\n\n\n\nSpaced\n\nThis is some text that is presented as a spaced list.\nThis type of list is a good fit when there are multiple paragraphs or complicated elements which span multiple lines.\nIt is also good for code.\nforty_two = 21 * 2\nSometimes, lists need to breathe.\n\n\n\n\nOrdered list\n\nCompact\n\nant\n\nbear\ncat\ndog\n\nelephant\n\nfrog\ngiraffe\n\nhyena\niguana\n\njaguar\n\nkangaroo\nlion\nmouse\n\n\n\nSpaced\n\nThis is some text that is presented as a spaced list.\nThis type of list is a good fit when there are multiple paragraphs or complicated elements which span multiple lines.\nIt is also good for code.\nforty_two = 21 * 2\nSometimes, lists need to breathe.\n\n\n\n\nMixed list\n\nant\n\nbear\ncat\ndog\n\nelephant\n\nfrog\ngiraffe\n\nhyena\niguana\n\njaguar\n\nkangaroo\nlion\nmouse"
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Posit Documentation Theme Example",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nHere is the footnote.↩︎"
+  },
+  {
+    "objectID": "sharing.html",
+    "href": "sharing.html",
+    "title": "Sharing",
+    "section": "",
+    "text": "This is a stub page modeling a sub-page within the user guide.",
+    "crumbs": [
+      "User Guide",
+      "Subsection",
+      "Sharing"
+    ]
+  }
+]
