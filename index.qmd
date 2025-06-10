@@ -30,9 +30,7 @@ Five is jive.
 
 Six is deep enough! Stop!
 
-
 ## Level two: coding
-
 
 ```r
 cat("cats are cats\n")
