@@ -87,52 +87,52 @@ toc: false
 
 <ul id="index-chooser" class="nav nav-tabs" role="tablist">
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-filters.html">
+    <a class="nav-link" href="admin.html">
       <i class="bi bi-person-fill-gear"></i>Admin Guide
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-journals.html">
+    <a class="nav-link" href="user.html">
       <i class="bi bi-person-fill"></i>User Guide
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-formats.html">
+    <a class="nav-link" href="install.html">
       <i class="bi bi-gear-fill"></i>Install Guide
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-revealjs.html">
+    <a class="nav-link" href="sharing.html">
       <i class="bi bi-map-fill"></i>How-to Guides
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-revealjs.html">
+    <a class="nav-link" href="sharing.html">
       <i class="bi bi-hdd-stack-fill"></i>Cookbook
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-revealjs.html">
+    <a class="nav-link" href="sharing.html">
       <i class="bi bi-plugin"></i>API Reference
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-revealjs.html">
+    <a class="nav-link" href="sharing.html">
       <i class="bi bi-person-raised-hand"></i>Support
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-revealjs.html">
+    <a class="nav-link" href="sharing.html">
       <i class="bi bi-filetype-key"></i>Licenses
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-revealjs.html">
+    <a class="nav-link" href="sharing.html">
       <i class="bi bi-rocket-takeoff"></i>Release Notes
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" href="listing-revealjs.html">
+    <a class="nav-link" href="sharing.html">
       <i class="bi bi-archive"></i>Versions
     </a>
   </li>
