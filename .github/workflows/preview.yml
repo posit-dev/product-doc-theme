@@ -2,7 +2,11 @@ name: Deploy PR Preview
 
 on:
   pull_request:
-    types: [opened, synchronized, reopened]
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
 
 jobs:
   deploy:
