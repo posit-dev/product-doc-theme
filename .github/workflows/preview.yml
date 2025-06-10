@@ -1,23 +1,24 @@
-# .github/workflows/preview.yml
-name: Deploy PR previews
-concurrency: preview-${{ github.ref }}
+name: Deploy PR Preview
+
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+    types: [opened, synchronized, reopened]
+
 jobs:
-  deploy-preview:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - run: npm i && npm run build
-        if: github.event.action != 'closed'
-      - uses: rossjrw/pr-preview-action@v1
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # Add your site build steps here. Example: Quarto
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - run: quarto render
+
+      - name: Deploy to GitHub Pages PR preview folder
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          source-dir: .
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
-          action: auto
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site  # or whatever your output dir is
+          destination_dir: pr-${{ github.event.pull_request.number }}
