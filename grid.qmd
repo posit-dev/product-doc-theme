@@ -1,0 +1,144 @@
+---
+title: Doc Guides - Grid
+page-layout: full
+
+toc: false
+---
+<style>
+
+.nav-tabs {
+  margin-top: 0.5rem;
+  border-bottom: none !important;
+}
+
+.callout {
+  margin-top: 0;
+}
+
+.nav-tabs .nav-link {
+  text-align: center;
+  margin-right: 15px;
+  margin-top: 10px;
+  width: 147px;
+  font-size: 0.8em;
+  font-weight: 600;
+  border: 1px solid  rgb(222, 226, 230) !important;
+}
+
+
+.nav-tabs .nav-link, 
+.nav-tabs .nav-link.active, 
+.nav-tabs .nav-item.show .nav-link {
+ // border: 1px solid  $posit-blue !important; 
+  border-radius: 10px;
+  color: #447099;
+}
+.nav-tabs .nav-link:hover {
+   //border-color: $posit-blue;
+   border-width: 1px;
+   box-shadow: 0 4px 10px rgba(144, 197, 255, 0.3);
+} 
+
+.nav-tabs .nav-link.active, 
+.nav-tabs .nav-item.show .nav-link {
+  border-width: 2px;
+}
+
+
+.nav-tabs .nav-link i {
+  display: block;
+  font-size: 3rem;
+  color: #447099;
+  margin-bottom: 5px;
+}
+
+.quarto-listing {
+  margin-top: 2em;
+}
+
+.quarto-listing .listing-name,
+.quarto-listing .listing-author {
+  white-space: nowrap;
+}
+
+.quarto-listing .listing-actions-group h3 {
+  margin-top: 0;
+}
+
+
+/* Dark Theme Overrides */
+
+.quarto-dark .nav-tabs .nav-link {
+  color: lighten(#305775, 20%);
+}
+
+.quarto-dark .nav-tabs .nav-link:hover,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  border-color: lighten(#305775, 20%);;
+  color: #f2f2f2 !important;
+}
+
+.quarto-dark .nav-tabs .nav-link i {
+  color: lighten(#305775, 20%);
+}
+</style>
+
+::: column-page-inset-right
+
+```{=html}
+
+<ul id="index-chooser" class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-filters.html">
+      <i class="bi bi-person-fill-gear"></i>Admin Guide
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-journals.html">
+      <i class="bi bi-person-fill"></i>User Guide
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-formats.html">
+      <i class="bi bi-gear-fill"></i>Install Guide
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-revealjs.html">
+      <i class="bi bi-map-fill"></i>How-to Guides
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-revealjs.html">
+      <i class="bi bi-hdd-stack-fill"></i>Cookbook
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-revealjs.html">
+      <i class="bi bi-plugin"></i>API Reference
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-revealjs.html">
+      <i class="bi bi-person-raised-hand"></i>Support
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-revealjs.html">
+      <i class="bi bi-filetype-key"></i>Licenses
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-revealjs.html">
+      <i class="bi bi-rocket-takeoff"></i>Release Notes
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" href="listing-revealjs.html">
+      <i class="bi bi-archive"></i>Versions
+    </a>
+  </li>
+</ul>
+```
+:::
