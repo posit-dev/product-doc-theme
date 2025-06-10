@@ -53,7 +53,6 @@ website:
       - icon: lightbulb-fill
         aria-label: 'Link to Posit Solutions'
         href: "https://solutions.posit.co/"
-      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
+      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/posit-icon-fullcolor.svg' style='width: 17px; margin-left: -10px !important'/>"
         href: "https://posit.co/"
-
 
