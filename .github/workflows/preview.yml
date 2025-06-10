@@ -1,0 +1,24 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronized, reopened]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # Add your site build steps here. Example: Quarto
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - run: quarto render
+
+      - name: Deploy to GitHub Pages PR preview folder
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site  # or whatever your output dir is
+          destination_dir: pr-${{ github.event.pull_request.number }}
