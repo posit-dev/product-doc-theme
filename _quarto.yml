@@ -12,9 +12,11 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Admin Guide"
-        file: admin.qmd
+        href: admin.qmd
       - text: "User Guide"
-        file: user.qmd
+        href: user.qmd
+      - text: "Grid"
+        href: grid.qmd
 
   # Hybrid navigation meant to show some amount of nested sidebar navigation
   # https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation
@@ -25,9 +27,9 @@ website:
         - section: Subsection
           contents:
             - text: Installation
-              file: install.qmd
+              href: install.qmd
             - text: Duplicate
-              file: install.qmd
+              href: install.qmd
 
     - title: "User Guide"
       contents:
@@ -35,9 +37,9 @@ website:
         - section: Subsection
           contents:
             - text: Sharing
-              file: sharing.qmd
+              href: sharing.qmd
             - text: Duplicate
-              file: sharing.qmd
+              href: sharing.qmd
 
   page-footer:
     left: |
@@ -53,6 +55,6 @@ website:
       - icon: lightbulb-fill
         aria-label: 'Link to Posit Solutions'
         href: "https://solutions.posit.co/"
-      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/posit-icon-fullcolor.svg' style='width: 17px; margin-left: -10px !important'/>"
+      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' style='width: 17px; margin-left: -10px !important'/>"
         href: "https://posit.co/"
 
