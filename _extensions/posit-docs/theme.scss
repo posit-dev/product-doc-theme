@@ -30,6 +30,9 @@ $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "N
 $font-size-base: 1rem;
 // scss-docs-end font-variables
 
+// Headings
+$headings-font-weight: 400 !default;
+
 //font and body color
 $body-color: $posit-dark-gray-2;
 
@@ -43,12 +46,21 @@ $navbar-brand-hl: $navbar-brand;
 $navbar-brand-font-size: 1rem !default;
 // End update from Greg suggestion
 
+// Code
+
+
 // Callouts
 // Start update from Greg suggestion
-$callout-color-note: $posit-light-blue-3;
+$callout-color-note: $posit-blue;
 // End update from Greg suggestion
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
+
+
+// Tables
+
+$table-hover-bg: $posit-light-blue-2 !default;
+$table-striped-bg: $posit-light-blue-1 !default;
 
 // CSS
 
@@ -56,18 +68,9 @@ $callout-color-important: $posit-burgundy;
 
 /* Navbar */
 
-// Start update from Greg suggestion
 .navbar {
   border-bottom: 1px solid $posit-light-blue-1;
-    //box-shadow:
-      //0 0 0.2rem #0000001a,
-     // 0 0.1rem 0.4rem #0003;
-    //transition:
-     // transform 0.25s cubic-bezier(0.1, 0.7, 0.1, 1),
-      //box-shadow 0.25s;
-  }
-
-// End update from Greg suggestion
+}
 
 /* Style for the version included in the website title */
 .navbar-title small {
@@ -171,36 +174,31 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     color: #ffffff !important;
   }
 
+// Headings
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $headings-font-weight !important;
+}
+
 // Body
 
 body {
   letter-spacing: -0.2px;
 }
-
-// Start update from Greg suggestion
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400 !important;
-}
-// End update from Greg suggestion
-
 /* Code */
 
-//Start update from Greg suggestion
 div.sourceCode {
-  background-color: #ffffff !important;
+  background-color: lighten($posit-light-gray-3, 55%) !important;
 }
-//End update from Greg suggestion
 
 .code-with-filename .code-with-filename-file {
   padding: .25rem;
+  border: none !important;
   box-shadow: 0px 0px 2px rgba(5, 10, 15, .14), 0px 2px 4px rgba(29, 31, 33, .16);
 }
 
 div.sourceCode, pre.console {
-  background-color: #fff;
-  border: none;
-  border-radius: 10px;
+  border: none !important;
   box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
   margin-top: 2rem;
   margin-bottom: 2.5rem;

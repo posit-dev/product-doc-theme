@@ -1,7 +1,6 @@
 ---
 title: Doc Guides - Grid
 page-layout: full
-
 toc: false
 ---
 <style>

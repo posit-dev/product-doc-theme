@@ -12,7 +12,6 @@ $white: $posit-white;
 $code-background: #ffffff14;
 $dark-md-body: $white;
 $dark-md-background: #030712;
-//$dark-md-background: #0A1320;
 $slate-800: #1E293B; // slate-800 vibe
 
 // Feature preview heading colors
@@ -57,6 +56,11 @@ $btn-code-copy-color-active: $primary;
 $callout-color-note: $posit-blue;
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
+
+// Tables
+
+$table-hover-bg: #2C3A54 !default;
+$table-striped-bg: $code-background !default;
 
 // CSS overrides
 
@@ -126,6 +130,7 @@ div.sourceCode, pre.console {
 }
 
 /* Code blocks filename title styles */
+
 .quarto-dark .code-with-filename .code-with-filename-file {
   background-color: #ffffff0d !important;
   padding: .5rem !important;
@@ -139,29 +144,20 @@ div.sourceCode, pre.console {
 /* Code with filename - code body styling */
 .code-with-filename div.sourceCode {
   overflow: auto;
-  border-top: 1px solid $posit-dark-gray-2 !important;
+  border-top: 1px solid $posit-dark-gray-2;
 }
 
 /* Code block with no lanuage specified */
-
 code:not(.sourceCode) {
   background-color: $code-background !important;
   color: #cbd5e1;
   padding: .5rem;
 }
 
-/* Inline code */
-p code:not(.sourceCode),
-li code:not(.sourceCode),
-td code:not(.sourceCode) {
-  background-color: #6e768166 !important;
-}
-
 div.sourceCode,
 pre.console,
 pre {
   scrollbar-width: thin; /* Firefox */
-  //scrollbar-color: #3A81C3 transparent; /* Firefox */
   scrollbar-color: $primary transparent; /* Firefox */
   overflow: auto; /* ensure scrollbars appear when needed */
 }
@@ -172,18 +168,6 @@ table caption code {
   background-color: #6e768166;
 }
 
-/* Striped table styles */
-
-.table-striped > tbody > tr:nth-of-type(odd) > * {
-  //--bs-table-bg-type: #001C2B !important;
-  --bs-table-bg-type: #1E293B !important; /* Use a contrasting color for odd rows */
-}
-
-/* Striped table hover */
-
-.table-hover > tbody > tr:hover > * {
-  --bs-table-bg-state: #2C3A54 !important;
-}
 
 /* Callouts */
 

@@ -99,7 +99,6 @@ $ zypper
 
 :::
 
-
 ::: {.panel-tabset .nav-pills}
 
 ### Pills
