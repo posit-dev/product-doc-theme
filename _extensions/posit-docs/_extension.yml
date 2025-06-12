@@ -36,4 +36,6 @@ contributes:
         code-copy: true
         toc: true
         toc-expand: true
-        include-in-header: "assets/_analytics.html"
+        include-in-header: 
+          - "assets/_analytics.html"
+          - "assets/_version-alert.html"
