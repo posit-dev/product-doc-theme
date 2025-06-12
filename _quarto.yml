@@ -52,5 +52,5 @@ website:
         href: "https://support.posit.co/hc/en-us"
       - text: '<a href="#" id="open_preferences_center" title="Manage your cookie preferences"><i class="bi bi-cookie"></i></i></a>'
         aria-label: 'Cookie Prefs'
-      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' style='width: 17px; margin-left: -10px !important'/>"
+      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' style='width: 16px; margin-left: -10px; padding-bottom: 3px !important'/>"
         href: "https://posit.co/"
