@@ -38,4 +38,5 @@ contributes:
         toc-expand: true
         include-in-header: 
           - "assets/_analytics.html"
-          - "assets/_version-alert.html"
+          #- "assets/_version-alert.html"
+          - assets/_version-toast.html

@@ -1065,10 +1065,13 @@ $preview-header-border: darken($preview-header, 5%);
 //scss-font-start font-variables
 $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
   sans-serif, system-ui;
-$font-family-monospace: "Source ligh Pro", monospace;
+$font-family-monospace: "Source Code Pro", monospace;
 $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-size-base: 1rem;
 // scss-docs-end font-variables
+
+// Headings
+$headings-font-weight: 400 !default;
 
 //font and body color
 $body-color: $posit-dark-gray-2;
@@ -1083,12 +1086,21 @@ $navbar-brand-hl: $navbar-brand;
 $navbar-brand-font-size: 1rem !default;
 // End update from Greg suggestion
 
+// Code
+
+
 // Callouts
 // Start update from Greg suggestion
-$callout-color-note: $posit-light-blue-3;
+$callout-color-note: $posit-blue;
 // End update from Greg suggestion
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
+
+
+// Tables
+
+$table-hover-bg: $posit-light-blue-2 !default;
+$table-striped-bg: $posit-light-blue-1 !default;
 
 // CSS
 
@@ -1096,18 +1108,9 @@ $callout-color-important: $posit-burgundy;
 
 /* Navbar */
 
-// Start update from Greg suggestion
 .navbar {
   border-bottom: 1px solid $posit-light-blue-1;
-    //box-shadow:
-      //0 0 0.2rem #0000001a,
-     // 0 0.1rem 0.4rem #0003;
-    //transition:
-     // transform 0.25s cubic-bezier(0.1, 0.7, 0.1, 1),
-      //box-shadow 0.25s;
-  }
-
-// End update from Greg suggestion
+}
 
 /* Style for the version included in the website title */
 .navbar-title small {
@@ -1211,27 +1214,22 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     color: #ffffff !important;
   }
 
+// Headings
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $headings-font-weight !important;
+}
+
 // Body
 
 body {
   letter-spacing: -0.2px;
 }
-
-// Start update from Greg suggestion
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400 !important;
-}
-// End update from Greg suggestion
-
 /* Code */
 
-//Start update from Greg suggestion
 div.sourceCode {
-  background-color: lighten($posit-light-gray-3, 53) !important;
-  border-radius: 10px;;
+  background-color: lighten($posit-light-gray-3, 55%) !important;
 }
-//End update from Greg suggestion
 
 .code-with-filename .code-with-filename-file {
   padding: .25rem;
@@ -1240,9 +1238,7 @@ div.sourceCode {
 }
 
 div.sourceCode, pre.console {
-  background-color: #fff;
   border: none !important;
-  //border-radius: 10px !important;
   box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
   margin-top: 2rem;
   margin-bottom: 2.5rem;
@@ -1318,6 +1314,22 @@ ol.groovyAlpha li > p:before {
 }
 
 
+// Version toast
+
+// Or directly override via toast styling:
+#version-toast {
+  background-color: $posit-white;
+  color: $body-color;
+
+  .toast-header {
+    background-color: $primary;
+    color: #ffffff;
+  }
+
+  .btn-close {
+    filter: invert(1);
+  }
+
 // Heading font size customization
 $h1-font-size: 2rem !default;
 $h2-font-size: 1.65rem !default;
@@ -1374,12 +1386,12 @@ $title-banner-bg: null !default;
 $title-banner-image: null !default;
 
 
-$btn-code-copy-color: #5E5E5E !default;
-$btn-code-copy-color-active: #4758AB !default;
+$btn-code-copy-color: #6a737d !default;
+$btn-code-copy-color-active: #6f42c1 !default;
 
 // quarto-scss-analysis-annotation { "origin": "Defaults from Quarto's SCSS" }
 
-$code-copy-selector: "pre.sourceCode:hover > " !default;
+$code-copy-selector: "" !default;
 $code-white-space: pre !default;
 $tbl-cap-location: top !default;
 $sidebar-border: false !default;

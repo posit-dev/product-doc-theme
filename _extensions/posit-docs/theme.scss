@@ -272,3 +272,20 @@ ol.groovyAlpha li > p:before {
   line-height: 16px;
   vertical-align: middle;
 }
+
+// Version toast
+
+// Or directly override via toast styling:
+#version-toast {
+  background-color: $posit-white;
+  color: $body-color;
+
+  .toast-header {
+    background-color: $primary;
+    color: #ffffff;
+  }
+
+  .btn-close {
+    filter: invert(1);
+  }
+}
