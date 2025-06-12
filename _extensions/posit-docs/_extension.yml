@@ -29,12 +29,11 @@ contributes:
           light: [theme.scss]
           dark: [theme-dark.scss]
         highlight-style: 
-          light: arrow
-          dark: atom-one-dark
+          light: github
+          dark: arrow
         link-external-icon: true
         link-external-newwindow: true
         code-copy: true
         toc: true
         toc-expand: true
         include-in-header: "assets/_analytics.html"
-    
