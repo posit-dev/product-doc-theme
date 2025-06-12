@@ -65,18 +65,18 @@ toc: false
 /* Dark Theme Overrides */
 
 .quarto-dark .nav-tabs .nav-link {
-  color: lighten(#305775, 20%);
+  color: #7494b1;
 }
 
 .quarto-dark .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  border-color: lighten(#305775, 20%);
+  border-color: #7494b1;
   
 }
 
 .quarto-dark .nav-tabs .nav-link i {
-  color: lighten(#305775, 20%);
+  color: #7494b1;
 }
 </style>
 
