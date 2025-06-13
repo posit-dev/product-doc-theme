@@ -144,3 +144,10 @@ To release a new version of this theme:
     ```
 
 3.  Create a GitHub release from [that tag](https://github.com/posit-dev/product-doc-theme/tags).
+
+
+## Additional resources
+
+- [bslib](https://github.com/rstudio/bslib/)
+- [Quarto](https://quarto.org/)
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
