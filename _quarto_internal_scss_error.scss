@@ -1048,19 +1048,20 @@ $theme-name: null !default;
 
 /*-- scss:variables --*/
 $primary: $posit-blue;
-
-
-/* ======== General Styles ======== */   
+$white: $posit-white;
+$code-background: #ffffff14;
+$dark-md-body: $white;
+$dark-md-background:  ##030712;
+$slate-800: #1E293B; // slate-800 vibe
 
 // Feature preview heading colors
-$preview-header: #ee6331; /* posit orange, contrast: 8.45 */
+$preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
 $preview-header-border: darken($preview-header, 5%);
 
 // scss-docs-end color-variables
 
 // Typography
-
-/* Font, line-height, and color for body text, headings, and more. */
+// Font, line-height, and color for body text, headings, and more.
 
 //scss-font-start font-variables
 $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
@@ -1070,79 +1071,73 @@ $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "N
 $font-size-base: 1rem;
 // scss-docs-end font-variables
 
-// Headings
-$headings-font-weight: 400 !default;
-
 //font and body color
-$body-color: $posit-dark-gray-2;
+$body-color: $dark-md-body;
 
 //  Customize the navbar
-$navbar-bg: #ffffff;
-$navbar-fg: $posit-light-gray-3;
+$navbar-bg: $dark-md-background;
+$navbar-fg: $posit-light-gray-2;
 $navbar-hl: $primary;
-$navbar-brand: $posit-dark-gray-2;
+$navbar-brand: $posit-white;
 $navbar-brand-hl: $navbar-brand;
-// Start update from Greg suggestion
-$navbar-brand-font-size: 1rem !default;
-// End update from Greg suggestion
+//$navbar-brand-font-size: 14px !default;
+
+// Customize the sidebar
+$sidebar-fg: darken($white, 5%);
+$sidebar-bg: $dark-md-background;
+
+// Body
+$body-bg: $dark-md-background !default;
 
 // Code
-
+$btn-code-copy-color-active: $primary;
 
 // Callouts
-// Start update from Greg suggestion
 $callout-color-note: $posit-blue;
-// End update from Greg suggestion
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
 
-
 // Tables
 
-$table-hover-bg: $posit-light-blue-2 !default;
-$table-striped-bg: $posit-light-blue-1 !default;
+$table-hover-bg: #2C3A54 !default;
+$table-striped-bg: $code-background !default;
 
-// CSS
+// CSS overrides
 
 // Layout
-
 /* Navbar */
 
-.navbar {
-  border-bottom: 1px solid $posit-light-blue-1;
-}
-
-/* Style for the version included in the website title */
-.navbar-title small {
-    font-size: 14px;
-    display: block;
-    //padding-left: 1em;
-  }
-
-/* Adds separation between nav bar links and site title */
-.navbar-collapse {
-    margin-left: 2ch;
+#quarto-header>nav {
+  border-bottom: 1px solid $posit-dark-gray-1 !important;
 }
 
 /* Sidebar */
 
+div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
+  border-right: 1px solid $posit-dark-gray-2 !important;
+}
+
+/* Sidebar pill for active item */
+
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    background-color: #f4f4f7;
-    border-radius: 5px;
-    margin-bottom: 2px;
-    margin-left: -5px;
-    padding: 6px;
+  background-color: #1E293B; // slate-800 vibe
+  border-radius: 5px;
+  margin-bottom: 2px;
+  margin-left: -5px;
+  padding: 6px;
 }
 
-/* Footer */
+/* Nav bar  right hamburger menu */
 
-/* Posit icon fullcolor */
-#footer-right-posit-logo {
-
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: $code-background !important;
 }
 
-.nav-footer-left .footer-items, .nav-item {
-  padding-right: 11px;
+/* Page navigation */
+.nav-page .nav-page-text {
+  color: darken($white, 5%);
 }
 
 // Components
@@ -1150,99 +1145,91 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 /* Tabs and pills */
 
 .nav-tabs .nav-link {
-    text-transform: none !important;
-    font-family: $font-family-sans-serif;
-    color: $navbar-fg;
-  }
-  
-  .nav-tabs .nav-link.active,
-  .nav-tabs .nav-item.show .nav-link {
-    color: $primary !important;
-    font-weight: 700 !important;
-  }
-  
-  .nav-tabs .nav-link:hover,
-  .nav-link:focus {
-    color: $posit-blue !important;
-  }
-
-  .nav-pills {
-    border: none !important;
-  }
-  
-  .nav-pills,
-  .panel-underline {
-    > .nav {
-      display: flex;
-      border: none !important;
-      flex-direction: row;
-      justify-content: center;
-      .nav-link {
-        cursor: pointer;
-      }
-    }
-  }
-  
-  .nav-pills > .nav .nav-link {
-    border: none !important;
-  }
-  
-  .nav-pills,
-  .panel-underline {
-    .tab-content {
-      padding-left: 0;
-      padding-right: 0;
-      border: none;
-    }
-  }
-  
-  .nav-pills .nav-link.active,
-  .nav-pills .nav-item.show .nav-link {
-    color: #ffffff !important;
-    text-decoration: none !important;
-  }
-  
-  .nav-pills .nav-link:hover,
-  .nav-link:focus {
-    isolation: isolate;
-    color: $posit-blue !important;
-    border: none !important;
-  }
-  
-  .nav-pills .nav-link.active,
-  .nav-pills .show > .nav-link {
-    color: #ffffff !important;
-  }
-
-// Headings
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: $headings-font-weight !important;
+  color: $navbar-fg;
 }
 
-// Body
-
-body {
-  letter-spacing: -0.2px;
-}
-/* Code */
-
-div.sourceCode {
-  background-color: lighten($posit-light-gray-3, 55%) !important;
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: $primary !important;
+  font-weight: 700 !important;
 }
 
-.code-with-filename .code-with-filename-file {
-  padding: .25rem;
-  border: none !important;
-  box-shadow: 0px 0px 2px rgba(5, 10, 15, .14), 0px 2px 4px rgba(29, 31, 33, .16);
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: $dark-md-background !important;
 }
+
+// Code
+
+/* Code blocks */
 
 div.sourceCode, pre.console {
+  background-color: $code-background !important;
   border: none !important;
-  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
-  padding: .25rem;
+  border-radius: 10px;
+}
+
+/* Code blocks filename title styles */
+
+.quarto-dark .code-with-filename .code-with-filename-file {
+  background-color: #ffffff0d !important;
+  padding: .5rem !important;
+  border: none;
+}
+
+.code-with-filename .code-with-filename-file strong {
+  color: $posit-light-gray-1;
+}
+
+/* Code with filename - code body styling */
+.code-with-filename div.sourceCode {
+  overflow: auto;
+  border-top: 1px solid $posit-dark-gray-2;
+}
+
+/* Code block with no lanuage specified */
+code:not(.sourceCode) {
+  background-color: $code-background !important;
+  color: #cbd5e1;
+  padding: .5rem;
+}
+
+div.sourceCode,
+pre.console,
+pre {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: $primary transparent; /* Firefox */
+  overflow: auto; /* ensure scrollbars appear when needed */
+}
+
+// Tables
+
+table caption code {
+  background-color: #6e768166;
+}
+
+
+/* Callouts */
+
+/* Note */
+
+div.callout-note.callout {
+  border-left-color: $posit-dark-blue-2 !important;
+  border: 1px solid $posit-dark-blue-2 !important;
+}
+
+/* Warning */
+
+div.callout-warning.callout {
+  border-left-color: $posit-dark-orange-2 !important;
+  border: 1px solid $posit-dark-orange-2 !important;
+}
+
+/* Important */
+
+div.callout-important.callout {
+  border-left-color: $posit-dark-burgundy-2 !important;
+  border: 1px solid $posit-dark-burgundy-2 !important;
 }
 
 /* Footnotes */
@@ -1252,83 +1239,11 @@ a.footnote-back {
   font-size: 1.1rem;
 }
 
-// Specialty headers
+/* Back to top link */
 
-/* the feature PREVIEW header */
-.preview-header > h1:after,
-.preview-header > h2:after,
-.preview-header > h3:after,
-.preview-header > h4:after,
-header h1 .preview-header {
-  content: "Preview feature";
-  margin-left: 1em;
-  position: relative;
-  border-radius: 50rem !important;
-  top: -0.5em;
+#quarto-back-to-top {
+  color: $white !important;
 }
-
-.preview-header > h1:after,
-.preview-header > h2:after,
-.preview-header > h3:after,
-.preview-header > h4:after,
-header h1 .preview-header,
-div span.preview-feature {
-  color: $preview-header;
-  border: 1px solid $preview-header-border;
-  font-weight: 500;
-  font-size: 9pt !important;
-  padding: 0rem 0.4rem;
-}
-
-div span.preview-feature {
-  margin-left: 1em;
-  text-transform: uppercase;
-}
-
-// Specialty lists
-
-/* Callout steps for images with multiple items/steps shown in single image */
-
-ol.groovyAlpha {
-  list-style: none;
-  counter-reset: list-counter;
-}
-
-ol.groovyAlpha li {
-  counter-increment: list-counter;
-}
-
-ol.groovyAlpha li > p:before {
-  content: counter(list-counter, lower-alpha);
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  margin-right: 10px;
-  color: #fff;
-  background-color: #fc403b;
-  display: inline-block;
-  border-radius: 10px;
-  font-size: 14px;
-  line-height: 16px;
-  vertical-align: middle;
-}
-
-
-// Version toast
-
-// Or directly override via toast styling:
-#version-toast {
-  background-color: $posit-white;
-  color: $body-color;
-
-  .toast-header {
-    background-color: $primary;
-    color: #ffffff;
-  }
-
-  .btn-close {
-    filter: invert(1);
-  }
 
 // Heading font size customization
 $h1-font-size: 2rem !default;
@@ -1386,8 +1301,8 @@ $title-banner-bg: null !default;
 $title-banner-image: null !default;
 
 
-$btn-code-copy-color: #6a737d !default;
-$btn-code-copy-color-active: #6f42c1 !default;
+$btn-code-copy-color: #f8f8f2 !default;
+$btn-code-copy-color-active: #ffa07a !default;
 
 // quarto-scss-analysis-annotation { "origin": "Defaults from Quarto's SCSS" }
 
