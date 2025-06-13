@@ -1,3 +1,15 @@
+# v8.0.0
+
+* Bumps Quarto version to pre-release `1.8.13`
+* Removes unnecessary CSS/SCSS that is now natively supported by Quarto
+* New "phase 2" dark theme look and feel
+* Toast alert for version of docs viewing option added
+* Footer and navbar entries adjusted/removed
+
+# v7.0.1
+
+* Corrects the version in the `_extensions` file
+
 # v7.0.0
 
 * Bumps quarto version

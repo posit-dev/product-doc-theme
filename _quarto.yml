@@ -12,9 +12,11 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Admin Guide"
-        file: admin.qmd
+        href: admin.qmd
       - text: "User Guide"
-        file: user.qmd
+        href: user.qmd
+      - text: "Grid"
+        href: grid.qmd
 
   # Hybrid navigation meant to show some amount of nested sidebar navigation
   # https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation
@@ -25,9 +27,9 @@ website:
         - section: Subsection
           contents:
             - text: Installation
-              file: install.qmd
+              href: install.qmd
             - text: Duplicate
-              file: install.qmd
+              href: install.qmd
 
     - title: "User Guide"
       contents:
@@ -35,9 +37,9 @@ website:
         - section: Subsection
           contents:
             - text: Sharing
-              file: sharing.qmd
+              href: sharing.qmd
             - text: Duplicate
-              file: sharing.qmd
+              href: sharing.qmd
 
   page-footer:
     left: |
@@ -50,10 +52,5 @@ website:
         href: "https://support.posit.co/hc/en-us"
       - text: '<a href="#" id="open_preferences_center" title="Manage your cookie preferences"><i class="bi bi-cookie"></i></i></a>'
         aria-label: 'Cookie Prefs'
-      - icon: lightbulb-fill
-        aria-label: 'Link to Posit Solutions'
-        href: "https://solutions.posit.co/"
-      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
+      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' style='width: 16px; margin-left: -10px; padding-bottom: 3px !important'/>"
         href: "https://posit.co/"
-
-
