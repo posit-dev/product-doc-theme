@@ -7,11 +7,11 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-light-blue-3;
+$primary: lighten($posit-blue, 3%);
 $white: $posit-white;
 $code-background: #ffffff14;
 $dark-md-body: $white;
-$dark-md-background:  #030712;
+$dark-md-background: darken(#030712, 4%);
 $slate-800: #1E293B; // slate-800 vibe
 
 // Feature preview heading colors
