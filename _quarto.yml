@@ -17,6 +17,8 @@ website:
         href: user.qmd
       - text: "Grid"
         href: grid.qmd
+      - text: "<span class='btn btn-primary'>Download</span>"
+        href: download.qmd
 
   # Hybrid navigation meant to show some amount of nested sidebar navigation
   # https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation
@@ -43,14 +45,13 @@ website:
 
   page-footer:
     left: |
-      Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
-    center: |
-      Posit PRODUCT {{< env PRODUCT_VERSION >}}
+      Copyright &copy; 2022-2025 Posit Software, PBC. All Rights Reserved.
+    center: "Positron {{< env RELEASE_VERSION >}}"
     right:
-      - icon: question-circle-fill
-        aria-label: 'Link to Posit Support'
-        href: "https://support.posit.co/hc/en-us"
-      - text: '<a href="#" id="open_preferences_center" title="Manage your cookie preferences"><i class="bi bi-cookie"></i></i></a>'
-        aria-label: 'Cookie Prefs'
-      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' style='width: 16px; margin-left: -10px; padding-bottom: 3px !important'/>"
+      - text: "License"
+        href: licensing.qmd
+      - text: "Privacy Policy"
+        aria-label: "Link to Privacy Policy"
+        href: "https://posit.co/about/privacy-policy/"
+      - text: "<img alt='Link to main Posit site' src='images/posit-logo-fullcolor-TM.svg' style='width: 76px;'>"
         href: "https://posit.co/"
