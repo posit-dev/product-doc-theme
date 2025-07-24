@@ -7,8 +7,7 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-blue;
-
+$primary: $positron-blue; //Positron override
 
 /* ======== General Styles ======== */   
 
@@ -42,23 +41,16 @@ $navbar-fg: $posit-light-gray-3;
 $navbar-hl: $primary;
 $navbar-brand: $posit-dark-gray-2;
 $navbar-brand-hl: $navbar-brand;
-// Start update from Greg suggestion
 $navbar-brand-font-size: 1rem !default;
-// End update from Greg suggestion
 
 // Code
 
-
 // Callouts
-// Start update from Greg suggestion
-$callout-color-note: $posit-blue;
-// End update from Greg suggestion
+$callout-color-note: $primary;
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
 
-
 // Tables
-
 $table-hover-bg: $posit-light-blue-2 !default;
 $table-striped-bg: $posit-light-blue-1 !default;
 
@@ -73,13 +65,14 @@ $table-striped-bg: $posit-light-blue-1 !default;
 }
 
 /* Style for the version included in the website title */
+
 .navbar-title small {
     font-size: 14px;
     display: block;
-    //padding-left: 1em;
   }
 
 /* Adds separation between nav bar links and site title */
+
 .navbar-collapse {
     margin-left: 2ch;
 }
@@ -87,19 +80,17 @@ $table-striped-bg: $posit-light-blue-1 !default;
 /* Sidebar */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    background-color: #f4f4f7;
+    background-color: #f4f4f7; // Positron override
     border-radius: 5px;
     margin-bottom: 2px;
     margin-left: -5px;
     padding: 6px;
+    font-weight: 500; // Positron override
 }
 
 /* Footer */
 
 /* Posit icon fullcolor */
-#footer-right-posit-logo {
-
-}
 
 .nav-footer-left .footer-items, .nav-item {
   padding-right: 11px;
@@ -123,7 +114,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   
   .nav-tabs .nav-link:hover,
   .nav-link:focus {
-    color: $posit-blue !important;
+    color: $primary
   }
 
   .nav-pills {
@@ -165,7 +156,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   .nav-pills .nav-link:hover,
   .nav-link:focus {
     isolation: isolate;
-    color: $posit-blue !important;
+    color: $primary !important;
     border: none !important;
   }
   
@@ -185,6 +176,8 @@ h1, h2, h3, h4, h5, h6 {
 body {
   letter-spacing: -0.2px;
 }
+
+
 /* Code */
 
 div.sourceCode {
@@ -243,49 +236,4 @@ div span.preview-feature {
 div span.preview-feature {
   margin-left: 1em;
   text-transform: uppercase;
-}
-
-// Specialty lists
-
-/* Callout steps for images with multiple items/steps shown in single image */
-
-ol.groovyAlpha {
-  list-style: none;
-  counter-reset: list-counter;
-}
-
-ol.groovyAlpha li {
-  counter-increment: list-counter;
-}
-
-ol.groovyAlpha li > p:before {
-  content: counter(list-counter, lower-alpha);
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  margin-right: 10px;
-  color: #fff;
-  background-color: #fc403b;
-  display: inline-block;
-  border-radius: 10px;
-  font-size: 14px;
-  line-height: 16px;
-  vertical-align: middle;
-}
-
-// Version toast
-
-// Or directly override via toast styling:
-#version-toast {
-  background-color: $posit-white;
-  color: $body-color;
-
-  .toast-header {
-    background-color: $primary;
-    color: #ffffff;
-  }
-
-  .btn-close {
-    filter: invert(1);
-  }
 }

@@ -7,7 +7,7 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-light-blue-3;
+$primary: $positron-dm-blue; //Positron override
 $white: $posit-white;
 $code-background: #ffffff14;
 $dark-md-body: #9CA3AF;
@@ -40,7 +40,6 @@ $navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
 $navbar-brand-hl: $navbar-brand;
-//$navbar-brand-font-size: 14px !default;
 
 // Customize the sidebar
 $sidebar-fg: darken($white, 5%);
@@ -53,7 +52,7 @@ $body-bg: $dark-md-background !default;
 $btn-code-copy-color-active: $primary;
 
 // Callouts
-$callout-color-note: $posit-blue;
+$callout-color-note: $primary; // Positron override
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
 
@@ -65,6 +64,7 @@ $table-striped-bg: $code-background !default;
 // CSS overrides
 
 // Layout
+
 /* Navbar */
 
 #quarto-header>nav {
@@ -80,7 +80,7 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
 /* Sidebar pill for active item */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-  background-color: #1E293B; // slate-800 vibe
+  background-color: darken(#1E293B, 8); // slate-800 vibe and Positron override
   border-radius: 5px;
   margin-bottom: 2px;
   margin-left: -5px;
@@ -96,6 +96,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 }
 
 /* Page navigation */
+
 .nav-page .nav-page-text {
   color: darken($white, 5%);
 }
@@ -142,6 +143,7 @@ div.sourceCode, pre.console {
 }
 
 /* Code with filename - code body styling */
+
 .code-with-filename div.sourceCode {
   overflow: auto;
   border-top: 1px solid $posit-dark-gray-2;
@@ -167,7 +169,6 @@ pre {
 table caption code {
   background-color: #6e768166;
 }
-
 
 /* Callouts */
 
@@ -203,4 +204,14 @@ a.footnote-back {
 
 #quarto-back-to-top {
   color: $white !important;
+}
+
+/* Captions - Positron override */
+
+.panel-caption, .figure-caption, .subfigure-caption, .table-caption, figcaption, caption {
+    color: $posit-light-gray-2 !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item, #quarto-search-results li.aa-Item[aria-selected=true] .search-item {
+    background-color: lighten(#3a78b1e6, 10%);
 }

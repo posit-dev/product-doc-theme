@@ -5,7 +5,7 @@ project:
     - "!changelog.md"
   
 website:
-  title: 'Posit Product Documentation <small>Version {{< env PRODUCT_VERSION >}}</small>'
+  title: Positron Documentation
   page-navigation: true
   navbar:
     left:
@@ -53,5 +53,3 @@ website:
       - text: "Privacy Policy"
         aria-label: "Link to Privacy Policy"
         href: "https://posit.co/about/privacy-policy/"
-      - text: "<img alt='Link to main Posit site' src='images/posit-logo-fullcolor-TM.svg' style='width: 76px;'>"
-        href: "https://posit.co/"

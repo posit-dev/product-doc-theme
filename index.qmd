@@ -147,10 +147,10 @@ $ zypper
 ### Image
 
 Example of an [informative image](https://www.w3.org/WAI/tutorials/images/informative/), with relevant alt text:
-![](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg){width=120 alt="Posit logo"}
+![](/_extensions/posit-docs/assets/images/positron.png){width=120 alt="Posit logo"}
 
 Example of a [decorative image](https://www.w3.org/WAI/tutorials/images/decorative/), with empty alt text:
-![](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg){width=120 alt=""}
+![](/_extensions/posit-docs/assets/images/positron.png){width=120 alt=""}
 
 
 :::
