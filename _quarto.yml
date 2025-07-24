@@ -5,7 +5,7 @@ project:
     - "!changelog.md"
   
 website:
-  title: Positron Documentation
+  title: Positron
   page-navigation: true
   navbar:
     left:
