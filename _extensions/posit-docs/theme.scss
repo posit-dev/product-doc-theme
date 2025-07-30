@@ -96,13 +96,18 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 /* Footer */
 
-/* Posit icon fullcolor */
+/* Posit icon fullcolor - this needs to be phased out*/
 #footer-right-posit-logo {
-
 }
 
 .nav-footer-left .footer-items, .nav-item {
   padding-right: 11px;
+}
+
+/* Footer */
+
+.posit-footer-logo {
+  margin-right: 5px;
 }
 
 // Components
