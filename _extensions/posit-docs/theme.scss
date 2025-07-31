@@ -107,7 +107,8 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 /* Footer */
 
 .posit-footer-logo {
-  margin-right: 5px;
+  margin-right: -10px;
+   // margin-right: 5px; #Positron uses this to align the logo with the text
 }
 
 // Components
