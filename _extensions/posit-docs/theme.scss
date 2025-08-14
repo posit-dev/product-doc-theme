@@ -28,6 +28,7 @@ $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Not
 $font-family-monospace: "Source Code Pro", monospace;
 $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-size-base: 1rem;
+$line-height-base: 1.7;
 // scss-docs-end font-variables
 
 // Headings
@@ -84,7 +85,17 @@ $table-striped-bg: $posit-light-blue-1 !default;
     margin-left: 2ch;
 }
 
+/* Adds weight to selected active item in the navbar */
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    font-weight: 600;
+}
+
 /* Sidebar */
+
+/* Left sidebar font weight */
+.sidebar-navigation a {
+  font-weight: 500;
+}
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
     background-color: #f4f4f7;
@@ -92,6 +103,22 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     margin-bottom: 2px;
     margin-left: -5px;
     padding: 6px;
+}
+
+
+div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
+    font-weight: 600;
+}
+
+#quarto-sidebar strong {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+
+/* Mini toc */
+.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+  font-weight: 600;
 }
 
 /* Footer */
@@ -279,6 +306,13 @@ ol.groovyAlpha li > p:before {
   font-size: 14px;
   line-height: 16px;
   vertical-align: middle;
+}
+
+// Keyboard keys
+
+/* Keyboard shortcuts */
+kbd {
+    padding: .2rem .4rem;
 }
 
 // Version toast

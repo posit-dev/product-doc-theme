@@ -55,5 +55,5 @@ website:
       - text: Posit Docs
         aria-label: 'Link to Posit Docs'
         href: "https://docs.posit.co"
-      - text: '<a href="#" id="open_preferences_center" title="Manage your cookie preferences"><i class="bi bi-cookie"></i></i></a>'
+      - text: '<a href="#" id="open_preferences_center" title="Update cookie preferences"><i class="bi bi-cookie"></i></i></a>'
         aria-label: 'Cookie Prefs'
