@@ -54,3 +54,8 @@ website:
         aria-label: 'Cookie Prefs'
       - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' style='width: 16px; margin-left: -10px; padding-bottom: 3px !important'/>"
         href: "https://posit.co/"
+
+format:
+  html:
+    include-in-header: 
+      - "_version-toast.html"
