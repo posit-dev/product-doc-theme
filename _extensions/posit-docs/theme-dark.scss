@@ -215,3 +215,9 @@ a.footnote-back {
 .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item, #quarto-search-results li.aa-Item[aria-selected=true] .search-item {
     background-color: lighten(#3a78b1e6, 10%);
 }
+/* Blockquote */
+
+.blockquote {
+    color: $posit-light-gray-1 !important;
+}
+
