@@ -108,6 +108,21 @@ Make the following modifications:
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
 
+### Version toast
+
+Commonly, our users are unaware of the documentation version that they are viewing. This causes confusion, ultimately resulting in support tickets. A visual prompt displaying the documentation for our user may deflect support inquiries.
+
+Bootstrap 5+ provides a [Toast](https://getbootstrap.com/docs/5.0/components/toasts/) component that displays a message to the user and auto-closes after about 10 seconds.
+
+Our version toast displays the current product version and provides a link to the latest release of the documentation. This toast should be modified and added to your product documentation ASAP. The `_version-toast.html` is included in the theme directory and can be copied to your project. Enable the toast by adding the following to your `_quarto.yml`:
+
+```
+format:
+  html:
+    include-in-header: 
+      - _version-toast.html
+```
+
 ## Development
 
 If you are modifying this extension, use Quarto to preview your changes
