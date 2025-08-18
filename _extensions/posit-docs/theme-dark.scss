@@ -168,7 +168,6 @@ table caption code {
   background-color: #6e768166;
 }
 
-
 /* Callouts */
 
 /* Note */
@@ -204,3 +203,10 @@ a.footnote-back {
 #quarto-back-to-top {
   color: $white !important;
 }
+
+/* Blockquote */
+
+.blockquote {
+    color: $posit-light-gray-1 !important;
+}
+
