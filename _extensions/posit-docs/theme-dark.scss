@@ -7,10 +7,9 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-orange;
-$white: $posit-white;
+$primary: lighten(#3276b5, 2%);
 $code-background: #ffffff14;
-$dark-md-body: #9CA3AF;
+$dark-md-body: $posit-light-gray-1;
 $dark-md-background: #030712;
 $slate-800: #1E293B; // slate-800 vibe
 
@@ -43,7 +42,7 @@ $navbar-brand-hl: $navbar-brand;
 //$navbar-brand-font-size: 14px !default;
 
 // Customize the sidebar
-$sidebar-fg: darken($white, 5%);
+$sidebar-fg: darken($posit-white, 5%);
 $sidebar-bg: $dark-md-background;
 
 // Body
@@ -97,7 +96,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 /* Page navigation */
 .nav-page .nav-page-text {
-  color: darken($white, 5%);
+  color: darken($posit-white, 5%);
 }
 
 // Components
@@ -121,7 +120,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 /* Breadcrumbs */
 .quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
-    color: $white !important;
+    color: $posit-white !important;
 }
 
 // Code
@@ -206,7 +205,7 @@ a.footnote-back {
 /* Back to top link */
 
 #quarto-back-to-top {
-  color: $white !important;
+  color: $posit-white !important;
 }
 
 /* Blockquote */
