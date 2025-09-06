@@ -1047,11 +1047,11 @@ $theme-name: null !default;
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-blue;
+$primary: $posit-orange;
 $white: $posit-white;
 $code-background: #ffffff14;
-$dark-md-body: $white;
-$dark-md-background:  ##030712;
+$dark-md-body: #9CA3AF;
+$dark-md-background: #030712;
 $slate-800: #1E293B; // slate-800 vibe
 
 // Feature preview heading colors
@@ -1076,7 +1076,7 @@ $body-color: $dark-md-body;
 
 //  Customize the navbar
 $navbar-bg: $dark-md-background;
-$navbar-fg: $posit-light-gray-2;
+$navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
 $navbar-brand-hl: $navbar-brand;
@@ -1120,7 +1120,7 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
 /* Sidebar pill for active item */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-  background-color: #1E293B; // slate-800 vibe
+  background-color: #141b27; // slate-800 vibe
   border-radius: 5px;
   margin-bottom: 2px;
   margin-left: -5px;
@@ -1158,6 +1158,12 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 .nav-pills .show > .nav-link {
   color: $dark-md-background !important;
 }
+
+/* Breadcrumbs */
+.quarto-page-breadcrumbs .breadcrumb-item+.breadcrumb-item, .quarto-page-breadcrumbs .breadcrumb-item {
+  .quarto-page-breadcrumbs .breadcrumb-item+.breadcrumb-item, .quarto-page-breadcrumbs .breadcrumb-item {
+    color: $posit-white;
+  }
 
 // Code
 
@@ -1208,7 +1214,6 @@ table caption code {
   background-color: #6e768166;
 }
 
-
 /* Callouts */
 
 /* Note */
@@ -1244,6 +1249,14 @@ a.footnote-back {
 #quarto-back-to-top {
   color: $white !important;
 }
+
+/* Blockquote */
+
+.blockquote {
+    color: $posit-light-gray-1 !important;
+}
+
+
 
 // Heading font size customization
 $h1-font-size: 2rem !default;
