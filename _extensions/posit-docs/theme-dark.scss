@@ -211,6 +211,11 @@ a.footnote-back {
 /* Blockquote */
 
 .blockquote {
-    color: $posit-light-gray-1 !important;
+  color: $posit-light-gray-1 !important;
 }
 
+/* Cookie popup dark theme */
+
+.termsfeed-com---palette-light .cc-pc-head-lang select {
+  background: white;
+}
