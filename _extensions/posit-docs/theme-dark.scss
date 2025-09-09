@@ -10,8 +10,9 @@
 $primary: $posit-blue-alt;
 $code-background: #0d1117;
 $dark-md-body: $posit-white;
-$dark-md-background: #181c25;
+$dark-md-background: #181c25; // body background
 $slate-800: #1E293B; // slate-800 vibe
+$dark-constrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -34,7 +35,7 @@ $font-size-base: 1rem;
 $body-color: $dark-md-body;
 
 //  Customize the navbar
-$navbar-bg: rgb(19, 22.5, 30.5);;
+$navbar-bg: $dark-constrast; 
 $navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
@@ -43,7 +44,7 @@ $navbar-brand-hl: $navbar-brand;
 
 // Customize the sidebar
 $sidebar-fg: darken($posit-white, 5%);
-$sidebar-bg: #181c25;
+$sidebar-bg: $dark-md-background;
 
 // Body
 $body-bg: $dark-md-background !default;
@@ -72,8 +73,8 @@ $table-striped-bg: $code-background !default;
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
   border-bottom: 2px solid $primary;
-  padding-bottom: 16px;
-  margin-bottom: -30px;
+  padding-bottom: 24px;
+  margin-bottom: -34px;
 }
 
 /* Sidebar */
@@ -107,6 +108,13 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 .nav-page .nav-page-text {
   color: darken($posit-white, 5%);
 }
+
+/* Footer - ask Greg
+
+.nav-footer {
+  background-color: $dark-constrast !important;
+}
+*/
 
 // Components
 
