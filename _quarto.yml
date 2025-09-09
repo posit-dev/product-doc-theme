@@ -50,14 +50,17 @@ website:
     center: |
       Posit PRODUCT {{< env PRODUCT_VERSION >}}
     right:
+      - text: '<a href="#" id="open_preferences_center" title="Update cookie preferences">
+              <img src="/_extensions/posit-docs/assets/images/cookie.svg" alt="Cookie Preferences" class="light-content" style="width: 1em; height: 1em;">
+              <img src="/_extensions/posit-docs/assets/images/cookie-copy.svg" alt="Cookie Preferences" class="dark-content" style="width: 1em; height: 1em;">
+           </a>'
+        aria-label: 'Cookie Prefs'
       - text: Support
         aria-label: 'Link to Posit Support'
         href: "https://support.posit.co/hc/en-us"
       - text: Posit Docs
         aria-label: 'Link to Posit Docs'
         href: "https://docs.posit.co"
-      - text: '<a href="#" id="open_preferences_center" title="Update cookie preferences"><i class="bi bi-cookie"></i></i></a>'
-        aria-label: 'Cookie Prefs'
 
 format:
   html:
