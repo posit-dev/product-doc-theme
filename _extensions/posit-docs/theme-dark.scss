@@ -7,10 +7,10 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: lighten(#3276b5, 2%);
-$code-background: #ffffff14;
-$dark-md-body: $posit-light-gray-1;
-$dark-md-background: #030712;
+$primary: $posit-blue-alt;
+$code-background: #0d1117;
+$dark-md-body: $posit-white;
+$dark-md-background: #181c25;
 $slate-800: #1E293B; // slate-800 vibe
 
 // Feature preview heading colors
@@ -34,7 +34,7 @@ $font-size-base: 1rem;
 $body-color: $dark-md-body;
 
 //  Customize the navbar
-$navbar-bg: $dark-md-background;
+$navbar-bg: rgb(19, 22.5, 30.5);;
 $navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
@@ -43,7 +43,7 @@ $navbar-brand-hl: $navbar-brand;
 
 // Customize the sidebar
 $sidebar-fg: darken($posit-white, 5%);
-$sidebar-bg: $dark-md-background;
+$sidebar-bg: #181c25;
 
 // Body
 $body-bg: $dark-md-background !default;
@@ -70,6 +70,12 @@ $table-striped-bg: $code-background !default;
   border-bottom: 1px solid $posit-dark-gray-1 !important;
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  border-bottom: 2px solid $primary;
+  padding-bottom: 16px;
+  margin-bottom: -30px;
+}
+
 /* Sidebar */
 
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
@@ -79,7 +85,8 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
 /* Sidebar pill for active item */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-  background-color: #141b27; // slate-800 vibe
+  color: $primary !important;
+  background-color: rgb(19, 22.5, 30.5); 
   border-radius: 5px;
   margin-bottom: 2px;
   margin-left: -5px;

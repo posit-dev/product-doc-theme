@@ -40,6 +40,7 @@ website:
               href: sharing.qmd
             - text: Duplicate
               href: sharing.qmd
+      style: "docked"
 
   page-footer:
     left:
