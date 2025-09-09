@@ -1,0 +1,21 @@
+name: PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  comment-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get PR number
+        id: pr
+        run: echo "pr_number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+
+      - name: Comment with Netlify preview URL
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            🚀 Preview your site here:
+            https://deploy-preview-${{ steps.pr.outputs.pr_number }}--product-doc-theme.netlify.app/
