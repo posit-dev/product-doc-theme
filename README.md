@@ -1,5 +1,7 @@
 # product-doc-theme
 
+[![Netlify Preview Status](https://api.netlify.com/api/v1/badges/45bb8138-6550-47eb-8b46-d94b40c14a01/deploy-status)](https://app.netlify.com/projects/product-doc-theme/deploys)
+
 Shared theme for Posit product documentation
 
 ## Usage
