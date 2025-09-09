@@ -236,3 +236,22 @@ a.footnote-back {
 .termsfeed-com---palette-light .cc-pc-head-lang select {
   background: white;
 }
+
+// Version toast
+
+// Or directly override via toast styling:
+#version-toast {
+  background-color: $dark-md-background;
+  color: $body-color;
+  border-color: $primary;
+
+  .toast-header {
+    background-color: $dark-constrast;
+    color: #ffffff;
+    border-bottom:  1px solid $posit-dark-gray-1;
+  }
+
+  .btn-close {
+    filter: invert(1);
+  }
+}
