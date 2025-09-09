@@ -22,6 +22,7 @@ toc: false
   font-size: 0.8em;
   font-weight: 600;
   border: 1px solid  rgb(222, 226, 230) !important;
+  background-color: rgb(19, 22.5, 30.5) !important;
 }
 
 .nav-tabs .nav-link, 
