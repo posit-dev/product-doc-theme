@@ -85,9 +85,11 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
 /* Sidebar pill for active item */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-  color: $primary !important;
-  background-color: rgb(19, 22.5, 30.5); 
+  color: #ffffff !important;
+  //background-color: rgb(19, 22.5, 30.5); 
+  background-color: rgba($primary, 0.1);
   border-radius: 5px;
+  border: $primary 1px solid;
   margin-bottom: 2px;
   margin-left: -5px;
   padding: 6px;
