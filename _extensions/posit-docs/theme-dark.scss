@@ -135,10 +135,6 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   color: $dark-md-background !important;
 }
 
-.nav-pills .nav-link:hover {
-  color: #ffffff !important;
-}
-
 /* Breadcrumbs */
 .quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
     color: $posit-white !important;
@@ -221,12 +217,6 @@ div.callout-important.callout {
 a.footnote-back {
   font-weight: 900;
   font-size: 1.1rem;
-}
-
-/* Footer */
-
-.nav-footer {
-  border-top: 1px solid $posit-dark-gray-1 !important;
 }
 
 /* Back to top link */
