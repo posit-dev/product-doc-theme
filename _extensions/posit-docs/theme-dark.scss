@@ -98,10 +98,18 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 /* Nav bar  right hamburger menu */
 
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  border: 1px solid $posit-dark-gray-1;
+  }
+
 .dropdown-item:hover,
 .dropdown-item:focus {
   color: var(--bs-dropdown-link-hover-color);
   background-color: $code-background !important;
+}
+
+.navbar .dropdown-item {
+  border-bottom: 1px solid $posit-dark-gray-3;
 }
 
 /* Page navigation */
