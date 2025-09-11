@@ -1,5 +1,5 @@
 ---
-title: Posit Product User Guide
+title: Product User Guide
 subtitle: Version {{< env PRODUCT_VERSION >}}
 ---
 

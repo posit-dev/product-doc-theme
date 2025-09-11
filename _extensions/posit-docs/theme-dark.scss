@@ -7,12 +7,12 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-light-blue-3;
-$white: $posit-white;
-$code-background: #ffffff14;
-$dark-md-body: #9CA3AF;
-$dark-md-background: #030712;
+$primary: $posit-blue-alt;
+$code-background: #0d1117;
+$dark-md-body: $posit-white;
+$dark-md-background: #181c25; // body background
 $slate-800: #1E293B; // slate-800 vibe
+$dark-constrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -35,7 +35,7 @@ $font-size-base: 1rem;
 $body-color: $dark-md-body;
 
 //  Customize the navbar
-$navbar-bg: $dark-md-background;
+$navbar-bg: $dark-constrast; 
 $navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
@@ -43,7 +43,7 @@ $navbar-brand-hl: $navbar-brand;
 //$navbar-brand-font-size: 14px !default;
 
 // Customize the sidebar
-$sidebar-fg: darken($white, 5%);
+$sidebar-fg: darken($posit-white, 5%);
 $sidebar-bg: $dark-md-background;
 
 // Body
@@ -71,6 +71,12 @@ $table-striped-bg: $code-background !default;
   border-bottom: 1px solid $posit-dark-gray-1 !important;
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  border-bottom: 2px solid $primary;
+  padding-bottom: 24px;
+  margin-bottom: -34px;
+}
+
 /* Sidebar */
 
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
@@ -80,8 +86,11 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
 /* Sidebar pill for active item */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-  background-color: #1E293B; // slate-800 vibe
+  color: #ffffff !important;
+  //background-color: rgb(19, 22.5, 30.5); 
+  background-color: rgba($primary, 0.1);
   border-radius: 5px;
+  border: $primary 1px solid;
   margin-bottom: 2px;
   margin-left: -5px;
   padding: 6px;
@@ -97,8 +106,15 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 /* Page navigation */
 .nav-page .nav-page-text {
-  color: darken($white, 5%);
+  color: darken($posit-white, 5%);
 }
+
+/* Footer - ask Greg
+
+.nav-footer {
+  background-color: $dark-constrast !important;
+}
+*/
 
 // Components
 
@@ -117,6 +133,11 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: $dark-md-background !important;
+}
+
+/* Breadcrumbs */
+.quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
+    color: $posit-white !important;
 }
 
 // Code
@@ -201,12 +222,36 @@ a.footnote-back {
 /* Back to top link */
 
 #quarto-back-to-top {
-  color: $white !important;
+  color: $posit-white !important;
 }
 
 /* Blockquote */
 
 .blockquote {
-    color: $posit-light-gray-1 !important;
+  color: $posit-light-gray-1 !important;
 }
 
+/* Cookie popup dark theme */
+
+.termsfeed-com---palette-light .cc-pc-head-lang select {
+  background: white;
+}
+
+// Version toast
+
+// Or directly override via toast styling:
+#version-toast {
+  background-color: $dark-md-background;
+  color: $body-color;
+  border-color: $primary;
+
+  .toast-header {
+    background-color: $dark-constrast;
+    color: #ffffff;
+    border-bottom:  1px solid $posit-dark-gray-1;
+  }
+
+  .btn-close {
+    filter: invert(1);
+  }
+}

@@ -94,7 +94,12 @@ $table-striped-bg: $posit-light-blue-1 !default;
 
 /* Left sidebar font weight */
 .sidebar-navigation a {
-  font-weight: 500;
+  //font-weight: 500;
+}
+
+#quarto-sidebar strong {
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
@@ -108,18 +113,28 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
     font-weight: 600;
+    font-size: 1rem;
 }
 
-#quarto-sidebar strong {
-  font-weight: 600;
-  text-transform: uppercase;
+.sidebar-navigation li a {
+    text-decoration: none;
+    font-size: 1rem;
 }
+
+
 
 
 /* Mini toc */
-.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
-  font-weight: 600;
+
+.sidebar nav[role=doc-toc]>ul li a {
+  font-size: 1rem;
 }
+
+.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+  font-weight: 700;
+  border-left: 2px solid #447099 !important;
+}
+
 
 /* Footer */
 
