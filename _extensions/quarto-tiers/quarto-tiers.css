@@ -1,0 +1,54 @@
+.badge-basic,
+.badge-basic:hover,
+.badge-enhanced,
+.badge-enhanced:hover,
+.badge-advanced,
+.badge-advanced:hover,
+.badge-alt,
+.badge-alt:hover,
+.badge-wb,
+.badge-wb:hover,
+.badge-preview,
+.badge-preview:hover,
+.badge-beta,
+.badge-beta:hover,
+.badge-drivers,
+.badge-drivers:hover {
+  color: #fff;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+}
+
+.badge-basic {
+  background-color: #297075;
+}
+
+.badge-enhanced {
+  background-color: #305775;
+}
+
+.badge-advanced {
+  background-color: #17212b;
+}
+
+.badge-alt {
+  background-color: #404041;
+}
+
+.badge-wb {
+  background-color: #9A4665;
+}
+
+.badge-preview {
+  background-color: #D24719;
+}
+
+.badge-beta {
+  background-color: #e7b10a;
+  color: #000000 !important;
+}
+
+.badge-drivers {
+  background-color: #961be3;
+}

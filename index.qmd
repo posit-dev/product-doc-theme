@@ -285,3 +285,14 @@ This is a simple note.
 ## Block quotes
 
 >This is a block quote.
+
+## Tiers (badges)
+
+{{< tier Basic >}}
+{{< tier Enhanced >}}
+{{< tier Advanced >}}
+{{< tier Workbench >}}
+{{< tier Alternate >}}
+{{< status Preview >}}
+{{< status Beta >}}
+{{< tier Pro Drivers >}}
