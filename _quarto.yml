@@ -44,7 +44,7 @@ website:
 
   page-footer:
     left:
-      - text: <img src="/_extensions/posit-docs/assets/images/posit-logo-black-TM.svg" alt="Posit" width="65px" class="light-content posit-footer-logo"><img src="/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg" alt="Posit" width="65px" class="dark-content posit-footer-logo">
+      - text: <img src="/_extensions/posit-docs/assets/images/posit-logos-2024_horiz-full-color.svg" alt="Posit" width="65px" class="light-content posit-footer-logo"><img src="/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg" alt="Posit" width="65px" class="dark-content posit-footer-logo">
         href: "https://posit.co"
       - Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
     center: |
