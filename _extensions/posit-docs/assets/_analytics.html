@@ -16,7 +16,7 @@ window.onload = function () {
     if (prefCenter) { // Test for prefCenter ID presence
         const sURL = window.location.href;
         // Show the icon only if the URL contains "docs.posit.co" or "netlify.app"
-        if (sURL.includes("http://localhost:4283/") || sURL.includes("netlify.app")) {
+        if (sURL.includes("docs.posit.co") || sURL.includes("netlify.app")) {
             prefCenter.style.display = "inline";
             prefCenter.style.visibility = "visible";
         } else {
