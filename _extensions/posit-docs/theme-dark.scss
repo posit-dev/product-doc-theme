@@ -117,12 +117,10 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   color: darken($posit-white, 5%);
 }
 
-/* Footer - ask Greg
-
+/* Footer */
 .nav-footer {
-  background-color: $dark-constrast !important;
+  border-top: solid 1px $posit-dark-gray-2;
 }
-*/
 
 // Components
 
