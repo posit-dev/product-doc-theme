@@ -43,12 +43,9 @@ $navbar-fg: $posit-light-gray-3;
 $navbar-hl: $primary;
 $navbar-brand: $posit-dark-gray-2;
 $navbar-brand-hl: $navbar-brand;
-// Start update from Greg suggestion
 $navbar-brand-font-size: 1rem !default;
-// End update from Greg suggestion
 
 // Code
-
 
 // Callouts
 // Start update from Greg suggestion
@@ -56,7 +53,6 @@ $callout-color-note: $posit-blue;
 // End update from Greg suggestion
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
-
 
 // Tables
 
@@ -87,7 +83,7 @@ $table-striped-bg: $posit-light-blue-1 !default;
 
 /* Adds weight to selected active item in the navbar */
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /* Sidebar */
