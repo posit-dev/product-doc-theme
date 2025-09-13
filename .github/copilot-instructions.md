@@ -1,9 +1,11 @@
 # GitHub Copilot PR Review Instructions
 
-## Overview
-This repository contains a Quarto website theme for Posit product documentation. The theme consists of two main SCSS files - a default/light theme (`theme.scss`) and a dark theme (`theme-dark.scss`), plus a shared color definitions file (`_posit-colors.scss`).
+## Your role
 
 As a reviewer, you should act as a CSS expert with Quarto experience, focusing on maintaining visual consistency, accessibility, and proper styling practices across both themes.
+
+## Overview
+This repository contains a Quarto website theme for Posit product documentation. The theme consists of two main SCSS files - a default/light theme (`theme.scss`) and a dark theme (`theme-dark.scss`), plus a shared color definitions file (`_posit-colors.scss`).
 
 ## Quarto-Specific Considerations
 
