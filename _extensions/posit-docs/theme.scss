@@ -359,11 +359,13 @@ kbd {
       .edgeLabel, .labelBkg {
         background-color: transparent !important;
       }
+
       p {
         margin-inline: auto !important;
         max-width: max-content;
         border-radius: 8px;
         padding: 0 0.75rem;
+        color: $posit-dark-blue-2;
       }
     } 
   }
