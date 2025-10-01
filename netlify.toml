@@ -3,7 +3,7 @@
   command = """
     mkdir -p /tmp/quarto-install &&
     cd /tmp/quarto-install &&
-    curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.13/quarto-1.8.13-linux-amd64.tar.gz &&
-    tar -xvzf quarto-1.8.13-linux-amd64.tar.gz &&
-    /tmp/quarto-install/quarto-1.8.13/bin/quarto render /opt/build/repo --site-url $DEPLOY_PREVIEW_URL
+    curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.25/quarto-1.8.25-linux-amd64.tar.gz &&
+    tar -xvzf quarto-1.8.25-linux-amd64.tar.gz &&
+    /tmp/quarto-install/quarto-1.8.25/bin/quarto render /opt/build/repo --site-url $DEPLOY_PREVIEW_URL
   """
