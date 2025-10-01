@@ -9,3 +9,5 @@ template_files/
 
 /.quarto/
 _site/
+
+**/*.quarto_ipynb
