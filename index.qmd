@@ -285,3 +285,18 @@ This is a simple note.
 ## Block quotes
 
 >This is a block quote.
+
+## Mermaids
+
+```{mermaid}
+%%| fig-align: center
+flowchart LR
+subgraph "Local Machine"
+p[Positron UI]
+end
+subgraph "Remote Machine"
+p -- SSH --> r[Positron Backend]
+r --> py[Python Session]
+r --> ark[R Session]
+end
+```
