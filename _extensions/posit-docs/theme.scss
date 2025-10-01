@@ -342,3 +342,31 @@ kbd {
     filter: invert(1);
   }
 }
+
+//  Mermaid diagrams
+[id^="mermaid-"] {
+  .cluster rect {
+    fill: none !important;
+  }
+
+  foreignObject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:has(.edgeLabel) {
+      background-color: transparent;
+      .edgeLabel, .labelBkg {
+        background-color: transparent !important;
+      }
+
+      p {
+        margin-inline: auto !important;
+        max-width: max-content;
+        border-radius: 8px;
+        padding: 0 0.75rem;
+        color: $posit-dark-blue-2;
+      }
+    } 
+  }
+}
