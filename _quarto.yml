@@ -12,7 +12,7 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Admin Guide"
-        href: admin.qmd
+        href: admin/index.qmd
       - text: "User Guide"
         href: user.qmd
       - text: "Grid"
@@ -21,6 +21,9 @@ website:
   # Hybrid navigation meant to show some amount of nested sidebar navigation
   # https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation
   sidebar:
+    - title: "Product Docs"
+      hrefg: index.qmd
+
     - title: "Admin Guide"
       contents:
         - admin.qmd
