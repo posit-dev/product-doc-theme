@@ -221,3 +221,27 @@ a.footnote-back {
     color: $posit-light-gray-1 !important;
 }
 
+//  Mermaid diagrams
+[id^="mermaid-"] {
+  .cluster rect {
+    fill: none !important;
+  }
+
+  foreignObject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:has(.edgeLabel) {
+      p {
+        margin-inline: auto !important;
+        max-width: max-content;
+        border-radius: 8px;
+        padding: 0 0.75rem;
+        background-color:#447099 !important;
+        color: $body-color !important;
+      }
+    }
+  }
+}
+
