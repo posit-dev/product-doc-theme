@@ -21,12 +21,12 @@ website:
   # Hybrid navigation meant to show some amount of nested sidebar navigation
   # https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation
   sidebar:
-    - title: "Product Docs"
-      hrefg: index.qmd
+    - title: "Home"
+      href: index.qmd
 
     - title: "Admin Guide"
       contents:
-        - admin.qmd
+        - admin/index.qmd
         - section: Subsection
           contents:
             - text: Installation
