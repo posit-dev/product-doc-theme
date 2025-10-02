@@ -106,7 +106,6 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     padding: 6px;
 }
 
-
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
     font-weight: 600;
     font-size: 1rem;
@@ -116,9 +115,6 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     text-decoration: none;
     font-size: 1rem;
 }
-
-
-
 
 /* Mini toc */
 
@@ -249,6 +245,10 @@ div.sourceCode, pre.console {
   margin-top: 2rem;
   margin-bottom: 2.5rem;
   padding: .25rem;
+}
+
+p code.sourceCode, li code.sourceCode, td code.sourceCode {
+  background-color: lighten($posit-light-gray-3, 55%) !important;
 }
 
 /* Footnotes */
