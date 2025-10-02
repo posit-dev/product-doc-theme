@@ -303,3 +303,37 @@ ol.groovyAlpha li > p:before {
 kbd {
     padding: .2rem .4rem;
 }
+
+//  Mermaid diagrams
+[id^="mermaid-"] {
+  .cluster rect {
+    fill: none !important;
+    font-size: $font-size-base;
+    ;
+  }
+
+  foreignObject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-base;
+
+    &:has(.edgeLabel) {
+      background-color: transparent;
+      .edgeLabel, .labelBkg {
+        background-color: transparent !important;
+        font-size: $font-size-base;
+      }
+
+      p {
+        margin-inline: auto !important;
+        max-width: max-content;
+        border-radius: 8px;
+        padding: 0 0.75rem;
+        color: $posit-dark-blue-2;
+        font-size: $font-size-base;
+      }
+    } 
+  }
+}
+
