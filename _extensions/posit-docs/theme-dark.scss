@@ -190,6 +190,11 @@ pre {
   overflow: auto; /* ensure scrollbars appear when needed */
 }
 
+
+p code.sourceCode, li code.sourceCode, td code.sourceCode {
+  background-color: $code-background !important;
+}
+
 // Tables
 
 table caption code {
