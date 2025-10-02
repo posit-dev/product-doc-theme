@@ -222,6 +222,7 @@ a.footnote-back {
 }
 
 //  Mermaid diagrams
+/* Disabling due to unique styles for Positron in theme.scss
 [id^="mermaid-"] {
   .cluster rect {
     fill: none !important;
@@ -245,3 +246,4 @@ a.footnote-back {
   }
 }
 
+*/
