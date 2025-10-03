@@ -304,7 +304,10 @@ kbd {
     padding: .2rem .4rem;
 }
 
-//  Mermaid diagrams
+//  Mermaid diagrams 
+//Commented out because Positron wished to have unique styles that are different from the main theme
+
+/*
 [id^="mermaid-"] {
   .cluster rect {
     fill: none !important;
@@ -336,4 +339,40 @@ kbd {
     } 
   }
 }
+*/
 
+
+/* Target all Mermaid diagrams */
+[id^="mermaid-"] .cluster rect {
+  fill: #f9f9fb !important;
+  stroke: $posit-dark-blue-2 !important;
+}
+
+[id^="mermaid-"] .node rect {
+  fill: #e6eef6 !important;
+  stroke: $posit-dark-blue-2 !important; 
+}
+
+[id^="mermaid-"] .nodeLabel {
+  fill: $posit-dark-blue-2 !important;
+}
+
+[id^="mermaid-"] .edgeLabel p {
+  color: $posit-dark-blue-2 !important;
+}
+
+[id^="mermaid-"] foreignObject:has(.edgeLabel) {
+    background-color: #f9f9fb !important;
+    border-radius: 8px;
+}
+
+[id^="mermaid-"] p {
+    margin-inline: auto !important;
+    max-width: max-content;
+    border-radius: 8px;
+    padding: 0 0.75rem;
+}
+
+[id^=mermaid-] .labelBkg {
+    background-color: transparent !important;
+}
