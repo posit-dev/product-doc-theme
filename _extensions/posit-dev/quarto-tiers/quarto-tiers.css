@@ -1,0 +1,109 @@
+.badge-basic,
+.badge-basic:hover,
+.badge-enhanced,
+.badge-enhanced:hover,
+.badge-advanced,
+.badge-advanced:hover,
+.badge-alt,
+.badge-alt:hover,
+.badge-wb,
+.badge-wb:hover,
+.badge-preview,
+.badge-preview:hover,
+.badge-beta,
+.badge-beta:hover,
+.badge-drivers,
+.badge-drivers:hover {
+  color: #fff;
+  white-space: nowrap;
+  text-decoration: none;
+  border: none;
+  padding: 4px 8px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: all 0.2s ease;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  border-radius: 16px;
+}
+
+.badge-basic {
+  background-color: #297075;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.badge-basic:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.badge-enhanced {
+  background-color: #305775;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.badge-enhanced:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.badge-advanced {
+  background-color: #17212b;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.badge-advanced:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.badge-alt {
+  background-color: #404041;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.badge-alt:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.badge-wb {
+  background-color: #9A4665;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.badge-wb:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.badge-preview {
+  background-color: #D24719;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.badge-preview:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.badge-beta {
+  background-color: #e7b10a;
+  color: #000000 !important;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.05) 100%);
+  text-shadow: 0 1px 1px rgba(255,255,255,0.2);
+}
+
+.badge-beta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.badge-drivers {
+  background-color: #961be3;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.badge-drivers:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+}
