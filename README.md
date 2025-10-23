@@ -50,23 +50,26 @@ Use the following `website.page-footer` in your `_quarto.yml`:
 ```
 website:
   page-footer:
-    left: |
-      Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
+    left:
+      - text: <img src="/_extensions/posit-docs/assets/images/posit-logos-2024_horiz-full-color.svg" alt="Posit" width="65px" class="light-content posit-footer-logo"><img src="/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg" alt="Posit" width="65px" class="dark-content posit-footer-logo">
+        href: "https://posit.co"
+      - Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
     center: |
       Posit PRODUCT {{< env PRODUCT_VERSION >}}
     right:
-      - icon: question-circle-fill
+      - text: '<a href="#" id="open_preferences_center" title="Update cookie preferences">
+              <img src="/_extensions/posit-docs/assets/images/cookie.svg" alt="Cookie Preferences" class="light-content" style="width: 1em; height: 1em;">
+              <img src="/_extensions/posit-docs/assets/images/cookie-copy.svg" alt="Cookie Preferences" class="dark-content" style="width: 1em; height: 1em;">
+           </a>'
+        aria-label: 'Cookie Prefs'
+      - text: Support
         aria-label: 'Link to Posit Support'
         href: "https://support.posit.co/hc/en-us"
-      - text: '<a href="#" id="open_preferences_center" title="Manage your cookie preferences"><i class="bi bi-cookie"></i></i></a>'
-        aria-label: 'Cookie Prefs'
-      - icon: lightbulb-fill
-        aria-label: 'Link to Posit Solutions'
-        href: "https://solutions.posit.co/"
-      - text: "<img alt='Link to main Posit site' src='/_extensions/posit-docs/assets/images/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
-        href: "https://posit.co/"
+      - text: Posit Docs
+        aria-label: 'Link to Posit Docs'
+        href: "https://docs.posit.co"
 ```
-
+        
 Make the following modifications:
 
 -   **Product name:** Replace the `PRODUCT` placeholder with the product name.
@@ -101,8 +104,10 @@ Make the following modifications:
     For example, you may have a top-level `images` directory:
 
     ```bash
-    cp _extensions/posit-dev/posit-docs/assets/images/posit-guide-ltmd.svg images
-    cp _extensions/posit-dev/posit-docs/assets/images/posit-icon-fullcolor.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/cookie.svg.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/cookie-copy.svg.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/posit-icon-fullcolor-TM.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/posit-logos-2024_horiz-full-color.svg images
     ```
 
     These images are also available [from
