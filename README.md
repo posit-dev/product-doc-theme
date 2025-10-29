@@ -51,15 +51,15 @@ Use the following `website.page-footer` in your `_quarto.yml`:
 website:
   page-footer:
     left:
-      - text: <img src="/_extensions/posit-docs/assets/images/posit-logos-2024_horiz-full-color.svg" alt="Posit" width="65px" class="light-content posit-footer-logo"><img src="/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg" alt="Posit" width="65px" class="dark-content posit-footer-logo">
+      - text: <img src="/images/posit-logos-2024_horiz-full-color.svg" alt="Posit" width="65px" class="light-content posit-footer-logo"><img src="/images/posit-logo-fullcolor-TM.svg" alt="Posit" width="65px" class="dark-content posit-footer-logo">
         href: "https://posit.co"
       - Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
     center: |
       Posit PRODUCT {{< env PRODUCT_VERSION >}}
     right:
       - text: '<a href="#" id="open_preferences_center" title="Update cookie preferences">
-              <img src="/_extensions/posit-docs/assets/images/cookie.svg" alt="Cookie Preferences" class="light-content" style="width: 1em; height: 1em;">
-              <img src="/_extensions/posit-docs/assets/images/cookie-copy.svg" alt="Cookie Preferences" class="dark-content" style="width: 1em; height: 1em;">
+              <img src="/images/cookie.svg" alt="Cookie Preferences" class="light-content" style="width: 1em; height: 1em;">
+              <img src="/images/cookie-copy.svg" alt="Cookie Preferences" class="dark-content" style="width: 1em; height: 1em;">
            </a>'
         aria-label: 'Cookie Prefs'
       - text: Support
