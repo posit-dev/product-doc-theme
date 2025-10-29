@@ -104,8 +104,8 @@ Make the following modifications:
     For example, you may have a top-level `images` directory:
 
     ```bash
-    cp _extensions/posit-dev/posit-docs/assets/images/cookie.svg.svg images
-    cp _extensions/posit-dev/posit-docs/assets/images/cookie-copy.svg.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/cookie.svg images
+    cp _extensions/posit-dev/posit-docs/assets/images/cookie-copy.svg images
     cp _extensions/posit-dev/posit-docs/assets/images/posit-icon-fullcolor-TM.svg images
     cp _extensions/posit-dev/posit-docs/assets/images/posit-logos-2024_horiz-full-color.svg images
     ```
