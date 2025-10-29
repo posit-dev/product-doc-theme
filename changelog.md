@@ -1,3 +1,12 @@
+# v8.1.0
+
+* Bumps Quarto version to pre-release `1.8.25`
+* Removes unnecessary assets
+* New cookie and Posit footer icons
+* Mermaid styles
+* Other misc. changes
+
+
 # v8.0.0
 
 * Bumps Quarto version to pre-release `1.8.13`
