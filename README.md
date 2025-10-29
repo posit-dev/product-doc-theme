@@ -28,20 +28,24 @@ The following entries may be unique to each product. Please review the following
 
 #### Navbar
 
-If you have `website.navbar.right` entries in your `_quarto.yml`,
-merge the following with the existing entries:
+**For existing sites**
+
+If you have `website.navbar.right` entries in your `_quarto.yml`, you may have to
+merge the following with the existing entries in your `_quarto.yml`.
 
 ```
 website:
   navbar:
     right:
-      - icon: "list"
+      - text: "Help"
         menu:
           - text: "docs.posit.co"
             href: "https://docs.posit.co"
           - text: "Posit Support"
             href: "https://support.posit.co/hc/en-us/"
 ```
+Once merged, you should manually disable these entries by commenting them out in the `_extension.yml`.
+This should be avoided, if possible.
 
 #### Footer
 
