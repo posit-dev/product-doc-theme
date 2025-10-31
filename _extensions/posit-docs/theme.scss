@@ -4,40 +4,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 // import shared colors
-@import '_posit-colors';
+@import "_posit-colors";
 
 /*-- scss:variables --*/
 $primary: $posit-blue;
 
-
-/* ======== General Styles ======== */   
+/* ======== General Styles ======== */
 
 // Feature preview heading colors
 $preview-header: #ee6331; /* posit orange, contrast: 8.45 */
 $preview-header-border: darken($preview-header, 5%);
 
-// scss-docs-end color-variables
-
 // Typography
-
-/* Font, line-height, and color for body text, headings, and more. */
-
-//scss-font-start font-variables
-$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
-  sans-serif, system-ui;
+$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+  "Liberation Sans", Arial, sans-serif, system-ui;
 $font-family-monospace: "Source Code Pro", monospace;
 $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-size-base: 1rem;
 $line-height-base: 1.7;
-// scss-docs-end font-variables
 
 // Headings
 $headings-font-weight: 400 !default;
 
-//font and body color
+// Font and body color
 $body-color: $posit-dark-gray-2;
 
-//  Customize the navbar
+// Navbar customization
 $navbar-bg: #ffffff;
 $navbar-fg: $posit-light-gray-3;
 $navbar-hl: $primary;
@@ -45,52 +37,40 @@ $navbar-brand: $posit-dark-gray-2;
 $navbar-brand-hl: $navbar-brand;
 $navbar-brand-font-size: 1rem !default;
 
-// Code
-
 // Callouts
-// Start update from Greg suggestion
 $callout-color-note: $posit-blue;
-// End update from Greg suggestion
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
 
 // Tables
-
 $table-hover-bg: $posit-light-blue-2 !default;
 $table-striped-bg: $posit-light-blue-1 !default;
 
-// CSS
-
-// Layout
-
 /* Navbar */
-
 .navbar {
   border-bottom: 1px solid $posit-light-blue-1;
 }
 
 /* Style for the version included in the website title */
 .navbar-title small {
-    font-size: 14px;
-    display: block;
-    //padding-left: 1em;
-  }
+  font-size: 14px;
+  display: block;
+}
 
 /* Adds separation between nav bar links and site title */
 .navbar-collapse {
-    margin-left: 2ch;
+  margin-left: 2ch;
 }
 
 /* Adds weight to selected active item in the navbar */
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
   font-weight: 600;
 }
 
 /* Sidebar */
-
-/* Left sidebar font weight */
 .sidebar-navigation a {
-  //font-weight: 500;
+  // font-weight: 500;
 }
 
 #quarto-sidebar strong {
@@ -98,169 +78,164 @@ $table-striped-bg: $posit-light-blue-1 !default;
   text-transform: uppercase;
 }
 
-div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    background-color: #f4f4f7;
-    border-radius: 5px;
-    margin-bottom: 2px;
-    margin-left: -5px;
-    padding: 6px;
+div.sidebar-item-container .active,
+div.sidebar-item-container .show > .nav-link,
+div.sidebar-item-container .sidebar-link > code {
+  background-color: #f4f4f7;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  margin-left: -5px;
+  padding: 6px;
 }
 
-div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.sidebar-navigation li a {
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-/* Mini toc */
-
-.sidebar nav[role=doc-toc]>ul li a {
+div.sidebar-item-container .active,
+div.sidebar-item-container .show > .nav-link,
+div.sidebar-item-container .sidebar-link > code {
+  font-weight: 600;
   font-size: 1rem;
 }
 
-.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+.sidebar-navigation li a {
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Mini TOC */
+.sidebar nav[role="doc-toc"] > ul li a {
+  font-size: 1rem;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
   font-weight: 700;
   border-left: 2px solid #447099 !important;
 }
 
-
 /* Footer */
-
-/* Posit icon fullcolor - this needs to be phased out*/
 #footer-right-posit-logo {
 }
 
-.nav-footer-left .footer-items, .nav-item {
+.nav-footer-left .footer-items,
+.nav-item {
   padding-right: 11px;
 }
 
-/* Footer */
-
 .posit-footer-logo {
   margin-right: -10px;
-   // margin-right: 5px; #Positron uses this to align the logo with the text
+  // margin-right: 5px; #Positron uses this to align the logo with the text
 }
 
-// Components
-
-/* Tabs and pills */
-
+/* Tabs and Pills */
 .nav-tabs .nav-link {
-    text-transform: none !important;
-    font-family: $font-family-sans-serif;
-    color: $navbar-fg;
-  }
-  
-  .nav-tabs .nav-link.active,
-  .nav-tabs .nav-item.show .nav-link {
-    color: $primary !important;
-    font-weight: 700 !important;
-  }
-  
-  .nav-tabs .nav-link:hover,
-  .nav-link:focus {
-    color: $posit-blue !important;
-  }
+  text-transform: none !important;
+  font-family: $font-family-sans-serif;
+  color: $navbar-fg;
+}
 
-  .nav-pills {
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: $primary !important;
+  font-weight: 700 !important;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-link:focus {
+  color: $posit-blue !important;
+}
+
+.nav-pills {
+  border: none !important;
+}
+
+.nav-pills,
+.panel-underline {
+  > .nav {
+    display: flex;
     border: none !important;
-  }
-  
-  .nav-pills,
-  .panel-underline {
-    > .nav {
-      display: flex;
-      border: none !important;
-      flex-direction: row;
-      justify-content: center;
-      .nav-link {
-        cursor: pointer;
-      }
+    flex-direction: row;
+    justify-content: center;
+
+    .nav-link {
+      cursor: pointer;
     }
   }
-  
-  .nav-pills > .nav .nav-link {
-    border: none !important;
-  }
-  
-  .nav-pills,
-  .panel-underline {
-    .tab-content {
-      padding-left: 0;
-      padding-right: 0;
-      border: none;
-    }
-  }
-  
-  .nav-pills .nav-link.active,
-  .nav-pills .nav-item.show .nav-link {
-    color: #ffffff !important;
-    text-decoration: none !important;
-  }
-  
-  .nav-pills .nav-link:hover,
-  .nav-link:focus {
-    isolation: isolate;
-    color: $posit-blue !important;
-    border: none !important;
-  }
-  
-  .nav-pills .nav-link.active,
-  .nav-pills .show > .nav-link {
-    color: #ffffff !important;
-  }
+}
 
-// Headings
+.nav-pills > .nav .nav-link {
+  border: none !important;
+}
 
+.nav-pills,
+.panel-underline {
+  .tab-content {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+  }
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-item.show .nav-link {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.nav-pills .nav-link:hover,
+.nav-link:focus {
+  isolation: isolate;
+  color: $posit-blue !important;
+  border: none !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #ffffff !important;
+}
+
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-weight: $headings-font-weight !important;
 }
 
-// Body
-
+/* Body */
 body {
   letter-spacing: -0.2px;
-  -webkit-font-smoothing: antialiased; 
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Code */
-
 div.sourceCode {
   background-color: lighten($posit-light-gray-3, 55%) !important;
 }
 
 .code-with-filename .code-with-filename-file {
-  padding: .25rem;
+  padding: 0.25rem;
   border: none !important;
-  box-shadow: 0px 0px 2px rgba(5, 10, 15, .14), 0px 2px 4px rgba(29, 31, 33, .16);
+  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
 }
 
-div.sourceCode, pre.console {
+div.sourceCode,
+pre.console {
   border: none !important;
-  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
+  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
   margin-top: 2rem;
   margin-bottom: 2.5rem;
-  padding: .25rem;
+  padding: 0.25rem;
 }
 
-p code.sourceCode, li code.sourceCode, td code.sourceCode {
+p code.sourceCode,
+li code.sourceCode,
+td code.sourceCode {
   background-color: lighten($posit-light-gray-3, 55%) !important;
 }
 
 /* Footnotes */
-
 a.footnote-back {
   font-weight: 900;
   font-size: 1.1rem;
 }
 
-// Specialty headers
-
-/* the feature PREVIEW header */
+/* Feature Preview Header */
 .preview-header > h1:after,
 .preview-header > h2:after,
 .preview-header > h3:after,
@@ -291,10 +266,7 @@ div span.preview-feature {
   text-transform: uppercase;
 }
 
-// Specialty lists
-
-/* Callout steps for images with multiple items/steps shown in single image */
-
+/* Callout Steps */
 ol.groovyAlpha {
   list-style: none;
   counter-reset: list-counter;
@@ -319,16 +291,12 @@ ol.groovyAlpha li > p:before {
   vertical-align: middle;
 }
 
-// Keyboard keys
-
-/* Keyboard shortcuts */
+/* Keyboard Shortcuts */
 kbd {
-    padding: .2rem .4rem;
+  padding: 0.2rem 0.4rem;
 }
 
-// Version toast
-
-// Or directly override via toast styling:
+/* Version Toast */
 #version-toast {
   background-color: $posit-white;
   color: $body-color;
@@ -343,12 +311,11 @@ kbd {
   }
 }
 
-//  Mermaid diagrams
+/* Mermaid Diagrams */
 [id^="mermaid-"] {
   .cluster rect {
     fill: none !important;
     font-size: $font-size-base;
-    ;
   }
 
   foreignObject {
@@ -359,7 +326,9 @@ kbd {
 
     &:has(.edgeLabel) {
       background-color: transparent;
-      .edgeLabel, .labelBkg {
+
+      .edgeLabel,
+      .labelBkg {
         background-color: transparent !important;
         font-size: $font-size-base;
       }
@@ -372,6 +341,6 @@ kbd {
         color: $posit-dark-blue-2;
         font-size: $font-size-base;
       }
-    } 
+    }
   }
 }
