@@ -7,10 +7,10 @@
 @import "_posit-colors";
 
 /*-- scss:variables --*/
-$primary: $posit-blue-alt;
+$primary: $action-blue;
 $code-background: #0d1117;
 $dark-md-body: $posit-white;
-$dark-md-background: #181c25; // body background
+$dark-md-background: $background-gray; // body background
 $slate-800: #1E293B; // slate-800 vibe
 $dark-constrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
 
@@ -30,7 +30,7 @@ $line-height-base: 1.7; // manual entry to force match to light theme
 $body-color: $dark-md-body;
 
 // Navbar customization
-$navbar-bg: $dark-constrast;
+$navbar-bg: $background-secondary;
 $navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
@@ -68,7 +68,7 @@ $table-striped-bg: $code-background !default;
   border-bottom: 2px solid $primary;
   padding-bottom: 24px;
   margin-bottom: -34px;
-}
+}x
 
 /* Sidebar */
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents,
@@ -82,12 +82,13 @@ div.sidebar-item-container .show > .nav-link,
 div.sidebar-item-container .sidebar-link > code {
   color: #ffffff !important;
   // background-color: rgb(19, 22.5, 30.5);
-  background-color: rgba($primary, 0.1);
-  border-radius: 5px;
-  border: $primary 1px solid;
-  margin-bottom: 2px;
-  margin-left: -5px;
-  padding: 6px;
+  //background-color: rgba($primary, 0.1);
+  //border-radius: 5px;
+  //border: $primary 1px solid;
+  //margin-bottom: 2px;
+  //margin-left: -5px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid $action-blue;
 }
 
 /* Navbar right hamburger menu */
@@ -112,7 +113,7 @@ div.sidebar-item-container .sidebar-link > code {
 
 /* Footer */
 .nav-footer {
-  border-top: solid 1px $posit-dark-gray-2;
+  //border-top: solid 1px $posit-dark-gray-2;
 }
 
 /* ======== Components ======== */
