@@ -1390,11 +1390,8 @@ Term 2
 
 ### Two-Column Layout
 
-```{=html}
-<div class="row">
-  <div class="col-md-6">
-```
-
+::: {.grid}
+::: {.g-col-6}
 #### Left Column
 
 This is content in the left column. It can contain any markdown elements:
@@ -1402,12 +1399,9 @@ This is content in the left column. It can contain any markdown elements:
 - Lists
 - **Bold text**
 - `Code`
+:::
 
-```{=html}
-  </div>
-  <div class="col-md-6">
-```
-
+::: {.g-col-6}
 #### Right Column
 
 This is content in the right column. It can also contain:
@@ -1415,11 +1409,8 @@ This is content in the right column. It can also contain:
 1. Numbered lists
 2. *Italic text*
 3. [Links](https://posit.co)
-
-```{=html}
-  </div>
-</div>
-```
+:::
+:::
 
 ---
 
