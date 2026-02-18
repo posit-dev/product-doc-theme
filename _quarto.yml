@@ -44,6 +44,45 @@ website:
               href: sharing.qmd
       style: "docked"
 
+    - title: "Kitchen Sink"
+      contents:
+        - kitchen-sink.qmd
+        - section: Getting Started
+          contents:
+            - text: Introduction
+              href: kitchen-sink.qmd
+            - text: Quick Start
+              href: kitchen-sink.qmd
+            - text: Installation Guide
+              href: kitchen-sink.qmd
+        - section: Core Features
+          contents:
+            - text: Authentication
+              href: kitchen-sink.qmd
+            - text: Data Management
+              href: kitchen-sink.qmd
+            - text: API Integration
+              href: kitchen-sink.qmd
+            - text: User Permissions
+              href: kitchen-sink.qmd
+        - section: Advanced Topics
+          contents:
+            - text: Custom Workflows
+              href: kitchen-sink.qmd
+            - text: Performance Tuning
+              href: kitchen-sink.qmd
+            - text: Security Best Practices
+              href: kitchen-sink.qmd
+        - section: Reference
+          contents:
+            - text: API Documentation
+              href: kitchen-sink.qmd
+            - text: Configuration Options
+              href: kitchen-sink.qmd
+            - text: Troubleshooting
+              href: kitchen-sink.qmd
+      style: "docked"
+
   page-footer:
     left:
       - text: <img src="/_extensions/posit-docs/assets/images/posit-logos-2024_horiz-full-color.svg" alt="Posit" width="65px" class="light-content posit-footer-logo"><img src="/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg" alt="Posit" width="65px" class="dark-content posit-footer-logo">
