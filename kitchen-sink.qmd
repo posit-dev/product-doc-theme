@@ -1,0 +1,1526 @@
+---
+title: "Kitchen Sink"
+subtitle: "Complete Component Showcase"
+sidebar:
+  contents:
+    - kitchen-sink.qmd
+    - section: Getting Started
+      contents:
+        - text: Introduction
+          href: kitchen-sink.qmd
+        - text: Quick Start
+          href: kitchen-sink.qmd
+        - text: Installation Guide
+          href: kitchen-sink.qmd
+    - section: Core Features
+      contents:
+        - text: Authentication
+          href: kitchen-sink.qmd
+        - text: Data Management
+          href: kitchen-sink.qmd
+        - text: API Integration
+          href: kitchen-sink.qmd
+        - text: User Permissions
+          href: kitchen-sink.qmd
+    - section: Advanced Topics
+      contents:
+        - text: Custom Workflows
+          href: kitchen-sink.qmd
+        - text: Performance Tuning
+          href: kitchen-sink.qmd
+        - text: Security Best Practices
+          href: kitchen-sink.qmd
+    - section: Reference
+      contents:
+        - text: API Documentation
+          href: kitchen-sink.qmd
+        - text: Configuration Options
+          href: kitchen-sink.qmd
+        - text: Troubleshooting
+          href: kitchen-sink.qmd
+---
+
+## Typography & Text Elements
+
+### Headings
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+### Display Headings
+
+```{=html}
+<h1 class="display-1">Display 1</h1>
+<h1 class="display-2">Display 2</h1>
+<h1 class="display-3">Display 3</h1>
+<h1 class="display-4">Display 4</h1>
+```
+
+### Preview Feature Badge
+
+#### Standard Feature {.preview-header}
+
+This heading has a preview feature badge.
+
+### Text Styles
+
+This is **bold text**, this is *italic text*, and this is ***bold italic text***.
+
+This is `inline code` with custom styling.
+
+This is a [link to Posit](https://posit.co).
+
+```{=html}
+This is <small>small text</small>, <del>deleted text</del>, <ins>inserted text</ins>, and <u>underlined text</u>.
+
+This is an <abbr title="Abbreviation">ABBR</abbr> element.
+```
+
+### Blockquote
+
+> This is a blockquote.
+> It can span multiple lines.
+>
+> And have multiple paragraphs.
+
+### Keyboard Shortcuts
+
+```{=html}
+Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.
+
+Press <kbd>Cmd</kbd> + <kbd>V</kbd> to paste.
+```
+
+---
+
+## Lists
+
+### Unordered List
+
+- Item 1
+- Item 2
+  - Nested item 2.1
+  - Nested item 2.2
+- Item 3
+
+### Ordered List
+
+1. First item
+2. Second item
+   1. Nested item 2.1
+   2. Nested item 2.2
+3. Third item
+
+### Groovy Alpha List
+
+::: {.groovyAlpha}
+1. First alphabetically numbered item
+2. Second alphabetically numbered item
+3. Third alphabetically numbered item
+4. Fourth alphabetically numbered item
+:::
+
+---
+
+## Callouts
+
+::: {.callout-note}
+## Note Callout
+This is a note callout with the default appearance. Uses Posit blue color.
+:::
+
+::: {.callout-warning}
+## Warning Callout
+This is a warning callout. Uses Posit orange color.
+:::
+
+::: {.callout-important}
+## Important Callout
+This is an important callout. Uses Posit burgundy color.
+:::
+
+::: {.callout-note appearance="simple"}
+## Simple Note
+This is a note with simple appearance.
+:::
+
+::: {.callout-warning collapse="true"}
+## Collapsible Warning
+This is a collapsible warning callout. Click to expand/collapse.
+:::
+
+---
+
+## Code Blocks
+
+### R Code
+
+```r
+# This is R code
+library(ggplot2)
+data <- data.frame(x = 1:10, y = 1:10)
+ggplot(data, aes(x, y)) + geom_point()
+```
+
+### Python Code
+
+```python
+# This is Python code
+import pandas as pd
+import numpy as np
+
+data = pd.DataFrame({
+    'x': range(10),
+    'y': range(10)
+})
+print(data.head())
+```
+
+### Bash Code
+
+```bash
+# This is Bash code
+cd /home/user
+ls -la
+echo "Hello World"
+```
+
+### Code with Filename
+
+```{.python filename="analysis.py"}
+def calculate_mean(numbers):
+    return sum(numbers) / len(numbers)
+
+result = calculate_mean([1, 2, 3, 4, 5])
+print(f"Mean: {result}")
+```
+
+---
+
+## Tables
+
+### Basic Table
+
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| Value 1  | Value 2  | Value 3  |
+| Value 4  | Value 5  | Value 6  |
+| Value 7  | Value 8  | Value 9  |
+
+: Basic table with caption
+
+### Striped Table
+
+| Name    | Age | City          |
+|---------|-----|---------------|
+| Alice   | 28  | New York      |
+| Bob     | 35  | San Francisco |
+| Charlie | 42  | Chicago       |
+
+: Striped table example {.striped}
+
+### Hover Table
+
+| Product | Price | Stock |
+|---------|-------|-------|
+| Widget  | $10   | 100   |
+| Gadget  | $20   | 50    |
+| Doodad  | $15   | 75    |
+
+: Hover table example {.hover}
+
+### Bordered Table
+
+```{=html}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## Tabs & Panels
+
+### Standard Tabs
+
+::: {.panel-tabset}
+
+#### Tab 1
+Content for tab 1 with **markdown** support.
+
+#### Tab 2
+Content for tab 2 with `inline code`.
+
+#### Tab 3
+Content for tab 3 with a list:
+
+- Item A
+- Item B
+- Item C
+
+:::
+
+### Tabs with Code
+
+::: {.panel-tabset}
+
+#### R
+```r
+x <- 1:10
+mean(x)
+```
+
+#### Python
+```python
+x = list(range(1, 11))
+sum(x) / len(x)
+```
+
+#### Julia
+```julia
+x = 1:10
+mean(x)
+```
+
+:::
+
+### Tabs with Tables
+
+::: {.panel-tabset}
+
+#### Dataset 1
+| A | B |
+|---|---|
+| 1 | 2 |
+| 3 | 4 |
+
+#### Dataset 2
+| X | Y |
+|---|---|
+| 5 | 6 |
+| 7 | 8 |
+
+:::
+
+---
+
+## Images & Figures
+
+### Basic Image
+
+![Posit Logo](https://www.posit.co/wp-content/uploads/2022/10/posit-logo-fullcolor-TM.svg){width=300px fig-alt="Posit company logo"}
+
+### Aligned Images
+
+![Left aligned image](https://via.placeholder.com/200x150){fig-align="left" fig-alt="Placeholder image aligned left"}
+
+![Center aligned image](https://via.placeholder.com/200x150){fig-align="center" fig-alt="Placeholder image centered"}
+
+![Right aligned image](https://via.placeholder.com/200x150){fig-align="right" fig-alt="Placeholder image aligned right"}
+
+---
+
+## Diagrams (Mermaid)
+
+### Flowchart
+
+```{mermaid}
+flowchart LR
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Option 1]
+    B -->|No| D[Option 2]
+    C --> E[End]
+    D --> E
+```
+
+### Graph with Clusters
+
+```{mermaid}
+graph TD
+    subgraph "User Interface"
+        A[Web App]
+        B[Mobile App]
+    end
+
+    subgraph "Backend Services"
+        C[API Server]
+        D[Database]
+    end
+
+    A --> C
+    B --> C
+    C --> D
+```
+
+### Sequence Diagram
+
+```{mermaid}
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+    participant Database
+
+    User->>Browser: Enter URL
+    Browser->>Server: HTTP Request
+    Server->>Database: Query Data
+    Database-->>Server: Return Data
+    Server-->>Browser: HTTP Response
+    Browser-->>User: Display Page
+```
+
+---
+
+## Bootstrap Components
+
+### Alerts
+
+::: {.alert .alert-primary}
+This is a primary alert with Bootstrap styling.
+:::
+
+::: {.alert .alert-secondary}
+This is a secondary alert.
+:::
+
+::: {.alert .alert-success}
+This is a success alert.
+:::
+
+::: {.alert .alert-danger}
+This is a danger alert.
+:::
+
+::: {.alert .alert-warning}
+This is a warning alert.
+:::
+
+::: {.alert .alert-info}
+This is an info alert.
+:::
+
+### Alert with Heading
+
+```{=html}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>You successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+```
+
+### Dismissible Alert
+
+```{=html}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+```
+
+### Badges
+
+```{=html}
+This is text with a <span class="badge bg-primary">Primary</span> badge.
+
+This is text with a <span class="badge bg-secondary">Secondary</span> badge.
+
+This is text with a <span class="badge bg-success">Success</span> badge.
+
+This is text with a <span class="badge bg-warning text-dark">Warning</span> badge.
+
+This is text with a <span class="badge bg-danger">Danger</span> badge.
+
+This is text with a <span class="badge bg-info text-dark">Info</span> badge.
+
+This is text with a <span class="badge bg-light text-dark">Light</span> badge.
+
+This is text with a <span class="badge bg-dark">Dark</span> badge.
+```
+
+### Pill Badges
+
+```{=html}
+<span class="badge rounded-pill bg-primary">Primary</span>
+<span class="badge rounded-pill bg-secondary">Secondary</span>
+<span class="badge rounded-pill bg-success">Success</span>
+<span class="badge rounded-pill bg-danger">Danger</span>
+<span class="badge rounded-pill bg-warning text-dark">Warning</span>
+<span class="badge rounded-pill bg-info text-dark">Info</span>
+```
+
+### Badges in Headings
+
+```{=html}
+<h1>Example heading <span class="badge bg-secondary">New</span></h1>
+<h2>Example heading <span class="badge bg-secondary">New</span></h2>
+<h3>Example heading <span class="badge bg-secondary">New</span></h3>
+```
+
+### Preview Feature Badge
+
+```{=html}
+This is a <span class="preview-feature">Preview feature</span> inline badge.
+```
+
+### Buttons
+
+```{=html}
+<button type="button" class="btn btn-primary">Primary Button</button>
+<button type="button" class="btn btn-secondary">Secondary Button</button>
+<button type="button" class="btn btn-success">Success Button</button>
+<button type="button" class="btn btn-danger">Danger Button</button>
+<button type="button" class="btn btn-warning">Warning Button</button>
+<button type="button" class="btn btn-info">Info Button</button>
+<button type="button" class="btn btn-light">Light Button</button>
+<button type="button" class="btn btn-dark">Dark Button</button>
+<button type="button" class="btn btn-link">Link Button</button>
+```
+
+### Outline Buttons
+
+```{=html}
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-secondary">Secondary</button>
+<button type="button" class="btn btn-outline-success">Success</button>
+<button type="button" class="btn btn-outline-danger">Danger</button>
+<button type="button" class="btn btn-outline-warning">Warning</button>
+<button type="button" class="btn btn-outline-info">Info</button>
+```
+
+### Button Sizes
+
+```{=html}
+<button type="button" class="btn btn-primary btn-lg">Large Button</button>
+<button type="button" class="btn btn-primary">Default Button</button>
+<button type="button" class="btn btn-primary btn-sm">Small Button</button>
+```
+
+### Button Group
+
+```{=html}
+<div class="btn-group" role="group">
+  <button type="button" class="btn btn-primary">Left</button>
+  <button type="button" class="btn btn-primary">Middle</button>
+  <button type="button" class="btn btn-primary">Right</button>
+</div>
+```
+
+### Button Toolbar
+
+```{=html}
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group me-2" role="group">
+    <button type="button" class="btn btn-secondary">1</button>
+    <button type="button" class="btn btn-secondary">2</button>
+    <button type="button" class="btn btn-secondary">3</button>
+  </div>
+  <div class="btn-group me-2" role="group">
+    <button type="button" class="btn btn-secondary">4</button>
+    <button type="button" class="btn btn-secondary">5</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-secondary">6</button>
+  </div>
+</div>
+```
+
+---
+
+## Bootstrap Icons
+
+### Common Icons
+
+```{=html}
+<div style="font-size: 2rem;">
+  <i class="bi bi-alarm"></i>
+  <i class="bi bi-heart-fill text-danger"></i>
+  <i class="bi bi-star-fill text-warning"></i>
+  <i class="bi bi-check-circle-fill text-success"></i>
+  <i class="bi bi-x-circle-fill text-danger"></i>
+  <i class="bi bi-info-circle-fill text-info"></i>
+  <i class="bi bi-exclamation-triangle-fill text-warning"></i>
+  <i class="bi bi-gear-fill"></i>
+  <i class="bi bi-house-fill"></i>
+  <i class="bi bi-person-fill"></i>
+  <i class="bi bi-envelope-fill"></i>
+  <i class="bi bi-telephone-fill"></i>
+  <i class="bi bi-cart-fill"></i>
+  <i class="bi bi-search"></i>
+  <i class="bi bi-download"></i>
+  <i class="bi bi-upload"></i>
+</div>
+```
+
+### More Icons
+
+```{=html}
+<i class="bi bi-person-fill-gear"></i> Person with Gear
+<i class="bi bi-gear-fill"></i> Gear
+<i class="bi bi-map-fill"></i> Map
+<i class="bi bi-hdd-stack-fill"></i> Database
+<i class="bi bi-plugin"></i> Plugin
+<i class="bi bi-rocket-takeoff"></i> Rocket
+<i class="bi bi-archive"></i> Archive
+<i class="bi bi-filetype-key"></i> Key
+```
+
+### Icon Sizes
+
+```{=html}
+<i class="bi bi-heart-fill" style="font-size: 1rem;"></i> 1rem
+<i class="bi bi-heart-fill" style="font-size: 2rem;"></i> 2rem
+<i class="bi bi-heart-fill" style="font-size: 3rem;"></i> 3rem
+```
+
+### Colored Icons
+
+```{=html}
+<i class="bi bi-star-fill" style="color: gold; font-size: 2rem;"></i>
+<i class="bi bi-star-fill" style="color: #ee6331; font-size: 2rem;"></i>
+<i class="bi bi-star-fill" style="color: #447099; font-size: 2rem;"></i>
+```
+
+---
+
+## Cards
+
+### Basic Cards
+
+```{=html}
+<div class="row">
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center mb-3">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Colored Cards
+
+```{=html}
+<div class="row">
+  <div class="col-md-4">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Primary card</h5>
+        <p class="card-text">Some quick example text to build on the card title.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Success card</h5>
+        <p class="card-text">Some quick example text to build on the card title.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-white bg-danger mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Danger card</h5>
+        <p class="card-text">Some quick example text to build on the card title.</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## Forms
+
+### Form Elements
+
+```{=html}
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="name@example.com">
+    <div class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlSelect1" class="form-label">Example select</label>
+    <select class="form-select" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="formFile" class="form-label">File input</label>
+    <input class="form-control" type="file" id="formFile">
+  </div>
+
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+
+  <fieldset class="mb-3">
+    <legend>Radios</legend>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      <label class="form-check-label" for="exampleRadios1">Default radio</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+      <label class="form-check-label" for="exampleRadios2">Second default radio</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+      <label class="form-check-label" for="exampleRadios3">Disabled radio</label>
+    </div>
+  </fieldset>
+
+  <div class="mb-3">
+    <label for="customRange1" class="form-label">Range</label>
+    <input type="range" class="form-range" id="customRange1">
+  </div>
+
+  <div class="form-check form-switch mb-3">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+### Input Groups
+
+```{=html}
+<div class="input-group mb-3">
+  <span class="input-group-text">@</span>
+  <input type="text" class="form-control" placeholder="Username">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Recipient's username">
+  <span class="input-group-text">@example.com</span>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">$</span>
+  <input type="text" class="form-control">
+  <span class="input-group-text">.00</span>
+</div>
+```
+
+---
+
+## Progress Bars
+
+### Standard Progress
+
+```{=html}
+<div class="progress mb-3">
+  <div class="progress-bar" role="progressbar" style="width: 25%">25%</div>
+</div>
+
+<div class="progress mb-3">
+  <div class="progress-bar bg-success" role="progressbar" style="width: 50%">50%</div>
+</div>
+
+<div class="progress mb-3">
+  <div class="progress-bar bg-info" role="progressbar" style="width: 75%">75%</div>
+</div>
+
+<div class="progress mb-3">
+  <div class="progress-bar bg-warning" role="progressbar" style="width: 100%">100%</div>
+</div>
+```
+
+### Striped Progress
+
+```{=html}
+<div class="progress mb-3">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%">50%</div>
+</div>
+```
+
+### Animated Progress
+
+```{=html}
+<div class="progress mb-3">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%">75%</div>
+</div>
+```
+
+---
+
+## List Groups
+
+### Basic List Groups
+
+```{=html}
+<div class="row">
+  <div class="col-md-4">
+    <h4>Basic List</h4>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h4>Active & Disabled</h4>
+    <ul class="list-group">
+      <li class="list-group-item active">An active item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item disabled">A disabled item</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h4>Flush List</h4>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+    </ul>
+  </div>
+</div>
+```
+
+### Numbered List
+
+```{=html}
+<ol class="list-group list-group-numbered" style="max-width: 400px;">
+  <li class="list-group-item">A list item</li>
+  <li class="list-group-item">A list item</li>
+  <li class="list-group-item">A list item</li>
+</ol>
+```
+
+### Contextual Classes
+
+```{=html}
+<ul class="list-group" style="max-width: 400px;">
+  <li class="list-group-item">Default list group item</li>
+  <li class="list-group-item list-group-item-primary">Primary list group item</li>
+  <li class="list-group-item list-group-item-secondary">Secondary list group item</li>
+  <li class="list-group-item list-group-item-success">Success list group item</li>
+  <li class="list-group-item list-group-item-danger">Danger list group item</li>
+  <li class="list-group-item list-group-item-warning">Warning list group item</li>
+  <li class="list-group-item list-group-item-info">Info list group item</li>
+</ul>
+```
+
+---
+
+## Navigation
+
+### Basic Nav
+
+```{=html}
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>
+</ul>
+```
+
+### Nav Tabs
+
+```{=html}
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>
+</ul>
+```
+
+### Nav Pills
+
+```{=html}
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>
+</ul>
+```
+
+### Breadcrumb
+
+```{=html}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+```
+
+---
+
+## Pagination
+
+```{=html}
+<nav>
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+```
+
+---
+
+## Spinners
+
+```{=html}
+<div class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-border text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+```
+
+---
+
+## Accordions
+
+```{=html}
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        This is the first item's accordion body with content.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        This is the second item's accordion body.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        This is the third item's accordion body.
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## Modal
+
+```{=html}
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        This is a modal body with some example content.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## Tooltips & Popovers
+
+### Tooltips
+
+```{=html}
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
+  Tooltip on right
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+  Tooltip on left
+</button>
+```
+
+### Popovers
+
+```{=html}
+<button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+  Click to toggle popover
+</button>
+```
+
+---
+
+## Toast
+
+```{=html}
+<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## Bootstrap Grid System
+
+### Equal Width Columns
+
+```{=html}
+<div class="row mb-3">
+  <div class="col">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">Column 1</div>
+  </div>
+  <div class="col">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">Column 2</div>
+  </div>
+  <div class="col">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">Column 3</div>
+  </div>
+</div>
+```
+
+### Specific Width Columns
+
+```{=html}
+<div class="row mb-3">
+  <div class="col-4">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">col-4</div>
+  </div>
+  <div class="col-4">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">col-4</div>
+  </div>
+  <div class="col-4">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">col-4</div>
+  </div>
+</div>
+```
+
+### Mixed Width Columns
+
+```{=html}
+<div class="row mb-3">
+  <div class="col-3">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">col-3</div>
+  </div>
+  <div class="col-6">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">col-6</div>
+  </div>
+  <div class="col-3">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6;">col-3</div>
+  </div>
+</div>
+```
+
+### Responsive Columns
+
+```{=html}
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6; margin-bottom: 0.5rem;">Responsive</div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6; margin-bottom: 0.5rem;">Responsive</div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <div style="background-color: #e9ecef; padding: 1rem; border: 1px solid #dee2e6; margin-bottom: 0.5rem;">Responsive</div>
+  </div>
+</div>
+```
+
+---
+
+## Color Swatches
+
+### Posit Primary Colors
+
+```{=html}
+<div class="row">
+  <div class="col-md-3">
+    <div style="background-color: #447099; color: white; padding: 1rem; text-align: center;">
+      Posit Blue<br>#447099
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div style="background-color: #ee6331; color: white; padding: 1rem; text-align: center;">
+      Posit Orange<br>#ee6331
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div style="background-color: #404041; color: white; padding: 1rem; text-align: center;">
+      Posit Gray<br>#404041
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div style="background-color: #468CCD; color: white; padding: 1rem; text-align: center;">
+      Posit Blue Alt<br>#468CCD
+    </div>
+  </div>
+</div>
+```
+
+### Posit Secondary Colors
+
+```{=html}
+<div class="row mt-3">
+  <div class="col-md-2">
+    <div style="background-color: #419599; color: white; padding: 1rem; text-align: center; font-size: 0.9rem;">
+      Teal<br>#419599
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div style="background-color: #72994e; color: white; padding: 1rem; text-align: center; font-size: 0.9rem;">
+      Green<br>#72994e
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div style="background-color: #e7b10a; color: black; padding: 1rem; text-align: center; font-size: 0.9rem;">
+      Yellow<br>#e7b10a
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div style="background-color: #9a4665; color: white; padding: 1rem; text-align: center; font-size: 0.9rem;">
+      Burgundy<br>#9a4665
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div style="background-color: #d44000; color: white; padding: 1rem; text-align: center; font-size: 0.9rem;">
+      Red<br>#d44000
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div style="background-color: #f2f2f2; color: black; padding: 1rem; text-align: center; font-size: 0.9rem;">
+      White<br>#f2f2f2
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## Spacing Utilities
+
+### Margin Examples
+
+```{=html}
+<div style="background-color: #e9ecef;">
+  <div class="m-0" style="background-color: #dee2e6; padding: 0.5rem;">m-0: No margin</div>
+</div>
+
+<div style="background-color: #e9ecef; margin-top: 1rem;">
+  <div class="m-3" style="background-color: #dee2e6; padding: 0.5rem;">m-3: Medium margin</div>
+</div>
+
+<div style="background-color: #e9ecef; margin-top: 1rem;">
+  <div class="mt-5" style="background-color: #dee2e6; padding: 0.5rem;">mt-5: Large top margin</div>
+</div>
+```
+
+### Padding Examples
+
+```{=html}
+<div class="p-0" style="background-color: #dee2e6; margin-top: 1rem;">p-0: No padding</div>
+<div class="p-3" style="background-color: #dee2e6; margin-top: 1rem;">p-3: Medium padding</div>
+<div class="p-5" style="background-color: #dee2e6; margin-top: 1rem;">p-5: Large padding</div>
+```
+
+---
+
+## Flexbox Utilities
+
+```{=html}
+<div class="d-flex justify-content-between align-items-center" style="background-color: #e9ecef; padding: 1rem;">
+  <div>Left Item</div>
+  <div>Center Item</div>
+  <div>Right Item</div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center mt-3" style="background-color: #e9ecef; padding: 1rem; height: 100px;">
+  <div>Centered Item</div>
+</div>
+```
+
+---
+
+## Text Utilities
+
+### Text Alignment
+
+```{=html}
+<p class="text-start">Left aligned text</p>
+<p class="text-center">Center aligned text</p>
+<p class="text-end">Right aligned text</p>
+```
+
+### Text Transform
+
+```{=html}
+<p class="text-lowercase">LOWERCASED TEXT</p>
+<p class="text-uppercase">uppercased text</p>
+<p class="text-capitalize">capitalized text</p>
+```
+
+### Font Weight & Style
+
+```{=html}
+<p class="fw-bold">Bold text</p>
+<p class="fw-normal">Normal weight text</p>
+<p class="fw-light">Light weight text</p>
+<p class="fst-italic">Italic text</p>
+```
+
+### Text Colors
+
+```{=html}
+<p class="text-primary">Primary text</p>
+<p class="text-secondary">Secondary text</p>
+<p class="text-success">Success text</p>
+<p class="text-danger">Danger text</p>
+<p class="text-warning">Warning text</p>
+<p class="text-info">Info text</p>
+<p class="text-light bg-dark">Light text</p>
+<p class="text-dark">Dark text</p>
+<p class="text-muted">Muted text</p>
+```
+
+### Background Colors
+
+```{=html}
+<div class="p-3 mb-2 bg-primary text-white">Primary background</div>
+<div class="p-3 mb-2 bg-secondary text-white">Secondary background</div>
+<div class="p-3 mb-2 bg-success text-white">Success background</div>
+<div class="p-3 mb-2 bg-danger text-white">Danger background</div>
+<div class="p-3 mb-2 bg-warning text-dark">Warning background</div>
+<div class="p-3 mb-2 bg-info text-dark">Info background</div>
+<div class="p-3 mb-2 bg-light text-dark">Light background</div>
+<div class="p-3 mb-2 bg-dark text-white">Dark background</div>
+```
+
+---
+
+## Utility Classes
+
+### Display Utilities
+
+```{=html}
+<div class="d-inline p-2 bg-primary text-white">d-inline</div>
+<div class="d-inline p-2 bg-dark text-white">d-inline</div>
+
+<div class="d-block p-2 mt-2 bg-primary text-white">d-block</div>
+```
+
+### Border Utilities
+
+```{=html}
+<div class="border p-3 mb-2">Border all sides</div>
+<div class="border-top p-3 mb-2">Border top</div>
+<div class="border-end p-3 mb-2">Border end</div>
+<div class="border-bottom p-3 mb-2">Border bottom</div>
+<div class="border-start p-3 mb-2">Border start</div>
+```
+
+### Border Radius
+
+```{=html}
+<div class="rounded p-3 mb-2 bg-light">Rounded</div>
+<div class="rounded-top p-3 mb-2 bg-light">Rounded top</div>
+<div class="rounded-end p-3 mb-2 bg-light">Rounded end</div>
+<div class="rounded-pill p-3 mb-2 bg-light">Rounded pill</div>
+<div class="rounded-circle p-3 d-inline-block bg-light" style="width: 100px; height: 100px;"></div>
+```
+
+---
+
+## Special Elements
+
+### Horizontal Rules
+
+Standard rule:
+
+---
+
+### Footnotes
+
+Here is some text with a footnote[^1].
+
+Here is another footnote reference[^2].
+
+[^1]: This is the first footnote.
+[^2]: This is the second footnote with more details.
+
+### Definition List
+
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2a
+: Definition 2b
+
+---
+
+## Advanced Layout
+
+### Two-Column Layout
+
+```{=html}
+<div class="row">
+  <div class="col-md-6">
+```
+
+#### Left Column
+
+This is content in the left column. It can contain any markdown elements:
+
+- Lists
+- **Bold text**
+- `Code`
+
+```{=html}
+  </div>
+  <div class="col-md-6">
+```
+
+#### Right Column
+
+This is content in the right column. It can also contain:
+
+1. Numbered lists
+2. *Italic text*
+3. [Links](https://posit.co)
+
+```{=html}
+  </div>
+</div>
+```
+
+---
+
+## Summary
+
+This page demonstrates all available components in the Posit Product Documentation theme:
+
+- **Typography**: Headings (standard & display), text styles, inline elements, blockquotes, keyboard shortcuts
+- **Lists**: Unordered, ordered, groovy alpha, list groups (basic, flush, numbered, contextual)
+- **Callouts**: Note, warning, important (with simple & collapsible variants)
+- **Code Blocks**: Syntax highlighting for multiple languages, code with filenames
+- **Tables**: Basic, striped, hover, bordered with captions
+- **Tabs & Panels**: Standard tabsets, code tabsets, table tabsets
+- **Images & Figures**: Basic images, aligned images with alt text
+- **Diagrams**: Mermaid flowcharts, graphs, sequence diagrams
+- **Bootstrap Components**:
+  - Alerts (all variants, with headings, dismissible)
+  - Badges (standard, pill, contextual, in headings)
+  - Buttons (all variants, outline, sizes, groups, toolbar)
+  - Cards (basic, with headers, with tabs, colored)
+  - Forms (inputs, textareas, selects, checkboxes, radios, range, switch, file upload, input groups)
+  - Navigation (nav, nav tabs, nav pills, breadcrumb)
+  - Progress bars (standard, striped, animated)
+  - Pagination
+  - Spinners (border & growing)
+  - Accordions
+  - Modals
+  - Tooltips & Popovers
+  - Toasts
+- **Bootstrap Icons**: 2000+ icons with sizing and color variants
+- **Grid System**: Equal width, specific width, mixed width, responsive columns
+- **Utility Classes**:
+  - Display utilities
+  - Text alignment, transform, weight, colors
+  - Background colors
+  - Spacing (margin, padding)
+  - Flexbox utilities
+  - Border utilities & border radius
+- **Custom Components**: Preview badges, groovy alpha lists, Posit color swatches
+- **Special Elements**: Horizontal rules, footnotes, definition lists, two-column layouts
+
+All components support both light and dark themes with the custom Posit color palette.
+
+```{=html}
+<script>
+// Initialize all tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+  // Initialize all popovers
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+
+  // Toast button handler
+  const toastTrigger = document.getElementById('liveToastBtn');
+  const toastLiveExample = document.getElementById('liveToast');
+
+  if (toastTrigger) {
+    toastTrigger.addEventListener('click', () => {
+      const toast = new bootstrap.Toast(toastLiveExample);
+      toast.show();
+    });
+  }
+});
+</script>
+```
