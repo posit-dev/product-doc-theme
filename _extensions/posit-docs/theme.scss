@@ -5,9 +5,47 @@
 
 // import shared colors
 @import "_posit-colors";
+@import "_posit-color-utilities";
 
 /*-- scss:variables --*/
-$primary: $posit-blue;
+
+/* ======== Bootstrap Color Mappings ======== */
+// Map Posit colors to Bootstrap's color system
+$primary:       $posit-blue;
+$secondary:     $posit-light-gray-2;
+$success:       $posit-green;
+$info:          $posit-teal;
+$warning:       $posit-yellow;
+$danger:        $posit-red;
+$light:         $posit-light-gray-1;
+$dark:          $posit-dark-gray-2;
+
+// Override Bootstrap's theme-colors map to ONLY include Posit colors
+// This prevents classes like .btn-indigo, .bg-purple, etc. from being generated
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+// Disable Bootstrap's extended color palette by overriding $colors map
+// This removes indigo, purple, pink, cyan, etc.
+$colors: (
+  "blue":       $posit-blue,
+  "red":        $posit-red,
+  "orange":     $posit-orange,
+  "yellow":     $posit-yellow,
+  "green":      $posit-green,
+  "teal":       $posit-teal,
+  "gray":       $posit-gray,
+  "white":      #fff,
+  "black":      #000
+);
 
 /* ======== General Styles ======== */
 
@@ -27,7 +65,7 @@ $line-height-base: 1.7;
 $headings-font-weight: 400 !default;
 
 // Font and body color
-$body-color: $posit-dark-gray-2;
+$body-color: $posit-gray;
 
 // Navbar customization
 $navbar-bg: #ffffff;
@@ -37,6 +75,15 @@ $navbar-brand: $posit-dark-gray-2;
 $navbar-brand-hl: $navbar-brand;
 $navbar-brand-font-size: 1rem !default;
 
+// Sidebar customization
+$sidebar-link-color: tint-color(#707073, 4.5%);
+$sidebar-link-font-size: 0.825rem;
+$sidebar-link-font-weight: 500;
+$sidebar-active-color: $posit-dark-gray-3;
+$sidebar-active-bg: #E8EDF2; // Light blue background for active items
+$sidebar-active-border-radius: 6px;
+$sidebar-item-line-height: 1.2rem;
+
 // Callouts
 $callout-color-note: $posit-blue;
 $callout-color-warning: $posit-orange;
@@ -45,6 +92,19 @@ $callout-color-important: $posit-burgundy;
 // Tables
 $table-hover-bg: $posit-light-blue-2 !default;
 $table-striped-bg: $posit-light-blue-1 !default;
+
+/*-- scss:rules --*/
+
+/* Override Bootstrap's color CSS variables to use Posit colors */
+:root,
+[data-bs-theme="light"] {
+  --bs-blue: #{$posit-blue} !important;
+  --bs-red: #{$posit-red} !important;
+  --bs-orange: #{$posit-orange} !important;
+  --bs-yellow: #{$posit-yellow} !important;
+  --bs-green: #{$posit-green} !important;
+  --bs-teal: #{$posit-teal} !important;
+}
 
 /* Navbar */
 .navbar {
@@ -69,8 +129,20 @@ $table-striped-bg: $posit-light-blue-1 !default;
 }
 
 /* Sidebar */
-.sidebar-navigation a {
-  // font-weight: 500;
+.sidebar-navigation {
+  a {
+    color: $sidebar-link-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $posit-dark-gray-3;
+    }
+  }
+
+  li a {
+    font-size: $sidebar-link-font-size;
+    font-weight: $sidebar-link-font-weight;
+  }
 }
 
 #quarto-sidebar strong {
@@ -78,43 +150,162 @@ $table-striped-bg: $posit-light-blue-1 !default;
   text-transform: uppercase;
 }
 
-div.sidebar-item-container .active,
-div.sidebar-item-container .show > .nav-link,
-div.sidebar-item-container .sidebar-link > code {
-  background-color: #f4f4f7;
-  border-radius: 5px;
-  margin-bottom: 2px;
-  margin-left: -5px;
-  padding: 6px;
+.sidebar-item {
+  line-height: $sidebar-item-line-height;
+  margin-bottom: 0.2em;
+  margin-top: 0.5rem;
+
+  .sidebar-item-container {
+    margin-right: -10px;
+  }
 }
 
-div.sidebar-item-container .active,
-div.sidebar-item-container .show > .nav-link,
-div.sidebar-item-container .sidebar-link > code {
-  font-weight: 600;
-  font-size: 1rem;
+.sidebar-section {
+  padding-left: 0.6em;
+  padding-bottom: 0.1em;
 }
 
-.sidebar-navigation li a {
-  text-decoration: none;
-  font-size: 1rem;
+// Active sidebar item styling
+div.sidebar-item-container {
+  .active,
+  .show > .nav-link,
+  .sidebar-link > code {
+    color: $sidebar-active-color;
+    background-color: $sidebar-active-bg;
+    border-radius: $sidebar-active-border-radius;
+    font-weight: 500;
+    margin-bottom: 2px;
+    margin-left: -10px;
+    padding: 6px 6px 6px 10px;
+  }
+}
+
+// Sidebar collapse/expand caret styling
+.sidebar-item-toggle {
+  color: $sidebar-link-color;
+  opacity: 0.7;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  left: 0;
+  margin-right: 1rem;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Rotate caret when expanded
+.sidebar-item.sidebar-item-section.show > .sidebar-item-container > .sidebar-item-toggle {
+  transform: rotate(90deg);
+}
+
+// Make sure the caret is visible and properly aligned
+.sidebar-item-toggle > .bi {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Ensure the section header text and caret stay together
+.sidebar-item-container {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-section-item {
+  display: flex;
+  align-items: center;
 }
 
 /* Mini TOC */
-.sidebar nav[role="doc-toc"] > ul li a {
-  font-size: 1rem;
+.sidebar nav[role="doc-toc"] {
+  padding-top: 2rem;
+
+  a {
+    color: $sidebar-link-color !important;
+    text-decoration: none;
+
+    &:hover {
+      color: $posit-dark-gray-3 !important;
+    }
+
+    &.active {
+      color: $posit-dark-gray-3 !important;
+    }
+  }
+}
+
+.sidebar nav[role="doc-toc"] h2 {
+  font-size: $sidebar-link-font-size;
+  font-weight: 500 !important;
+  text-transform: none;
+  color: $posit-dark-gray-3;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding-top: 0;
+}
+
+.sidebar nav[role="doc-toc"] > ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+.sidebar nav[role="doc-toc"] ul ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.sidebar nav[role="doc-toc"] ul li {
+  margin-bottom: 0.2em;
+  margin-top: 0.5rem;
+}
+
+.sidebar nav[role="doc-toc"] ul li a {
+  font-size: $sidebar-link-font-size;
+  font-weight: $sidebar-link-font-weight;
+  color: $sidebar-link-color;
+  line-height: $sidebar-item-line-height;
+  border-left: none !important;
+  padding-left: 0;
+
+  &:hover {
+    color: $posit-dark-gray-3 !important;
+  }
+}
+
+.sidebar nav[role="doc-toc"] .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.sidebar nav[role="doc-toc"] a:hover,
+.sidebar nav[role="doc-toc"] .nav-link:hover,
+nav[role="doc-toc"] a:hover,
+nav[role="doc-toc"] .nav-link:hover {
+  color: $posit-dark-gray-3 !important;
+  border-left-color: transparent !important;
+  background-color: transparent !important;
+}
+
+.sidebar nav[role="doc-toc"] ul ul li a,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a {
+  padding-left: 0.75rem;
+  border-left: none !important;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > ul > li > ul > li > a {
+  padding-left: 1.5rem;
 }
 
 .sidebar nav[role="doc-toc"] ul > li > a.active,
 .sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
-  font-weight: 700;
-  border-left: 2px solid #447099 !important;
+  color: $posit-dark-gray-3 !important;
+  font-weight: 500;
+  border-left: none !important;
 }
 
 /* Footer */
-#footer-right-posit-logo {
-}
-
 .nav-footer-left .footer-items,
 .nav-item {
   padding-right: 11px;
@@ -127,31 +318,31 @@ div.sidebar-item-container .sidebar-link > code {
 
 /* Tabs and Pills */
 .nav-tabs .nav-link {
-  text-transform: none !important;
+  text-transform: none;
   font-family: $font-family-sans-serif;
   color: $navbar-fg;
 }
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: $primary !important;
-  font-weight: 700 !important;
+  color: $primary;
+  font-weight: 700;
 }
 
 .nav-tabs .nav-link:hover,
 .nav-link:focus {
-  color: $posit-blue !important;
+  color: $posit-blue;
 }
 
 .nav-pills {
-  border: none !important;
+  border: none;
 }
 
 .nav-pills,
 .panel-underline {
   > .nav {
     display: flex;
-    border: none !important;
+    border: none;
     flex-direction: row;
     justify-content: center;
 
@@ -162,7 +353,7 @@ div.sidebar-item-container .sidebar-link > code {
 }
 
 .nav-pills > .nav .nav-link {
-  border: none !important;
+  border: none;
 }
 
 .nav-pills,
@@ -176,25 +367,25 @@ div.sidebar-item-container .sidebar-link > code {
 
 .nav-pills .nav-link.active,
 .nav-pills .nav-item.show .nav-link {
-  color: #ffffff !important;
-  text-decoration: none !important;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .nav-pills .nav-link:hover,
 .nav-link:focus {
   isolation: isolate;
-  color: $posit-blue !important;
-  border: none !important;
+  color: $posit-blue;
+  border: none;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $headings-font-weight !important;
+  font-weight: $headings-font-weight;
 }
 
 /* Body */
@@ -210,13 +401,13 @@ div.sourceCode {
 
 .code-with-filename .code-with-filename-file {
   padding: 0.25rem;
-  border: none !important;
+  border: none;
   box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
 }
 
 div.sourceCode,
 pre.console {
-  border: none !important;
+  border: none;
   box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
   margin-top: 2rem;
   margin-bottom: 2.5rem;
@@ -244,7 +435,7 @@ header h1 .preview-header {
   content: "Preview feature";
   margin-left: 1em;
   position: relative;
-  border-radius: 50rem !important;
+  border-radius: 50rem;
   top: -0.5em;
 }
 
@@ -257,7 +448,7 @@ div span.preview-feature {
   color: $preview-header;
   border: 1px solid $preview-header-border;
   font-weight: 500;
-  font-size: 9pt !important;
+  font-size: 9pt;
   padding: 0rem 0.4rem;
 }
 
@@ -343,4 +534,38 @@ kbd {
       }
     }
   }
+}
+
+/* Breadcrumbs */
+.breadcrumb-item img {
+  display: none;
+}
+
+.breadcrumb-item a,
+.breadcrumb-item .sidebar-subtitle+strong {
+  margin-left: 0px;
+  font-weight: 500;
+  color: $posit-light-gray-3;
+  font-size: 0.85rem;
+}
+
+li.breadcrumb-item a:hover {
+  border-bottom: 1px solid $posit-gray;
+}
+
+.quarto-page-breadcrumbs .breadcrumb-item::before {
+  padding-right: 0.45em;
+  padding-left: 0.175em;
+  font-weight: 500;
+  color: $posit-light-gray-3;
+}
+
+.quarto-title-breadcrumbs .breadcrumb {
+  margin-bottom: 0.25em;
+}
+
+.quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
+  color: $posit-light-gray-3;
+  font-weight: 500;
+  font-size: 0.85rem;
 }
