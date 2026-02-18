@@ -1,0 +1,172 @@
+/* Posit Color Utilities - Tints and Shades */
+/*
+ * Generates utility classes for tints (mixed with white) and shades (mixed with black)
+ * Usage:
+ *   .bg-posit-light-blue-1-tint-15  (15% color + 85% white)
+ *   .text-posit-light-blue-1-tint-15
+ *   .border-posit-light-blue-1-tint-15
+ */
+
+/*-- scss:defaults --*/
+
+// Map of all Posit colors
+$posit-colors: (
+  // Primary colors
+  "posit-blue": $posit-blue,
+  "posit-orange": $posit-orange,
+  "posit-gray": $posit-gray,
+  // Secondary colors
+  "posit-teal": $posit-teal,
+  "posit-green": $posit-green,
+  "posit-white": $posit-white,
+  "posit-yellow": $posit-yellow,
+  "posit-burgundy": $posit-burgundy,
+  "posit-red": $posit-red,
+  // Blue variants
+  "posit-light-blue-1": $posit-light-blue-1,
+  "posit-light-blue-2": $posit-light-blue-2,
+  "posit-light-blue-3": $posit-light-blue-3,
+  "posit-dark-blue-1": $posit-dark-blue-1,
+  "posit-dark-blue-2": $posit-dark-blue-2,
+  "posit-dark-blue-3": $posit-dark-blue-3,
+  // Gray variants
+  "posit-light-gray-1": $posit-light-gray-1,
+  "posit-light-gray-2": $posit-light-gray-2,
+  "posit-light-gray-3": $posit-light-gray-3,
+  "posit-dark-gray-1": $posit-dark-gray-1,
+  "posit-dark-gray-2": $posit-dark-gray-2,
+  "posit-dark-gray-3": $posit-dark-gray-3,
+  // Teal variants
+  "posit-light-teal-1": $posit-light-teal-1,
+  "posit-light-teal-2": $posit-light-teal-2,
+  "posit-light-teal-3": $posit-light-teal-3,
+  "posit-dark-teal-1": $posit-dark-teal-1,
+  "posit-dark-teal-2": $posit-dark-teal-2,
+  "posit-dark-teal-3": $posit-dark-teal-3,
+  // Green variants
+  "posit-light-green-1": $posit-light-green-1,
+  "posit-light-green-2": $posit-light-green-2,
+  "posit-light-green-3": $posit-light-green-3,
+  "posit-dark-green-1": $posit-dark-green-1,
+  "posit-dark-green-2": $posit-dark-green-2,
+  "posit-dark-green-3": $posit-dark-green-3,
+  // Red variants
+  "posit-light-red-1": $posit-light-red-1,
+  "posit-light-red-2": $posit-light-red-2,
+  "posit-light-red-3": $posit-light-red-3,
+  "posit-dark-red-1": $posit-dark-red-1,
+  "posit-dark-red-2": $posit-dark-red-2,
+  "posit-dark-red-3": $posit-dark-red-3,
+  // Burgundy variants
+  "posit-light-burgundy-1": $posit-light-burgundy-1,
+  "posit-light-burgundy-2": $posit-light-burgundy-2,
+  "posit-light-burgundy-3": $posit-light-burgundy-3,
+  "posit-dark-burgundy-1": $posit-dark-burgundy-1,
+  "posit-dark-burgundy-2": $posit-dark-burgundy-2,
+  "posit-dark-burgundy-3": $posit-dark-burgundy-3,
+  // Orange variants
+  "posit-light-orange-1": $posit-light-orange-1,
+  "posit-light-orange-2": $posit-light-orange-2,
+  "posit-light-orange-3": $posit-light-orange-3,
+  "posit-dark-orange-1": $posit-dark-orange-1,
+  "posit-dark-orange-2": $posit-dark-orange-2,
+  "posit-dark-orange-3": $posit-dark-orange-3,
+  // Yellow variants
+  "posit-light-yellow-1": $posit-light-yellow-1,
+  "posit-light-yellow-2": $posit-light-yellow-2,
+  "posit-light-yellow-3": $posit-light-yellow-3,
+  "posit-dark-yellow-1": $posit-dark-yellow-1,
+  "posit-dark-yellow-2": $posit-dark-yellow-2,
+  "posit-dark-yellow-3": $posit-dark-yellow-3,
+);
+
+// Tint percentages (mixing with white) - common Tailwind-like values
+$tint-levels: (
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+);
+
+// Shade percentages (mixing with black)
+$shade-levels: (
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+);
+
+/*-- scss:rules --*/
+
+// Generate tint utilities (color mixed with white)
+@each $name, $color in $posit-colors {
+  @each $level, $percentage in $tint-levels {
+    $mixed-color: mix($color, white, $percentage);
+
+    // Background color utilities
+    .bg-#{$name}-tint-#{$level} {
+      background-color: $mixed-color !important;
+    }
+
+    // Text color utilities
+    .text-#{$name}-tint-#{$level} {
+      color: $mixed-color !important;
+    }
+
+    // Border color utilities
+    .border-#{$name}-tint-#{$level} {
+      border-color: $mixed-color !important;
+    }
+  }
+}
+
+// Generate shade utilities (color mixed with black)
+@each $name, $color in $posit-colors {
+  @each $level, $percentage in $shade-levels {
+    $mixed-color: mix($color, black, $percentage);
+
+    // Background color utilities
+    .bg-#{$name}-shade-#{$level} {
+      background-color: $mixed-color !important;
+    }
+
+    // Text color utilities
+    .text-#{$name}-shade-#{$level} {
+      color: $mixed-color !important;
+    }
+
+    // Border color utilities
+    .border-#{$name}-shade-#{$level} {
+      border-color: $mixed-color !important;
+    }
+  }
+}
+
+// Also generate base color utilities without tint/shade for consistency
+@each $name, $color in $posit-colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+
+  .text-#{$name} {
+    color: $color !important;
+  }
+
+  .border-#{$name} {
+    border-color: $color !important;
+  }
+}
+
+// CSS Custom Properties for runtime flexibility
+// These can be used with opacity in HTML: style="background-color: rgb(from var(--posit-light-blue-1) r g b / 0.15)"
+:root {
+  @each $name, $color in $posit-colors {
+    --#{$name}: #{$color};
+  }
+}
