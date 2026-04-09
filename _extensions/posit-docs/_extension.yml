@@ -30,7 +30,7 @@ contributes:
           dark: [theme-dark.scss]
         highlight-style: 
           light: github
-          dark: arrow
+          dark: github
         link-external-icon: true
         link-external-newwindow: true
         code-copy: true

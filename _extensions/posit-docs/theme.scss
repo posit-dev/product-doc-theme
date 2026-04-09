@@ -50,8 +50,9 @@ $colors: (
 /* ======== General Styles ======== */
 
 // Feature preview heading colors
-$preview-header: #ee6331; /* posit orange, contrast: 8.45 */
-$preview-header-border: darken($preview-header, 5%);
+$preview-badge-bg: tint-color($posit-light-blue-1, 50%); // 50% light blue 1, 50% white
+$preview-badge-border: $preview-badge-bg;
+$preview-badge-text: $posit-dark-blue-2;
 
 // Typography
 $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
@@ -395,30 +396,30 @@ body {
 }
 
 /* Code */
-div.sourceCode {
-  background-color: lighten($posit-light-gray-3, 55%) !important;
-}
+// div.sourceCode {
+//   background-color: lighten($posit-light-gray-3, 55%) !important;
+// }
 
-.code-with-filename .code-with-filename-file {
-  padding: 0.25rem;
-  border: none;
-  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
-}
+// .code-with-filename .code-with-filename-file {
+//   padding: 0.25rem;
+//   border: none;
+//   box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
+// }
 
-div.sourceCode,
-pre.console {
-  border: none;
-  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
-  padding: 0.25rem;
-}
+// div.sourceCode,
+// pre.console {
+//   border: none;
+//   box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, 0.16);
+//   margin-top: 2rem;
+//   margin-bottom: 2.5rem;
+//   padding: 0.25rem;
+// }
 
-p code.sourceCode,
-li code.sourceCode,
-td code.sourceCode {
-  background-color: lighten($posit-light-gray-3, 55%) !important;
-}
+// p code.sourceCode,
+// li code.sourceCode,
+// td code.sourceCode {
+//   background-color: lighten($posit-light-gray-3, 55%) !important;
+// }
 
 /* Footnotes */
 a.footnote-back {
@@ -434,9 +435,9 @@ a.footnote-back {
 header h1 .preview-header {
   content: "Preview feature";
   margin-left: 1em;
-  position: relative;
   border-radius: 50rem;
-  top: -0.5em;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .preview-header > h1:after,
@@ -445,16 +446,21 @@ header h1 .preview-header {
 .preview-header > h4:after,
 header h1 .preview-header,
 div span.preview-feature {
-  color: $preview-header;
-  border: 1px solid $preview-header-border;
+  color: $preview-badge-text;
+  background-color: $preview-badge-bg;
+  border: 1px solid $preview-badge-border;
+  font-family: $font-family-sans-serif;
   font-weight: 500;
   font-size: 9pt;
-  padding: 0rem 0.4rem;
+  padding: 0.25rem 0.6rem;
+  line-height: 1;
 }
 
 div span.preview-feature {
   margin-left: 1em;
   text-transform: uppercase;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 /* Callout Steps */

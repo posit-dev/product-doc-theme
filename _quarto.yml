@@ -105,10 +105,11 @@ website:
 
 format:
   html:
-    include-in-header: 
+    include-in-header:
       - _version-toast.html
     toc: true
     toc-expand: 2  # Shows levels 1 and 2 initially; deeper levels expand as you scroll
+    smooth-scroll: true
     grid:
       sidebar-width: 360px
       body-width: 900px

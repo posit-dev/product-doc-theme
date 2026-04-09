@@ -47,15 +47,16 @@ $colors: (
   "black":      #000
 );
 
-$code-background: #0d1117;
+$code-background: $posit-dark-blue-3;
 $dark-md-body: $posit-white;
-$dark-md-background: #181c25; // body background
-$slate-800: #1E293B; // slate-800 vibe
-$dark-constrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
+$dark-md-background: $posit-dark-blue-3; // body background
+$slate-800: $posit-dark-gray-2; // slate-800 vibe
+$dark-constrast: shade-color($posit-dark-blue-3, 25%); // dark gray/black for nav bar, grid, footer
 
 // Feature preview heading colors
-$preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
-$preview-header-border: darken($preview-header, 5%);
+$preview-badge-bg: tint-color($posit-light-blue-1, 50%); // 50% light blue 1, 50% white
+$preview-badge-border: $preview-badge-bg;
+$preview-badge-text: $posit-dark-blue-2;
 
 // Typography
 $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
@@ -79,7 +80,7 @@ $navbar-brand-font-size: 1rem !default;
 // Sidebar customization
 $sidebar-fg: darken($posit-white, 5%);
 $sidebar-bg: $dark-md-background;
-$sidebar-link-color: $posit-light-gray-2;
+$sidebar-link-color: $posit-light-blue-2;
 $sidebar-link-font-size: 0.825rem;
 $sidebar-link-font-weight: 500;
 $sidebar-active-color: $posit-white;
@@ -100,7 +101,7 @@ $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
 
 // Tables
-$table-hover-bg: #2C3A54 !default;
+$table-hover-bg: $posit-dark-blue-2 !default;
 $table-striped-bg: $code-background !default;
 
 /*-- scss:rules --*/
@@ -155,23 +156,19 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
   padding-bottom: 0.1em;
 }
 
-// Active sidebar item styling (dark theme with border)
+// Active sidebar item styling
 div.sidebar-item-container {
   .active,
   .show > .nav-link,
   .sidebar-link > code {
     color: $sidebar-active-color !important;
     background-color: $sidebar-active-bg;
-    border: 1px solid $sidebar-active-border;
     border-radius: $sidebar-active-border-radius;
     font-weight: 500;
     margin-bottom: 2px;
     margin-left: -10px;
     padding: 6px 6px 6px 10px;
   }
-  margin-bottom: 2px;
-  margin-left: -5px;
-  padding: 6px;
 }
 
 // Sidebar collapse/expand caret styling
@@ -351,55 +348,55 @@ nav[role="doc-toc"] .nav-link:hover {
 /* ======== Code ======== */
 
 /* Code blocks */
-div.sourceCode,
-pre.console {
-  background-color: $code-background !important;
-  border: none;
-  border-radius: 10px;
-}
+// div.sourceCode,
+// pre.console {
+//   background-color: $code-background !important;
+//   border: none;
+//   border-radius: 10px;
+// }
 
 /* Code blocks filename title styles */
-.quarto-dark .code-with-filename .code-with-filename-file {
-  background-color: #ffffff0d !important;
-  padding: 0.5rem;
-  border: none;
-}
+// .quarto-dark .code-with-filename .code-with-filename-file {
+//   background-color: rgba($posit-white, 0.05) !important;
+//   padding: 0.5rem;
+//   border: none;
+// }
 
-.code-with-filename .code-with-filename-file strong {
-  color: $posit-light-gray-1;
-}
+// .code-with-filename .code-with-filename-file strong {
+//   color: $posit-light-gray-1;
+// }
 
 /* Code with filename - code body styling */
-.code-with-filename div.sourceCode {
-  overflow: auto;
-  border-top: 1px solid $posit-dark-gray-2;
-}
+// .code-with-filename div.sourceCode {
+//   overflow: auto;
+//   border-top: 1px solid $posit-dark-gray-2;
+// }
 
 /* Code block with no language specified */
-code:not(.sourceCode) {
-  background-color: $code-background !important;
-  color: #cbd5e1;
-  padding: 0.5rem;
-}
+// code:not(.sourceCode) {
+//   background-color: $code-background !important;
+//   color: $posit-light-gray-1;
+//   padding: 0.5rem;
+// }
 
-div.sourceCode,
-pre.console,
-pre {
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: $primary transparent; /* Firefox */
-  overflow: auto; /* ensure scrollbars appear when needed */
-}
+// div.sourceCode,
+// pre.console,
+// pre {
+//   scrollbar-width: thin; /* Firefox */
+//   scrollbar-color: $primary transparent; /* Firefox */
+//   overflow: auto; /* ensure scrollbars appear when needed */
+// }
 
-p code.sourceCode,
-li code.sourceCode,
-td code.sourceCode {
-  background-color: $code-background !important;
-}
+// p code.sourceCode,
+// li code.sourceCode,
+// td code.sourceCode {
+//   background-color: $code-background !important;
+// }
 
 /* Tables */
-table caption code {
-  background-color: #6e768166;
-}
+// table caption code {
+//   background-color: #6e768166;
+// }
 
 /* ======== Callouts ======== */
 
@@ -422,6 +419,42 @@ div.callout-important.callout {
 }
 
 /* ======== Other UI Elements ======== */
+
+/* Feature Preview Badge */
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header {
+  content: "Preview feature";
+  margin-left: 1em;
+  border-radius: 50rem;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header,
+div span.preview-feature {
+  color: $preview-badge-text;
+  background-color: $preview-badge-bg;
+  border: 1px solid $preview-badge-border;
+  font-family: $font-family-sans-serif;
+  font-weight: 500;
+  font-size: 9pt;
+  padding: 0.25rem 0.6rem;
+  line-height: 1;
+}
+
+div span.preview-feature {
+  margin-left: 1em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  display: inline-block;
+}
 
 /* Footnotes */
 a.footnote-back {
