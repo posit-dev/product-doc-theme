@@ -289,6 +289,7 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
   }
 }
 
+/* Force desktop mode at 1301px and above */
 @media (min-width: 1301px) {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
@@ -296,6 +297,17 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
 
   .navbar-toggler {
     display: none !important;
+  }
+}
+
+/* Override Bootstrap's navbar-expand-lg breakpoint (992px) to force mobile mode until 1300px */
+@media (min-width: 992px) and (max-width: 1300px) {
+  .navbar-expand-lg .navbar-collapse:not(.show) {
+    display: none !important;
+  }
+
+  .navbar-expand-lg .navbar-toggler {
+    display: block !important;
   }
 }
 
