@@ -147,23 +147,23 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
   filter: brightness(0) invert(1);
 }
 
-/* Navbar navigation styling - using variables */
-.navbar-nav .nav-link,
-.navbar-nav .dropdown-toggle {
+/* Navbar navigation styling - using variables (only for menu items, not version dropdown) */
+.navbar-collapse .navbar-nav .nav-link,
+.navbar-collapse .navbar-nav .dropdown-toggle {
   font-family: $navbar-link-font-family;
   font-size: $nav-link-font-size;
   text-transform: $navbar-link-text-transform;
   letter-spacing: $navbar-link-letter-spacing;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .dropdown-toggle:hover {
+.navbar-collapse .navbar-nav .nav-link:hover,
+.navbar-collapse .navbar-nav .dropdown-toggle:hover {
   color: $navbar-link-hover-color !important;
 }
 
 /* Version dropdown styling - button-like appearance */
-.version-dropdown-wrapper .nav-link,
-.version-dropdown-wrapper .dropdown-toggle {
+.version-dropdown-wrapper .navbar-nav .nav-link,
+.version-dropdown-wrapper .navbar-nav .dropdown-toggle {
   font-family: $font-family-sans-serif;
   text-transform: none;
   font-size: 0.75rem;
@@ -174,14 +174,14 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
   padding: 0.125rem 0.375rem;
 }
 
-.version-dropdown-wrapper .nav-link:hover,
-.version-dropdown-wrapper .dropdown-toggle:hover {
+.version-dropdown-wrapper .navbar-nav .nav-link:hover,
+.version-dropdown-wrapper .navbar-nav .dropdown-toggle:hover {
   color: $posit-white !important;
   background-color: rgba($posit-blue-500, 0.25);
 }
 
-.version-dropdown-wrapper .nav-link.show,
-.version-dropdown-wrapper .dropdown-toggle.show {
+.version-dropdown-wrapper .navbar-nav .nav-link.show,
+.version-dropdown-wrapper .navbar-nav .dropdown-toggle.show {
   color: $posit-white !important;
   background-color: rgba($posit-blue-500, 0.25);
 }
@@ -262,7 +262,7 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
   }
 
   /* Nav links - centered text, full clickable area */
-  .navbar-collapse .nav-link {
+  .navbar-collapse .navbar-nav .nav-link {
     display: block !important;
     width: 100% !important;
     font-family: $font-family-monospace;
@@ -278,7 +278,7 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
     background: transparent !important;
   }
 
-  .navbar-collapse .nav-link:hover {
+  .navbar-collapse .navbar-nav .nav-link:hover {
     color: $posit-light-blue-2 !important;
     background: transparent !important;
   }
