@@ -445,7 +445,14 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
 
 /* Custom breakpoint for navbar collapse at 1300px */
 @media (max-width: 1300px) {
+  /* Hide collapsed menu by default */
   .navbar-expand-lg .navbar-collapse {
+    display: none;
+  }
+
+  /* Show mobile menu as full-screen overlay when open */
+  .navbar-expand-lg .navbar-collapse.show {
+    display: block;
     position: fixed;
     top: 80px;
     left: 0;
