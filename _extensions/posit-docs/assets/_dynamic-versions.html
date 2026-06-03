@@ -1,0 +1,87 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Configuration - set this based on the product
+  const PRODUCT = 'connect'; // Can be 'connect', 'workbench', etc.
+  const SUPPORTED_VERSIONS_URL = `https://docs.posit.co/supported-versions/${PRODUCT}.html`;
+
+  // Function to populate versions
+  function populateVersions() {
+    // Find the version dropdown menu
+    const versionDropdownMenu = document.querySelector('.version-dropdown-wrapper .dropdown-menu');
+
+    if (!versionDropdownMenu) {
+      console.warn('Version dropdown menu not found - skipping dynamic population');
+      return;
+    }
+
+    console.log('Found version dropdown menu, populating versions...');
+
+    // Use versions data injected at build time
+    const versions = window.POSIT_VERSIONS || [];
+
+    if (versions.length === 0) {
+      console.warn('No version data available');
+      return;
+    }
+
+    // Clear existing menu items
+    versionDropdownMenu.innerHTML = '';
+
+      // Get current version from the dropdown toggle text
+      const currentVersionText = document.querySelector('.version-dropdown-wrapper .dropdown-toggle')?.textContent.trim();
+      const currentVersionMatch = currentVersionText?.match(/(\d{4}-\d{2}-\d{2})/);
+      const currentVersion = currentVersionMatch ? currentVersionMatch[1].replace(/-/g, '.') : versions[0]?.version;
+
+    // Populate dropdown with versions
+    versions.forEach((versionInfo, index) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.className = 'dropdown-item';
+      a.href = versionInfo.url;
+
+      const span = document.createElement('span');
+      span.className = 'dropdown-text';
+
+      // Mark current version
+      if (index === 0 || versionInfo.version === currentVersion) {
+        span.textContent = `Version ${versionInfo.version} (current)`;
+      } else {
+        span.textContent = `Version ${versionInfo.version}`;
+      }
+
+      a.appendChild(span);
+      li.appendChild(a);
+      versionDropdownMenu.appendChild(li);
+    });
+
+    // Add "View all versions" link at the bottom
+    const viewAllLi = document.createElement('li');
+    const viewAllLink = document.createElement('a');
+    viewAllLink.className = 'dropdown-item';
+    viewAllLink.href = SUPPORTED_VERSIONS_URL;
+    viewAllLink.innerHTML = '<span class="dropdown-text">View all versions</span>';
+    viewAllLi.appendChild(viewAllLink);
+    versionDropdownMenu.appendChild(viewAllLi);
+  }
+
+  // Try to populate immediately, then retry if not found
+  // This handles race condition with _version-dropdown.html script
+  let attempts = 0;
+  const maxAttempts = 10;
+
+  function tryPopulate() {
+    const versionDropdownMenu = document.querySelector('.version-dropdown-wrapper .dropdown-menu');
+
+    if (versionDropdownMenu) {
+      populateVersions();
+    } else if (attempts < maxAttempts) {
+      attempts++;
+      setTimeout(tryPopulate, 50);
+    } else {
+      console.warn('Version dropdown not found after ' + maxAttempts + ' attempts');
+    }
+  }
+
+  tryPopulate();
+});
+</script>

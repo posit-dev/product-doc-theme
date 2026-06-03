@@ -1,0 +1,72 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Find the version dropdown (first navbar-nav in the left section)
+  const versionDropdown = document.querySelector('.navbar-collapse .navbar-nav:first-child');
+  const navbar = document.querySelector('.navbar');
+  const navbarTitle = document.querySelector('.navbar-title');
+  const navbarBrand = document.querySelector('.navbar-brand');
+
+  if (versionDropdown) {
+    // Create a wrapper for the version dropdown that stays outside collapse
+    const versionWrapper = document.createElement('div');
+    versionWrapper.className = 'version-dropdown-wrapper';
+
+    // Move the actual dropdown element (preserves event listeners)
+    versionWrapper.appendChild(versionDropdown);
+
+    // Insert after the title (Docs) if it exists, otherwise after the brand (logo)
+    const insertAfter = navbarTitle || navbarBrand;
+    if (insertAfter && insertAfter.parentNode) {
+      insertAfter.parentNode.insertBefore(versionWrapper, insertAfter.nextSibling);
+    }
+  }
+});
+</script>
+
+<style>
+.version-dropdown-wrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1rem;
+  vertical-align: middle;
+  position: static;
+}
+
+.version-dropdown-wrapper .navbar-nav {
+  flex-direction: row;
+  margin: 0;
+  display: flex;
+}
+
+.version-dropdown-wrapper .nav-item.dropdown {
+  position: static;
+}
+
+.navbar-brand,
+.navbar-title,
+.version-dropdown-wrapper {
+  display: inline-flex !important;
+  align-items: center;
+}
+
+.navbar-container,
+.navbar > .container-fluid {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.version-dropdown-wrapper .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: auto;
+  right: auto;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .version-dropdown-wrapper {
+    margin-left: 0.5rem;
+  }
+}
+</style>
