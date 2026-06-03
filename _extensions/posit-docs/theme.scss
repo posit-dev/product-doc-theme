@@ -461,8 +461,8 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
     align-items: center;
   }
 
-  /* Hide version dropdown inside mobile menu - it's already in navbar header */
-  .navbar-collapse .navbar-nav.me-auto {
+  /* Hide version dropdown inside mobile menu when it's open - it's already in navbar header */
+  .navbar-collapse.show .navbar-nav.me-auto {
     display: none !important;
   }
 
