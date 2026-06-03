@@ -68,13 +68,25 @@ $headings-font-weight: 400 !default;
 // Font and body color
 $body-color: $posit-gray;
 
-// Navbar customization
+// Navbar customization - matching open-source-website design
 $navbar-bg: #ffffff;
 $navbar-fg: $posit-light-gray-3;
 $navbar-hl: $primary;
 $navbar-brand: $posit-dark-gray-2;
 $navbar-brand-hl: $navbar-brand;
 $navbar-brand-font-size: 1rem !default;
+
+// Bootstrap navbar variables
+$nav-link-font-size: 14px !default;
+$nav-link-font-weight: 500 !default;
+$navbar-nav-link-padding-x: 0.75rem !default;
+
+// Custom navbar variables (not Bootstrap defaults)
+$navbar-link-font-family: $font-family-monospace;
+$navbar-link-text-transform: uppercase;
+$navbar-link-letter-spacing: 0.01em;
+$navbar-link-hover-color: $posit-blue;
+$navbar-logo-height: 36px;
 
 // Sidebar customization
 $sidebar-link-color: tint-color(#707073, 4.5%);
@@ -94,7 +106,18 @@ $callout-color-important: $posit-burgundy;
 $table-hover-bg: $posit-light-blue-2 !default;
 $table-striped-bg: $posit-light-blue-1 !default;
 
+// Box shadows
+$box-shadow: 0px 1px 2px rgba(21, 21, 21, 0.1), 0px 3px 7px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 21, 0.08);
+$box-shadow-sm: 0px 0px 2px rgba(21, 21, 21, 0.14), 0px 2px 4px rgba(21, 21, 21, 0.16);
+$box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 21, 0.17);
+
 /*-- scss:rules --*/
+
+/* Reset text selection to browser default */
+::selection {
+  background-color: Highlight;
+  color: HighlightText;
+}
 
 /* Override Bootstrap's color CSS variables to use Posit colors */
 :root,
@@ -112,6 +135,297 @@ $table-striped-bg: $posit-light-blue-1 !default;
   border-bottom: 1px solid $posit-light-blue-1;
 }
 
+.navbar-brand {
+  overflow: visible !important;
+}
+
+.navbar-logo {
+  height: $navbar-logo-height !important;
+  max-height: $navbar-logo-height !important;
+  width: auto;
+}
+
+/* Navbar navigation styling - using variables */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-toggle {
+  font-family: $navbar-link-font-family;
+  font-size: $nav-link-font-size;
+  text-transform: $navbar-link-text-transform;
+  letter-spacing: $navbar-link-letter-spacing;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-toggle:hover {
+  color: $navbar-link-hover-color !important;
+}
+
+/* Version dropdown styling - button-like appearance */
+.version-dropdown-wrapper .nav-link,
+.version-dropdown-wrapper .dropdown-toggle {
+  font-family: $font-family-sans-serif;
+  text-transform: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $posit-gray-500;
+  background-color: $posit-blue-100;
+  border-radius: 6px;
+  padding: 0.125rem 0.375rem;
+}
+
+.version-dropdown-wrapper .nav-link:hover,
+.version-dropdown-wrapper .dropdown-toggle:hover {
+  color: $posit-gray-600 !important;
+  background-color: $posit-blue-200;
+}
+
+.version-dropdown-wrapper .nav-link.show,
+.version-dropdown-wrapper .dropdown-toggle.show {
+  color: $posit-gray-500 !important;
+  background-color: $posit-blue-100;
+}
+
+/* Show light theme content, hide dark theme content in light mode */
+.light-content {
+  display: inline-block !important;
+}
+
+.dark-content {
+  display: none !important;
+}
+
+/* Hide dark mode toggle */
+.quarto-color-scheme-toggle {
+  display: none !important;
+}
+
+/* Version dropdown menu styling - matching Connect */
+.version-dropdown-wrapper .dropdown-menu {
+  background: white;
+  border: 1px solid $posit-blue-100;
+  border-radius: 6px;
+  box-shadow: $box-shadow-sm;
+  padding: 0.25rem 0;
+  min-width: 12rem;
+  max-height: calc(100vh - 80px) !important;
+  overflow-y: auto !important;
+}
+
+.version-dropdown-wrapper .dropdown-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: $posit-gray-600;
+  border-bottom: none;
+}
+
+.version-dropdown-wrapper .dropdown-item:hover,
+.version-dropdown-wrapper .dropdown-item:focus {
+  background-color: $posit-blue-100 !important;
+  color: $posit-gray-700;
+}
+
+/* Logo megamenu dropdown styling */
+.logo-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  margin-top: 0.5rem;
+  background: $navbar-bg;
+  border-radius: 8px;
+  box-shadow: $box-shadow-sm;
+  padding: 1.5rem;
+
+  /* Transition effect */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.logo-dropdown-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.logo-megamenu {
+  min-width: 80rem;
+  max-width: 90vw;
+}
+
+.megamenu-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $posit-gray-500;
+  margin: 0 0 2rem 0;
+  padding: 0 1rem;
+}
+
+.megamenu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.megamenu-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.megamenu-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: $font-family-monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $posit-gray-400;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.logo-dropdown-menu .logo-dropdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.logo-dropdown-menu .logo-dropdown-item:hover {
+  background-color: $posit-blue-100;
+}
+
+.megamenu-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.megamenu-link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.megamenu-product-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $posit-gray-500;
+  line-height: 1.3;
+}
+
+.megamenu-description {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: $posit-gray-500;
+  line-height: 1.3;
+}
+
+.logo-dropdown-menu .logo-dropdown-item:hover .megamenu-product-name {
+  color: $posit-gray-600;
+}
+
+.logo-dropdown-menu .logo-dropdown-item:hover .megamenu-description {
+  color: $posit-gray-600;
+}
+
+/* Hide external link icons in megamenu */
+.logo-dropdown-menu .logo-dropdown-item.external::after {
+  display: none;
+}
+
+.navbar-brand-logo,
+.navbar-title {
+  cursor: pointer;
+}
+
+/* Responsive megamenu */
+@media (max-width: 1400px) {
+  .logo-megamenu {
+    min-width: 70rem;
+  }
+
+  .megamenu-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo-megamenu {
+    min-width: 60rem;
+  }
+
+  .megamenu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .logo-megamenu {
+    min-width: auto;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+  }
+
+  .logo-megamenu.show {
+    transform: translate(-50%, 0);
+  }
+
+  .logo-dropdown-menu {
+    padding: 1rem;
+  }
+
+  .megamenu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .megamenu-title {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-megamenu {
+    width: 95vw;
+  }
+
+  .logo-dropdown-menu {
+    padding: 0.75rem;
+  }
+
+  .megamenu-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .megamenu-column {
+    gap: 0.125rem;
+  }
+
+  .megamenu-heading {
+    font-size: 0.7rem;
+    margin-bottom: 0.375rem;
+    padding: 0 0.5rem;
+  }
+
+  .megamenu-title {
+    padding: 0 0.5rem;
+  }
+
+  .logo-dropdown-menu .logo-dropdown-item {
+    padding: 0.375rem 0.5rem;
+  }
+}
+
 /* Style for the version included in the website title */
 .navbar-title small {
   font-size: 14px;
@@ -123,10 +437,127 @@ $table-striped-bg: $posit-light-blue-1 !default;
   margin-left: 2ch;
 }
 
-/* Adds weight to selected active item in the navbar */
+/* Active item in the navbar */
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  font-weight: 600;
+  color: $posit-blue;
+}
+
+/* Custom breakpoint for navbar collapse at 1300px */
+@media (max-width: 1300px) {
+  .navbar-expand-lg .navbar-collapse {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Hide version dropdown inside mobile menu - it's already in navbar header */
+  .navbar-collapse .navbar-nav.me-auto {
+    display: none !important;
+  }
+
+  .navbar-expand-lg .nav-link {
+    font-family: $font-family-monospace;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    color: $posit-gray;
+    padding: 1.25rem 1rem;
+  }
+
+  .navbar-expand-lg .nav-link:hover {
+    color: $posit-blue;
+  }
+
+  .navbar-toggler {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1301px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+  }
+
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* Keep navbar brand left-aligned at all screen sizes */
+.navbar-brand-container.mx-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* xs breakpoint (< 576px) */
+@media (max-width: 575.98px) {
+  /* Smaller logo on mobile */
+  .navbar-logo {
+    height: 32px !important;
+    max-height: 32px !important;
+    width: auto;
+  }
+
+  /* Hide "Docs" title */
+  .navbar .navbar-brand .navbar-title {
+    display: none !important;
+  }
+
+  a.navbar-brand .navbar-title {
+    display: none !important;
+  }
+
+  /* Shorten version dropdown text to just "Version" */
+  .version-dropdown-wrapper .dropdown-toggle .menu-text {
+    font-size: 0;
+  }
+
+  .version-dropdown-wrapper .dropdown-toggle .menu-text::before {
+    content: "Version";
+    font-size: 0.75rem;
+  }
+}
+
+/* Specifically override in the 992-1300px range */
+@media (min-width: 992px) and (max-width: 1300px) {
+  .navbar-brand-container.mx-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .navbar-container {
+    justify-content: flex-start !important;
+  }
+
+  #quarto-search {
+    margin-left: auto !important;
+    order: 999;
+  }
+}
+
+/* Search icon size */
+.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Mobile menu icon size */
+.navbar-toggler-icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 /* Sidebar */
@@ -307,11 +738,6 @@ nav[role="doc-toc"] .nav-link:hover {
 }
 
 /* Footer */
-.nav-footer-left .footer-items,
-.nav-item {
-  padding-right: 11px;
-}
-
 .posit-footer-logo {
   margin-right: -10px;
   // margin-right: 5px; #Positron uses this to align the logo with the text
