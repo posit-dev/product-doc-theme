@@ -1,0 +1,200 @@
+<!-- Custom logo dropdown -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Find the logo and title container
+  const logoLink = document.querySelector('.navbar-brand-logo');
+  const navbarTitle = document.querySelector('.navbar-title');
+  if (!logoLink) return;
+
+  // Prevent default link behavior
+  logoLink.style.cursor = 'pointer';
+  logoLink.removeAttribute('href');
+
+  // Create megamenu
+  const dropdown = document.createElement('div');
+  dropdown.className = 'logo-dropdown-menu logo-megamenu';
+  dropdown.innerHTML = `
+    <h3 class="megamenu-title">Posit Products Documentation</h3>
+    <div class="megamenu-grid">
+      <div class="megamenu-column">
+        <h4 class="megamenu-heading">Enterprise</h4>
+        <a href="https://docs.posit.co/connect/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/product icons_connect-icon-1.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Posit Connect</span>
+            <span class="megamenu-description">Publish and share data products</span>
+          </span>
+        </a>
+        <a href="https://docs.posit.co/ide/server-pro/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/product icons_workbench-icon-1.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Posit Workbench</span>
+            <span class="megamenu-description">Scalable data science workstation</span>
+          </span>
+        </a>
+        <a href="https://docs.posit.co/rspm/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/product icons_pkgmgr-icon-1.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Posit Package Manager</span>
+            <span class="megamenu-description">Manage R and Python packages</span>
+          </span>
+        </a>
+        <a href="https://docs.posit.co/chronicle/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/product icons_chronicle-icon-1.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Posit Chronicle</span>
+            <span class="megamenu-description">Manage system dependencies</span>
+          </span>
+        </a>
+      </div>
+      <div class="megamenu-column">
+        <h4 class="megamenu-heading">Desktop</h4>
+        <a href="https://docs.posit.co/ide/user/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/rstudio-icon.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">RStudio IDE</span>
+            <span class="megamenu-description">Open source IDE for R</span>
+          </span>
+        </a>
+        <a href="https://docs.posit.co/ide/desktop-pro/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/rstudio-icon.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">RStudio Desktop Pro</span>
+            <span class="megamenu-description">Professional IDE for R</span>
+          </span>
+        </a>
+        <a href="https://positron.posit.co/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/Positron-Logo-2026_symbol-fullcolor.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Positron IDE</span>
+            <span class="megamenu-description">Next-generation data science IDE</span>
+          </span>
+        </a>
+      </div>
+      <div class="megamenu-column">
+        <h4 class="megamenu-heading">Hosted</h4>
+        <a href="https://docs.posit.co/connect-cloud/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/product icons_connectcld-icon-1.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Posit Connect Cloud</span>
+            <span class="megamenu-description">Cloud-hosted publishing platform</span>
+          </span>
+        </a>
+        <a href="https://docs.posit.co/cloud/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/product icons_positcloud-icon-1.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Posit Cloud</span>
+            <span class="megamenu-description">Cloud-based data science environment</span>
+          </span>
+        </a>
+        <a href="https://docs.posit.co/shinyapps.io/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/shiny.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">shinyapps.io</span>
+            <span class="megamenu-description">Host Shiny applications</span>
+          </span>
+        </a>
+      </div>
+      <div class="megamenu-column">
+        <h4 class="megamenu-heading">Open Source</h4>
+        <a href="https://quarto.org/docs/get-started/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/quarto.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Quarto</span>
+            <span class="megamenu-description">Scientific publishing system</span>
+          </span>
+        </a>
+        <a href="https://shiny.posit.co/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/shiny.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Shiny</span>
+            <span class="megamenu-description">Interactive web apps with R/Python</span>
+          </span>
+        </a>
+        <a href="https://www.tidyverse.org/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/tidyverse.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Tidyverse</span>
+            <span class="megamenu-description">Collection of R packages for data science</span>
+          </span>
+        </a>
+        <a href="https://www.tidymodels.org/" class="logo-dropdown-item">
+          <img src="_extensions/posit-docs/assets/images/tidymodels.svg" alt="" class="megamenu-icon">
+          <span class="megamenu-link-content">
+            <span class="megamenu-product-name">Tidymodels</span>
+            <span class="megamenu-description">Machine learning with tidyverse</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  `;
+
+  // Insert dropdown after logo
+  const container = logoLink.parentNode;
+  container.style.position = 'relative';
+  container.appendChild(dropdown);
+
+  let hideTimeout;
+
+  // Position dropdown to stay within viewport
+  const positionDropdown = function() {
+    const rect = dropdown.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+
+    // Reset positioning
+    dropdown.style.left = '0';
+    dropdown.style.right = 'auto';
+
+    // Check if dropdown extends beyond viewport
+    const dropdownRect = dropdown.getBoundingClientRect();
+
+    if (dropdownRect.right > viewportWidth) {
+      // If it extends past the right edge, align to right edge of viewport
+      const overflow = dropdownRect.right - viewportWidth;
+      dropdown.style.left = `${-overflow - 20}px`; // 20px padding from edge
+    }
+
+    if (dropdownRect.left < 0) {
+      // If it extends past the left edge, align to left edge of viewport
+      dropdown.style.left = `${Math.abs(dropdownRect.left) + 20}px`; // 20px padding from edge
+    }
+  };
+
+  // Show dropdown on hover
+  const showDropdown = function() {
+    clearTimeout(hideTimeout);
+    // Position before showing to avoid flash
+    positionDropdown();
+    dropdown.classList.add('show');
+  };
+
+  // Hide dropdown with delay
+  const hideDropdown = function() {
+    hideTimeout = setTimeout(function() {
+      dropdown.classList.remove('show');
+    }, 200);
+  };
+
+  // Attach hover events to logo
+  logoLink.addEventListener('mouseenter', showDropdown);
+  logoLink.addEventListener('mouseleave', hideDropdown);
+
+  // Attach hover events to title if it exists
+  if (navbarTitle) {
+    navbarTitle.style.cursor = 'pointer';
+    navbarTitle.addEventListener('mouseenter', showDropdown);
+    navbarTitle.addEventListener('mouseleave', hideDropdown);
+  }
+
+  // Keep dropdown open when hovering over it
+  dropdown.addEventListener('mouseenter', showDropdown);
+  dropdown.addEventListener('mouseleave', hideDropdown);
+
+  // Reposition on window resize
+  window.addEventListener('resize', function() {
+    if (dropdown.classList.contains('show')) {
+      positionDropdown();
+    }
+  });
+});
+</script>
