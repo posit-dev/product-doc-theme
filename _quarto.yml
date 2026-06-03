@@ -5,20 +5,32 @@ project:
     - "!changelog.md"
   
 website:
-  title: 'Posit Product Documentation <small>Version {{< env PRODUCT_VERSION >}}</small>'
+  title: ""
   page-navigation: true
   navbar:
+    toggle-theme: false
     left:
+      - text: "Version 2026-03-01"
+        menu:
+          - text: "Version 2026-03-01 (current)"
+            href: "#"
+          - text: "View all versions"
+            href: "#"
+    right:
       - text: "Home"
         href: index.qmd
       - text: "Admin Guide"
         href: admin.qmd
       - text: "User Guide"
         href: user.qmd
-      - text: "Grid"
-        href: grid.qmd
-      - text: "Kitchen Sink"
-        href: kitchen-sink.qmd
+      - text: "How-to Guides"
+        href: howto.qmd
+      - text: "Cookbook"
+        href: cookbook.qmd
+      - text: "API Reference"
+        href: api-reference.qmd
+      - text: "Release Notes"
+        href: release-notes.qmd
 
   # Hybrid navigation meant to show some amount of nested sidebar navigation
   # https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation
@@ -111,7 +123,7 @@ format:
     toc-expand: 2  # Shows levels 1 and 2 initially; deeper levels expand as you scroll
     smooth-scroll: true
     grid:
-      sidebar-width: 360px
+      sidebar-width: 320px
       body-width: 900px
       margin-width: 300px
-      gutter-width: 2.5rem
+      gutter-width: 2.75rem
