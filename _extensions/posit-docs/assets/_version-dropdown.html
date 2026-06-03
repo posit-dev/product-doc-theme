@@ -1,24 +1,93 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Configuration - set this based on the product
+  const PRODUCT = 'connect'; // Can be 'connect', 'workbench', etc.
+  const SUPPORTED_VERSIONS_URL = `https://docs.posit.co/supported-versions/${PRODUCT}.html`;
+
   // Find the version dropdown (first navbar-nav in the left section)
   const versionDropdown = document.querySelector('.navbar-collapse .navbar-nav:first-child');
   const navbar = document.querySelector('.navbar');
   const navbarTitle = document.querySelector('.navbar-title');
   const navbarBrand = document.querySelector('.navbar-brand');
 
-  if (versionDropdown) {
-    // Create a wrapper for the version dropdown that stays outside collapse
-    const versionWrapper = document.createElement('div');
-    versionWrapper.className = 'version-dropdown-wrapper';
+  if (!versionDropdown) {
+    console.warn('Version dropdown not found in navbar-collapse');
+    return;
+  }
 
-    // Move the actual dropdown element (preserves event listeners)
-    versionWrapper.appendChild(versionDropdown);
+  // Create a wrapper for the version dropdown that stays outside collapse
+  const versionWrapper = document.createElement('div');
+  versionWrapper.className = 'version-dropdown-wrapper';
 
-    // Insert after the title (Docs) if it exists, otherwise after the brand (logo)
-    const insertAfter = navbarTitle || navbarBrand;
-    if (insertAfter && insertAfter.parentNode) {
-      insertAfter.parentNode.insertBefore(versionWrapper, insertAfter.nextSibling);
+  // Move the actual dropdown element (preserves event listeners)
+  versionWrapper.appendChild(versionDropdown);
+
+  // Insert after the title (Docs) if it exists, otherwise after the brand (logo)
+  const insertAfter = navbarTitle || navbarBrand;
+  if (insertAfter && insertAfter.parentNode) {
+    insertAfter.parentNode.insertBefore(versionWrapper, insertAfter.nextSibling);
+  }
+
+  // Now populate the dropdown with dynamic versions
+  populateVersions();
+
+  function populateVersions() {
+    // Find the version dropdown menu (now in the wrapper)
+    const versionDropdownMenu = versionWrapper.querySelector('.dropdown-menu');
+
+    if (!versionDropdownMenu) {
+      console.warn('Version dropdown menu not found after relocation');
+      return;
     }
+
+    // Use versions data injected at build time
+    const versions = window.POSIT_VERSIONS || [];
+
+    if (versions.length === 0) {
+      console.warn('No version data available');
+      return;
+    }
+
+    // Clear existing menu items
+    versionDropdownMenu.innerHTML = '';
+
+    // Get current version from the dropdown toggle text
+    const currentVersionText = versionWrapper.querySelector('.dropdown-toggle')?.textContent.trim();
+    const currentVersionMatch = currentVersionText?.match(/(\d{4}-\d{2}-\d{2})/);
+    const currentVersion = currentVersionMatch ? currentVersionMatch[1].replace(/-/g, '.') : versions[0]?.version;
+
+    // Populate dropdown with versions
+    versions.forEach((versionInfo, index) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.className = 'dropdown-item';
+      a.href = versionInfo.url;
+
+      const span = document.createElement('span');
+      span.className = 'dropdown-text';
+
+      // Mark current version
+      if (index === 0 || versionInfo.version === currentVersion) {
+        span.textContent = `Version ${versionInfo.version} (current)`;
+      } else {
+        span.textContent = `Version ${versionInfo.version}`;
+      }
+
+      a.appendChild(span);
+      li.appendChild(a);
+      versionDropdownMenu.appendChild(li);
+    });
+
+    // Add "View all versions" link at the bottom
+    const viewAllLi = document.createElement('li');
+    const viewAllLink = document.createElement('a');
+    viewAllLink.className = 'dropdown-item';
+    viewAllLink.href = SUPPORTED_VERSIONS_URL;
+    viewAllLink.innerHTML = '<span class="dropdown-text">View all versions</span>';
+    viewAllLi.appendChild(viewAllLink);
+    versionDropdownMenu.appendChild(viewAllLi);
+
+    console.log(`Populated version dropdown with ${versions.length} versions`);
   }
 });
 </script>

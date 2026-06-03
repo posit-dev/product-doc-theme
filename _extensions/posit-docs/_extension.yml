@@ -36,7 +36,6 @@ contributes:
           - "assets/_analytics.html"
           - "assets/_logo-dropdown.html"
           - "assets/_version-dropdown.html"
-          - "assets/_dynamic-versions.html"
           - "assets/_mobile-menu.html"
         resources:
           - "assets/images/"
