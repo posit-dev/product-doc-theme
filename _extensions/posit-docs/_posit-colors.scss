@@ -15,76 +15,182 @@ $posit-red:              #d44000;
 
 /* Posit Colors */
 
-/* Posit blues */
-$posit-light-blue-1:     #d1dbe5;
-$posit-light-blue-2:     #a2b8cb;
-$posit-light-blue-3:     #7494b1;
+/* Posit blues - Tailwind-style scale (50-1000) */
+$posit-blue-50:          #f8fafb;
+$posit-blue-75:          #f0f4f7;  // Midpoint between 50 and 100
+$posit-blue-100:         #e8edf2;
+$posit-blue-200:         #d1dbe5;
+$posit-blue-300:         #a2b8cb;
+$posit-blue-400:         #7494b1;
+$posit-blue-500:         #447099;  // Main Posit blue (same as $posit-blue)
+$posit-blue-600:         #305775;
+$posit-blue-700:         #294a62;
+$posit-blue-800:         #213d4f;
+$posit-blue-900:         #1c2f3d;
+$posit-blue-950:         #17212b;
+$posit-blue-1000:        #0E1013;
 
-$posit-dark-blue-1:      #305775;
-$posit-dark-blue-2:      #213d4f;
-$posit-dark-blue-3:      #17212b;
+// Legacy blue names (for backwards compatibility)
+$posit-light-blue-1:     $posit-blue-200;  // #d1dbe5
+$posit-light-blue-2:     $posit-blue-300;  // #a2b8cb
+$posit-light-blue-3:     $posit-blue-400;  // #7494b1
 
-/* Posit grays */
-$posit-light-gray-1:     #c2c2c4;
-$posit-light-gray-2:     #949494;
-$posit-light-gray-3:     #707073;
-$posit-dark-gray-1:      #333333;
-$posit-dark-gray-2:      #242426;
-$posit-dark-gray-3:      #151515;
+$posit-dark-blue-1:      $posit-blue-600;  // #305775
+$posit-dark-blue-2:      $posit-blue-800;  // #213d4f
+$posit-dark-blue-3:      $posit-blue-950;  // #17212b
 
-/* Posit teals */
-$posit-light-teal-1:     #c2d9d9;
-$posit-light-teal-2:     #94bdbf;
-$posit-light-teal-3:     #70a3a6;
+/* Posit grays - Tailwind-style scale */
+$posit-gray-50:          #f6f6f6;
+$posit-gray-100:         #e1e1e1;
+$posit-gray-200:         #c2c2c4;
+$posit-gray-300:         #949494;
+$posit-gray-400:         #707073;
+$posit-gray-500:         #404041;  // Main Posit gray (same as $posit-gray)
+$posit-gray-600:         #333333;
+$posit-gray-700:         #2c2c2d;
+$posit-gray-800:         #242426;
+$posit-gray-900:         #1d1d1e;
+$posit-gray-950:         #151515;
 
-$posit-dark-teal-1:      #297075;
-$posit-dark-teal-2:      #1f4f4f;
-$posit-dark-teal-3:      #122b2b;
+// Legacy gray names (for backwards compatibility)
+$posit-light-gray-1:     $posit-gray-200;  // #c2c2c4
+$posit-light-gray-2:     $posit-gray-300;  // #949494
+$posit-light-gray-3:     $posit-gray-400;  // #707073
+$posit-dark-gray-1:      $posit-gray-600;  // #333333
+$posit-dark-gray-2:      $posit-gray-800;  // #242426
+$posit-dark-gray-3:      $posit-gray-950;  // #151515
 
-/* Posit greens */
-$posit-light-green-1:    #cfd9c7;
-$posit-light-green-2:    #adbf99;
-$posit-light-green-3:    #8aa67a;
+/* Posit teals - Tailwind-style scale */
+$posit-teal-50:          #f6fafa;
+$posit-teal-100:         #e9ecec;
+$posit-teal-200:         #c2d9d9;
+$posit-teal-300:         #94bdbf;
+$posit-teal-400:         #70a3a6;
+$posit-teal-500:         #419599;  // Main Posit teal (same as $posit-teal)
+$posit-teal-600:         #297075;
+$posit-teal-700:         #246060;
+$posit-teal-800:         #1f4f4f;
+$posit-teal-900:         #193d3d;
+$posit-teal-950:         #122b2b;
 
-$posit-dark-green-1:     #57733d;
-$posit-dark-green-2:     #3b4f29;
-$posit-dark-green-3:     #212b1c;
+// Legacy teal names (for backwards compatibility)
+$posit-light-teal-1:     $posit-teal-200;  // #c2d9d9
+$posit-light-teal-2:     $posit-teal-300;  // #94bdbf
+$posit-light-teal-3:     $posit-teal-400;  // #70a3a6
 
-/* Posit reds */
-$posit-light-red-1:     #f2c2c2;
-$posit-light-red-2:     #e59494;
-$posit-light-red-3:     #d66f6f;
+$posit-dark-teal-1:      $posit-teal-600;  // #297075
+$posit-dark-teal-2:      $posit-teal-800;  // #1f4f4f
+$posit-dark-teal-3:      $posit-teal-950;  // #122b2b
 
-$posit-dark-red-1:      #a63d3d;
-$posit-dark-red-2:      #7a2b2b;
-$posit-dark-red-3:      #4f1919;
+/* Posit greens - Tailwind-style scale */
+$posit-green-50:         #f8faf7;
+$posit-green-100:        #e8ece3;
+$posit-green-200:        #cfd9c7;
+$posit-green-300:        #adbf99;
+$posit-green-400:        #8aa67a;
+$posit-green-500:        #72994e;  // Main Posit green (same as $posit-green)
+$posit-green-600:        #57733d;
+$posit-green-700:        #496331;
+$posit-green-800:        #3b4f29;
+$posit-green-900:        #2e3d23;
+$posit-green-950:        #212b1c;
 
-/* Posit burgundies */
-$posit-light-burgundy-1: #d9c4cc;
-$posit-light-burgundy-2: #bf96a3;
-$posit-light-burgundy-3: #a67380;
+// Legacy green names (for backwards compatibility)
+$posit-light-green-1:    $posit-green-200;  // #cfd9c7
+$posit-light-green-2:    $posit-green-300;  // #adbf99
+$posit-light-green-3:    $posit-green-400;  // #8aa67a
 
-$posit-dark-burgundy-1:  #78384f;
-$posit-dark-burgundy-2:  #542938;
-$posit-dark-burgundy-3:  #2e171f;
+$posit-dark-green-1:     $posit-green-600;  // #57733d
+$posit-dark-green-2:     $posit-green-800;  // #3b4f29
+$posit-dark-green-3:     $posit-green-950;  // #212b1c
 
-/* Posit oranges */
-$posit-light-orange-1:   #edccbf;
-$posit-light-orange-2:   #eba38c;
-$posit-light-orange-3:   #e58066;
+/* Posit reds - Tailwind-style scale */
+$posit-red-50:          #fef1ef;
+$posit-red-100:         #fcd1c9;
+$posit-red-200:         #f9a395;
+$posit-red-300:         #e57366;
+$posit-red-400:         #db593b;
+$posit-red-500:         #d44000;  // Main Posit red (same as $posit-red)
+$posit-red-600:         #a62103;
+$posit-red-700:         #921e03;
+$posit-red-800:         #7d1a03;
+$posit-red-900:         #6b1402;
+$posit-red-950:         #590e02;
 
-$posit-dark-orange-1:    #ab4d26;
-$posit-dark-orange-2:    #80361c;
-$posit-dark-orange-3:    #451f12;
+// Legacy red names (for backwards compatibility)
+$posit-light-red-1:     #f2c2c2;  // Keeping original (not in Tailwind scale)
+$posit-light-red-2:     #e59494;  // Keeping original
+$posit-light-red-3:     #d66f6f;  // Keeping original
 
-/* Posit yellows */
-$posit-light-yellow-1:  #efdeb9;
-$posit-light-yellow-2:  #f5d487;
-$posit-light-yellow-3:  #f4c540;
+$posit-dark-red-1:      #a63d3d;  // Keeping original
+$posit-dark-red-2:      #7a2b2b;  // Keeping original
+$posit-dark-red-3:      #4f1919;  // Keeping original
 
-$posit-dark-yellow-1:   #c48f0a;
-$posit-dark-yellow-2:   #9b6c04;
-$posit-dark-yellow-3:   #6d4a03;
+/* Posit burgundies - Tailwind-style scale */
+$posit-burgundy-50:      #faf6f7;
+$posit-burgundy-100:     #ece1e5;
+$posit-burgundy-200:     #d9c4cc;
+$posit-burgundy-300:     #bf96a3;
+$posit-burgundy-400:     #a67380;
+$posit-burgundy-500:     #9a4665;  // Main Posit burgundy (same as $posit-burgundy)
+$posit-burgundy-600:     #78384f;
+$posit-burgundy-700:     #663144;
+$posit-burgundy-800:     #542938;
+$posit-burgundy-900:     #41202c;
+$posit-burgundy-950:     #2e171f;
+
+// Legacy burgundy names (for backwards compatibility)
+$posit-light-burgundy-1: $posit-burgundy-200;  // #d9c4cc
+$posit-light-burgundy-2: $posit-burgundy-300;  // #bf96a3
+$posit-light-burgundy-3: $posit-burgundy-400;  // #a67380
+
+$posit-dark-burgundy-1:  $posit-burgundy-600;  // #78384f
+$posit-dark-burgundy-2:  $posit-burgundy-800;  // #542938
+$posit-dark-burgundy-3:  $posit-burgundy-950;  // #2e171f
+
+/* Posit oranges - Tailwind-style scale */
+$posit-orange-50:        #fcf7f5;
+$posit-orange-100:       #f6e6df;
+$posit-orange-200:       #edccbf;
+$posit-orange-300:       #eba38c;
+$posit-orange-400:       #e58066;
+$posit-orange-500:       #ee6331;  // Main Posit orange (same as $posit-orange)
+$posit-orange-600:       #ab4d26;
+$posit-orange-700:       #964221;
+$posit-orange-800:       #80361c;
+$posit-orange-900:       #632b17;
+$posit-orange-950:       #451f12;
+
+// Legacy orange names (for backwards compatibility)
+$posit-light-orange-1:   $posit-orange-200;  // #edccbf
+$posit-light-orange-2:   $posit-orange-300;  // #eba38c
+$posit-light-orange-3:   $posit-orange-400;  // #e58066
+
+$posit-dark-orange-1:    $posit-orange-600;  // #ab4d26
+$posit-dark-orange-2:    $posit-orange-800;  // #80361c
+$posit-dark-orange-3:    $posit-orange-950;  // #451f12
+
+/* Posit yellows - Tailwind-style scale */
+$posit-yellow-50:       #fefaf6;
+$posit-yellow-100:      #f7efdc;
+$posit-yellow-200:      #efdeb9;
+$posit-yellow-300:      #f5d487;
+$posit-yellow-400:      #f4c540;
+$posit-yellow-500:      #e7b10a;  // Main Posit yellow (same as $posit-yellow)
+$posit-yellow-600:      #c48f0a;
+$posit-yellow-700:      #b07e07;
+$posit-yellow-800:      #9b6c04;
+$posit-yellow-900:      #845b04;
+$posit-yellow-950:      #6d4a03;
+
+// Legacy yellow names (for backwards compatibility)
+$posit-light-yellow-1:  $posit-yellow-200;  // #efdeb9
+$posit-light-yellow-2:  $posit-yellow-300;  // #f5d487
+$posit-light-yellow-3:  $posit-yellow-400;  // #f4c540
+
+$posit-dark-yellow-1:   $posit-yellow-600;  // #c48f0a
+$posit-dark-yellow-2:   $posit-yellow-800;  // #9b6c04
+$posit-dark-yellow-3:   $posit-yellow-950;  // #6d4a03
 
 
 /* Misc. */
