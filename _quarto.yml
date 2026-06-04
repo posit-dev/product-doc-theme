@@ -24,13 +24,13 @@ website:
       - text: "User Guide"
         href: user.qmd
       - text: "How-to Guides"
-        href: howto.qmd
+        href: index.qmd
       - text: "Cookbook"
-        href: cookbook.qmd
+        href: index.qmd
       - text: "API Reference"
-        href: api-reference.qmd
+        href: index.qmd
       - text: "Release Notes"
-        href: release-notes.qmd
+        href: index.qmd
 
   # Hybrid navigation meant to show some amount of nested sidebar navigation
   # https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation
