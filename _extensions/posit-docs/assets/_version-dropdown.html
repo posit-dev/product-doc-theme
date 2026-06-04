@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Mark current version
       if (index === 0 || versionInfo.version === currentVersion) {
-        span.textContent = `Version ${versionInfo.version} (current)`;
+        span.textContent = `${versionInfo.version} (current)`;
       } else {
-        span.textContent = `Version ${versionInfo.version}`;
+        span.textContent = `${versionInfo.version}`;
       }
 
       a.appendChild(span);
