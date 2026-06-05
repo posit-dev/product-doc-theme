@@ -49,9 +49,9 @@ This should be avoided, if possible.
 
 ##### Product logos
 
-The extension sets a default navbar logo (`posit-icon-fullcolor.svg`). Products with a product-specific mark should override this in `_quarto.yml`.
+The extension sets a default navbar logo (`posit-icon-fullcolor.svg`). Products with a product-specific logos should override this in `_quarto.yml`.
 
-Applies to: Workbench, Connect, Package Manager, Chronicle, Connect Cloud, Posit AI
+**Applies to: Workbench, Connect, Package Manager, Chronicle, Connect Cloud, Posit AI**
 
 ```yaml
 website:
@@ -71,7 +71,7 @@ The extension does not set a height for the navbar logo. Add the following to yo
 
 ##### Sites with product logos: title
 
-These sites with product logos titles should not include the "Posit" prefix.
+These sites with product logos should not include the "Posit" prefix in their website title.
 
 In your `_quarto.yml`:
 
