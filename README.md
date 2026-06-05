@@ -47,6 +47,26 @@ website:
 Once merged, you should manually disable these entries by commenting them out in the `_extension.yml`.
 This should be avoided, if possible.
 
+#### Navbar logo
+
+The extension sets a default navbar logo (`posit-icon-fullcolor.svg`). Products with a product-specific mark should override this in `_quarto.yml`:
+
+```yaml
+website:
+  navbar:
+    logo: "images/your-product-mark.svg"
+    logo-alt: "Your Product documentation"
+```
+
+The extension does not set a height for the navbar logo. Add the following to your site stylesheet so the logo renders at a consistent size:
+
+```css
+.navbar-brand-logo .navbar-logo {
+    height: 28px;
+    max-height: 28px;
+}
+```
+
 #### Footer
 
 Use the following `website.page-footer` in your `_quarto.yml`:
