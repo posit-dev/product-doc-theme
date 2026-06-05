@@ -33,7 +33,7 @@ The following entries may be unique to each product. Please review the following
 If you have `website.navbar.right` entries in your `_quarto.yml`, you may have to
 merge the following with the existing entries in your `_quarto.yml`.
 
-```
+```yaml
 website:
   navbar:
     right:
@@ -47,9 +47,11 @@ website:
 Once merged, you should manually disable these entries by commenting them out in the `_extension.yml`.
 This should be avoided, if possible.
 
-#### Navbar logo
+##### Product logos
 
-The extension sets a default navbar logo (`posit-icon-fullcolor.svg`). Products with a product-specific mark should override this in `_quarto.yml`:
+The extension sets a default navbar logo (`posit-icon-fullcolor.svg`). Products with a product-specific mark should override this in `_quarto.yml`.
+
+Applies to: Workbench, Connect, Package Manager, Chronicle, Connect Cloud, Posit AI
 
 ```yaml
 website:
@@ -65,6 +67,24 @@ The extension does not set a height for the navbar logo. Add the following to yo
     height: 28px;
     max-height: 28px;
 }
+```
+
+##### Sites with product logos: title
+
+These sites with product logos titles should not include the "Posit" prefix.
+
+In your `_quarto.yml`:
+
+```yaml
+project:
+  title: "Connect Documentation"
+```
+
+Not:
+
+```yaml
+project:
+  title: "Posit Connect Documentation"
 ```
 
 #### Footer
@@ -93,7 +113,7 @@ website:
         aria-label: 'Link to Posit Docs'
         href: "https://docs.posit.co"
 ```
-        
+
 Make the following modifications:
 
 -   **Product name:** Replace the `PRODUCT` placeholder with the product name.
@@ -102,10 +122,10 @@ Make the following modifications:
     based on how that information is made available. The example project gets
     a default environment variable value from the
     [`_environment`](https://quarto.org/docs/projects/environment.html) file.
-    
+
     You may need to dynamically define `PRODUCT_VERSION` before rendering your
     documentation.
-    
+
     ```bash
     export PRODUCT_VERSION=$(cat version.txt)
     ```
@@ -118,7 +138,7 @@ Make the following modifications:
 
     You may need to dynamically define `CURRENT_YEAR` before rendering your
     documentation.
-    
+
     ```bash
     export CURRENT_YEAR=$(date "+%Y")
     ```
@@ -150,7 +170,7 @@ Our version toast displays the current product version and provides a link to th
 ```
 format:
   html:
-    include-in-header: 
+    include-in-header:
       - _version-toast.html
 ```
 
