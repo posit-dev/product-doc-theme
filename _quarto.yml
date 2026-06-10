@@ -3,6 +3,9 @@ project:
   render:
     - "*.qmd"
     - "!changelog.md"
+  post-render: post-render.sh
+filters:
+  - auto-dark
   
 website:
   title: ""
