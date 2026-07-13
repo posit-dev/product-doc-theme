@@ -1,3 +1,7 @@
+# Unreleased
+
+* Enables GTM analytics and the cookie preference center icon on `packagemanager.posit.co` and `p3m.dev` #182
+
 # v8.1.3
 
 * Raises Mermaid node and label contrast to WCAG AA in light and dark mode #186
