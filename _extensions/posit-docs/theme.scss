@@ -78,14 +78,26 @@ $table-striped-bg: $posit-light-blue-1 !default;
   text-transform: uppercase;
 }
 
+.sidebar-navigation .sidebar-item {
+  line-height: 1.35;
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+.sidebar-navigation .sidebar-item-container > .sidebar-item-text {
+  padding: 0.2rem 0.5rem;
+  margin-left: -0.5rem;
+  border-radius: 5px;
+}
+
 div.sidebar-item-container .active,
 div.sidebar-item-container .show > .nav-link,
 div.sidebar-item-container .sidebar-link > code {
   background-color: #f4f4f7;
   border-radius: 5px;
-  margin-bottom: 2px;
-  margin-left: -5px;
-  padding: 6px;
+  margin-bottom: 0;
+  margin-left: -0.5rem;
+  padding: 0.2rem 0.5rem;
 }
 
 div.sidebar-item-container .active,
