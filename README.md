@@ -183,6 +183,13 @@ against the sample project defined here.
 quarto preview
 ```
 
+Record your changes in the `Unreleased` section at the top of
+[`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md)
+as part of the pull request that makes them, adding the section if it is not
+there. Writing the entry alongside the change is easier than reconstructing it
+from the commit log at release time, and it leaves the release with only a
+heading to rename.
+
 ### Release
 
 To release a new version of this theme:
@@ -198,7 +205,8 @@ To release a new version of this theme:
         the extension declares its version.
     1.  Update
         [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md);
-        make sure recent changes are announced.
+        rename the `Unreleased` heading to the version being released, and
+        check that every change since the last release is listed.
 
     Commit and merge both changes to `main`.
 
