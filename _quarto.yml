@@ -26,6 +26,8 @@ website:
         - admin.qmd
         - section: Subsection
           contents:
+            - text: Installing to Managed Service Providers
+              href: install.qmd
             - text: Installation
               href: install.qmd
             - text: Duplicate
@@ -39,6 +41,8 @@ website:
             - text: Sharing
               href: sharing.qmd
             - text: Duplicate
+              href: sharing.qmd
+            - text: Using R from Python (rpy2)
               href: sharing.qmd
       style: "docked"
 

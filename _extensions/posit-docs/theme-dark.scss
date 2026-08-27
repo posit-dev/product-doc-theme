@@ -81,13 +81,8 @@ div.sidebar-item-container .active,
 div.sidebar-item-container .show > .nav-link,
 div.sidebar-item-container .sidebar-link > code {
   color: #ffffff !important;
-  // background-color: rgb(19, 22.5, 30.5);
   background-color: rgba($primary, 0.1);
-  border-radius: 5px;
-  border: $primary 1px solid;
-  margin-bottom: 2px;
-  margin-left: -5px;
-  padding: 6px;
+  box-shadow: inset 0 0 0 1px $primary;
 }
 
 /* Navbar right hamburger menu */
