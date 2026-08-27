@@ -1,3 +1,9 @@
+# v8.1.2
+
+* Fixes sidebar line-height so wrapped navigation labels stay readable #183
+* Aligns the active sidebar item with its neighbours #183
+* Documents navbar product logos and site titles in the README #181
+
 # v8.1.1
 
 * Adds fix for SCSS code cleanly formatted #175
