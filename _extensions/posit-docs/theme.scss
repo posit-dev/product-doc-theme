@@ -46,6 +46,24 @@ $callout-color-important: $posit-burgundy;
 $table-hover-bg: $posit-light-blue-2 !default;
 $table-striped-bg: $posit-light-blue-1 !default;
 
+// Mermaid diagrams
+//
+// Without these, Quarto falls back to a node fill of `rgba($primary, 0.1)` with
+// `$primary` label text, which is Posit blue on a 10%-Posit-blue wash: 4.6:1,
+// only just past the WCAG AA minimum of 4.5:1 for normal text. Diagram labels
+// are often scaled down to fit the text column, so aim well above the minimum.
+// Contrast ratios in the comments are against the background the text sits on.
+$mermaid-bg-color: #ffffff;
+$mermaid-fg-color: $posit-dark-blue-2; // 12.3:1 on white
+$mermaid-fg-color--lighter: $posit-dark-blue-1; // cluster borders, 6.9:1 on white
+$mermaid-fg-color--lightest: $posit-light-blue-3; // 3.2:1 on white
+$mermaid-node-bg-color: $posit-light-blue-1;
+$mermaid-node-fg-color: $posit-dark-blue-2; // node borders, 8.1:1 on the node fill
+$mermaid-edge-color: $posit-dark-blue-1; // 6.9:1 on white
+$mermaid-label-bg-color: #ffffff;
+$mermaid-label-fg-color: $posit-dark-blue-2; // 8.1:1 on the node fill, 12.3:1 on white
+$mermaid-font-family: $font-family-sans-serif;
+
 /* Navbar */
 .navbar {
   border-bottom: 1px solid $posit-light-blue-1;
@@ -324,9 +342,19 @@ kbd {
 }
 
 /* Mermaid Diagrams */
+
+/* Quarto reads `--mermaid-font-weight` in the CSS it hands to Mermaid but never
+   emits the custom property, so the declaration resolves to nothing. Set it
+   here: a slightly heavier weight keeps diagram labels legible when a wide
+   diagram is scaled down to fit the text column. */
+:root {
+  --mermaid-font-weight: 500;
+}
+
 [id^="mermaid-"] {
   .cluster rect {
     fill: none !important;
+    stroke-width: 1.5px;
     font-size: $font-size-base;
   }
 
@@ -345,12 +373,15 @@ kbd {
         font-size: $font-size-base;
       }
 
+      /* Edge labels sit on top of the edges they annotate, so give them the page
+         background as a pill rather than letting lines run through the text. */
       p {
         margin-inline: auto !important;
         max-width: max-content;
         border-radius: 8px;
         padding: 0 0.75rem;
-        color: $posit-dark-blue-2;
+        background-color: $mermaid-label-bg-color;
+        color: $mermaid-label-fg-color;
         font-size: $font-size-base;
       }
     }
