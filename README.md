@@ -14,49 +14,51 @@ Next, update your project type and format in `_quarto.yml`:
 
 ```yaml
 project:
-  title: "Posit Documentation"
+  title: Posit Documentation
   type: posit-docs
 ```
 
 ### Additional configuration entries
 
-The following entries may be unique to each product. Please review the following and make manual updates to your project, as required.
+The following entries may be unique to each product.
+Please review the following and make manual updates to your project, as required.
 
 #### Navbar
 
 **For existing sites**
 
-If you have `website.navbar.right` entries in your `_quarto.yml`, you may have to
-merge the following with the existing entries in your `_quarto.yml`.
+If you have `website.navbar.right` entries in your `_quarto.yml`, you may have to merge the following with the existing entries in your `_quarto.yml`.
 
 ```yaml
 website:
   navbar:
     right:
-      - text: "Help"
+      - text: Help
         menu:
-          - text: "docs.posit.co"
-            href: "https://docs.posit.co"
-          - text: "Posit Support"
-            href: "https://support.posit.co/hc/en-us/"
+        - text: docs.posit.co
+          href: https://docs.posit.co
+        - text: Posit Support
+          href: https://support.posit.co/hc/en-us/
 ```
 Once merged, you should manually disable these entries by commenting them out in the `_extension.yml`.
 This should be avoided, if possible.
 
 ##### Product logos
 
-The extension sets a default navbar logo (`posit-icon-fullcolor.svg`). Products with a product-specific logos should override this in `_quarto.yml`.
+The extension sets a default navbar logo (`posit-icon-fullcolor.svg`).
+Products with a product-specific logos should override this in `_quarto.yml`.
 
 **Applies to: Workbench, Connect, Package Manager, Chronicle, Connect Cloud, Posit AI**
 
 ```yaml
 website:
   navbar:
-    logo: "images/your-product-mark.svg"
-    logo-alt: "Your Product documentation"
+    logo: images/your-product-mark.svg
+    logo-alt: Your Product documentation
 ```
 
-The extension does not set a height for the navbar logo. Add the following to your site stylesheet so the logo renders at a consistent size:
+The extension does not set a height for the navbar logo.
+Add the following to your site stylesheet so the logo renders at a consistent size:
 
 ```css
 .navbar-brand-logo .navbar-logo {
@@ -73,14 +75,14 @@ In your `_quarto.yml`:
 
 ```yaml
 project:
-  title: "Connect Documentation"
+  title: Connect Documentation
 ```
 
 Not:
 
 ```yaml
 project:
-  title: "Posit Connect Documentation"
+  title: Posit Connect Documentation
 ```
 
 #### Footer
@@ -112,28 +114,22 @@ website:
 
 Make the following modifications:
 
--   **Product name:** Replace the `PRODUCT` placeholder with the product name.
+- **Product name:** Replace the `PRODUCT` placeholder with the product name.
 
--   **Product version:** Adapt the `PRODUCT_VERSION` variable for your product
-    based on how that information is made available. The example project gets
-    a default environment variable value from the
-    [`_environment`](https://quarto.org/docs/projects/environment.html) file.
+- **Product version:** Adapt the `PRODUCT_VERSION` variable for your product based on how that information is made available.
+  The example project gets a default environment variable value from the [`_environment`](https://quarto.org/docs/projects/environment.html) file.
 
-    You may need to dynamically define `PRODUCT_VERSION` before rendering your
-    documentation.
+  You may need to dynamically define `PRODUCT_VERSION` before rendering your documentation.
 
     ```bash
     export PRODUCT_VERSION=$(cat version.txt)
     ```
 
--   **Copyright:** Copyright dates are represented as a range from the year of
-    first product release until now. Adapt the `CURRENT_YEAR` variable for
-    your product and how that information is made available. The example
-    project gets a default environment variable value from the
-    [`_environment`](https://quarto.org/docs/projects/environment.html) file.
+- **Copyright:** Copyright dates are represented as a range from the year of first product release until now.
+  Adapt the `CURRENT_YEAR` variable for your product and how that information is made available.
+  The example project gets a default environment variable value from the [`_environment`](https://quarto.org/docs/projects/environment.html) file.
 
-    You may need to dynamically define `CURRENT_YEAR` before rendering your
-    documentation.
+  You may need to dynamically define `CURRENT_YEAR` before rendering your documentation.
 
     ```bash
     export CURRENT_YEAR=$(date "+%Y")
@@ -157,11 +153,16 @@ By copy/pasting and editing these entries into your project's yml, those entries
 
 ### Version toast
 
-Commonly, our users are unaware of the documentation version that they are viewing. This causes confusion, ultimately resulting in support tickets. A visual prompt displaying the documentation for our user may deflect support inquiries.
+Commonly, our users are unaware of the documentation version that they are viewing.
+This causes confusion, ultimately resulting in support tickets.
+A visual prompt displaying the documentation for our user may deflect support inquiries.
 
 Bootstrap 5+ provides a [Toast](https://getbootstrap.com/docs/5.0/components/toasts/) component that displays a message to the user and auto-closes after about 10 seconds.
 
-Our version toast displays the current product version and provides a link to the latest release of the documentation. This toast should be modified and added to your product documentation ASAP. The `_version-toast.html` is included in the theme directory and can be copied to your project. Enable the toast by adding the following to your `_quarto.yml`:
+Our version toast displays the current product version and provides a link to the latest release of the documentation.
+This toast should be modified and added to your product documentation ASAP.
+The `_version-toast.html` is included in the theme directory and can be copied to your project.
+Enable the toast by adding the following to your `_quarto.yml`:
 
 ```
 format:
@@ -172,9 +173,8 @@ format:
 
 ## Development
 
-The extension lives in `_extensions/posit-docs`. The `example` directory holds a
-sample site that exercises the theme; its `_extensions` entry is a symlink back
-to the extension source, so a render there picks up your edits.
+The extension lives in `_extensions/posit-docs`.
+The `example` directory holds a sample site that exercises the theme; its `_extensions` entry is a symlink back to the extension source, so a render there picks up your edits.
 
 To preview your changes against the sample site:
 
@@ -185,12 +185,11 @@ quarto preview
 
 ### Pull request previews
 
-Every pull request renders the sample site and publishes it to this repository's
-GitHub Pages site under `/pr-preview/pr-<number>/`. A bot comment on the pull
-request links to it. The preview is removed when the pull request closes.
+Every pull request renders the sample site and publishes it to this repository's GitHub Pages site under `/pr-preview/pr-<number>/`.
+A bot comment on the pull request links to it.
+The preview is removed when the pull request closes.
 
-Pages serves the `gh-pages` branch, which the
-[pr-preview action](https://github.com/rossjrw/pr-preview-action) writes to.
+Pages serves the `gh-pages` branch, which the [pr-preview action](https://github.com/rossjrw/pr-preview-action) writes to.
 
 Record your changes in the `Unreleased` section at the top of
 [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md)
@@ -203,30 +202,23 @@ heading to rename.
 
 To release a new version of this theme:
 
-1.  Make sure that the extension declares the target version and documents its
+1. Make sure that the extension declares the target version and documents its
     changes.
 
-    1.  Update
-        [`README.md`](https://github.com/posit-dev/product-doc-theme/blob/main/README.md);
-        installation instructions reference the latest release version.
-    1.  Update
-        [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml);
-        the extension declares its version.
-    1.  Update
-        [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md);
-        rename the `Unreleased` heading to the version being released, and
-        check that every change since the last release is listed.
+    1. Update [`README.md`](https://github.com/posit-dev/product-doc-theme/blob/main/README.md); installation instructions reference the latest release version.
+    1. Update [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml); the extension declares its version.
+    1. Update [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md); make sure recent changes are announced.
 
     Commit and merge both changes to `main`.
 
-2.  Tag the target commit and push the tag.
+2. Tag the target commit and push the tag.
 
     ```bash
     git tag -a v1.1.0 -m 'Release 1.1.0'
     git push origin v1.1.0
     ```
 
-3.  Create a GitHub release from [that tag](https://github.com/posit-dev/product-doc-theme/tags).
+3. Create a GitHub release from [that tag](https://github.com/posit-dev/product-doc-theme/tags).
 
 
 ## Additional resources

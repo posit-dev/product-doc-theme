@@ -7,19 +7,19 @@ contributes:
     project:
       type: website
     website:
-      favicon: "assets/images/favicon.svg"
+      favicon: assets/images/favicon.svg
       bread-crumbs: true
       navbar:
         pinned: true
-        logo: "assets/images/posit-icon-fullcolor.svg"
-        logo-alt: "Posit Documentation"
+        logo: assets/images/posit-icon-fullcolor.svg
+        logo-alt: Posit Documentation
         right:
-          - text: "Help"
+          - text: Help
             menu:
-              - text: "Return to Posit Docs"
-                href: "https://docs.posit.co"
-              - text: "Posit Support"
-                href: "https://support.posit.co/hc/en-us/"
+            - text: Return to Posit Docs
+              href: https://docs.posit.co
+            - text: Posit Support
+              href: https://support.posit.co/hc/en-us/
       search:
         copy-button: true
         show-item-context: true
@@ -28,7 +28,7 @@ contributes:
         theme:
           light: [theme.scss]
           dark: [theme-dark.scss]
-        highlight-style: 
+        highlight-style:
           light: github
           dark: arrow
         link-external-icon: true
@@ -36,7 +36,7 @@ contributes:
         code-copy: true
         toc: true
         toc-expand: true
-        include-in-header: 
-          - "assets/_analytics.html"
+        include-in-header:
+          - assets/_analytics.html
 
 
