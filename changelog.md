@@ -1,4 +1,4 @@
-# Unreleased
+# v8.1.3
 
 * Raises Mermaid node and label contrast to WCAG AA in light and dark mode #186
 * Sets `--mermaid-font-weight` so scaled-down diagram labels stay legible #186
