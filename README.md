@@ -1,12 +1,8 @@
 # product-doc-theme
 
-[![Netlify Preview Status](https://api.netlify.com/api/v1/badges/45bb8138-6550-47eb-8b46-d94b40c14a01/deploy-status)](https://app.netlify.com/projects/product-doc-theme/deploys)
-
 Shared theme for Posit product documentation
 
 ## Usage
-
-**!!! WARNING: Cookie Consent will be managed by GTM (not the theme) in v7.0.1 of the theme. Please check with Ashley Henry prior to bumping your theme to latest (v7.0.1) so WebOps can opt the site in for tracking.**
 
 First, install the extension:
 
@@ -176,12 +172,25 @@ format:
 
 ## Development
 
-If you are modifying this extension, use Quarto to preview your changes
-against the sample project defined here.
+The extension lives in `_extensions/posit-docs`. The `example` directory holds a
+sample site that exercises the theme; its `_extensions` entry is a symlink back
+to the extension source, so a render there picks up your edits.
+
+To preview your changes against the sample site:
 
 ```bash
+cd example
 quarto preview
 ```
+
+### Pull request previews
+
+Every pull request renders the sample site and publishes it to this repository's
+GitHub Pages site under `/pr-preview/pr-<number>/`. A bot comment on the pull
+request links to it. The preview is removed when the pull request closes.
+
+Pages serves the `gh-pages` branch, which the
+[pr-preview action](https://github.com/rossjrw/pr-preview-action) writes to.
 
 Record your changes in the `Unreleased` section at the top of
 [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md)

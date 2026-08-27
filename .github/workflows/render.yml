@@ -17,6 +17,8 @@ jobs:
           version: 1.8.25
       - name: Render site
         uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: example
       - name: Run htmltest
         uses: wjdp/htmltest-action@master
         with:

@@ -1,21 +1,45 @@
+# Renders the example site for each pull request and publishes it to
+# https://posit-dev.github.io/product-doc-theme/pr-preview/pr-<number>/
+
 name: PR Preview
+
+concurrency: preview-${{ github.ref }}
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  comment-preview:
+  build-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Get PR number
-        id: pr
-        run: echo "pr_number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+      - name: Check out repository
+        uses: actions/checkout@v5
 
-      - name: Comment with Netlify preview URL
-        uses: marocchino/sticky-pull-request-comment@v2
+      - name: Set up Quarto
+        if: github.event.action != 'closed'
+        uses: quarto-dev/quarto-actions/setup@v2
         with:
-          message: |
-            🚀 Preview your site here:
-            https://deploy-preview-${{ steps.pr.outputs.pr_number }}--product-doc-theme.netlify.app/
+          version: 1.8.25
+
+      - name: Render site
+        if: github.event.action != 'closed'
+        working-directory: example
+        run: |
+          quarto render --site-url \
+            "https://posit-dev.github.io/product-doc-theme/pr-preview/pr-${{ github.event.pull_request.number }}/"
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: example/_site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview

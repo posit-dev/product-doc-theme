@@ -33,6 +33,9 @@
 
 * Corrects the version in the `_extensions` file
 
+From this version, GTM manages cookie consent instead of the theme. Contact
+WebOps before you upgrade, so that they can opt your site in for tracking.
+
 # v7.0.0
 
 * Bumps quarto version
