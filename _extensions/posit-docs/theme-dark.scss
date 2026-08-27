@@ -56,6 +56,24 @@ $callout-color-important: $posit-burgundy;
 $table-hover-bg: #2C3A54 !default;
 $table-striped-bg: $code-background !default;
 
+// Mermaid diagrams
+//
+// Mirrors the light theme. Quarto's defaults give a translucent `$primary` node
+// fill with `$primary` label text, which lands at 4.2:1 here -- below the
+// WCAG AA minimum of 4.5:1 -- and the wash over the dark page background is what
+// makes the diagrams look muddy. Use an opaque node fill instead.
+// Contrast ratios in the comments are against the background the text sits on.
+$mermaid-bg-color: $dark-md-background;
+$mermaid-fg-color: $posit-white; // 15.2:1 on the page background
+$mermaid-fg-color--lighter: $posit-light-blue-2; // cluster borders, 8.3:1 on the page background
+$mermaid-fg-color--lightest: $posit-light-blue-3;
+$mermaid-node-bg-color: $posit-dark-blue-1; // opaque, not a wash
+$mermaid-node-fg-color: $posit-light-blue-1; // node borders, 12.1:1 on the page background
+$mermaid-edge-color: $posit-light-blue-2; // 8.3:1 on the page background
+$mermaid-label-bg-color: $dark-md-background;
+$mermaid-label-fg-color: #ffffff; // 7.7:1 on the node fill, 17.1:1 on the page background
+$mermaid-font-family: $font-family-sans-serif;
+
 /* ======== Layout ======== */
 
 /* Navbar */
@@ -248,9 +266,19 @@ a.footnote-back {
 }
 
 /* ======== Mermaid Diagrams ======== */
+
+/* Quarto reads `--mermaid-font-weight` in the CSS it hands to Mermaid but never
+   emits the custom property, so the declaration resolves to nothing. Set it
+   here: a slightly heavier weight keeps diagram labels legible when a wide
+   diagram is scaled down to fit the text column. */
+:root {
+  --mermaid-font-weight: 500;
+}
+
 [id^="mermaid-"] {
   .cluster rect {
     fill: none !important;
+    stroke-width: 1.5px;
   }
 
   foreignObject {
@@ -259,13 +287,16 @@ a.footnote-back {
     justify-content: center;
 
     &:has(.edgeLabel) {
+      /* Edge labels sit on top of the edges they annotate, so give them the page
+         background as a pill rather than letting lines run through the text.
+         The previous Posit blue pill only reached 4.6:1 against $body-color. */
       p {
         margin-inline: auto !important;
         max-width: max-content;
         border-radius: 8px;
         padding: 0 0.75rem;
-        background-color: #447099 !important;
-        color: $body-color !important;
+        background-color: $mermaid-label-bg-color !important;
+        color: $mermaid-label-fg-color !important;
       }
     }
   }
