@@ -99,7 +99,7 @@
     "href": "index.html#level-two-callouts",
     "title": "Posit Documentation Theme Example",
     "section": "Level two: callouts",
-    "text": "Level two: callouts\nCode-first means using code first. Does that mean we never do things manually? No. Hands-on is delightful.\n\n\n\n\n\n\nNote\n\n\n\nThis is a note.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nExplains hazards that could damage a product, including data loss.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is important; don’t ignore this information.\n\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nThis is a collapsed note.\n\n\n\n\n\n\n\n\n\nNoteSome notes are not\n\n\n\nThis is a note with an alternate title.\n\n\n\n\n\n\n\n\nThis is a simple note.\n\n\n\n\n\n\n\n\n\nThis is a simple note.\n\n\n\n\n\n\n\n\n\nThis is a simple note."
+    "text": "Level two: callouts\nCode-first means using code first. Does that mean we never do things manually? No. Hands-on is delightful.\n\n\n\n\n\n\nNote\n\n\n\nThis is a note.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nExplains hazards that could damage a product, including data loss.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is important; don’t ignore this information.\n\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nThis is a collapsed note.\n\n\n\n\n\n\n\n\n\nNoteSome notes are not\n\n\n\nThis is a note with an alternate title.\n\n\n\n\n\n\n\n\nThis is a simple note.\n\n\n\n\n\n\n\n\n\nThis is a simple note.\n\n\n\n\n\n\n\n\n\nThis is a simple note."
   },
   {
     "objectID": "index.html#level-two-lists",
@@ -120,7 +120,7 @@
     "href": "index.html#mermaids",
     "title": "Posit Documentation Theme Example",
     "section": "Mermaids",
-    "text": "Mermaids\n\n\n\n\n\nflowchart LR\nsubgraph \"Local Machine\"\np[Positron UI]\nend\nsubgraph \"Remote Machine\"\np -- SSH --&gt; r[Positron Backend]\nr --&gt; py[Python Session]\nr --&gt; ark[R Session]\nend\n\n\n\n\n\n\n\n\n\n\n\ngraph TD\n    A[\"CRAN-type Repository\"]\n    B[\"cran\"]\n    C[\"A3\"]\n    D[\"shiny\"]\n    E[\"covr\"]\n    \n    A --&gt;|Sources| B\n    B --&gt;|Package| C\n    B --&gt;|Package| D\n    B --&gt;|Package| E"
+    "text": "Mermaids\n\n\n\n\n\nflowchart LR\nsubgraph \"Local Machine\"\np[Positron UI]\nend\nsubgraph \"Remote Machine\"\np -- SSH --&gt; r[Positron Backend]\nr --&gt; py[Python Session]\nr --&gt; ark[R Session]\nend\n\n\n\n\n\n\n\n\n\n\n\ngraph TD\n    A[\"CRAN-type Repository\"]\n    B[\"cran\"]\n    C[\"A3\"]\n    D[\"shiny\"]\n    E[\"covr\"]\n\n    A --&gt;|Sources| B\n    B --&gt;|Package| C\n    B --&gt;|Package| D\n    B --&gt;|Package| E"
   },
   {
     "objectID": "index.html#footnotes",
