@@ -11,3 +11,5 @@ template_files/
 _site/
 
 **/*.quarto_ipynb
+
+/.luarc.json

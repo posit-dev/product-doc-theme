@@ -3,3 +3,82 @@ title: Installation
 ---
 
 This is a stub page modeling a sub-page within the admin guide.
+
+## All the good stuff
+
+{{< tier Advanced >}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl
+eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nunc nisl eu
+
+### Pro Status
+
+{{< tier Workbench >}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl
+eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nunc nisl eu
+
+### Pro Drivers
+
+{{< tier Pro Drivers >}}
+
+### Alternate
+
+{{< tier Alternate >}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl
+eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nunc nisl eu
+
+### Preview feature
+
+{{< status Preview >}}
+
+This feature is in preview. Preview features are unsupported and may face breaking changes in a future release. Any issues found in the feature will be addressed during the regular release schedule; they will not result in immediate patches or hotfixes.
+
+### Beta feature
+
+{{< status Beta >}}
+
+Beta features are features that are still under development and may change in the future. These features often have known limitations that prevent them from being made available widely, but may be enabled on your account for experimentation. Your feedback on these features helps shape future work.
+
+### Standing together
+
+{{< tier Workbench >}} {{< tier Basic >}} {{< tier Enhanced >}} {{< tier Advanced >}} {{< tier Alternate >}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl
+eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nunc nisl eu
+
+### Callouts
+
+::: {.callout-warning}
+## Licensing restriction {{< tier Enhanced >}} {{< tier Advanced >}}
+
+Blah, blah, blah. Licensing restriction.
+:::
+
+::: {.callout-warning}
+## Licensing restriction
+
+{{< tier Enhanced >}} {{< tier Advanced >}}
+
+Blah, blah, blah. Licensing restriction.
+:::
+
+### An icon
+
+{{< requirement root >}}
+
+An icon to indicate "requires root".
+
+## README examples
+
+These example are given in the `README.md`; they are included to make it
+easier to create screenshots.
+
+{{< tier Basic >}}
+{{< tier Enhanced >}}
+{{< tier Advanced >}}
+{{< tier Workbench >}}
+{{< tier Alternate >}}
+
+{{< tier Basic style="font-style: italic;" >}}
