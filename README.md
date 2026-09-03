@@ -7,7 +7,7 @@ Shared theme for Posit product documentation
 First, install the extension:
 
 ```bash
-quarto add posit-dev/product-doc-theme@v8.1.3
+quarto add posit-dev/product-doc-theme
 ```
 
 Next, update your project type and format in `_quarto.yml`:
@@ -153,18 +153,12 @@ By copy/pasting and editing these entries into your project's yml, those entries
 
 ### Version toast
 
-Commonly, our users are unaware of the documentation version that they are viewing.
-This causes confusion, ultimately resulting in support tickets.
-A visual prompt displaying the documentation for our user may deflect support inquiries.
-
-Bootstrap 5+ provides a [Toast](https://getbootstrap.com/docs/5.0/components/toasts/) component that displays a message to the user and auto-closes after about 10 seconds.
-
 Our version toast displays the current product version and provides a link to the latest release of the documentation.
-This toast should be modified and added to your product documentation ASAP.
+This toast should be modified and added to your product documentation.
 The `_version-toast.html` is included in the theme directory and can be copied to your project.
 Enable the toast by adding the following to your `_quarto.yml`:
 
-```
+```yaml
 format:
   html:
     include-in-header:
@@ -191,12 +185,8 @@ The preview is removed when the pull request closes.
 
 Pages serves the `gh-pages` branch, which the [pr-preview action](https://github.com/rossjrw/pr-preview-action) writes to.
 
-Record your changes in the `Unreleased` section at the top of
-[`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md)
-as part of the pull request that makes them, adding the section if it is not
-there. Writing the entry alongside the change is easier than reconstructing it
-from the commit log at release time, and it leaves the release with only a
-heading to rename.
+Record your changes in the `Unreleased` section at the top of [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md) as part of the pull request that makes them, adding the section if it is not there.
+Writing the entry alongside the change is easier than reconstructing it from the commit log at release time, and it leaves the release with only a heading to rename.
 
 ### Release
 
@@ -205,9 +195,8 @@ To release a new version of this theme:
 1. Make sure that the extension declares the target version and documents its
     changes.
 
-    1. Update [`README.md`](https://github.com/posit-dev/product-doc-theme/blob/main/README.md); installation instructions reference the latest release version.
     1. Update [`_extensions/posit-docs/_extension.yml`](https://github.com/posit-dev/product-doc-theme/blob/main/_extensions/posit-docs/_extension.yml); the extension declares its version.
-    1. Update [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md); make sure recent changes are announced.
+    2. Update [`changelog.md`](https://github.com/posit-dev/product-doc-theme/blob/main/changelog.md); make sure recent changes are announced.
 
     Commit and merge both changes to `main`.
 
@@ -219,7 +208,6 @@ To release a new version of this theme:
     ```
 
 3. Create a GitHub release from [that tag](https://github.com/posit-dev/product-doc-theme/tags).
-
 
 ## Additional resources
 
