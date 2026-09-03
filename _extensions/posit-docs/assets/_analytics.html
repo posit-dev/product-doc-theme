@@ -1,13 +1,13 @@
 <!-- Google Tag Manager -->
 <script type="text/javascript">
     const sURL = window.location.href;
-    if (sURL.includes("docs.posit.co") || sURL.includes("netlify.app")) {
+    if (sURL.includes("docs.posit.co") || sURL.includes("netlify.app") || sURL.includes("packagemanager.posit.co") || sURL.includes("p3m.dev")) {
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KHBDBW7');
     }
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- Display cookie icon in footer in docs.posit.co/netlify.app URLs; hide icon on other URLs -->
+<!-- Display cookie icon in footer on docs.posit.co/netlify.app/packagemanager.posit.co/p3m.dev URLs; hide icon on other URLs -->
 <script type="text/javascript">
 window.onload = function () {
     // target the <li> instead of the icon to allow screenreaders to properly
@@ -15,8 +15,8 @@ window.onload = function () {
     const prefCenter = document.querySelector("li:has(#open_preferences_center)");
     if (prefCenter) { // Test for prefCenter ID presence
         const sURL = window.location.href;
-        // Show the icon only if the URL contains "docs.posit.co" or "netlify.app"
-        if (sURL.includes("docs.posit.co") || sURL.includes("netlify.app")) {
+        // Show the icon only if the URL contains "docs.posit.co", "netlify.app", "packagemanager.posit.co", or "p3m.dev"
+        if (sURL.includes("docs.posit.co") || sURL.includes("netlify.app") || sURL.includes("packagemanager.posit.co") || sURL.includes("p3m.dev")) {
             prefCenter.style.display = "inline";
             prefCenter.style.visibility = "visible";
         } else {
