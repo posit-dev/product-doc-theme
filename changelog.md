@@ -1,3 +1,7 @@
+# Unreleased
+
+* Repoints the navbar **Posit Support** link to the ticket-submission form #188
+
 # v8.1.3
 
 * Raises Mermaid node and label contrast to WCAG AA in light and dark mode #186

@@ -61,7 +61,7 @@ website:
         aria-label: 'Cookie Prefs'
       - text: Support
         aria-label: 'Link to Posit Support'
-        href: "https://support.posit.co/hc/en-us"
+        href: "https://support.posit.co/hc/en-us/requests/new"
       - text: Posit Docs
         aria-label: 'Link to Posit Docs'
         href: "https://docs.posit.co"
