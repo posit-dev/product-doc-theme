@@ -1,6 +1,7 @@
-# Unreleased
+# v8.1.4
 
 * Repoints the navbar **Posit Support** link to the ticket-submission form #188
+* Loads Posit colors as a theme layer so Quarto exports them as CSS variables without "variable used before declaration" warnings #190
 
 # v8.1.3
 
