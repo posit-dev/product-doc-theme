@@ -9,7 +9,7 @@ $code-background: #0d1117;
 $dark-md-body: $posit-white;
 $dark-md-background: #181c25; // body background
 $slate-800: #1E293B; // slate-800 vibe
-$dark-constrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
+$dark-contrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -27,7 +27,7 @@ $line-height-base: 1.7; // manual entry to force match to light theme
 $body-color: $dark-md-body;
 
 // Navbar customization
-$navbar-bg: $dark-constrast;
+$navbar-bg: $dark-contrast;
 $navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
@@ -252,7 +252,7 @@ a.footnote-back {
   border-color: $primary;
 
   .toast-header {
-    background-color: $dark-constrast;
+    background-color: $dark-contrast;
     color: #ffffff;
     border-bottom: 1px solid $posit-dark-gray-1;
   }
