@@ -1,3 +1,7 @@
+# Unreleased
+
+* Renames the misspelled `$dark-constrast` SCSS variable to `$dark-contrast` #192
+
 # v8.1.4
 
 * Repoints the navbar **Posit Support** link to the ticket-submission form #188
