@@ -3,6 +3,7 @@ title: Doc Guides - Grid
 page-layout: full
 toc: false
 ---
+```{=html}
 <style>
 
 .nav-tabs {
@@ -80,6 +81,7 @@ toc: false
   color: #7494b1;
 }
 </style>
+```
 
 ::: column-page-inset-right
 

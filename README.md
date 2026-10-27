@@ -2,12 +2,17 @@
 
 Shared theme for Posit product documentation
 
+> [!NOTE]
+> This is the **`q2` branch**: the theme for sites rendered with Quarto 2 (`q2`).
+> Quarto 1 sites use the `main` branch.
+> See [Quarto 2 branch](#quarto-2-branch).
+
 ## Usage
 
-First, install the extension:
+First, install the extension from this branch:
 
 ```bash
-quarto add posit-dev/product-doc-theme
+q2 add posit-dev/product-doc-theme@q2
 ```
 
 Next, update your project type and format in `_quarto.yml`:
@@ -89,20 +94,17 @@ project:
 
 Use the following `website.page-footer` in your `_quarto.yml`:
 
-```
+```yaml
 website:
   page-footer:
     left:
-      - text: <img src="/images/posit-logos-2024_horiz-full-color.svg" alt="Posit" width="65px" class="light-content posit-footer-logo"><img src="/images/posit-logo-fullcolor-TM.svg" alt="Posit" width="65px" class="dark-content posit-footer-logo">
+      - text: '![Posit](/images/posit-logos-2024_horiz-full-color.svg){.light-content .posit-footer-logo width="65px"}![Posit](/images/posit-logo-fullcolor-TM.svg){.dark-content .posit-footer-logo width="65px"}'
         href: "https://posit.co"
       - Copyright &copy; 2000-{{< env CURRENT_YEAR >}} Posit Software, PBC. All Rights Reserved.
     center: |
       Posit PRODUCT {{< env PRODUCT_VERSION >}}
     right:
-      - text: '<a href="#" id="open_preferences_center" title="Update cookie preferences">
-              <img src="/images/cookie.svg" alt="Cookie Preferences" class="light-content" style="width: 1em; height: 1em;">
-              <img src="/images/cookie-copy.svg" alt="Cookie Preferences" class="dark-content" style="width: 1em; height: 1em;">
-           </a>'
+      - text: '[![Cookie Preferences](/images/cookie.svg){.light-content style="width: 1em; height: 1em;"}![Cookie Preferences](/images/cookie-copy.svg){.dark-content style="width: 1em; height: 1em;"}](#){#open_preferences_center title="Update cookie preferences"}'
         aria-label: 'Cookie Prefs'
       - text: Support
         aria-label: 'Link to Posit Support'
@@ -111,6 +113,13 @@ website:
         aria-label: 'Link to Posit Docs'
         href: "https://docs.posit.co"
 ```
+
+The footer images are written as markdown images, not raw `<img>` tags.
+Quarto 2 copies markdown images into the rendered site and rewrites their paths for each page; it does not look inside raw HTML, so an image referenced only from an `<img>` tag is never copied.
+A leading `/` means "relative to the project root".
+
+The cookie-preferences entry is a markdown link with an id: it renders as `<a href="#" id="open_preferences_center" …>`, which the consent manager and the theme's `_analytics.html` script look for.
+Keep the id unchanged.
 
 Make the following modifications:
 
@@ -135,7 +144,7 @@ Make the following modifications:
     export CURRENT_YEAR=$(date "+%Y")
     ```
 
--   **Images:** Copy the two images from the extension into your project and update the `src` paths.
+-   **Images:** Copy the four images from the extension into your project and update the image paths.
 
     For example, you may have a top-level `images` directory:
 
@@ -147,7 +156,7 @@ Make the following modifications:
     ```
 
     These images are also available [from
-    GitHub](https://github.com/posit-dev/product-doc-theme/tree/main/_extensions/posit-docs/assets/images).
+    GitHub](https://github.com/posit-dev/product-doc-theme/tree/q2/_extensions/posit-docs/assets/images).
 
 By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
 
@@ -165,6 +174,23 @@ format:
       - _version-toast.html
 ```
 
+## Quarto 2 branch
+
+The `q2` branch carries the theme for Quarto 2.
+It differs from `main` where Quarto 1 and Quarto 2 need different spellings; the extension itself (`_extensions/posit-docs`) is meant to stay in step with `main`.
+
+Differences from `main`:
+
+- The README and the example site write footer images as markdown images instead of raw `<img>` tags (see [Footer](#footer)).
+- `example/grid.qmd` wraps its `<style>` block in a ```` ```{=html} ```` block; Quarto 2 does not accept a bare top-level `<style>` block.
+- `example/_quarto.yml` marks the `<small>` in `website.title` as raw HTML (`` `<small>`{=html} ``), which Quarto 2 otherwise warns about on every page.
+
+To bring changes from `main` across, merge `main` into `q2`.
+
+> [!IMPORTANT]
+> Never create a git **tag** named `q2`.
+> Both `quarto add` and `q2 add` try a tag before a branch, so a `q2` tag would silently replace the branch for anyone installing `@q2`.
+
 ## Development
 
 The extension lives in `_extensions/posit-docs`.
@@ -174,7 +200,7 @@ To preview your changes against the sample site:
 
 ```bash
 cd example
-quarto preview
+q2 preview
 ```
 
 ### Pull request previews
