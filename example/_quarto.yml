@@ -32,6 +32,20 @@ website:
               href: install.qmd
             - text: Duplicate
               href: install.qmd
+        - section: Section With Its Own Page
+          href: install.qmd
+          contents:
+            - text: Installation
+              href: install.qmd
+        - section: Section Without a Page and a Label Long Enough to Wrap
+          contents:
+            - text: Installation
+              href: install.qmd
+        - section: Section With Its Own Page and a Label Long Enough to Wrap
+          href: install.qmd
+          contents:
+            - text: Installation
+              href: install.qmd
 
     - title: "User Guide"
       contents:
