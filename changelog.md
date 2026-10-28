@@ -1,4 +1,4 @@
-# Unreleased
+# v8.1.5
 
 * Renames the misspelled `$dark-constrast` SCSS variable to `$dark-contrast` #192
 * Restores sidebar section label size and chevron alignment under Quarto 1.11 #195
