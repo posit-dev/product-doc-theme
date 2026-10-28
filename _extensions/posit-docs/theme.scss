@@ -122,9 +122,25 @@ div.sidebar-item-container .sidebar-link > code {
   font-size: 1rem;
 }
 
-.sidebar-navigation li a {
+.sidebar-navigation li a,
+.sidebar-navigation li button.sidebar-item-toggle {
   text-decoration: none;
   font-size: 1rem;
+}
+
+/* Quarto 1.11+ renders section toggles as buttons; keep the chevron at the
+   right edge and on the first line of the label, as with link toggles */
+.sidebar-navigation .sidebar-item-container > button.sidebar-item-text {
+  width: calc(100% + 0.5rem);
+  padding-right: 0;
+}
+
+.sidebar-navigation .sidebar-item-container > button.sidebar-item-text > .bi-chevron-right {
+  padding-left: 1rem;
+}
+
+.sidebar-navigation .sidebar-item-container > button.sidebar-item-toggle {
+  align-self: flex-start;
 }
 
 /* Mini TOC */
