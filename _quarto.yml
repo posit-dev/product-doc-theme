@@ -3,7 +3,7 @@ project:
   render:
     - "*.qmd"
     - "!changelog.md"
-  post-render: post-render.sh
+  post-render: ./post-render.sh
 filters:
   - auto-dark
   
@@ -123,7 +123,7 @@ format:
     include-in-header:
       - _version-toast.html
     toc: true
-    toc-expand: 2  # Shows levels 1 and 2 initially; deeper levels expand as you scroll
+    toc-expand: 1  # Show only top-level headings; deeper levels expand as you scroll into their section
     smooth-scroll: true
     grid:
       sidebar-width: 320px

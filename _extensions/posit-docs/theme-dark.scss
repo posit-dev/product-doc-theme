@@ -464,13 +464,48 @@ div.sidebar-item-container {
   align-items: center;
 }
 
-/* Mini TOC */
+/* Mini TOC (styled after the open-source-website blog TOC) */
 .sidebar nav[role="doc-toc"] {
   padding-top: 2rem;
 
-  a {
+  h2 {
+    font-size: $sidebar-link-font-size;
+    font-weight: 500 !important;
+    text-transform: none;
+    color: $sidebar-active-color;
+    margin: 0 0 0.5rem;
+    padding-top: 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  > ul {
+    padding-left: 0.25rem;
+  }
+
+  li {
+    margin: 0.5rem 0 0.2em;
+  }
+
+  // Selector chains match Quarto's own doc-toc rules so these override them.
+  // A transparent 2px left border becomes the active indicator.
+  ul > li > a,
+  ul > li > ul > li > a,
+  ul > li > ul > li > ul > li > a {
+    display: block;
+    padding: 0 0 0 0.75rem;
+    font-size: $sidebar-link-font-size;
+    font-weight: $sidebar-link-font-weight;
+    line-height: $sidebar-item-line-height;
     color: $sidebar-link-color !important;
     text-decoration: none;
+    background-color: transparent !important;
+    border-left: 2px solid transparent !important;
+    transition: color 0.15s ease, border-left-color 0.15s ease;
 
     &:hover {
       color: $posit-white !important;
@@ -478,78 +513,34 @@ div.sidebar-item-container {
 
     &.active {
       color: $posit-white !important;
+      font-weight: 500;
+      border-left-color: $posit-white !important;
     }
   }
-}
 
-.sidebar nav[role="doc-toc"] h2 {
-  font-size: $sidebar-link-font-size;
-  font-weight: 500 !important;
-  text-transform: none;
-  color: $sidebar-active-color;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  padding-top: 0;
-}
+  // Quarto toggles .collapse directly (no Bootstrap animation), and Bootstrap's
+  // .collapse is display:none, so animate max-height instead, as the blog TOC does.
+  ul ul {
+    overflow: hidden;
+    max-height: 20rem; // keep near real content height so the animation starts at once
+    transition: max-height 0.3s ease, visibility 0s;
 
-.sidebar nav[role="doc-toc"] > ul {
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none;
-}
-
-.sidebar nav[role="doc-toc"] ul ul {
-  padding-left: 0;
-  list-style: none;
-}
-
-.sidebar nav[role="doc-toc"] ul li {
-  margin-bottom: 0.2em;
-  margin-top: 0.5rem;
-}
-
-.sidebar nav[role="doc-toc"] ul li a {
-  font-size: $sidebar-link-font-size;
-  font-weight: $sidebar-link-font-weight;
-  color: $sidebar-link-color;
-  line-height: $sidebar-item-line-height;
-  border-left: none !important;
-  padding-left: 0;
-
-  &:hover {
-    color: $posit-white !important;
+    &.collapse {
+      display: block;
+      max-height: 0;
+      visibility: hidden; // keep collapsed links out of the tab order
+      transition: max-height 0.3s ease, visibility 0s 0.3s;
+    }
   }
-}
 
-.sidebar nav[role="doc-toc"] .nav-link {
-  padding-top: 0;
-  padding-bottom: 0;
-}
+  // Nested levels
+  ul > li > ul > li > a {
+    padding-left: 1.5rem;
+  }
 
-.sidebar nav[role="doc-toc"] a:hover,
-.sidebar nav[role="doc-toc"] .nav-link:hover,
-nav[role="doc-toc"] a:hover,
-nav[role="doc-toc"] .nav-link:hover {
-  color: $posit-white !important;
-  border-left-color: transparent !important;
-  background-color: transparent !important;
-}
-
-.sidebar nav[role="doc-toc"] ul ul li a,
-.sidebar nav[role="doc-toc"] ul > li > ul > li > a {
-  padding-left: 0.75rem;
-  border-left: none !important;
-}
-
-.sidebar nav[role="doc-toc"] ul > li > ul > li > ul > li > a {
-  padding-left: 1.5rem;
-}
-
-.sidebar nav[role="doc-toc"] ul > li > a.active,
-.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
-  color: $posit-white !important;
-  font-weight: 500;
-  border-left: none !important;
+  ul > li > ul > li > ul > li > a {
+    padding-left: 2.5rem;
+  }
 }
 
 /* Navbar right hamburger menu */
