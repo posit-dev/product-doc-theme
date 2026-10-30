@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
 // import font
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Code+Pro:wght@400;600&display=swap");
 
 // import shared colors
 @import "_posit-colors";
@@ -63,6 +63,9 @@ $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Not
   "Liberation Sans", Arial, sans-serif, system-ui;
 $font-family-monospace: "Source Code Pro", monospace;
 $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+// Quarto defaults the root to 17px. 100% is the browser's default size (16px, as in Connect)
+// and, unlike a px value, still follows a user's browser font-size setting.
+$font-size-root: 100%;
 $font-size-base: 1rem;
 $line-height-base: 1.7; // manual entry to force match to light theme
 
@@ -78,7 +81,7 @@ $navbar-brand-hl: $navbar-brand;
 $navbar-brand-font-size: 1rem !default;
 
 // Bootstrap navbar variables
-$nav-link-font-size: 14px !default;
+$nav-link-font-size: 0.875rem !default;
 $nav-link-font-weight: 500 !default;
 $navbar-nav-link-padding-x: 0.75rem !default;
 
@@ -93,13 +96,17 @@ $navbar-logo-height: 36px;
 $sidebar-fg: darken($posit-white, 5%);
 $sidebar-bg: $dark-md-background;
 $sidebar-link-color: $posit-light-blue-2;
-$sidebar-link-font-size: 0.825rem;
+$sidebar-link-font-size: 0.875rem; // 14px
 $sidebar-link-font-weight: 500;
 $sidebar-active-color: $posit-white;
 $sidebar-active-bg: rgba($primary, 0.15);
 $sidebar-active-border: $primary;
 $sidebar-active-border-radius: 6px;
 $sidebar-item-line-height: 1.2rem;
+$sidebar-row-line-height: 1.625;
+$sidebar-row-padding-y: 0.375rem;
+$sidebar-row-padding-x: 0.75rem;
+$sidebar-divider-color: $posit-dark-gray-2;
 
 // Body
 $body-bg: $dark-md-background !default;
@@ -396,50 +403,89 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
   }
 }
 
+// Sidebar rows are full-width blocks, styled after the Connect System sidebar
 .sidebar-item {
-  line-height: $sidebar-item-line-height;
-  margin-bottom: 0.2em;
-  margin-top: 0.5rem;
+  margin: 0;
 
   .sidebar-item-container {
-    margin-right: -10px;
+    margin-right: 0;
   }
 }
 
-.sidebar-section {
-  padding-left: 0.6em;
-  padding-bottom: 0.1em;
-}
+.sidebar-item-container .sidebar-link {
+  display: block;
+  flex: 1;
+  padding: $sidebar-row-padding-y $sidebar-row-padding-x;
+  font-size: $sidebar-link-font-size;
+  line-height: $sidebar-row-line-height;
+  border-radius: $sidebar-active-border-radius;
+  transition: color 0.1s, background-color 0.1s;
 
-// Active sidebar item styling
-div.sidebar-item-container {
-  .active,
-  .show > .nav-link,
-  .sidebar-link > code {
+  &.active {
     color: $sidebar-active-color !important;
     background-color: $sidebar-active-bg;
-    border-radius: $sidebar-active-border-radius;
     font-weight: 500;
-    margin-bottom: 2px;
-    margin-left: -10px;
-    padding: 6px 6px 6px 10px;
+  }
+}
+
+// Section titles become small uppercase headings, with a divider between
+// top-level sections. The collapsible caret is kept.
+.sidebar-menu-container > ul > .sidebar-item-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid $sidebar-divider-color;
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+
+// The gap under a heading sits on the container so the caret centers on the title
+.sidebar-item-section > .sidebar-item-container {
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-item-section > .sidebar-item-container > .sidebar-link {
+  padding: 0.25rem 0.75rem 0.25rem 0.375rem;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem; // 12px
+  line-height: 1.333;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $sidebar-link-color;
+
+  &:hover {
+    color: $posit-white;
+  }
+}
+
+// Section children carry no extra indent (Quarto adds some); deeper sections indent
+.sidebar-section {
+  padding: 0;
+
+  .sidebar-section {
+    padding-left: 0.75rem;
   }
 }
 
 // Sidebar collapse/expand caret styling
 .sidebar-item-toggle {
   color: $sidebar-link-color;
-  opacity: 0.7;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
   position: relative;
   left: 0;
-  margin-right: 1rem;
+  margin-right: 0.375rem; // matches the section title's left padding
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
 
-  &:hover {
-    opacity: 1;
-    color: $posit-white;
-  }
+// Hovering the title or the caret highlights the caret
+.sidebar-item-container:hover > .sidebar-item-toggle {
+  color: $posit-white;
 }
 
 // Rotate caret when expanded
@@ -448,9 +494,15 @@ div.sidebar-item-container {
 }
 
 // Make sure the caret is visible and properly aligned
-.sidebar-item-toggle > .bi {
-  display: inline-block;
-  vertical-align: middle;
+.sidebar-item .sidebar-item-toggle .bi {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1;
+
+  // Bootstrap Icons shifts the glyph down 0.125em; the flex toggle centers it
+  &::before {
+    vertical-align: 0;
+  }
 }
 
 // Ensure the section header text and caret stay together
@@ -918,7 +970,7 @@ div span.preview-feature {
   border: 1px solid $preview-badge-border;
   font-family: $font-family-sans-serif;
   font-weight: 500;
-  font-size: 9pt;
+  font-size: 0.75rem; // 9pt
   padding: 0.25rem 0.6rem;
   line-height: 1;
 }
