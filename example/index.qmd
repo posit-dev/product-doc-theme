@@ -1,5 +1,5 @@
 ---
-title: "Posit Documentation Theme Example"
+title: Posit Documentation Theme Example
 ---
 
 ## Level two
@@ -20,7 +20,8 @@ Here is a footnote reference,[^1] and another.
 
 #### Level four
 
-Four levels deep. How far can we go?
+Four levels deep.
+How far can we go?
 
 ##### Level five
 
@@ -28,7 +29,8 @@ Five is jive.
 
 ###### Level six
 
-Six is deep enough! Stop!
+Six is deep enough!
+Stop!
 
 ## Level two: coding
 
@@ -139,26 +141,26 @@ $ zypper
 ### Table
 
 |       |                           |
-|-------|---------------------------|
+| ----- | ------------------------- |
 | Table | some text about the table |
-|Row | More stuff |
+| Row   | More stuff                |
 
 
 ### Image
 
-Example of an [informative image](https://www.w3.org/WAI/tutorials/images/informative/), with relevant alt text:
-![](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg){width=120 alt="Posit logo"}
+Example of an [informative image](https://www.w3.org/WAI/tutorials/images/informative/), with relevant alt text: ![](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg){width=120 alt="Posit logo"}
 
-Example of a [decorative image](https://www.w3.org/WAI/tutorials/images/decorative/), with empty alt text:
-![](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg){width=120 alt=""}
+Example of a [decorative image](https://www.w3.org/WAI/tutorials/images/decorative/), with empty alt text: ![](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg){width=120 alt=""}
 
 
 :::
 
 ## Level two: callouts
 
-Code-first means using code first. Does that mean we never do things manually?
-No. Hands-on is delightful.
+Code-first means using code first.
+Does that mean we never do things manually?
+No.
+Hands-on is delightful.
 
 ::: {.callout-note}
 This is a note.
@@ -203,88 +205,86 @@ This is a simple note.
 
 #### Compact
 
-*   ant
-    *   bear
-    *   cat
-    *   dog
-*   elephant
-    *   frog
-    *   giraffe
-        *   hyena
-        *   iguana
-    *   jaguar
-*   kangaroo
-*   lion
-*   mouse
+- ant
+    - bear
+    - cat
+    - dog
+- elephant
+    - frog
+    - giraffe
+        - hyena
+        - iguana
+    - jaguar
+- kangaroo
+- lion
+- mouse
 
 #### Spaced
 
-*   This is some text that is presented as a spaced list.
+- This is some text that is presented as a spaced list.
 
-    This type of list is a good fit when there are multiple paragraphs or
-    complicated elements which span multiple lines.
+  This type of list is a good fit when there are multiple paragraphs or complicated elements which span multiple lines.
 
-*   It is also good for code.
+- It is also good for code.
 
     ```python
     forty_two = 21 * 2
     ```
 
-*   Sometimes, lists need to breathe.
+- Sometimes, lists need to breathe.
 
 ### Ordered list
 
 #### Compact
 
-1.  ant
-    1.  bear
-    1.  cat
-    1.  dog
-1.  elephant
-    1.  frog
-    1.  giraffe
-        1.  hyena
-        1.  iguana
-    1.  jaguar
-1.  kangaroo
-1.  lion
-1.  mouse
+1. ant
+    1. bear
+    1. cat
+    1. dog
+1. elephant
+    1. frog
+    1. giraffe
+        1. hyena
+        1. iguana
+    1. jaguar
+1. kangaroo
+1. lion
+1. mouse
 
 #### Spaced
 
-1.  This is some text that is presented as a spaced list.
+1. This is some text that is presented as a spaced list.
 
-    This type of list is a good fit when there are multiple paragraphs or
-    complicated elements which span multiple lines.
+   This type of list is a good fit when there are multiple paragraphs or complicated elements which span multiple lines.
 
-1.  It is also good for code.
+1. It is also good for code.
 
     ```python
     forty_two = 21 * 2
     ```
 
-1.  Sometimes, lists need to breathe.
+1. Sometimes, lists need to breathe.
 
 
 ### Mixed list
 
-1.  ant
-    *   bear
-    *   cat
-    *   dog
-1.  elephant
-    *   frog
-    *   giraffe
-        1.  hyena
-        1.  iguana
-    *   jaguar
-1.  kangaroo
-1.  lion
-1.  mouse
+1. ant
+    - bear
+    - cat
+    - dog
+1. elephant
+    - frog
+    - giraffe
+        1. hyena
+        1. iguana
+    - jaguar
+1. kangaroo
+1. lion
+1. mouse
 
 ## Block quotes
 
->This is a block quote.
+> This is a block quote.
 
 ## Mermaids
 
@@ -308,7 +308,7 @@ graph TD
     C["A3"]
     D["shiny"]
     E["covr"]
-    
+
     A -->|Sources| B
     B -->|Package| C
     B -->|Package| D

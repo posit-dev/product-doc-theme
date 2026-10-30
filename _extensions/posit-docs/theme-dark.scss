@@ -3,8 +3,7 @@
 // import font
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Code+Pro:wght@400;600&display=swap");
 
-// import shared colors
-@import "_posit-colors";
+// Posit color utility classes (the palette itself loads as a theme layer, see _extension.yml)
 @import "_posit-color-utilities";
 
 /*-- scss:variables --*/
@@ -55,7 +54,7 @@ $code-background: $posit-dark-blue-3;
 $dark-md-body: $posit-white;
 $dark-md-background: $posit-dark-blue-3; // body background
 $slate-800: $posit-dark-gray-2; // slate-800 vibe
-$dark-constrast: shade-color($posit-dark-blue-3, 25%); // dark gray/black for nav bar, grid, footer
+$dark-contrast: shade-color($posit-dark-blue-3, 25%); // dark gray/black for nav bar, grid, footer
 
 // Feature preview heading colors
 $preview-badge-bg: tint-color($posit-light-blue-1, 50%); // 50% light blue 1, 50% white
@@ -77,7 +76,7 @@ $line-height-base: 1.7; // manual entry to force match to light theme
 $body-color: $dark-md-body;
 
 // Navbar customization - matching open-source-website design
-$navbar-bg: $dark-constrast;
+$navbar-bg: $dark-contrast;
 $navbar-fg: $posit-light-gray-1;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
@@ -131,6 +130,24 @@ $table-striped-bg: $code-background !default;
 $box-shadow: 0px 1px 2px rgba(21, 21, 21, 0.1), 0px 3px 7px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 21, 0.08);
 $box-shadow-sm: 0px 0px 2px rgba(21, 21, 21, 0.14), 0px 2px 4px rgba(21, 21, 21, 0.16);
 $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 21, 0.17);
+
+// Mermaid diagrams
+//
+// Mirrors the light theme. Quarto's defaults give a translucent `$primary` node
+// fill with `$primary` label text, which lands at 4.2:1 here -- below the
+// WCAG AA minimum of 4.5:1 -- and the wash over the dark page background is what
+// makes the diagrams look muddy. Use an opaque node fill instead.
+// Contrast ratios in the comments are against the background the text sits on.
+$mermaid-bg-color: $dark-md-background;
+$mermaid-fg-color: $posit-white; // 15.2:1 on the page background
+$mermaid-fg-color--lighter: $posit-light-blue-2; // cluster borders, 8.3:1 on the page background
+$mermaid-fg-color--lightest: $posit-light-blue-3;
+$mermaid-node-bg-color: $posit-dark-blue-1; // opaque, not a wash
+$mermaid-node-fg-color: $posit-light-blue-1; // node borders, 12.1:1 on the page background
+$mermaid-edge-color: $posit-light-blue-2; // 8.3:1 on the page background
+$mermaid-label-bg-color: $dark-md-background;
+$mermaid-label-fg-color: #ffffff; // 7.7:1 on the node fill, 17.1:1 on the page background
+$mermaid-font-family: $font-family-sans-serif;
 
 /*-- scss:rules --*/
 
@@ -230,7 +247,7 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
     bottom: 0;
     width: 100%;
     height: auto;
-    background: $dark-constrast;
+    background: $dark-contrast;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
@@ -428,6 +445,7 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
   &.active {
     color: $sidebar-active-color !important;
     background-color: $sidebar-active-bg;
+    box-shadow: inset 0 0 0 1px $primary;
     font-weight: 500;
   }
 }
@@ -485,6 +503,25 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+}
+
+// Quarto 1.11+ renders section toggles as buttons; keep the chevron at the
+// right edge and on the first line of the label, as with link toggles
+.sidebar-navigation li button.sidebar-item-toggle {
+  text-decoration: none;
+}
+
+.sidebar-navigation .sidebar-item-container > button.sidebar-item-text {
+  width: calc(100% + 0.5rem);
+  padding-right: 0;
+}
+
+.sidebar-navigation .sidebar-item-container > button.sidebar-item-text > .bi-chevron-right {
+  padding-left: 1rem;
+}
+
+.sidebar-navigation .sidebar-item-container > button.sidebar-item-toggle {
+  align-self: flex-start;
 }
 
 // Hovering the title or the caret highlights the caret
@@ -616,7 +653,7 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
 
 /* Version dropdown menu styling - dark theme */
 .version-dropdown-wrapper .dropdown-menu {
-  background: $dark-constrast;
+  background: $dark-contrast;
   border: 1px solid $posit-dark-gray-1;
   border-radius: 6px;
   box-shadow: $box-shadow-sm;
@@ -1015,7 +1052,7 @@ a.footnote-back {
   border-color: $primary;
 
   .toast-header {
-    background-color: $dark-constrast;
+    background-color: $dark-contrast;
     color: #ffffff;
     border-bottom: 1px solid $posit-dark-gray-1;
   }
@@ -1026,9 +1063,19 @@ a.footnote-back {
 }
 
 /* ======== Mermaid Diagrams ======== */
+
+/* Quarto reads `--mermaid-font-weight` in the CSS it hands to Mermaid but never
+   emits the custom property, so the declaration resolves to nothing. Set it
+   here: a slightly heavier weight keeps diagram labels legible when a wide
+   diagram is scaled down to fit the text column. */
+:root {
+  --mermaid-font-weight: 500;
+}
+
 [id^="mermaid-"] {
   .cluster rect {
     fill: none !important;
+    stroke-width: 1.5px;
   }
 
   foreignObject {
@@ -1037,13 +1084,16 @@ a.footnote-back {
     justify-content: center;
 
     &:has(.edgeLabel) {
+      /* Edge labels sit on top of the edges they annotate, so give them the page
+         background as a pill rather than letting lines run through the text.
+         The previous Posit blue pill only reached 4.6:1 against $body-color. */
       p {
         margin-inline: auto !important;
         max-width: max-content;
         border-radius: 8px;
         padding: 0 0.75rem;
-        background-color: #447099 !important;
-        color: $body-color !important;
+        background-color: $mermaid-label-bg-color !important;
+        color: $mermaid-label-fg-color !important;
       }
     }
   }

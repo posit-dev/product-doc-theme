@@ -43,9 +43,25 @@ website:
         - admin.qmd
         - section: Subsection
           contents:
+            - text: Installing to Managed Service Providers
+              href: install.qmd
             - text: Installation
               href: install.qmd
             - text: Duplicate
+              href: install.qmd
+        - section: Section With Its Own Page
+          href: install.qmd
+          contents:
+            - text: Installation
+              href: install.qmd
+        - section: Section Without a Page and a Label Long Enough to Wrap
+          contents:
+            - text: Installation
+              href: install.qmd
+        - section: Section With Its Own Page and a Label Long Enough to Wrap
+          href: install.qmd
+          contents:
+            - text: Installation
               href: install.qmd
 
     - title: "User Guide"
@@ -56,6 +72,8 @@ website:
             - text: Sharing
               href: sharing.qmd
             - text: Duplicate
+              href: sharing.qmd
+            - text: Using R from Python (rpy2)
               href: sharing.qmd
       style: "docked"
 
@@ -113,7 +131,7 @@ website:
         aria-label: 'Cookie Prefs'
       - text: Support
         aria-label: 'Link to Posit Support'
-        href: "https://support.posit.co/hc/en-us"
+        href: "https://support.posit.co/hc/en-us/requests/new"
       - text: Posit Docs
         aria-label: 'Link to Posit Docs'
         href: "https://docs.posit.co"

@@ -3,11 +3,9 @@ title: Product Admin Guide
 subtitle: Version {{< env PRODUCT_VERSION >}}
 ---
 
-This is a stub page modeling a top-level collection of documentation, such as
-a product admin guide.
+This is a stub page modeling a top-level collection of documentation, such as a product admin guide.
 
-This page should have a left-hand sidebar with repetitive links to the
-[Installation](install.qmd) page.
+This page should have a left-hand sidebar with repetitive links to the [Installation](install.qmd) page.
 
 ## More
 
@@ -26,7 +24,7 @@ You may not learn more.
     - Something
 
 1. Lists
-2. lists 
+2. lists
 3. lists
    a. lists
    b. Lists
