@@ -11,7 +11,11 @@
 
 /* ======== Bootstrap Color Mappings (Dark Theme) ======== */
 // Map Posit colors to Bootstrap's color system for dark mode
-$primary:       $posit-light-blue-2;
+$primary:       $posit-light-blue-2 !default;
+// Posit blue (the brand's main color), kept for translucent washes. The dark $primary
+// above is a lighter tint chosen for contrast on dark backgrounds. A product site
+// can set both in a scss:defaults file.
+$primary-base: $posit-blue-500 !default;
 $secondary:     $posit-light-gray-2;
 $success:       $posit-light-green-2;
 $info:          $posit-light-teal-2;
@@ -89,7 +93,7 @@ $navbar-nav-link-padding-x: 0.75rem !default;
 $navbar-link-font-family: $font-family-monospace;
 $navbar-link-text-transform: uppercase;
 $navbar-link-letter-spacing: 0.01em;
-$navbar-link-hover-color: $posit-light-blue-2;
+$navbar-link-hover-color: $primary;
 $navbar-logo-height: 36px;
 
 // Sidebar customization
@@ -115,7 +119,7 @@ $body-bg: $dark-md-background !default;
 $btn-code-copy-color-active: $primary;
 
 // Callouts
-$callout-color-note: $posit-blue;
+$callout-color-note: $primary-base;
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
 
@@ -176,7 +180,7 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
   font-size: 0.75rem;
   font-weight: 500;
   color: $posit-light-gray-1;
-  background-color: rgba($posit-blue-500, 0.15);
+  background-color: rgba($primary-base, 0.15);
   border-radius: 6px;
   padding: 0.125rem 0.375rem;
 }
@@ -184,13 +188,13 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
 .version-dropdown-wrapper .navbar-nav .nav-link:hover,
 .version-dropdown-wrapper .navbar-nav .dropdown-toggle:hover {
   color: $posit-white !important;
-  background-color: rgba($posit-blue-500, 0.25);
+  background-color: rgba($primary-base, 0.25);
 }
 
 .version-dropdown-wrapper .navbar-nav .nav-link.show,
 .version-dropdown-wrapper .navbar-nav .dropdown-toggle.show {
   color: $posit-white !important;
-  background-color: rgba($posit-blue-500, 0.25);
+  background-color: rgba($primary-base, 0.25);
 }
 
 /* Hide light theme content, show dark theme content in dark mode */
@@ -286,7 +290,7 @@ $box-shadow-lg: 0px 4px 10px rgba(21, 21, 21, 0.1), 0px 12px 30px rgba(21, 21, 2
   }
 
   .navbar-collapse .navbar-nav .nav-link:hover {
-    color: $posit-light-blue-2 !important;
+    color: $primary !important;
     background: transparent !important;
   }
 
@@ -631,7 +635,7 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
 
 .version-dropdown-wrapper .dropdown-item:hover,
 .version-dropdown-wrapper .dropdown-item:focus {
-  background-color: rgba($posit-blue-500, 0.15) !important;
+  background-color: rgba($primary-base, 0.15) !important;
   color: $posit-white;
 }
 

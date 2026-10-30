@@ -47,6 +47,49 @@ website:
 Once merged, you should manually disable these entries by commenting them out in the `_extension.yml`.
 This should be avoided, if possible.
 
+#### Product logo and color
+
+Each product sets its own logo in `_quarto.yml`; the project value overrides the theme's default:
+
+```yaml
+website:
+  navbar:
+    logo: images/logo.svg
+    logo-alt: "Posit Workbench"
+    title: "Docs"
+```
+
+The primary color is a Sass variable, so it is set in a small SCSS file per theme rather than in `_quarto.yml`.
+Tints for backgrounds, borders and hover states (sidebar active item, dividers, version dropdown, tables) are derived from it.
+
+```scss
+/*-- scss:defaults --*/
+$primary: #d9480f;
+```
+
+For dark mode, `$primary` should be a lighter shade that has enough contrast on the dark background.
+`$primary-base` is the product's main color, used for translucent washes.
+
+```scss
+/*-- scss:defaults --*/
+$primary: #f4a37d;
+$primary-base: #d9480f;
+```
+
+Then list the files in `_quarto.yml`:
+
+```yaml
+format:
+  html:
+    theme:
+      light: [product-light.scss]
+      dark: [product-dark.scss]
+```
+
+Choose a primary with at least 4.5:1 contrast on white, because it is used for link text.
+For dark mode, check the lighter `$primary` against the dark page background (`#17212b`) and the active-item wash.
+Use hex values in these files: the theme's palette variables (such as `$posit-green-700`) are not defined yet when they load.
+
 #### Footer
 
 Use the following `website.page-footer` in your `_quarto.yml`:
