@@ -1,7 +1,7 @@
 # Product branding: logo and color
 
 Each product documentation site sets its own logo and primary color.
-The theme ships neutral defaults (the Posit icon logo and Posit blue), and a product overrides them in its own repo.
+The theme ships neutral defaults (the Posit logo with "Docs" beside it, and Posit blue), and a product overrides them in its own repo.
 
 | | Where it is set | File |
 | --- | --- | --- |
@@ -26,6 +26,7 @@ website:
     logo-alt: Posit Workbench
 ```
 
+- The word "Docs" next to the logo comes from the extension (`navbar.title`). A product that wants different text sets `website.navbar.title` in its `_quarto.yml`.
 - Put the logo file in the product repo and point `logo` at it (a path relative to the project root).
 - The theme sets the navbar logo height (`$navbar-logo-height`, 36px) and, in dark mode, renders the logo in white. Use a single-color-safe SVG.
 - Do not repeat the Help menu or other navbar entries the extension already provides unless you mean to replace them.

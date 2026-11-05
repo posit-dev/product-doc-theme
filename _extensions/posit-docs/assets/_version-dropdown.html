@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Move the actual dropdown element (preserves event listeners)
   versionWrapper.appendChild(versionDropdown);
 
-  // Insert after the title (Docs) if it exists, otherwise after the brand (logo)
-  const insertAfter = navbarTitle || navbarBrand;
+  // Insert after the logo + "Docs" lockup if it exists, then the title, otherwise the brand (logo)
+  const insertAfter = (navbarTitle && navbarTitle.closest('.navbar-lockup')) || navbarTitle || navbarBrand;
   if (insertAfter && insertAfter.parentNode) {
     insertAfter.parentNode.insertBefore(versionWrapper, insertAfter.nextSibling);
   }

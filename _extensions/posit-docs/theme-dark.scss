@@ -354,13 +354,28 @@ $mermaid-font-family: $font-family-sans-serif;
     width: auto;
   }
 
-  /* Hide "Docs" title */
+  /* Hide "Docs" title; the menu opens from the hamburger drawer instead */
   .navbar .navbar-brand .navbar-title {
     display: none !important;
   }
 
   a.navbar-brand .navbar-title {
     display: none !important;
+  }
+
+  .navbar-lockup .navbar-docs-trigger {
+    display: none !important; // outranks .navbar-brand { display: inline-flex !important }
+  }
+
+  .navbar-products-item {
+    display: block;
+  }
+
+  .navbar-products-item .nav-link {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 0;
   }
 
   /* Shorten version dropdown text to just "Version" */
@@ -688,17 +703,26 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
   box-shadow: $box-shadow-sm;
   padding: 1.5rem;
 
+  /* Stay inside the viewport and scroll, since the navbar is fixed */
+  max-height: calc(100vh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
   /* Transition effect */
   opacity: 0;
+  visibility: hidden; // keeps the closed menu's links out of the tab order
   pointer-events: none;
   transform: translateY(-8px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
 }
 
 .logo-dropdown-menu.show {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+  transition-delay: 0s;
 }
 
 .logo-megamenu {
@@ -709,7 +733,7 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
 .megamenu-title {
   font-size: 1rem;
   font-weight: 600;
-  color: $posit-gray-500;
+  color: $posit-white;
   margin: 0 0 2rem 0;
   padding: 0 1rem;
 }
@@ -732,7 +756,7 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
   font-family: $font-family-monospace;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: $posit-gray-400;
+  color: $posit-gray-300;
   margin: 0 0 0.5rem 0;
   padding: 0;
   margin-left: 1rem;
@@ -768,28 +792,111 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
 .megamenu-product-name {
   font-size: 0.875rem;
   font-weight: 500;
-  color: $posit-gray-500;
+  color: $posit-white;
   line-height: 1.3;
 }
 
 .megamenu-description {
   font-size: 0.75rem;
   font-weight: 400;
-  color: $posit-gray-400;
+  color: $posit-light-gray-1;
   line-height: 1.3;
 }
 
 .logo-dropdown-menu .logo-dropdown-item:hover .megamenu-product-name {
-  color: $posit-gray-600;
+  color: $posit-white;
 }
 
 .logo-dropdown-menu .logo-dropdown-item:hover .megamenu-description {
-  color: $posit-light-gray-1;
+  color: $posit-white;
 }
 
 /* Hide external link icons in megamenu */
 .logo-dropdown-menu .logo-dropdown-item.external::after {
   display: none;
+}
+
+// The logo links home; "Docs" + caret is a separate button that opens the products menu.
+.navbar-lockup {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-brand-logo:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.navbar-docs-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.75rem; // 44px touch target
+  margin-left: -0.5rem; // keeps the text where it was; the padding is the pill
+  margin-right: 0.5rem;
+  padding: 0 0.5rem;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover,
+  &[aria-expanded="true"] {
+    background-color: $sidebar-active-bg;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.navbar-docs-caret {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.navbar-docs-trigger[aria-expanded="true"] .navbar-docs-caret {
+  transform: rotate(180deg);
+}
+
+// Phones: the same menu opens from the hamburger drawer instead
+.navbar-products-item {
+  display: none;
+}
+
+// Way out of the menu to the full list of documentation
+.megamenu-footer {
+  margin-top: 1.5rem;
+  padding: 1rem 1rem 0;
+  border-top: 1px solid $sidebar-divider-color;
+}
+
+.megamenu-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $posit-white; // same as the product names; the navbar would otherwise tint it
+  text-decoration: none;
+
+  &:hover {
+    color: $posit-white;
+    text-decoration: underline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-dropdown-menu,
+  .navbar-docs-trigger,
+  .navbar-docs-caret {
+    transition: none;
+  }
 }
 
 .navbar-brand-logo,

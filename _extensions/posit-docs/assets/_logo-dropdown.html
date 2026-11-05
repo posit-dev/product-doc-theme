@@ -1,18 +1,61 @@
-<!-- Custom logo dropdown -->
+<!-- Products menu: the logo links home; "Docs" + caret opens the menu (click or keyboard) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Find the logo and title container
   const logoLink = document.querySelector('.navbar-brand-logo');
   const navbarTitle = document.querySelector('.navbar-title');
   if (!logoLink) return;
+  const container = logoLink.parentNode;
 
-  // Prevent default link behavior
-  logoLink.style.cursor = 'pointer';
-  logoLink.removeAttribute('href');
+  // The logo keeps linking home. The site title ("Docs") becomes the menu button, with a caret.
+  const lockup = document.createElement('div');
+  lockup.className = 'navbar-lockup';
+  container.insertBefore(lockup, logoLink);
+  lockup.appendChild(logoLink);
 
-  // Create megamenu
-  const dropdown = document.createElement('div');
+  const trigger = document.createElement('button');
+  trigger.type = 'button';
+  trigger.className = 'navbar-brand navbar-docs-trigger';
+  trigger.setAttribute('aria-expanded', 'false');
+  trigger.setAttribute('aria-controls', 'posit-docs-menu');
+  // The visible title can be hidden on small screens, so always name the button
+  trigger.setAttribute('aria-label', (navbarTitle ? navbarTitle.textContent.trim() + ': ' : '') + 'browse all Posit documentation');
+  const titleLink = navbarTitle ? navbarTitle.closest('a') : null;
+  if (titleLink) {
+    // The version dropdown may already sit inside the title link; keep it outside the button
+    const versionWrapper = titleLink.querySelector('.version-dropdown-wrapper');
+    trigger.appendChild(navbarTitle);
+    titleLink.remove();
+    lockup.appendChild(trigger);
+    if (versionWrapper) lockup.after(versionWrapper);
+  } else {
+    lockup.appendChild(trigger);
+  }
+  const caret = document.createElement('i');
+  caret.className = 'bi bi-chevron-down navbar-docs-caret';
+  caret.setAttribute('aria-hidden', 'true');
+  trigger.appendChild(caret);
+
+  // On phones the button is hidden to save room; the same menu opens from the hamburger drawer
+  const drawerList = document.querySelector('#navbarCollapse .navbar-nav.ms-auto');
+  let drawerButton = null;
+  if (drawerList) {
+    const item = document.createElement('li');
+    item.className = 'nav-item navbar-products-item';
+    drawerButton = document.createElement('button');
+    drawerButton.type = 'button';
+    drawerButton.className = 'nav-link';
+    drawerButton.setAttribute('aria-expanded', 'false');
+    drawerButton.setAttribute('aria-controls', 'posit-docs-menu');
+    drawerButton.textContent = 'Posit products';
+    item.appendChild(drawerButton);
+    drawerList.insertBefore(item, drawerList.firstChild);
+  }
+
+  // Create the menu. A nav landmark, hidden from assistive tech while closed.
+  const dropdown = document.createElement('nav');
+  dropdown.id = 'posit-docs-menu';
   dropdown.className = 'logo-dropdown-menu logo-megamenu';
+  dropdown.setAttribute('aria-label', 'Posit products documentation');
   dropdown.innerHTML = `
     <h3 class="megamenu-title">Posit Products Documentation</h3>
     <div class="megamenu-grid">
@@ -127,74 +170,88 @@ document.addEventListener('DOMContentLoaded', function() {
         </a>
       </div>
     </div>
+    <div class="megamenu-footer">
+      <a href="https://docs.posit.co/" class="megamenu-all-link">Browse all Posit documentation <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+    </div>
   `;
 
-  // Insert dropdown after logo
-  const container = logoLink.parentNode;
-  container.style.position = 'relative';
-  container.appendChild(dropdown);
+  lockup.appendChild(dropdown);
 
-  let hideTimeout;
-
-  // Position dropdown to stay within viewport
+  // Keep the menu inside the viewport horizontally
   const positionDropdown = function() {
-    const rect = dropdown.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-
-    // Reset positioning
     dropdown.style.left = '0';
     dropdown.style.right = 'auto';
-
-    // Check if dropdown extends beyond viewport
-    const dropdownRect = dropdown.getBoundingClientRect();
-
-    if (dropdownRect.right > viewportWidth) {
-      // If it extends past the right edge, align to right edge of viewport
-      const overflow = dropdownRect.right - viewportWidth;
-      dropdown.style.left = `${-overflow - 20}px`; // 20px padding from edge
+    const rect = dropdown.getBoundingClientRect();
+    if (rect.right > window.innerWidth) {
+      dropdown.style.left = `${-(rect.right - window.innerWidth) - 20}px`;
     }
-
-    if (dropdownRect.left < 0) {
-      // If it extends past the left edge, align to left edge of viewport
-      dropdown.style.left = `${Math.abs(dropdownRect.left) + 20}px`; // 20px padding from edge
+    const after = dropdown.getBoundingClientRect();
+    if (after.left < 0) {
+      dropdown.style.left = `${Math.abs(after.left) + 20}px`;
     }
   };
 
-  // Show dropdown on hover
-  const showDropdown = function() {
-    clearTimeout(hideTimeout);
-    // Position before showing to avoid flash
+  // Click or Enter/Space toggles it. No hover behavior: it is predictable for every input.
+  const controls = [trigger, drawerButton].filter(Boolean);
+  const isOpen = function() { return dropdown.classList.contains('show'); };
+  const setExpanded = function(value) {
+    controls.forEach(function(el) { el.setAttribute('aria-expanded', String(value)); });
+  };
+  const open = function() {
     positionDropdown();
     dropdown.classList.add('show');
+    setExpanded(true);
+  };
+  const close = function() {
+    dropdown.classList.remove('show');
+    setExpanded(false);
+  };
+  // The visible control, so focus has somewhere to go when the menu closes
+  const visibleControl = function() {
+    if (trigger.offsetParent !== null) return trigger;
+    if (drawerButton && drawerButton.offsetParent !== null) return drawerButton;
+    return document.querySelector('.navbar-toggler') || trigger;
   };
 
-  // Hide dropdown with delay
-  const hideDropdown = function() {
-    hideTimeout = setTimeout(function() {
-      dropdown.classList.remove('show');
-    }, 200);
-  };
+  trigger.addEventListener('click', function() { isOpen() ? close() : open(); });
 
-  // Attach hover events to logo
-  logoLink.addEventListener('mouseenter', showDropdown);
-  logoLink.addEventListener('mouseleave', hideDropdown);
-
-  // Attach hover events to title if it exists
-  if (navbarTitle) {
-    navbarTitle.style.cursor = 'pointer';
-    navbarTitle.addEventListener('mouseenter', showDropdown);
-    navbarTitle.addEventListener('mouseleave', hideDropdown);
+  if (drawerButton) {
+    drawerButton.addEventListener('click', function() {
+      if (isOpen()) { close(); return; }
+      // Close the drawer first so the menu is not covered by it
+      const drawer = document.querySelector('#navbarCollapse');
+      const toggler = document.querySelector('.navbar-toggler');
+      if (drawer && drawer.classList.contains('show') && toggler) toggler.click();
+      open();
+      requestAnimationFrame(function() {
+        const first = dropdown.querySelector('a');
+        if (first) first.focus();
+      });
+    });
   }
 
-  // Keep dropdown open when hovering over it
-  dropdown.addEventListener('mouseenter', showDropdown);
-  dropdown.addEventListener('mouseleave', hideDropdown);
+  const isControl = function(node) {
+    return controls.some(function(el) { return el.contains(node); });
+  };
 
-  // Reposition on window resize
+  document.addEventListener('click', function(event) {
+    if (isOpen() && !dropdown.contains(event.target) && !isControl(event.target)) close();
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key !== 'Escape' || !isOpen()) return;
+    const hadFocus = dropdown.contains(document.activeElement) || isControl(document.activeElement);
+    close();
+    if (hadFocus) visibleControl().focus();
+  });
+
+  // Close when keyboard focus moves somewhere else on the page
+  document.addEventListener('focusin', function(event) {
+    if (isOpen() && !dropdown.contains(event.target) && !isControl(event.target)) close();
+  });
+
   window.addEventListener('resize', function() {
-    if (dropdown.classList.contains('show')) {
-      positionDropdown();
-    }
+    if (isOpen()) positionDropdown();
   });
 });
 </script>

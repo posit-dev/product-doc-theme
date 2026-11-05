@@ -11,8 +11,9 @@ contributes:
       bread-crumbs: true
       navbar:
         pinned: true
-        logo: assets/images/posit-icon-fullcolor.svg
-        logo-alt: Posit Documentation
+        logo: assets/images/posit-logos-2024_horiz-full-color.svg
+        logo-alt: Posit
+        title: Docs
         right:
           - text: Help
             menu:
