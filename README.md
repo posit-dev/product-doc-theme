@@ -35,10 +35,10 @@ website:
     right:
       - text: Help
         menu:
-        - text: docs.posit.co
+        - text: Return to Posit Docs
           href: https://docs.posit.co
         - text: Posit Support
-          href: https://support.posit.co/hc/en-us/
+          href: https://support.posit.co/hc/en-us/requests/new
 ```
 Once merged, you should manually disable these entries by commenting them out in the `_extension.yml`.
 This should be avoided, if possible.
@@ -87,7 +87,7 @@ project:
 
 #### Footer
 
-Use the following `website.page-footer` in your `_quarto.yml`:
+The extension does not define a footer. Use the following `website.page-footer` in your `_quarto.yml`:
 
 ```
 website:
@@ -106,7 +106,7 @@ website:
         aria-label: 'Cookie Prefs'
       - text: Support
         aria-label: 'Link to Posit Support'
-        href: "https://support.posit.co/hc/en-us"
+        href: "https://support.posit.co/hc/en-us/requests/new"
       - text: Posit Docs
         aria-label: 'Link to Posit Docs'
         href: "https://docs.posit.co"
@@ -135,7 +135,7 @@ Make the following modifications:
     export CURRENT_YEAR=$(date "+%Y")
     ```
 
--   **Images:** Copy the two images from the extension into your project and update the `src` paths.
+-   **Images:** Copy the four images from the extension into your project and update the `src` paths.
 
     For example, you may have a top-level `images` directory:
 
@@ -148,8 +148,6 @@ Make the following modifications:
 
     These images are also available [from
     GitHub](https://github.com/posit-dev/product-doc-theme/tree/main/_extensions/posit-docs/assets/images).
-
-By copy/pasting and editing these entries into your project's yml, those entries will overwrite 1:1 entries in the `_extension.yml`.
 
 ### Version toast
 
