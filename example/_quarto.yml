@@ -4,8 +4,6 @@ project:
     - "*.qmd"
     - "!changelog.md"
   post-render: ./post-render.sh
-filters:
-  - auto-dark
   
 website:
   title: ""
@@ -20,8 +18,6 @@ website:
           - text: "View all versions"
             href: "#"
     right:
-      - text: "Home"
-        href: index.qmd
       - text: "Admin Guide"
         href: admin.qmd
       - text: "User Guide"
@@ -138,6 +134,7 @@ website:
 
 format:
   html:
+    respect-user-color-scheme: true
     include-in-header:
       - _version-toast.html
     toc: true
