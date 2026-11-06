@@ -87,6 +87,7 @@ project:
 
 #### Footer
 
+The extension does not define a footer. Use the following `website.page-footer` in your `_quarto.yml`:
 
 ```
 website:
