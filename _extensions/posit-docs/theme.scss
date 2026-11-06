@@ -404,6 +404,11 @@ $mermaid-font-family: $font-family-sans-serif;
   }
 }
 
+// The inline list is only for the hamburger drawer (shown by the 1350px block below)
+.navbar-products-list {
+  display: none;
+}
+
 .navbar-products-trigger {
   display: inline-flex;
   align-items: center;
@@ -613,6 +618,12 @@ $mermaid-font-family: $font-family-sans-serif;
     padding: 0;
   }
 
+  /* Quarto caps the list at 75vh and scrolls it on its own; the drawer scrolls instead */
+  .navbar-collapse .navbar-nav-scroll {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
   /* Hide version dropdown inside mobile menu when it's open - it's already in navbar header */
   .navbar-collapse.show .navbar-nav.me-auto {
     display: none !important;
@@ -667,7 +678,7 @@ $mermaid-font-family: $font-family-sans-serif;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    opacity: 0.6;
+    color: $posit-gray-400;
     padding: 0.5rem 0;
   }
 
@@ -678,7 +689,7 @@ $mermaid-font-family: $font-family-sans-serif;
     gap: 0.625rem;
     padding: 0.625rem 0;
     font-size: 1rem;
-    color: inherit;
+    color: $posit-gray;
     text-decoration: none;
 
     img {
@@ -694,7 +705,7 @@ $mermaid-font-family: $font-family-sans-serif;
 
   .navbar-products-footer {
     margin-top: 1rem;
-    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    border-top: 1px solid $sidebar-divider-color;
     padding-top: 0.75rem;
   }
 

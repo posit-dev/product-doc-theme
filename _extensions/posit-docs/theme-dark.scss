@@ -323,6 +323,25 @@ $mermaid-font-family: $font-family-sans-serif;
   }
 }
 
+/* Products & Support list in the mobile drawer: solid colors, no opacity */
+@media (max-width: 1350px) {
+  .navbar-products-heading {
+    color: $posit-gray-300;
+  }
+
+  .navbar-products-link {
+    color: $posit-gray-200;
+
+    &:hover {
+      color: $posit-white;
+    }
+  }
+
+  .navbar-products-footer {
+    border-top-color: $sidebar-divider-color;
+  }
+}
+
 /* Force desktop mode at 1351px and above */
 @media (min-width: 1351px) {
   .navbar-expand-lg .navbar-collapse {
