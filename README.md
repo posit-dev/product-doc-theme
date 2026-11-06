@@ -163,6 +163,45 @@ format:
       - _version-toast.html
 ```
 
+### Page actions
+
+The extension adds a page actions bar below the title of each page.
+The bar shows only on pages that have a title block.
+The bar has two buttons:
+
+- **Copy for LLM**: Copies the Markdown of the page to the clipboard, with the page URL at the top.
+- **View as Markdown**: Opens the Markdown of the page in a new browser tab.
+
+The buttons use the `.llms.md` files that Quarto makes when you enable `llms-txt`.
+This feature requires Quarto 1.9 or later.
+To enable it, add the following to your `_quarto.yml`:
+
+```yaml
+website:
+  llms-txt: true
+```
+
+If a page has no `.llms.md` file, **Copy for LLM** copies the text of the rendered page.
+For the same page, **View as Markdown** opens a page that shows a 404 (not found) error.
+
+To remove the bar from a page, add the following to the front matter of the page:
+
+```yaml
+body-classes: no-llms-txt
+```
+
+If the page already has `body-classes`, add `no-llms-txt` to the list, separated by a space.
+
+#### Remove a project copy of the page actions
+
+Some projects have their own copy of `_page-actions.html`.
+After you update the extension, remove this copy:
+
+1. Remove the `_page-actions.html` file from your project.
+2. Remove the `_page-actions.html` entry from `format.html.include-in-header` in your `_quarto.yml`.
+
+If the project copy stays, the extension does not add a second bar.
+
 ## Development
 
 The extension lives in `_extensions/posit-docs`.

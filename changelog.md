@@ -1,3 +1,8 @@
+# Unreleased
+
+* Adds a page actions bar with **Copy for LLM** and **View as Markdown** buttons below each page title
+* Skips the page actions bar when a project still includes its own copy of `_page-actions.html`
+
 # v8.1.5
 
 * Renames the misspelled `$dark-constrast` SCSS variable to `$dark-contrast` #192

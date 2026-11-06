@@ -38,5 +38,6 @@ contributes:
         toc-expand: true
         include-in-header:
           - assets/_analytics.html
+          - assets/_page-actions.html
 
 
