@@ -1,61 +1,34 @@
-<!-- Products menu: the logo links home; "Docs" + caret opens the menu (click or keyboard) -->
+<!-- Products & Support menu: replaces the old "Help" dropdown, last in the navbar next to search (click or keyboard) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const logoLink = document.querySelector('.navbar-brand-logo');
-  const navbarTitle = document.querySelector('.navbar-title');
-  if (!logoLink) return;
-  const container = logoLink.parentNode;
+  const navbar = document.querySelector('nav.navbar');
+  const rightList = document.querySelector('#navbarCollapse .navbar-nav.ms-auto');
+  if (!navbar || !rightList) return;
 
-  // The logo keeps linking home. The site title ("Docs") becomes the menu button, with a caret.
-  const lockup = document.createElement('div');
-  lockup.className = 'navbar-lockup';
-  container.insertBefore(lockup, logoLink);
-  lockup.appendChild(logoLink);
-
+  // The Products & Support button
+  const item = document.createElement('li');
+  item.className = 'nav-item navbar-products-item';
   const trigger = document.createElement('button');
   trigger.type = 'button';
-  trigger.className = 'navbar-brand navbar-docs-trigger';
+  trigger.className = 'nav-link navbar-products-trigger';
   trigger.setAttribute('aria-expanded', 'false');
   trigger.setAttribute('aria-controls', 'posit-docs-menu');
-  // The visible title can be hidden on small screens, so always name the button
-  trigger.setAttribute('aria-label', (navbarTitle ? navbarTitle.textContent.trim() + ': ' : '') + 'browse all Posit documentation');
-  const titleLink = navbarTitle ? navbarTitle.closest('a') : null;
-  if (titleLink) {
-    // The version dropdown may already sit inside the title link; keep it outside the button
-    const versionWrapper = titleLink.querySelector('.version-dropdown-wrapper');
-    trigger.appendChild(navbarTitle);
-    titleLink.remove();
-    lockup.appendChild(trigger);
-    if (versionWrapper) lockup.after(versionWrapper);
-  } else {
-    lockup.appendChild(trigger);
-  }
-  const caret = document.createElement('i');
-  caret.className = 'bi bi-chevron-down navbar-docs-caret';
-  caret.setAttribute('aria-hidden', 'true');
-  trigger.appendChild(caret);
+  trigger.innerHTML = '<span class="menu-text">Products &amp; Support</span> <i class="bi bi-chevron-down navbar-docs-caret" aria-hidden="true"></i>';
+  item.appendChild(trigger);
 
-  // On phones the button is hidden to save room; the same menu opens from the hamburger drawer
-  const drawerList = document.querySelector('#navbarCollapse .navbar-nav.ms-auto');
-  let drawerButton = null;
-  if (drawerList) {
-    const item = document.createElement('li');
-    item.className = 'nav-item navbar-products-item';
-    drawerButton = document.createElement('button');
-    drawerButton.type = 'button';
-    drawerButton.className = 'nav-link';
-    drawerButton.setAttribute('aria-expanded', 'false');
-    drawerButton.setAttribute('aria-controls', 'posit-docs-menu');
-    drawerButton.textContent = 'Posit products';
-    item.appendChild(drawerButton);
-    drawerList.insertBefore(item, drawerList.firstChild);
-  }
+  // Drop the old "Help" dropdown, and put Products & Support last in the list,
+  // right beside search, so it sits in the same spot on every site
+  Array.from(rightList.children).forEach(function(li) {
+    const link = li.querySelector('.nav-link');
+    if (link && link.textContent.trim() === 'Help') li.remove();
+  });
+  rightList.appendChild(item);
 
   // Create the menu. A nav landmark, hidden from assistive tech while closed.
   const dropdown = document.createElement('nav');
   dropdown.id = 'posit-docs-menu';
   dropdown.className = 'logo-dropdown-menu logo-megamenu';
-  dropdown.setAttribute('aria-label', 'Posit products documentation');
+  dropdown.setAttribute('aria-label', 'Posit products and support');
   dropdown.innerHTML = `
     <h3 class="megamenu-title">Posit Products Documentation</h3>
     <div class="megamenu-grid">
@@ -172,86 +145,113 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="megamenu-footer">
       <a href="https://docs.posit.co/" class="megamenu-all-link">Browse all Posit documentation <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+      <a href="https://support.posit.co/hc/en-us/requests/new" class="megamenu-all-link">Posit Support</a>
+      <a href="https://posit.co/" class="megamenu-all-link">posit.co</a>
     </div>
   `;
 
-  lockup.appendChild(dropdown);
-
-  // Keep the menu inside the viewport horizontally
-  const positionDropdown = function() {
-    dropdown.style.left = '0';
-    dropdown.style.right = 'auto';
-    const rect = dropdown.getBoundingClientRect();
-    if (rect.right > window.innerWidth) {
-      dropdown.style.left = `${-(rect.right - window.innerWidth) - 20}px`;
-    }
-    const after = dropdown.getBoundingClientRect();
-    if (after.left < 0) {
-      dropdown.style.left = `${Math.abs(after.left) + 20}px`;
-    }
-  };
+  navbar.appendChild(dropdown);
 
   // Click or Enter/Space toggles it. No hover behavior: it is predictable for every input.
-  const controls = [trigger, drawerButton].filter(Boolean);
   const isOpen = function() { return dropdown.classList.contains('show'); };
-  const setExpanded = function(value) {
-    controls.forEach(function(el) { el.setAttribute('aria-expanded', String(value)); });
-  };
   const open = function() {
-    positionDropdown();
     dropdown.classList.add('show');
-    setExpanded(true);
+    trigger.setAttribute('aria-expanded', 'true');
   };
   const close = function() {
     dropdown.classList.remove('show');
-    setExpanded(false);
+    trigger.setAttribute('aria-expanded', 'false');
   };
-  // The visible control, so focus has somewhere to go when the menu closes
+  // On phones the button sits in the hamburger drawer, which hides when it closes
   const visibleControl = function() {
-    if (trigger.offsetParent !== null) return trigger;
-    if (drawerButton && drawerButton.offsetParent !== null) return drawerButton;
-    return document.querySelector('.navbar-toggler') || trigger;
+    return trigger.offsetParent !== null ? trigger : (document.querySelector('.navbar-toggler') || trigger);
   };
 
-  trigger.addEventListener('click', function() { isOpen() ? close() : open(); });
-
-  if (drawerButton) {
-    drawerButton.addEventListener('click', function() {
-      if (isOpen()) { close(); return; }
-      // Close the drawer first so the menu is not covered by it
-      const drawer = document.querySelector('#navbarCollapse');
-      const toggler = document.querySelector('.navbar-toggler');
-      if (drawer && drawer.classList.contains('show') && toggler) toggler.click();
-      open();
-      requestAnimationFrame(function() {
-        const first = dropdown.querySelector('a');
-        if (first) first.focus();
-      });
+  // In the hamburger drawer (same breakpoint as the theme's navbar collapse) the
+  // popup is replaced by an inline list that expands inside the drawer.
+  const drawerQuery = window.matchMedia('(max-width: 1350px)');
+  const inlineList = document.createElement('div');
+  inlineList.id = 'posit-docs-products-list';
+  inlineList.className = 'navbar-products-list';
+  inlineList.setAttribute('role', 'group');
+  inlineList.setAttribute('aria-label', 'Posit products and support');
+  const addSection = function(headingText, links) {
+    const section = document.createElement('div');
+    section.className = 'navbar-products-section';
+    if (headingText) {
+      const h = document.createElement('div');
+      h.className = 'navbar-products-heading';
+      h.textContent = headingText;
+      section.appendChild(h);
+    }
+    links.forEach(function(l) {
+      const a = document.createElement('a');
+      a.href = l.href;
+      a.className = 'navbar-products-link';
+      if (l.icon) {
+        const img = document.createElement('img');
+        img.src = l.icon;
+        img.alt = '';
+        a.appendChild(img);
+      }
+      a.appendChild(document.createTextNode(l.text));
+      section.appendChild(a);
     });
-  }
-
-  const isControl = function(node) {
-    return controls.some(function(el) { return el.contains(node); });
+    inlineList.appendChild(section);
   };
+  dropdown.querySelectorAll('.megamenu-column').forEach(function(col) {
+    addSection(col.querySelector('.megamenu-heading').textContent.trim(),
+      Array.from(col.querySelectorAll('.logo-dropdown-item')).map(function(a) {
+        const img = a.querySelector('img');
+        return {
+          href: a.getAttribute('href'),
+          text: a.querySelector('.megamenu-product-name').textContent.trim(),
+          icon: img && img.getAttribute('src')
+        };
+      }));
+  });
+  addSection('', Array.from(dropdown.querySelectorAll('.megamenu-all-link')).map(function(a) {
+    return { href: a.getAttribute('href'), text: a.textContent.trim().replace(/\s*$/, '') };
+  }));
+  inlineList.lastChild.classList.add('navbar-products-footer');
+  item.appendChild(inlineList);
+
+  const inlineOpen = function() { return item.classList.contains('inline-open'); };
+  const setInline = function(on) {
+    item.classList.toggle('inline-open', on);
+    trigger.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (on) trigger.setAttribute('aria-controls', inlineList.id);
+    else trigger.setAttribute('aria-controls', 'posit-docs-menu');
+  };
+
+  trigger.addEventListener('click', function() {
+    if (drawerQuery.matches) { setInline(!inlineOpen()); return; }
+    if (isOpen()) { close(); return; }
+    open();
+  });
+
+  // Collapse the inline list when the drawer closes or the layout switches
+  const drawerEl = document.querySelector('#navbarCollapse');
+  if (drawerEl) drawerEl.addEventListener('hidden.bs.collapse', function() { setInline(false); });
+  const onLayoutChange = function() { setInline(false); close(); };
+  if (drawerQuery.addEventListener) drawerQuery.addEventListener('change', onLayoutChange);
+  else if (drawerQuery.addListener) drawerQuery.addListener(onLayoutChange);
 
   document.addEventListener('click', function(event) {
-    if (isOpen() && !dropdown.contains(event.target) && !isControl(event.target)) close();
+    if (isOpen() && !dropdown.contains(event.target) && !trigger.contains(event.target)) close();
   });
 
   document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && inlineOpen()) { setInline(false); trigger.focus(); return; }
     if (event.key !== 'Escape' || !isOpen()) return;
-    const hadFocus = dropdown.contains(document.activeElement) || isControl(document.activeElement);
+    const hadFocus = dropdown.contains(document.activeElement) || trigger.contains(document.activeElement);
     close();
     if (hadFocus) visibleControl().focus();
   });
 
   // Close when keyboard focus moves somewhere else on the page
   document.addEventListener('focusin', function(event) {
-    if (isOpen() && !dropdown.contains(event.target) && !isControl(event.target)) close();
-  });
-
-  window.addEventListener('resize', function() {
-    if (isOpen()) positionDropdown();
+    if (isOpen() && !dropdown.contains(event.target) && !trigger.contains(event.target)) close();
   });
 });
 </script>

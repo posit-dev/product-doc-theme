@@ -45,7 +45,7 @@ This should be avoided, if possible.
 
 ##### Product logos
 
-The extension sets a default navbar logo (`posit-logos-2024_horiz-full-color.svg`, the Posit logo) with the title "Docs" beside it.
+The extension sets a default navbar logo (`posit-logo-fullcolor.svg`, the Posit logo) with the title "Documentation" beside it.
 Products with a product-specific logos should override this in `_quarto.yml`.
 
 **Applies to: Workbench, Connect, Package Manager, Chronicle, Connect Cloud, Posit AI**

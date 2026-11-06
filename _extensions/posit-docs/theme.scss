@@ -94,8 +94,8 @@ $navbar-nav-link-padding-x: 0.75rem !default;
 // Custom navbar variables (not Bootstrap defaults)
 $navbar-link-font-family: $font-family-monospace;
 $navbar-link-text-transform: uppercase;
-$navbar-link-letter-spacing: 0.01em;
-$navbar-link-hover-color: $primary;
+$navbar-link-letter-spacing: normal;
+$navbar-link-hover-color: $posit-gray-800;
 $navbar-logo-height: 36px;
 
 // Sidebar customization
@@ -183,7 +183,10 @@ $mermaid-font-family: $font-family-sans-serif;
   font-family: $navbar-link-font-family;
   font-size: $nav-link-font-size;
   text-transform: $navbar-link-text-transform;
+  font-weight: $nav-link-font-weight;
   letter-spacing: $navbar-link-letter-spacing;
+  color: $posit-gray;
+  white-space: nowrap;
 }
 
 .navbar-collapse .navbar-nav .nav-link:hover,
@@ -214,6 +217,7 @@ $mermaid-font-family: $font-family-sans-serif;
 .version-dropdown-wrapper .navbar-nav .dropdown-toggle.show {
   color: $posit-gray-500 !important;
   background-color: $primary-tint-100;
+  text-decoration: none;
 }
 
 /* Show light theme content, hide dark theme content in light mode */
@@ -259,7 +263,8 @@ $mermaid-font-family: $font-family-sans-serif;
 .logo-dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: auto;
+  right: 1rem;
   z-index: 1000;
   margin-top: 0.5rem;
   background: $navbar-bg;
@@ -380,61 +385,44 @@ $mermaid-font-family: $font-family-sans-serif;
   display: none;
 }
 
-// The logo links home; "Docs" + caret is a separate button that opens the products menu.
-.navbar-lockup {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.navbar-brand-logo:focus-visible {
-  outline: 2px solid $primary;
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-.navbar-docs-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  min-height: 2.75rem; // 44px touch target
-  margin-left: -0.5rem; // keeps the text where it was; the padding is the pill
-  margin-right: 0.5rem;
-  padding: 0 0.5rem;
-  background: none;
-  border: 0;
-  border-radius: 8px;
-  color: inherit;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-
-  &:hover,
-  &[aria-expanded="true"] {
-    background-color: $sidebar-active-bg;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $primary;
-    outline-offset: 2px;
-  }
-}
-
 .navbar-docs-caret {
   font-size: 0.75rem;
   transition: transform 0.2s ease;
 }
 
-.navbar-docs-trigger[aria-expanded="true"] .navbar-docs-caret {
+.navbar-products-trigger[aria-expanded="true"] .navbar-docs-caret {
   transform: rotate(180deg);
 }
 
-// Phones: the same menu opens from the hamburger drawer instead
-.navbar-products-item {
-  display: none;
+// Way out of the menu to the full list of documentation
+// Global, not part of this product's tabs: a divider sets it apart
+@media (min-width: 1351px) {
+  .navbar-products-item {
+    margin-left: 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid $sidebar-divider-color;
+  }
 }
 
-// Way out of the menu to the full list of documentation
+.navbar-products-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.navbar-products-trigger:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// Links out of the menu: all documentation, support, posit.co
 .megamenu-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
   margin-top: 1.5rem;
   padding: 1rem 1rem 0;
   border-top: 1px solid $sidebar-divider-color;
@@ -457,7 +445,6 @@ $mermaid-font-family: $font-family-sans-serif;
 
 @media (prefers-reduced-motion: reduce) {
   .logo-dropdown-menu,
-  .navbar-docs-trigger,
   .navbar-docs-caret {
     transition: none;
   }
@@ -495,6 +482,7 @@ $mermaid-font-family: $font-family-sans-serif;
     min-width: auto;
     width: 90vw;
     left: 50%;
+    right: auto;
     transform: translateX(-50%) translateY(-8px);
   }
 
@@ -564,11 +552,22 @@ $mermaid-font-family: $font-family-sans-serif;
 /* Active item in the navbar */
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: $primary;
+  color: $posit-gray-800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
 }
 
-/* Custom breakpoint for navbar collapse at 1300px */
-@media (max-width: 1300px) {
+/* Custom breakpoint for navbar collapse at 1350px */
+@media (max-width: 1350px) {
+  /* Quarto's headroom sets will-change: transform on the header, which makes
+     the header (not the viewport) the containing block for the fixed mobile
+     menu. The menu then collapses to the header's height minus its top offset
+     and looks like it never opens. */
+  header.headroom {
+    will-change: auto !important;
+  }
+
   /* Hide collapsed menu by default */
   .navbar-expand-lg .navbar-collapse {
     display: none;
@@ -580,16 +579,38 @@ $mermaid-font-family: $font-family-sans-serif;
     position: fixed;
     top: 80px;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
     background: white;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
     overflow-y: auto;
     z-index: 1000;
   }
 
   .navbar-expand-lg .navbar-nav {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+  }
+
+  /* Bootstrap's ms-auto/me-auto would push the list to the right edge */
+  .navbar-collapse .navbar-nav,
+  .navbar-collapse .navbar-nav.me-auto,
+  .navbar-collapse .navbar-nav.ms-auto {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0;
+  }
+
+  .navbar-collapse .nav-item {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   /* Hide version dropdown inside mobile menu when it's open - it's already in navbar header */
@@ -612,13 +633,78 @@ $mermaid-font-family: $font-family-sans-serif;
     color: $primary;
   }
 
+  /* Products & Support is a <button>; make it a full-width, centered row like the links */
+  .navbar-products-item .nav-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: none;
+    border: 0;
+  }
+
+  /* In the drawer, Products & Support expands as an inline list; the popup is not used */
+  .logo-dropdown-menu {
+    display: none !important;
+  }
+
+  .navbar-products-list {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .navbar-products-item.inline-open .navbar-products-list {
+    display: block;
+  }
+
+  .navbar-products-section {
+    padding-top: 0.75rem;
+  }
+
+  .navbar-products-heading {
+    font-family: $font-family-monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    padding: 0.5rem 0;
+  }
+
+  .navbar-products-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: inherit;
+    text-decoration: none;
+
+    img {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex: none;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .navbar-products-footer {
+    margin-top: 1rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    padding-top: 0.75rem;
+  }
+
   .navbar-toggler {
     display: block !important;
   }
 }
 
-/* Force desktop mode at 1301px and above */
-@media (min-width: 1301px) {
+/* Force desktop mode at 1351px and above */
+@media (min-width: 1351px) {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
   }
@@ -628,8 +714,8 @@ $mermaid-font-family: $font-family-sans-serif;
   }
 }
 
-/* Override Bootstrap's navbar-expand-lg breakpoint (992px) to force mobile mode until 1300px */
-@media (min-width: 992px) and (max-width: 1300px) {
+/* Override Bootstrap's navbar-expand-lg breakpoint (992px) to force mobile mode until 1350px */
+@media (min-width: 992px) and (max-width: 1350px) {
   .navbar-expand-lg .navbar-collapse:not(.show) {
     display: none !important;
   }
@@ -663,19 +749,8 @@ $mermaid-font-family: $font-family-sans-serif;
     display: none !important;
   }
 
-  .navbar-lockup .navbar-docs-trigger {
-    display: none !important; // outranks .navbar-brand { display: inline-flex !important }
-  }
-
   .navbar-products-item {
     display: block;
-  }
-
-  .navbar-products-item .nav-link {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: 0;
   }
 
   /* Shorten version dropdown text to just "Version" */
@@ -689,8 +764,8 @@ $mermaid-font-family: $font-family-sans-serif;
   }
 }
 
-/* Specifically override in the 992-1300px range */
-@media (min-width: 992px) and (max-width: 1300px) {
+/* Specifically override in the 992-1350px range */
+@media (min-width: 992px) and (max-width: 1350px) {
   .navbar-brand-container.mx-auto {
     margin-left: 0 !important;
     margin-right: auto !important;
