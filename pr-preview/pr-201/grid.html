@@ -156,6 +156,15 @@ window.onload = function () {
   color: var(--bs-danger, #dc3545);
 }
 
+/* Lighter feedback colors for dark mode, to meet WCAG AA contrast (4.5:1) */
+.quarto-dark .page-actions-bar .page-action-btn.copied {
+  color: #75b798;
+}
+
+.quarto-dark .page-actions-bar .page-action-btn.copy-failed {
+  color: #ea868f;
+}
+
 @media (max-width: 576px) {
   .page-actions-bar .page-action-btn .btn-label {
     display: none;
@@ -208,19 +217,17 @@ function addPageActions() {
   copyBtn.title = 'Copy page content in a format optimized for LLMs';
 
   copyBtn.addEventListener('click', function () {
-    fetchMdContent()
-      .catch(function () {
+    var contentPromise = fetchMdContent().then(
+      function (text) {
+        return 'Source: ' + window.location.href + '\n\n' + text;
+      },
+      function () {
         // No .llms.md file: fall back to the rendered page text
-        return null;
-      })
-      .then(function (text) {
-        var content = text === null
-          ? getFallbackContent()
-          : 'Source: ' + window.location.href + '\n\n' + text;
-        return navigator.clipboard.writeText(content);
-      })
-      .then(showCopied)
-      .catch(showCopyFailed);
+        return getFallbackContent();
+      }
+    );
+
+    copyToClipboard(contentPromise).then(showCopied, showCopyFailed);
   });
 
   bar.appendChild(copyBtn);
@@ -248,6 +255,36 @@ function addPageActions() {
       if (!r.ok) throw new Error('not found');
       return r.text();
     });
+  }
+
+  // Start the clipboard write synchronously inside the click handler.
+  // Safari rejects clipboard writes that start after an async step (such as
+  // a fetch), so pass the pending content to a ClipboardItem as a promise.
+  function copyToClipboard(contentPromise) {
+    var clipboard = navigator.clipboard;
+    if (!clipboard) return Promise.reject(new Error('Clipboard API unavailable'));
+
+    function writeTextFallback() {
+      return contentPromise.then(function (text) {
+        return clipboard.writeText(text);
+      });
+    }
+
+    if (typeof window.ClipboardItem !== 'function' || typeof clipboard.write !== 'function') {
+      return writeTextFallback();
+    }
+
+    try {
+      var item = new ClipboardItem({
+        'text/plain': contentPromise.then(function (text) {
+          return new Blob([text], { type: 'text/plain' });
+        })
+      });
+      // Browsers without promise support in ClipboardItem reject here
+      return clipboard.write([item]).catch(writeTextFallback);
+    } catch (e) {
+      return writeTextFallback();
+    }
   }
 
   function showCopied() {
