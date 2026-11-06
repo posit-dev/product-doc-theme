@@ -1,257 +1,189 @@
-<!-- Products & Support menu: replaces the old "Help" dropdown, last in the navbar next to search (click or keyboard) -->
+<!-- Products & Support: last item in the navbar, beside search. A popup on the full
+     navbar, and an inline list inside the hamburger drawer. Replaces the old Help menu. -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.querySelector('nav.navbar');
   const rightList = document.querySelector('#navbarCollapse .navbar-nav.ms-auto');
+  const toggler = document.querySelector('.navbar-toggler');
   if (!navbar || !rightList) return;
 
-  // The Products & Support button
-  const item = document.createElement('li');
-  item.className = 'nav-item navbar-products-item';
-  const trigger = document.createElement('button');
-  trigger.type = 'button';
-  trigger.className = 'nav-link navbar-products-trigger';
-  trigger.setAttribute('aria-expanded', 'false');
-  trigger.setAttribute('aria-controls', 'posit-docs-menu');
-  trigger.innerHTML = '<span class="menu-text">Products &amp; Support</span> <i class="bi bi-chevron-down navbar-docs-caret" aria-hidden="true"></i>';
-  item.appendChild(trigger);
+  // Quarto gives every page the path back to the site root, so icons load from nested pages too
+  const offsetMeta = document.querySelector('meta[name="quarto:offset"]');
+  const iconBase = (offsetMeta ? offsetMeta.content : './') + '_extensions/posit-docs/assets/images/';
 
-  // Drop the old "Help" dropdown, and put Products & Support last in the list,
-  // right beside search, so it sits in the same spot on every site
+  const sections = [
+    { heading: 'Enterprise', items: [
+      { name: 'Posit Connect', description: 'Publish and share data products', href: 'https://docs.posit.co/connect/', icon: 'product icons_connect-icon-1.svg' },
+      { name: 'Posit Workbench', description: 'Scalable data science workstation', href: 'https://docs.posit.co/ide/server-pro/', icon: 'product icons_workbench-icon-1.svg' },
+      { name: 'Posit Package Manager', description: 'Manage R and Python packages', href: 'https://docs.posit.co/rspm/', icon: 'product icons_pkgmgr-icon-1.svg' },
+      { name: 'Posit Chronicle', description: 'Manage system dependencies', href: 'https://docs.posit.co/chronicle/', icon: 'product icons_chronicle-icon-1.svg' }
+    ]},
+    { heading: 'Desktop', items: [
+      { name: 'RStudio IDE', description: 'Open source IDE for R', href: 'https://docs.posit.co/ide/user/', icon: 'rstudio-icon.svg' },
+      { name: 'RStudio Desktop Pro', description: 'Professional IDE for R', href: 'https://docs.posit.co/ide/desktop-pro/', icon: 'rstudio-icon.svg' },
+      { name: 'Positron IDE', description: 'Next-generation data science IDE', href: 'https://positron.posit.co/', icon: 'Positron-Logo-2026_symbol-fullcolor.svg' }
+    ]},
+    { heading: 'Hosted', items: [
+      { name: 'Posit Connect Cloud', description: 'Cloud-hosted publishing platform', href: 'https://docs.posit.co/connect-cloud/', icon: 'product icons_connectcld-icon-1.svg' },
+      { name: 'Posit Cloud', description: 'Cloud-based data science environment', href: 'https://docs.posit.co/cloud/', icon: 'product icons_positcloud-icon-1.svg' },
+      { name: 'shinyapps.io', description: 'Host Shiny applications', href: 'https://docs.posit.co/shinyapps.io/', icon: 'shiny.svg' }
+    ]},
+    { heading: 'Open Source', items: [
+      { name: 'Quarto', description: 'Scientific publishing system', href: 'https://quarto.org/docs/get-started/', icon: 'quarto.svg' },
+      { name: 'Shiny', description: 'Interactive web apps with R/Python', href: 'https://shiny.posit.co/', icon: 'shiny.svg' },
+      { name: 'Tidyverse', description: 'Collection of R packages for data science', href: 'https://www.tidyverse.org/', icon: 'tidyverse.svg' },
+      { name: 'Tidymodels', description: 'Machine learning with tidyverse', href: 'https://www.tidymodels.org/', icon: 'tidymodels.svg' }
+    ]}
+  ];
+
+  const footerLinks = [
+    { name: 'Browse all Posit documentation', href: 'https://docs.posit.co/', arrow: true },
+    { name: 'Posit Support', href: 'https://support.posit.co/hc/en-us/requests/new' },
+    { name: 'posit.co', href: 'https://posit.co/' }
+  ];
+
+  // Small DOM helpers: an element with a class and optional text, and a decorative icon
+  const el = function(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  };
+  const icon = function(file, className) {
+    const img = el('img', className);
+    img.src = iconBase + file;
+    img.alt = '';
+    return img;
+  };
+
+  // The button replaces the old "Help" menu and sits last in the list, beside search,
+  // so it is in the same place on every site
   Array.from(rightList.children).forEach(function(li) {
     const link = li.querySelector('.nav-link');
     if (link && link.textContent.trim() === 'Help') li.remove();
   });
+
+  const item = el('li', 'nav-item navbar-products-item');
+  const trigger = el('button', 'nav-link navbar-products-trigger');
+  const caret = el('i', 'bi bi-chevron-down navbar-docs-caret');
+  caret.setAttribute('aria-hidden', 'true');
+  trigger.type = 'button';
+  trigger.setAttribute('aria-expanded', 'false');
+  trigger.setAttribute('aria-controls', 'posit-docs-menu');
+  trigger.append(el('span', 'menu-text', 'Products & Support'), ' ', caret);
+  item.appendChild(trigger);
   rightList.appendChild(item);
 
-  // Create the menu. A nav landmark, hidden from assistive tech while closed.
-  const dropdown = document.createElement('nav');
-  dropdown.id = 'posit-docs-menu';
-  dropdown.className = 'logo-dropdown-menu logo-megamenu';
-  dropdown.setAttribute('aria-label', 'Posit products and support');
-  dropdown.innerHTML = `
-    <h3 class="megamenu-title">Posit Products Documentation</h3>
-    <div class="megamenu-grid">
-      <div class="megamenu-column">
-        <h4 class="megamenu-heading">Enterprise</h4>
-        <a href="https://docs.posit.co/connect/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/product icons_connect-icon-1.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Posit Connect</span>
-            <span class="megamenu-description">Publish and share data products</span>
-          </span>
-        </a>
-        <a href="https://docs.posit.co/ide/server-pro/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/product icons_workbench-icon-1.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Posit Workbench</span>
-            <span class="megamenu-description">Scalable data science workstation</span>
-          </span>
-        </a>
-        <a href="https://docs.posit.co/rspm/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/product icons_pkgmgr-icon-1.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Posit Package Manager</span>
-            <span class="megamenu-description">Manage R and Python packages</span>
-          </span>
-        </a>
-        <a href="https://docs.posit.co/chronicle/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/product icons_chronicle-icon-1.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Posit Chronicle</span>
-            <span class="megamenu-description">Manage system dependencies</span>
-          </span>
-        </a>
-      </div>
-      <div class="megamenu-column">
-        <h4 class="megamenu-heading">Desktop</h4>
-        <a href="https://docs.posit.co/ide/user/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/rstudio-icon.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">RStudio IDE</span>
-            <span class="megamenu-description">Open source IDE for R</span>
-          </span>
-        </a>
-        <a href="https://docs.posit.co/ide/desktop-pro/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/rstudio-icon.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">RStudio Desktop Pro</span>
-            <span class="megamenu-description">Professional IDE for R</span>
-          </span>
-        </a>
-        <a href="https://positron.posit.co/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/Positron-Logo-2026_symbol-fullcolor.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Positron IDE</span>
-            <span class="megamenu-description">Next-generation data science IDE</span>
-          </span>
-        </a>
-      </div>
-      <div class="megamenu-column">
-        <h4 class="megamenu-heading">Hosted</h4>
-        <a href="https://docs.posit.co/connect-cloud/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/product icons_connectcld-icon-1.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Posit Connect Cloud</span>
-            <span class="megamenu-description">Cloud-hosted publishing platform</span>
-          </span>
-        </a>
-        <a href="https://docs.posit.co/cloud/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/product icons_positcloud-icon-1.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Posit Cloud</span>
-            <span class="megamenu-description">Cloud-based data science environment</span>
-          </span>
-        </a>
-        <a href="https://docs.posit.co/shinyapps.io/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/shiny.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">shinyapps.io</span>
-            <span class="megamenu-description">Host Shiny applications</span>
-          </span>
-        </a>
-      </div>
-      <div class="megamenu-column">
-        <h4 class="megamenu-heading">Open Source</h4>
-        <a href="https://quarto.org/docs/get-started/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/quarto.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Quarto</span>
-            <span class="megamenu-description">Scientific publishing system</span>
-          </span>
-        </a>
-        <a href="https://shiny.posit.co/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/shiny.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Shiny</span>
-            <span class="megamenu-description">Interactive web apps with R/Python</span>
-          </span>
-        </a>
-        <a href="https://www.tidyverse.org/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/tidyverse.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Tidyverse</span>
-            <span class="megamenu-description">Collection of R packages for data science</span>
-          </span>
-        </a>
-        <a href="https://www.tidymodels.org/" class="logo-dropdown-item">
-          <img src="_extensions/posit-docs/assets/images/tidymodels.svg" alt="" class="megamenu-icon">
-          <span class="megamenu-link-content">
-            <span class="megamenu-product-name">Tidymodels</span>
-            <span class="megamenu-description">Machine learning with tidyverse</span>
-          </span>
-        </a>
-      </div>
-    </div>
-    <div class="megamenu-footer">
-      <a href="https://docs.posit.co/" class="megamenu-all-link">Browse all Posit documentation <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-      <a href="https://support.posit.co/hc/en-us/requests/new" class="megamenu-all-link">Posit Support</a>
-      <a href="https://posit.co/" class="megamenu-all-link">posit.co</a>
-    </div>
-  `;
+  // The popup: a nav landmark, hidden from assistive tech while closed
+  const popup = el('nav', 'logo-dropdown-menu logo-megamenu');
+  popup.id = 'posit-docs-menu';
+  popup.setAttribute('aria-label', 'Posit products and support');
+  popup.appendChild(el('h3', 'megamenu-title', 'Posit Products Documentation'));
 
-  navbar.appendChild(dropdown);
-
-  // Click or Enter/Space toggles it. No hover behavior: it is predictable for every input.
-  const isOpen = function() { return dropdown.classList.contains('show'); };
-  const open = function() {
-    dropdown.classList.add('show');
-    trigger.setAttribute('aria-expanded', 'true');
-  };
-  const close = function() {
-    dropdown.classList.remove('show');
-    trigger.setAttribute('aria-expanded', 'false');
-  };
-  // On phones the button sits in the hamburger drawer, which hides when it closes
-  const visibleControl = function() {
-    return trigger.offsetParent !== null ? trigger : (document.querySelector('.navbar-toggler') || trigger);
-  };
-
-  // In the hamburger drawer (same breakpoint as the theme's navbar collapse) the
-  // popup is replaced by an inline list that expands inside the drawer.
-  const drawerQuery = window.matchMedia('(max-width: 1350px)');
-  const inlineList = document.createElement('div');
-  inlineList.id = 'posit-docs-products-list';
-  inlineList.className = 'navbar-products-list';
-  inlineList.setAttribute('role', 'group');
-  inlineList.setAttribute('aria-label', 'Posit products and support');
-  const addSection = function(headingText, links) {
-    const section = document.createElement('div');
-    section.className = 'navbar-products-section';
-    if (headingText) {
-      const h = document.createElement('div');
-      h.className = 'navbar-products-heading';
-      h.textContent = headingText;
-      section.appendChild(h);
-    }
-    links.forEach(function(l) {
-      const a = document.createElement('a');
-      a.href = l.href;
-      a.className = 'navbar-products-link';
-      if (l.icon) {
-        const img = document.createElement('img');
-        img.src = l.icon;
-        img.alt = '';
-        a.appendChild(img);
-      }
-      a.appendChild(document.createTextNode(l.text));
-      section.appendChild(a);
+  const grid = el('div', 'megamenu-grid');
+  sections.forEach(function(section) {
+    const column = el('div', 'megamenu-column');
+    column.appendChild(el('h4', 'megamenu-heading', section.heading));
+    section.items.forEach(function(product) {
+      const link = el('a', 'logo-dropdown-item');
+      const text = el('span', 'megamenu-link-content');
+      link.href = product.href;
+      text.append(el('span', 'megamenu-product-name', product.name), el('span', 'megamenu-description', product.description));
+      link.append(icon(product.icon, 'megamenu-icon'), text);
+      column.appendChild(link);
     });
-    inlineList.appendChild(section);
-  };
-  dropdown.querySelectorAll('.megamenu-column').forEach(function(col) {
-    addSection(col.querySelector('.megamenu-heading').textContent.trim(),
-      Array.from(col.querySelectorAll('.logo-dropdown-item')).map(function(a) {
-        const img = a.querySelector('img');
-        return {
-          href: a.getAttribute('href'),
-          text: a.querySelector('.megamenu-product-name').textContent.trim(),
-          icon: img && img.getAttribute('src')
-        };
-      }));
+    grid.appendChild(column);
   });
-  addSection('', Array.from(dropdown.querySelectorAll('.megamenu-all-link')).map(function(a) {
-    return { href: a.getAttribute('href'), text: a.textContent.trim().replace(/\s*$/, '') };
-  }));
-  inlineList.lastChild.classList.add('navbar-products-footer');
-  item.appendChild(inlineList);
+  popup.appendChild(grid);
 
-  const inlineOpen = function() { return item.classList.contains('inline-open'); };
-  const setInline = function(on) {
+  const footer = el('div', 'megamenu-footer');
+  footerLinks.forEach(function(entry) {
+    const link = el('a', 'megamenu-all-link', entry.name);
+    link.href = entry.href;
+    if (entry.arrow) {
+      const arrow = el('i', 'bi bi-arrow-right');
+      arrow.setAttribute('aria-hidden', 'true');
+      link.append(' ', arrow);
+    }
+    footer.appendChild(link);
+  });
+  popup.appendChild(footer);
+  navbar.appendChild(popup);
+
+  // The same links as a flat list for the hamburger drawer
+  const list = el('div', 'navbar-products-list');
+  list.id = 'posit-docs-products-list';
+  list.setAttribute('role', 'group');
+  list.setAttribute('aria-label', 'Posit products and support');
+  const addSection = function(heading, links, className) {
+    const section = el('div', 'navbar-products-section' + (className ? ' ' + className : ''));
+    if (heading) section.appendChild(el('div', 'navbar-products-heading', heading));
+    links.forEach(function(entry) {
+      const link = el('a', 'navbar-products-link');
+      link.href = entry.href;
+      if (entry.icon) link.appendChild(icon(entry.icon));
+      link.append(entry.name);
+      section.appendChild(link);
+    });
+    list.appendChild(section);
+  };
+  sections.forEach(function(section) { addSection(section.heading, section.items); });
+  addSection('', footerLinks, 'navbar-products-footer');
+  item.appendChild(list);
+
+  // Drawer mode: the toggler is only visible below the theme's navbar breakpoint,
+  // so asking it keeps this script from having to know the breakpoint
+  const inDrawer = function() {
+    return !!toggler && getComputedStyle(toggler).display !== 'none';
+  };
+
+  const popupOpen = function() { return popup.classList.contains('show'); };
+  const listOpen = function() { return item.classList.contains('inline-open'); };
+
+  const setPopup = function(on) {
+    popup.classList.toggle('show', on);
+    trigger.setAttribute('aria-expanded', on ? 'true' : 'false');
+  };
+  const setList = function(on) {
     item.classList.toggle('inline-open', on);
     trigger.setAttribute('aria-expanded', on ? 'true' : 'false');
-    if (on) trigger.setAttribute('aria-controls', inlineList.id);
-    else trigger.setAttribute('aria-controls', 'posit-docs-menu');
+    trigger.setAttribute('aria-controls', on || inDrawer() ? list.id : popup.id);
   };
+  const closeAll = function() { setPopup(false); setList(false); };
 
   trigger.addEventListener('click', function() {
-    if (drawerQuery.matches) { setInline(!inlineOpen()); return; }
-    if (isOpen()) { close(); return; }
-    open();
+    if (inDrawer()) setList(!listOpen());
+    else setPopup(!popupOpen());
   });
 
-  // Collapse the inline list when the drawer closes or the layout switches
-  const drawerEl = document.querySelector('#navbarCollapse');
-  if (drawerEl) drawerEl.addEventListener('hidden.bs.collapse', function() { setInline(false); });
-  const onLayoutChange = function() { setInline(false); close(); };
-  if (drawerQuery.addEventListener) drawerQuery.addEventListener('change', onLayoutChange);
-  else if (drawerQuery.addListener) drawerQuery.addListener(onLayoutChange);
+  // Click outside, Escape and focus leaving all close it. There is no hover behavior,
+  // so it works the same for every input.
+  const isInside = function(node) { return popup.contains(node) || item.contains(node); };
 
   document.addEventListener('click', function(event) {
-    if (isOpen() && !dropdown.contains(event.target) && !trigger.contains(event.target)) close();
+    if (popupOpen() && !isInside(event.target)) setPopup(false);
   });
 
   document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && inlineOpen()) { setInline(false); trigger.focus(); return; }
-    if (event.key !== 'Escape' || !isOpen()) return;
-    const hadFocus = dropdown.contains(document.activeElement) || trigger.contains(document.activeElement);
-    close();
-    if (hadFocus) visibleControl().focus();
+    if (event.key !== 'Escape' || !(popupOpen() || listOpen())) return;
+    const hadFocus = isInside(document.activeElement);
+    closeAll();
+    if (hadFocus) trigger.focus();
   });
 
-  // Close when keyboard focus moves somewhere else on the page
   document.addEventListener('focusin', function(event) {
-    if (isOpen() && !dropdown.contains(event.target) && !trigger.contains(event.target)) close();
+    if (popupOpen() && !isInside(event.target)) setPopup(false);
+  });
+
+  // Closing the drawer or crossing the breakpoint resets both
+  const drawer = document.querySelector('#navbarCollapse');
+  if (drawer) drawer.addEventListener('hidden.bs.collapse', closeAll);
+  let wasDrawer = inDrawer();
+  window.addEventListener('resize', function() {
+    if (inDrawer() !== wasDrawer) {
+      wasDrawer = inDrawer();
+      closeAll();
+    }
   });
 });
 </script>

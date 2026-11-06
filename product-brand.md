@@ -29,6 +29,7 @@ website:
 - The word "Documentation" next to the logo comes from the extension (`navbar.title`). A product that wants different text sets `website.navbar.title` in its `_quarto.yml`.
 - Put the logo file in the product repo and point `logo` at it (a path relative to the project root).
 - The theme sets the navbar logo height (`$navbar-logo-height`, 36px). In dark mode a single logo is turned white with a CSS filter, so use a single-color-safe SVG. To avoid the filter, give a light and a dark logo instead: `logo: {light: images/logo-workbench.svg, dark: images/logo-workbench-white.svg}`.
+- The tabs collapse into the hamburger menu below `$navbar-breakpoint` (1350px). A product with more or longer tabs than Connect can raise it in its `scss:defaults` file. Navbar rules live in `_posit-navbar.scss` and take their colors from `$navbar-*` variables that `theme.scss` and `theme-dark.scss` set, so a color change belongs in those variables, not in new CSS.
 - Do not repeat the Help menu or other navbar entries the extension already provides unless you mean to replace them.
 
 ## Primary color

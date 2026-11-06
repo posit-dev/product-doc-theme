@@ -31,8 +31,8 @@ contributes:
         filters:
           - _fetch-versions.lua
         theme:
-          light: [theme.scss, _posit-colors.scss]
-          dark: [theme-dark.scss, _posit-colors.scss]
+          light: [theme.scss, _posit-colors.scss, _posit-navbar.scss]
+          dark: [theme-dark.scss, _posit-colors.scss, _posit-navbar.scss]
         highlight-style:
           light: github
           dark: github

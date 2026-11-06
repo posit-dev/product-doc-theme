@@ -96,7 +96,18 @@ $navbar-link-font-family: $font-family-monospace;
 $navbar-link-text-transform: uppercase;
 $navbar-link-letter-spacing: normal;
 $navbar-link-hover-color: $posit-gray-800;
-$navbar-logo-height: 36px;
+$navbar-link-color: $posit-gray;
+$navbar-link-active-color: $posit-gray-800;
+$navbar-link-active-decoration-color: currentcolor;
+$navbar-border-color: $primary-tint-200;
+$navbar-menu-color: $posit-gray-500;
+$navbar-menu-hover-color: $posit-gray-600;
+$navbar-menu-muted-color: $posit-gray-400;
+$navbar-menu-hover-bg: $primary-tint-100;
+$navbar-version-color: $posit-gray-500;
+$navbar-version-bg: $primary-tint-100;
+$navbar-version-hover-color: $posit-gray-600;
+$navbar-version-hover-bg: $primary-tint-200;
 
 // Sidebar customization
 $sidebar-link-color: $posit-gray-400;
@@ -110,6 +121,7 @@ $sidebar-row-line-height: 1.625;
 $sidebar-row-padding-y: 0.375rem;
 $sidebar-row-padding-x: 0.75rem;
 $sidebar-divider-color: $primary-tint-200;
+$navbar-menu-border-color: $sidebar-divider-color;
 
 // Callouts
 $callout-color-note: $primary;
@@ -162,646 +174,13 @@ $mermaid-font-family: $font-family-sans-serif;
   --bs-teal: #{$posit-teal} !important;
 }
 
-/* Navbar */
-.navbar {
-  border-bottom: 1px solid $primary-tint-200;
-}
-
-.navbar-brand {
-  overflow: visible !important;
-}
-
-.navbar-logo {
-  height: $navbar-logo-height !important;
-  max-height: $navbar-logo-height !important;
-  width: auto;
-}
-
-/* Navbar navigation styling - using variables (only for menu items, not version dropdown) */
-.navbar-collapse .navbar-nav .nav-link,
-.navbar-collapse .navbar-nav .dropdown-toggle {
-  font-family: $navbar-link-font-family;
-  font-size: $nav-link-font-size;
-  text-transform: $navbar-link-text-transform;
-  font-weight: $nav-link-font-weight;
-  letter-spacing: $navbar-link-letter-spacing;
-  color: $posit-gray;
-  white-space: nowrap;
-}
-
-.navbar-collapse .navbar-nav .nav-link:hover,
-.navbar-collapse .navbar-nav .dropdown-toggle:hover {
-  color: $navbar-link-hover-color !important;
-}
-
-/* Version dropdown styling - button-like appearance */
-.version-dropdown-wrapper .navbar-nav .nav-link,
-.version-dropdown-wrapper .navbar-nav .dropdown-toggle {
-  font-family: $font-family-sans-serif;
-  text-transform: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: $posit-gray-500;
-  background-color: $primary-tint-100;
-  border-radius: 6px;
-  padding: 0.125rem 0.375rem;
-}
-
-.version-dropdown-wrapper .navbar-nav .nav-link:hover,
-.version-dropdown-wrapper .navbar-nav .dropdown-toggle:hover {
-  color: $posit-gray-600 !important;
-  background-color: $primary-tint-200;
-}
-
-.version-dropdown-wrapper .navbar-nav .nav-link.show,
-.version-dropdown-wrapper .navbar-nav .dropdown-toggle.show {
-  color: $posit-gray-500 !important;
-  background-color: $primary-tint-100;
-  text-decoration: none;
-}
-
-/* Show light theme content, hide dark theme content in light mode */
+/* Quarto renders the logo twice (light and dark); show the one for this mode */
 .light-content {
   display: inline-block !important;
 }
 
 .dark-content {
   display: none !important;
-}
-
-/* Hide dark mode toggle */
-.quarto-color-scheme-toggle {
-  display: none !important;
-}
-
-/* Version dropdown menu styling - matching Connect */
-.version-dropdown-wrapper .dropdown-menu {
-  background: white;
-  border: 1px solid $primary-tint-100;
-  border-radius: 6px;
-  box-shadow: $box-shadow-sm;
-  padding: 0.25rem 0;
-  min-width: 12rem;
-  max-height: calc(100vh - 80px) !important;
-  overflow-y: auto !important;
-}
-
-.version-dropdown-wrapper .dropdown-item {
-  padding: 0.375rem 1rem;
-  font-size: 0.75rem;
-  color: $posit-gray-600;
-  border-bottom: none;
-}
-
-.version-dropdown-wrapper .dropdown-item:hover,
-.version-dropdown-wrapper .dropdown-item:focus {
-  background-color: $primary-tint-100 !important;
-  color: $posit-gray-700;
-}
-
-/* Logo megamenu dropdown styling */
-.logo-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: auto;
-  right: 1rem;
-  z-index: 1000;
-  margin-top: 0.5rem;
-  background: $navbar-bg;
-  border-radius: 8px;
-  box-shadow: $box-shadow-sm;
-  padding: 1.5rem;
-
-  /* Stay inside the viewport and scroll, since the navbar is fixed */
-  max-height: calc(100vh - 5rem);
-  max-height: calc(100dvh - 5rem);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-
-  /* Transition effect */
-  opacity: 0;
-  visibility: hidden; // keeps the closed menu's links out of the tab order
-  pointer-events: none;
-  transform: translateY(-8px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
-}
-
-.logo-dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-  transition-delay: 0s;
-}
-
-.logo-megamenu {
-  min-width: 80rem;
-  max-width: 90vw;
-}
-
-.megamenu-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: $posit-gray-500;
-  margin: 0 0 2rem 0;
-  padding: 0 1rem;
-}
-
-.megamenu-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.megamenu-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.megamenu-heading {
-  font-size: 0.75rem;
-  font-weight: 600;
-  font-family: $font-family-monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: $posit-gray-400;
-  margin: 0 0 0.5rem 0;
-  padding: 0;
-  margin-left: 1rem;
-}
-
-.logo-dropdown-menu .logo-dropdown-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.logo-dropdown-menu .logo-dropdown-item:hover {
-  background-color: $primary-tint-100;
-}
-
-.megamenu-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.megamenu-link-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-}
-
-.megamenu-product-name {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: $posit-gray-500;
-  line-height: 1.3;
-}
-
-.megamenu-description {
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: $posit-gray-500;
-  line-height: 1.3;
-}
-
-.logo-dropdown-menu .logo-dropdown-item:hover .megamenu-product-name {
-  color: $posit-gray-600;
-}
-
-.logo-dropdown-menu .logo-dropdown-item:hover .megamenu-description {
-  color: $posit-gray-600;
-}
-
-/* Hide external link icons in megamenu */
-.logo-dropdown-menu .logo-dropdown-item.external::after {
-  display: none;
-}
-
-.navbar-docs-caret {
-  font-size: 0.75rem;
-  transition: transform 0.2s ease;
-}
-
-.navbar-products-trigger[aria-expanded="true"] .navbar-docs-caret {
-  transform: rotate(180deg);
-}
-
-// Way out of the menu to the full list of documentation
-// Global, not part of this product's tabs: a divider sets it apart
-@media (min-width: 1351px) {
-  .navbar-products-item {
-    margin-left: 0.75rem;
-    padding-left: 0.75rem;
-    border-left: 1px solid $sidebar-divider-color;
-  }
-}
-
-// The inline list is only for the hamburger drawer (shown by the 1350px block below)
-.navbar-products-list {
-  display: none;
-}
-
-.navbar-products-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-.navbar-products-trigger:focus-visible {
-  outline: 2px solid $primary;
-  outline-offset: 2px;
-}
-
-// Links out of the menu: all documentation, support, posit.co
-.megamenu-footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-  margin-top: 1.5rem;
-  padding: 1rem 1rem 0;
-  border-top: 1px solid $sidebar-divider-color;
-}
-
-.megamenu-all-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: $posit-gray-500; // same as the product names; the navbar would otherwise tint it
-  text-decoration: none;
-
-  &:hover {
-    color: $posit-gray-500;
-    text-decoration: underline;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logo-dropdown-menu,
-  .navbar-docs-caret {
-    transition: none;
-  }
-}
-
-.navbar-brand-logo,
-.navbar-title {
-  cursor: pointer;
-}
-
-/* Responsive megamenu */
-@media (max-width: 1400px) {
-  .logo-megamenu {
-    min-width: 70rem;
-  }
-
-  .megamenu-grid {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 1200px) {
-  .logo-megamenu {
-    min-width: 60rem;
-  }
-
-  .megamenu-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .logo-megamenu {
-    min-width: auto;
-    width: 90vw;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%) translateY(-8px);
-  }
-
-  .logo-megamenu.show {
-    transform: translate(-50%, 0);
-  }
-
-  .logo-dropdown-menu {
-    padding: 1rem;
-  }
-
-  .megamenu-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .megamenu-title {
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .logo-megamenu {
-    width: 95vw;
-  }
-
-  .logo-dropdown-menu {
-    padding: 0.75rem;
-  }
-
-  .megamenu-grid {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .megamenu-column {
-    gap: 0.125rem;
-  }
-
-  .megamenu-heading {
-    font-size: 0.7rem;
-    margin-bottom: 0.375rem;
-    padding: 0 0.5rem;
-  }
-
-  .megamenu-title {
-    padding: 0 0.5rem;
-  }
-
-  .logo-dropdown-menu .logo-dropdown-item {
-    padding: 0.375rem 0.5rem;
-  }
-}
-
-/* Style for the version included in the website title */
-.navbar-title small {
-  font-size: 0.875rem;
-  display: block;
-}
-
-/* Adds separation between nav bar links and site title */
-.navbar-collapse {
-  margin-left: 2ch;
-}
-
-/* Active item in the navbar */
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show {
-  color: $posit-gray-800;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 7px;
-}
-
-/* Custom breakpoint for navbar collapse at 1350px */
-@media (max-width: 1350px) {
-  /* Quarto's headroom sets will-change: transform on the header, which makes
-     the header (not the viewport) the containing block for the fixed mobile
-     menu. The menu then collapses to the header's height minus its top offset
-     and looks like it never opens. */
-  header.headroom {
-    will-change: auto !important;
-  }
-
-  /* Hide collapsed menu by default */
-  .navbar-expand-lg .navbar-collapse {
-    display: none;
-  }
-
-  /* Show mobile menu as full-screen overlay when open */
-  .navbar-expand-lg .navbar-collapse.show {
-    display: block;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    background: white;
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    z-index: 1000;
-  }
-
-  .navbar-expand-lg .navbar-nav {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* Bootstrap's ms-auto/me-auto would push the list to the right edge */
-  .navbar-collapse .navbar-nav,
-  .navbar-collapse .navbar-nav.me-auto,
-  .navbar-collapse .navbar-nav.ms-auto {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 0;
-  }
-
-  .navbar-collapse .nav-item {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Quarto caps the list at 75vh and scrolls it on its own; the drawer scrolls instead */
-  .navbar-collapse .navbar-nav-scroll {
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  /* Hide version dropdown inside mobile menu when it's open - it's already in navbar header */
-  .navbar-collapse.show .navbar-nav.me-auto {
-    display: none !important;
-  }
-
-  .navbar-expand-lg .navbar-collapse .nav-link {
-    font-family: $font-family-monospace;
-    font-size: 1.25rem;
-    font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: normal;
-    color: $posit-gray;
-    padding: 1.25rem 1rem;
-  }
-
-  .navbar-expand-lg .navbar-collapse .nav-link:hover {
-    color: $primary;
-  }
-
-  /* Products & Support is a <button>; make it a full-width, centered row like the links */
-  .navbar-products-item .nav-link {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: none;
-    border: 0;
-  }
-
-  /* In the drawer, Products & Support expands as an inline list; the popup is not used */
-  .logo-dropdown-menu {
-    display: none !important;
-  }
-
-  .navbar-products-list {
-    display: none;
-    padding: 0 1.5rem 1.5rem;
-    text-align: center;
-  }
-
-  .navbar-products-item.inline-open .navbar-products-list {
-    display: block;
-  }
-
-  .navbar-products-section {
-    padding-top: 0.75rem;
-  }
-
-  .navbar-products-heading {
-    font-family: $font-family-monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: $posit-gray-400;
-    padding: 0.5rem 0;
-  }
-
-  .navbar-products-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.625rem;
-    padding: 0.625rem 0;
-    font-size: 1rem;
-    color: $posit-gray;
-    text-decoration: none;
-
-    img {
-      width: 1.25rem;
-      height: 1.25rem;
-      flex: none;
-    }
-
-    &:hover {
-      color: $primary;
-    }
-  }
-
-  .navbar-products-footer {
-    margin-top: 1rem;
-    border-top: 1px solid $sidebar-divider-color;
-    padding-top: 0.75rem;
-  }
-
-  .navbar-toggler {
-    display: block !important;
-  }
-}
-
-/* Force desktop mode at 1351px and above */
-@media (min-width: 1351px) {
-  .navbar-expand-lg .navbar-collapse {
-    display: flex !important;
-  }
-
-  .navbar-toggler {
-    display: none !important;
-  }
-}
-
-/* Override Bootstrap's navbar-expand-lg breakpoint (992px) to force mobile mode until 1350px */
-@media (min-width: 992px) and (max-width: 1350px) {
-  .navbar-expand-lg .navbar-collapse:not(.show) {
-    display: none !important;
-  }
-
-  .navbar-expand-lg .navbar-toggler {
-    display: block !important;
-  }
-}
-
-/* Keep navbar brand left-aligned at all screen sizes */
-.navbar-brand-container.mx-auto {
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-/* xs breakpoint (< 576px) */
-@media (max-width: 575.98px) {
-  /* Smaller logo on mobile */
-  .navbar-logo {
-    height: 32px !important;
-    max-height: 32px !important;
-    width: auto;
-  }
-
-  /* Hide "Docs" title; the menu opens from the hamburger drawer instead */
-  .navbar .navbar-brand .navbar-title {
-    display: none !important;
-  }
-
-  a.navbar-brand .navbar-title {
-    display: none !important;
-  }
-
-  .navbar-products-item {
-    display: block;
-  }
-
-  /* Shorten version dropdown text to just "Version" */
-  .version-dropdown-wrapper .dropdown-toggle .menu-text {
-    font-size: 0;
-  }
-
-  .version-dropdown-wrapper .dropdown-toggle .menu-text::before {
-    content: "Version";
-    font-size: 0.75rem;
-  }
-}
-
-/* Specifically override in the 992-1350px range */
-@media (min-width: 992px) and (max-width: 1350px) {
-  .navbar-brand-container.mx-auto {
-    margin-left: 0 !important;
-    margin-right: auto !important;
-  }
-
-  .navbar-container {
-    justify-content: flex-start !important;
-  }
-
-  #quarto-search {
-    margin-left: auto !important;
-    order: 999;
-  }
-}
-
-/* Search icon size */
-.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon {
-  width: 18px !important;
-  height: 18px !important;
-}
-
-/* Mobile menu icon size */
-.navbar-toggler-icon {
-  width: 1.25rem;
-  height: 1.25rem;
 }
 
 /* Sidebar */
@@ -822,7 +201,7 @@ $mermaid-font-family: $font-family-sans-serif;
 }
 
 #quarto-sidebar strong {
-  font-weight: 600;
+  font-weight: $font-weight-semibold;
   text-transform: uppercase;
 }
 
@@ -847,7 +226,7 @@ $mermaid-font-family: $font-family-sans-serif;
   &.active {
     color: $sidebar-active-color;
     background-color: $sidebar-active-bg;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
   }
 }
 
@@ -873,9 +252,9 @@ $mermaid-font-family: $font-family-sans-serif;
 .sidebar-item-section > .sidebar-item-container > .sidebar-link {
   padding: 0.25rem 0.75rem 0.25rem 0.375rem;
   font-family: $font-family-monospace;
-  font-size: 0.75rem; // 12px
+  font-size: $font-size-xs; // 12px
   line-height: 1.333;
-  font-weight: 600;
+  font-weight: $font-weight-semibold;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: $sidebar-link-color;
@@ -938,7 +317,7 @@ $mermaid-font-family: $font-family-sans-serif;
 // Make sure the caret is visible and properly aligned
 .sidebar-item .sidebar-item-toggle .bi {
   display: block;
-  font-size: 0.75rem;
+  font-size: $font-size-xs;
   line-height: 1;
 
   // Bootstrap Icons shifts the glyph down 0.125em; the flex toggle centers it
@@ -964,7 +343,7 @@ $mermaid-font-family: $font-family-sans-serif;
 
   h2 {
     font-size: $sidebar-link-font-size;
-    font-weight: 500 !important;
+    font-weight: $font-weight-medium !important;
     text-transform: none;
     color: $posit-dark-gray-3;
     margin: 0 0 0.5rem;
@@ -1007,7 +386,7 @@ $mermaid-font-family: $font-family-sans-serif;
 
     &.active {
       color: $posit-dark-gray-3 !important;
-      font-weight: 500;
+      font-weight: $font-weight-medium;
       border-left-color: $posit-dark-gray-3 !important;
     }
   }
@@ -1053,7 +432,7 @@ $mermaid-font-family: $font-family-sans-serif;
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: $primary;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
 }
 
 .nav-tabs .nav-link:hover,
@@ -1094,7 +473,7 @@ $mermaid-font-family: $font-family-sans-serif;
 
 .nav-pills .nav-link.active,
 .nav-pills .nav-item.show .nav-link {
-  color: #ffffff;
+  color: $white;
   text-decoration: none;
 }
 
@@ -1107,7 +486,7 @@ $mermaid-font-family: $font-family-sans-serif;
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #ffffff;
+  color: $white;
 }
 
 /* Headings */
@@ -1176,8 +555,8 @@ div span.preview-feature {
   background-color: $preview-badge-bg;
   border: 1px solid $preview-badge-border;
   font-family: $font-family-sans-serif;
-  font-weight: 500;
-  font-size: 0.75rem; // 9pt
+  font-weight: $font-weight-medium;
+  font-size: $font-size-xs; // 9pt
   padding: 0.25rem 0.6rem;
   line-height: 1;
 }
@@ -1205,11 +584,11 @@ ol.groovyAlpha li > p:before {
   height: 20px;
   text-align: center;
   margin-right: 10px;
-  color: #fff;
+  color: $white;
   background-color: #fc403b;
   display: inline-block;
   border-radius: 10px;
-  font-size: 0.875rem;
+  font-size: $font-size-sm;
   line-height: 1rem;
   vertical-align: middle;
 }
@@ -1226,7 +605,7 @@ kbd {
 
   .toast-header {
     background-color: $primary;
-    color: #ffffff;
+    color: $white;
   }
 
   .btn-close {
@@ -1241,7 +620,7 @@ kbd {
    here: a slightly heavier weight keeps diagram labels legible when a wide
    diagram is scaled down to fit the text column. */
 :root {
-  --mermaid-font-weight: 500;
+  --mermaid-font-weight: #{$font-weight-medium};
 }
 
 [id^="mermaid-"] {
@@ -1271,7 +650,7 @@ kbd {
       p {
         margin-inline: auto !important;
         max-width: max-content;
-        border-radius: 8px;
+        border-radius: $border-radius-lg;
         padding: 0 0.75rem;
         background-color: $mermaid-label-bg-color;
         color: $mermaid-label-fg-color;
@@ -1288,8 +667,8 @@ kbd {
 
 .breadcrumb-item a,
 .breadcrumb-item .sidebar-subtitle+strong {
-  margin-left: 0px;
-  font-weight: 500;
+  margin-left: 0;
+  font-weight: $font-weight-medium;
   color: $posit-light-gray-3;
   font-size: 0.85rem;
 }
@@ -1301,7 +680,7 @@ li.breadcrumb-item a:hover {
 .quarto-page-breadcrumbs .breadcrumb-item::before {
   padding-right: 0.45em;
   padding-left: 0.175em;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   color: $posit-light-gray-3;
 }
 
@@ -1311,6 +690,6 @@ li.breadcrumb-item a:hover {
 
 .quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
   color: $posit-light-gray-3;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   font-size: 0.85rem;
 }

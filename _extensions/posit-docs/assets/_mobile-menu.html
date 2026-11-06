@@ -68,6 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!navbarToggler || !navbarCollapse) return;
 
+  // The toggler only shows below the theme's navbar breakpoint, so asking it keeps
+  // this script from having to know the breakpoint
+  const inDrawer = function() {
+    return getComputedStyle(navbarToggler).display !== 'none';
+  };
+
   // Replace toggler icon with animated hamburger
   navbarToggler.innerHTML = `
     <div class="hamburger-icon">
@@ -97,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function() {
       // Products & Support expands in place inside the drawer; it is not a destination
       if (link.classList.contains('navbar-products-trigger')) return;
-      if (window.innerWidth <= 1350) {
+      if (inDrawer()) {
         const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
         bsCollapse.hide();
       }
@@ -105,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   window.addEventListener('resize', function() {
-    if (window.innerWidth > 1350 && navbarCollapse.classList.contains('show')) {
+    if (!inDrawer() && navbarCollapse.classList.contains('show')) {
       const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
       if (bsCollapse) {
         bsCollapse.hide();

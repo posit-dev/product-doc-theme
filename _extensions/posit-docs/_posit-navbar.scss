@@ -1,0 +1,538 @@
+/*
+ * Navbar: logo, product tabs, version menu, the Products & Support menu and the
+ * hamburger drawer. One source for the light and dark themes.
+ *
+ * Quarto keeps the light stylesheet loaded in dark mode and layers the dark one on
+ * top, so every rule here is written once and takes its colors from the variables
+ * each theme sets. A theme must define:
+ *
+ *   $navbar-bg                          navbar, drawer and menu background
+ *   $navbar-border-color                line under the navbar
+ *   $navbar-link-color                  tabs, and links in the drawer
+ *   $navbar-link-hover-color
+ *   $navbar-link-active-color           the current tab
+ *   $navbar-link-active-decoration-color  its underline (currentcolor follows the text)
+ *   $navbar-menu-color                  menu titles, product names, footer links
+ *   $navbar-menu-hover-color
+ *   $navbar-menu-muted-color            menu section headings
+ *   $navbar-menu-hover-bg               hovered menu item
+ *   $navbar-menu-border-color           menu outline and dividers
+ *   $navbar-version-color, $navbar-version-bg                the version button
+ *   $navbar-version-hover-color, $navbar-version-hover-bg
+ *
+ * Sizes, spacing, radii, weights, z-indexes and breakpoints come from Bootstrap's
+ * variables and mixins; the few navbar-specific numbers are below.
+ */
+
+/*-- scss:defaults --*/
+
+// Below this width the tabs collapse into the hamburger drawer. Wide enough for
+// the tabs of the largest product (Connect) beside the logo and version menu.
+$navbar-breakpoint: 1350px !default;
+$navbar-logo-height: 36px !default;
+$navbar-logo-height-sm: 32px !default;
+
+// Below the navbar: where the drawer and menus start
+$navbar-drawer-top: 5rem !default;
+
+$navbar-link-underline-thickness: 2px !default;
+$navbar-link-underline-offset: 7px !default;
+$navbar-menu-letter-spacing: 0.05em !default;
+$navbar-menu-icon-size: 1.5rem !default;
+$navbar-menu-columns: 4 !default;
+$navbar-menu-min-width: 80rem !default;
+$navbar-transition-duration: 0.2s !default;
+$font-size-xs: 0.75rem !default;
+
+/*-- scss:rules --*/
+
+$navbar-breakpoint-up: $navbar-breakpoint + 0.02px;
+
+.navbar {
+  border-bottom: 1px solid $navbar-border-color;
+}
+
+.navbar-brand {
+  overflow: visible !important; // Quarto clips the brand; the logo has blank space by design
+}
+
+.navbar-logo {
+  height: $navbar-logo-height !important;
+  max-height: $navbar-logo-height !important;
+  width: auto;
+}
+
+.navbar-brand-logo,
+.navbar-title {
+  cursor: pointer;
+}
+
+.navbar-collapse {
+  margin-left: 2ch; // separates the tabs from the site title
+}
+
+.navbar-brand-container.mx-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.quarto-color-scheme-toggle {
+  display: none !important;
+}
+
+// ---- Tabs ------------------------------------------------------------------
+
+.navbar-collapse .navbar-nav {
+  .nav-link,
+  .dropdown-toggle {
+    font-family: $navbar-link-font-family;
+    font-size: $nav-link-font-size;
+    font-weight: $nav-link-font-weight;
+    text-transform: $navbar-link-text-transform;
+    letter-spacing: $navbar-link-letter-spacing;
+    white-space: nowrap;
+    color: $navbar-link-color;
+
+    &:hover {
+      color: $navbar-link-hover-color !important; // beats Quarto's navbar hover color
+    }
+  }
+}
+
+.navbar-nav .nav-link {
+  &.active,
+  &.show {
+    color: $navbar-link-active-color;
+    text-decoration: underline;
+    text-decoration-thickness: $navbar-link-underline-thickness;
+    text-underline-offset: $navbar-link-underline-offset;
+    text-decoration-color: $navbar-link-active-decoration-color;
+  }
+}
+
+// ---- Version menu ----------------------------------------------------------
+
+.version-dropdown-wrapper {
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-toggle {
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    text-transform: none;
+    color: $navbar-version-color;
+    background-color: $navbar-version-bg;
+    border-radius: $border-radius;
+    padding: $spacer * 0.125 $spacer * 0.375;
+
+    &:hover {
+      color: $navbar-version-hover-color !important;
+      background-color: $navbar-version-hover-bg;
+    }
+
+    &.show {
+      color: $navbar-version-color !important;
+      background-color: $navbar-version-bg;
+      text-decoration: none; // an open menu is not the current tab
+    }
+  }
+
+  .dropdown-menu {
+    background: $navbar-bg;
+    border: 1px solid $navbar-menu-border-color;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-sm;
+    padding: $spacer * 0.25 0;
+    min-width: 12rem;
+    max-height: calc(100vh - #{$navbar-drawer-top}) !important;
+    overflow-y: auto !important;
+  }
+
+  .dropdown-item {
+    padding: $spacer * 0.375 $spacer;
+    font-size: $font-size-xs;
+    color: $navbar-menu-color;
+    border-bottom: none;
+
+    &:hover,
+    &:focus {
+      background-color: $navbar-menu-hover-bg !important;
+      color: $navbar-menu-hover-color;
+    }
+  }
+}
+
+// ---- Products & Support menu -----------------------------------------------
+
+.navbar-products-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacer * 0.375;
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.navbar-docs-caret {
+  font-size: $font-size-xs;
+  transition: transform $navbar-transition-duration ease;
+}
+
+.navbar-products-trigger[aria-expanded="true"] .navbar-docs-caret {
+  transform: rotate(180deg);
+}
+
+// The inline list is only for the drawer; the popup below is for the full navbar
+.navbar-products-list {
+  display: none;
+}
+
+// Global, not one of the product's tabs: a divider sets it apart
+@media (min-width: $navbar-breakpoint-up) {
+  .navbar-products-item {
+    margin-left: $spacer * 0.75;
+    padding-left: $spacer * 0.75;
+    border-left: 1px solid $navbar-menu-border-color;
+  }
+}
+
+.logo-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: $spacer;
+  z-index: $zindex-dropdown;
+  margin-top: $spacer * 0.5;
+  padding: $spacer * 1.5;
+  background: $navbar-bg;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-sm;
+
+  // Stay inside the viewport and scroll, since the navbar is fixed
+  max-height: calc(100vh - #{$navbar-drawer-top});
+  max-height: calc(100dvh - #{$navbar-drawer-top});
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  // Closed: hidden from the tab order as well as the eye
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-$spacer * 0.5);
+  transition: opacity $navbar-transition-duration ease, transform $navbar-transition-duration ease,
+    visibility 0s $navbar-transition-duration;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+}
+
+.logo-megamenu {
+  min-width: $navbar-menu-min-width;
+  max-width: 90vw;
+}
+
+.megamenu-title {
+  margin: 0 0 $spacer * 2;
+  padding: 0 $spacer;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $navbar-menu-color;
+}
+
+.megamenu-grid {
+  display: grid;
+  grid-template-columns: repeat($navbar-menu-columns, 1fr);
+  gap: $spacer * 2;
+}
+
+.megamenu-column {
+  display: flex;
+  flex-direction: column;
+  gap: $spacer * 0.25;
+}
+
+.megamenu-heading {
+  margin: 0 0 $spacer * 0.5 $spacer;
+  padding: 0;
+  font-family: $font-family-monospace;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $navbar-menu-letter-spacing;
+  text-transform: uppercase;
+  color: $navbar-menu-muted-color;
+}
+
+.logo-dropdown-menu .logo-dropdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacer * 0.75;
+  padding: $spacer * 0.5 $spacer;
+  text-decoration: none;
+  border-radius: $border-radius-sm;
+  transition: background-color $navbar-transition-duration, color $navbar-transition-duration;
+
+  &:hover {
+    background-color: $navbar-menu-hover-bg;
+
+    .megamenu-product-name,
+    .megamenu-description {
+      color: $navbar-menu-hover-color;
+    }
+  }
+
+  &.external::after {
+    display: none; // no external-link icon in the menu
+  }
+}
+
+.megamenu-icon {
+  width: $navbar-menu-icon-size;
+  height: $navbar-menu-icon-size;
+  flex-shrink: 0;
+  margin-top: $spacer * 0.125;
+}
+
+.megamenu-link-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacer * 0.125;
+}
+
+.megamenu-product-name,
+.megamenu-description {
+  line-height: 1.3;
+  color: $navbar-menu-color;
+}
+
+.megamenu-product-name {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.megamenu-description {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-normal;
+}
+
+// Links out of the menu: all documentation, support, posit.co
+.megamenu-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacer * 0.5 $spacer * 2;
+  margin-top: $spacer * 1.5;
+  padding: $spacer $spacer 0;
+  border-top: 1px solid $navbar-menu-border-color;
+}
+
+.megamenu-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacer * 0.375;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $navbar-menu-color; // the navbar would otherwise tint it
+  text-decoration: none;
+
+  &:hover {
+    color: $navbar-menu-color;
+    text-decoration: underline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-dropdown-menu,
+  .navbar-docs-caret {
+    transition: none;
+  }
+}
+
+// ---- Icons -----------------------------------------------------------------
+
+.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon {
+  width: $spacer * 1.125 !important;
+  height: $spacer * 1.125 !important;
+}
+
+.navbar-toggler-icon {
+  width: $spacer * 1.25;
+  height: $spacer * 1.25;
+}
+
+// ---- Hamburger drawer: below $navbar-breakpoint ----------------------------
+
+@media (max-width: $navbar-breakpoint) {
+  // Quarto's headroom sets will-change: transform on the header. That makes the
+  // header, not the viewport, the containing block of the fixed drawer, which then
+  // shrinks to the header's height and looks like it never opens.
+  header.headroom {
+    will-change: auto !important;
+  }
+
+  .navbar-expand-lg {
+    .navbar-toggler {
+      display: block;
+    }
+
+    // Bootstrap forces the collapse to display: flex from its own breakpoint up
+    .navbar-collapse:not(.show) {
+      display: none !important;
+    }
+
+    .navbar-collapse.show {
+      display: block !important;
+      position: fixed;
+      inset: $navbar-drawer-top 0 0;
+      z-index: $zindex-dropdown;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      background: $navbar-bg;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .navbar-nav {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  .navbar-collapse {
+    // The version menu stays in the navbar; it is not repeated in the drawer
+    &.show .navbar-nav.me-auto {
+      display: none !important;
+    }
+
+    .navbar-nav {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+
+      // Bootstrap's ms-auto and me-auto would push the list to one edge
+      &.me-auto,
+      &.ms-auto {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
+
+    // Quarto caps the list at 75vh and scrolls it on its own; the drawer scrolls instead
+    .navbar-nav-scroll {
+      max-height: none;
+      overflow: visible;
+    }
+
+    .nav-item {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav .nav-link {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: $spacer * 1.25 $spacer;
+      border: 0;
+      background: none;
+      font-size: $font-size-base * 1.25;
+      text-align: center;
+    }
+  }
+
+  // Products & Support expands in place; the popup is not used here
+  .navbar-products-list {
+    padding: 0 $spacer * 1.5 $spacer * 1.5;
+    text-align: center;
+  }
+
+  .navbar-products-item.inline-open .navbar-products-list {
+    display: block;
+  }
+
+  .navbar-products-section {
+    padding-top: $spacer * 0.75;
+  }
+
+  .navbar-products-heading {
+    padding: $spacer * 0.5 0;
+    font-family: $font-family-monospace;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    letter-spacing: $navbar-menu-letter-spacing;
+    text-transform: uppercase;
+    color: $navbar-menu-muted-color;
+  }
+
+  .navbar-products-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacer * 0.625;
+    padding: $spacer * 0.625 0;
+    font-size: $font-size-base;
+    color: $navbar-link-color;
+    text-decoration: none;
+
+    img {
+      width: $spacer * 1.25;
+      height: $spacer * 1.25;
+      flex: none;
+    }
+
+    &:hover {
+      color: $navbar-link-hover-color;
+    }
+  }
+
+  .navbar-products-footer {
+    margin-top: $spacer;
+    padding-top: $spacer * 0.75;
+    border-top: 1px solid $navbar-menu-border-color;
+  }
+}
+
+// Between Bootstrap's lg breakpoint and ours the logo and search keep their places
+@media (min-width: map-get($grid-breakpoints, lg)) and (max-width: $navbar-breakpoint) {
+  .navbar-container {
+    justify-content: flex-start !important;
+  }
+
+  #quarto-search {
+    margin-left: auto !important;
+    order: 999;
+  }
+}
+
+// ---- Phones ----------------------------------------------------------------
+
+@include media-breakpoint-down(sm) {
+  .navbar-logo {
+    height: $navbar-logo-height-sm !important;
+    max-height: $navbar-logo-height-sm !important;
+  }
+
+  // The drawer and the version menu carry the context; drop the title to save room
+  .navbar .navbar-brand .navbar-title {
+    display: none !important;
+  }
+
+  // Shorten the version button to just "Version"
+  .version-dropdown-wrapper .dropdown-toggle .menu-text {
+    font-size: 0;
+
+    &::before {
+      content: "Version";
+      font-size: $font-size-xs;
+    }
+  }
+}
