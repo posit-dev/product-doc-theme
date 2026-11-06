@@ -46,6 +46,7 @@ contributes:
           - "assets/_logo-dropdown.html"
           - "assets/_version-dropdown.html"
           - "assets/_mobile-menu.html"
+          - "assets/_toc-scroll.html"
         resources:
           - "assets/images/"
 

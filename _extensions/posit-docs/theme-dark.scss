@@ -386,21 +386,6 @@ $mermaid-font-family: $font-family-sans-serif;
     }
   }
 
-  // Quarto toggles .collapse directly (no Bootstrap animation), and Bootstrap's
-  // .collapse is display:none, so animate max-height instead, as the blog TOC does.
-  ul ul {
-    overflow: hidden;
-    max-height: 20rem; // keep near real content height so the animation starts at once
-    transition: max-height 0.3s ease, visibility 0s;
-
-    &.collapse {
-      display: block;
-      max-height: 0;
-      visibility: hidden; // keep collapsed links out of the tab order
-      transition: max-height 0.3s ease, visibility 0s 0.3s;
-    }
-  }
-
   // Nested levels
   ul > li > ul > li > a {
     padding-left: 1.5rem;

@@ -1,0 +1,30 @@
+<!-- Keep the current section visible in the "On this page" list. The list is pinned to
+     the window and scrolls on its own when it is taller than the window; Quarto moves
+     the highlight as you read but does not scroll the list to follow it. -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const panel = document.querySelector('#quarto-margin-sidebar');
+  const toc = panel && panel.querySelector('nav[role="doc-toc"]');
+  if (!toc) return;
+
+  const margin = 16; // keep the current entry this far from the panel's edges
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const reveal = function() {
+    const link = toc.querySelector('a.active');
+    if (!link || panel.scrollHeight <= panel.clientHeight) return;
+
+    // Scroll the panel itself, not the page, so reading position is untouched
+    const panelBox = panel.getBoundingClientRect();
+    const linkBox = link.getBoundingClientRect();
+    let delta = 0;
+    if (linkBox.bottom > panelBox.bottom - margin) delta = linkBox.bottom - panelBox.bottom + margin;
+    else if (linkBox.top < panelBox.top + margin) delta = linkBox.top - panelBox.top - margin;
+    if (delta) panel.scrollBy({ top: delta, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+  };
+
+  // Quarto marks the current entry with the "active" class as you scroll the page
+  new MutationObserver(reveal).observe(toc, { attributes: true, attributeFilter: ['class'], subtree: true });
+  reveal();
+});
+</script>
