@@ -109,7 +109,7 @@ window.onload = function () {
 </script>
 <!-- End display/hide cookie icon -->
 <style>
-/* Hide bars from older project copies of this file. The theme bar replaces them. */
+/* Hide bars from older project copies; the theme bar replaces them */
 body .page-actions-bar {
   display: none !important;
 }
@@ -162,7 +162,7 @@ body .page-actions-bar {
   color: var(--bs-danger, #dc3545);
 }
 
-/* Lighter feedback colors for dark mode, to meet WCAG AA contrast (4.5:1) */
+/* Dark mode feedback colors that meet WCAG AA (4.5:1) */
 .quarto-dark .posit-page-actions .posit-page-action-btn.copied {
   color: #75b798;
 }
@@ -183,36 +183,33 @@ body .page-actions-bar {
 
 <script>
 (function () {
-// Run after all other DOMContentLoaded handlers, so the cleanup below
-// also sees a bar from a project copy of this file.
+// Run after all DOMContentLoaded handlers, including those of project copies
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(addPageActions, 0);
 });
 
 function addPageActions() {
-  // Remove bars from older project copies of this file, so that the theme
-  // version is the only one on the page. Theme classes use a "posit-"
-  // prefix, so the CSS in those copies does not apply to the theme bar.
+  // Replace bars from older project copies. The "posit-" class prefix
+  // keeps their CSS off the theme bar.
   document.querySelectorAll('.page-actions-bar').forEach(function (el) {
     el.remove();
   });
   if (document.querySelector('.posit-page-actions')) return;
 
-  // Only add the bar on pages with a title block header
+  // Only on pages with a title block
   var titleBlock = document.getElementById('title-block-header');
   if (!titleBlock) return;
 
-  // Pages can opt out of LLM features via front matter: body-classes: no-llms-txt
+  // Pages opt out with front matter: body-classes: no-llms-txt
   var noLlms = document.body.classList.contains('no-llms-txt');
-  // Both actions depend on LLM features, so skip the bar to avoid an empty box
   if (noLlms) return;
 
-  // Determine the .llms.md URL for this page (Quarto 1.9 llms-txt output)
+  // URL of the .llms.md file for this page (Quarto llms-txt output)
   var mdUrl = (function () {
     var path = window.location.pathname;
     if (path.endsWith('/')) return path + 'index.llms.md';
     if (path.endsWith('.html')) return path.replace(/\.html$/, '.llms.md');
-    // Extensionless URL (for example, /how-to/foo served from foo.html)
+    // Extensionless URL: /foo served from foo.html
     return path + '.llms.md';
   })();
 
@@ -233,7 +230,7 @@ function addPageActions() {
         return 'Source: ' + window.location.href + '\n\n' + text;
       },
       function () {
-        // No .llms.md file: fall back to the rendered page text
+        // No .llms.md file: use the rendered page text
         return getFallbackContent();
       }
     );
@@ -256,6 +253,13 @@ function addPageActions() {
 
   bar.appendChild(mdBtn);
 
+  // --- Screen reader status ---
+  // Announces the copy result; button text changes are not reliably announced
+  var status = document.createElement('span');
+  status.className = 'visually-hidden';
+  status.setAttribute('role', 'status');
+  bar.appendChild(status);
+
   // --- Insert bar after the title block header ---
   titleBlock.parentNode.insertBefore(bar, titleBlock.nextSibling);
 
@@ -268,9 +272,8 @@ function addPageActions() {
     });
   }
 
-  // Start the clipboard write synchronously inside the click handler.
-  // Safari rejects clipboard writes that start after an async step (such as
-  // a fetch), so pass the pending content to a ClipboardItem as a promise.
+  // Start the write inside the click handler: Safari rejects writes that
+  // start after a fetch. ClipboardItem takes the content as a promise.
   function copyToClipboard(contentPromise) {
     var clipboard = navigator.clipboard;
     if (!clipboard) return Promise.reject(new Error('Clipboard API unavailable'));
@@ -291,7 +294,7 @@ function addPageActions() {
           return new Blob([text], { type: 'text/plain' });
         })
       });
-      // Browsers without promise support in ClipboardItem reject here
+      // Rejects where ClipboardItem does not support promises
       return clipboard.write([item]).catch(writeTextFallback);
     } catch (e) {
       return writeTextFallback();
@@ -306,7 +309,7 @@ function addPageActions() {
     flashCopyState('Copy failed', 'bi bi-x-lg', 'copy-failed');
   }
 
-  // Show a temporary label, icon, and class on the copy button for 2 seconds
+  // Show the copy result on the button for 2 seconds
   var copyStateTimer = null;
   function flashCopyState(text, iconClass, stateClass) {
     var label = copyBtn.querySelector('.btn-label');
@@ -316,25 +319,40 @@ function addPageActions() {
     label.textContent = text;
     icon.className = iconClass;
     copyBtn.classList.add(stateClass);
+    // Clear first, so a repeated message is announced again
+    status.textContent = '';
+    setTimeout(function () { status.textContent = text; }, 100);
     copyStateTimer = setTimeout(function () {
       label.textContent = 'Copy for LLM';
       icon.className = 'bi bi-copy';
       copyBtn.classList.remove(stateClass);
+      status.textContent = '';
     }, 2000);
   }
 
   function getFallbackContent() {
-    // Extract text from the rendered page
     var title = document.querySelector('h1.title');
     var content = document.getElementById('quarto-document-content');
     if (!content) return '';
 
-    var clone = content.cloneNode(true);
-    clone.querySelectorAll(
-      'nav, .quarto-page-breadcrumbs, .posit-page-actions, .page-actions-bar, script, style, .quarto-title-meta'
-    ).forEach(function (el) { el.remove(); });
+    // Read innerText from the live page: on a detached clone it loses line
+    // and cell breaks. Hide unwanted elements for this synchronous read only.
+    var hidden = [];
+    content.querySelectorAll(
+      'nav, .quarto-page-breadcrumbs, .posit-page-actions, .page-actions-bar, .quarto-title-meta, h1.title'
+    ).forEach(function (el) {
+      hidden.push([el, el.style.getPropertyValue('display'), el.style.getPropertyPriority('display')]);
+      el.style.setProperty('display', 'none', 'important');
+    });
 
-    var text = clone.innerText || clone.textContent || '';
+    var text;
+    try {
+      text = content.innerText || content.textContent || '';
+    } finally {
+      hidden.forEach(function (entry) {
+        entry[0].style.setProperty('display', entry[1], entry[2]);
+      });
+    }
     text = text.replace(/\n{3,}/g, '\n\n').trim();
 
     var header = '';
