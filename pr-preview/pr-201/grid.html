@@ -108,7 +108,12 @@ window.onload = function () {
 </script>
 <!-- End display/hide cookie icon -->
 <style>
-.page-actions-bar {
+/* Hide bars from older project copies of this file. The theme bar replaces them. */
+body .page-actions-bar {
+  display: none !important;
+}
+
+.posit-page-actions {
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--bs-border-color, #dee2e6);
@@ -118,7 +123,7 @@ window.onload = function () {
   overflow: hidden;
 }
 
-.page-actions-bar .page-action-btn {
+.posit-page-actions .posit-page-action-btn {
   background: none;
   border: none;
   padding: 5px 12px;
@@ -135,41 +140,41 @@ window.onload = function () {
   font-family: inherit;
 }
 
-.page-actions-bar .page-action-btn:hover {
+.posit-page-actions .posit-page-action-btn:hover {
   background-color: var(--bs-tertiary-bg, #f8f9fa);
   color: var(--bs-body-color, #212529);
 }
 
-.page-actions-bar .page-action-btn + .page-action-btn {
+.posit-page-actions .posit-page-action-btn + .posit-page-action-btn {
   border-left: 1px solid var(--bs-border-color, #dee2e6);
 }
 
-.page-actions-bar .page-action-btn i {
+.posit-page-actions .posit-page-action-btn i {
   font-size: 0.85em;
 }
 
-.page-actions-bar .page-action-btn.copied {
+.posit-page-actions .posit-page-action-btn.copied {
   color: var(--bs-success, #198754);
 }
 
-.page-actions-bar .page-action-btn.copy-failed {
+.posit-page-actions .posit-page-action-btn.copy-failed {
   color: var(--bs-danger, #dc3545);
 }
 
 /* Lighter feedback colors for dark mode, to meet WCAG AA contrast (4.5:1) */
-.quarto-dark .page-actions-bar .page-action-btn.copied {
+.quarto-dark .posit-page-actions .posit-page-action-btn.copied {
   color: #75b798;
 }
 
-.quarto-dark .page-actions-bar .page-action-btn.copy-failed {
+.quarto-dark .posit-page-actions .posit-page-action-btn.copy-failed {
   color: #ea868f;
 }
 
 @media (max-width: 576px) {
-  .page-actions-bar .page-action-btn .btn-label {
+  .posit-page-actions .posit-page-action-btn .btn-label {
     display: none;
   }
-  .page-actions-bar .page-action-btn {
+  .posit-page-actions .posit-page-action-btn {
     padding: 5px 10px;
   }
 }
@@ -177,15 +182,20 @@ window.onload = function () {
 
 <script>
 (function () {
-// Run after all other DOMContentLoaded handlers, so the duplicate check
-// below also sees a bar from a site-level copy of this file.
+// Run after all other DOMContentLoaded handlers, so the cleanup below
+// also sees a bar from a project copy of this file.
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(addPageActions, 0);
 });
 
 function addPageActions() {
-  // A site that still ships its own copy of this file already has a bar
-  if (document.querySelector('.page-actions-bar')) return;
+  // Remove bars from older project copies of this file, so that the theme
+  // version is the only one on the page. Theme classes use a "posit-"
+  // prefix, so the CSS in those copies does not apply to the theme bar.
+  document.querySelectorAll('.page-actions-bar').forEach(function (el) {
+    el.remove();
+  });
+  if (document.querySelector('.posit-page-actions')) return;
 
   // Only add the bar on pages with a title block header
   var titleBlock = document.getElementById('title-block-header');
@@ -207,11 +217,11 @@ function addPageActions() {
 
   // --- Build the bar ---
   var bar = document.createElement('div');
-  bar.className = 'page-actions-bar';
+  bar.className = 'posit-page-actions';
 
   // --- Copy for LLM button ---
   var copyBtn = document.createElement('button');
-  copyBtn.className = 'page-action-btn';
+  copyBtn.className = 'posit-page-action-btn';
   copyBtn.type = 'button';
   copyBtn.innerHTML = '<i class="bi bi-copy"></i> <span class="btn-label">Copy for LLM</span>';
   copyBtn.title = 'Copy page content in a format optimized for LLMs';
@@ -234,7 +244,7 @@ function addPageActions() {
 
   // --- View as Markdown button ---
   var mdBtn = document.createElement('button');
-  mdBtn.className = 'page-action-btn';
+  mdBtn.className = 'posit-page-action-btn';
   mdBtn.type = 'button';
   mdBtn.innerHTML = '<i class="bi bi-markdown"></i> <span class="btn-label">View as Markdown</span>';
   mdBtn.title = 'View the raw markdown source of this page';
@@ -320,7 +330,7 @@ function addPageActions() {
 
     var clone = content.cloneNode(true);
     clone.querySelectorAll(
-      'nav, .quarto-page-breadcrumbs, .page-actions-bar, script, style, .quarto-title-meta'
+      'nav, .quarto-page-breadcrumbs, .posit-page-actions, .page-actions-bar, script, style, .quarto-title-meta'
     ).forEach(function (el) { el.remove(); });
 
     var text = clone.innerText || clone.textContent || '';
