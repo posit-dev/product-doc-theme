@@ -1,7 +1,7 @@
 # Unreleased
 
 * Adds a page actions bar with **Copy for LLM** and **View as Markdown** buttons below each page title
-* Does not add a second page actions bar when a project still includes its own copy of `_page-actions.html`
+* Replaces the page actions bar from a project copy of `_page-actions.html` with the theme version
 
 # v8.1.5
 

@@ -194,13 +194,18 @@ If the page already has `body-classes`, add `no-llms-txt` to the list, separated
 
 #### Remove a project copy of the page actions
 
-Some projects have their own copy of `_page-actions.html`.
-After you update the extension, remove this copy:
+Some projects have their own older copy of `_page-actions.html`.
+The extension removes the bar from this copy and shows its own bar.
+The copy still adds code to each page, and changes to the copy do not show on the site.
+
+To remove the copy:
 
 1. Remove the `_page-actions.html` file from your project.
 2. Remove the `_page-actions.html` entry from `format.html.include-in-header` in your `_quarto.yml`.
 
-If the project copy stays, the extension does not add a second bar.
+Do not copy `_page-actions.html` from the extension into your project.
+The styles in a copy load after the styles of the extension.
+As a result, the copy can override later style fixes to the extension, for example accessibility fixes.
 
 ## Development
 
