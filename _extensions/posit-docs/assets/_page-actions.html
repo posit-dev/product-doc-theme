@@ -1,0 +1,256 @@
+<style>
+/* Hide bars from older project copies; the theme bar replaces them */
+body .page-actions-bar {
+  display: none !important;
+}
+
+.posit-page-actions {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: 6px;
+  margin: 0.75rem 0 1rem 0;
+  width: fit-content;
+  overflow: hidden;
+}
+
+.posit-page-actions .posit-page-action-btn {
+  background: none;
+  border: none;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  color: var(--bs-secondary-color, #6c757d);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+  text-decoration: none;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+.posit-page-actions .posit-page-action-btn:hover {
+  background-color: var(--bs-tertiary-bg, #f8f9fa);
+  color: var(--bs-body-color, #212529);
+}
+
+.posit-page-actions .posit-page-action-btn + .posit-page-action-btn {
+  border-left: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.posit-page-actions .posit-page-action-btn i {
+  font-size: 0.85em;
+}
+
+.posit-page-actions .posit-page-action-btn.copied {
+  color: var(--bs-success, #198754);
+}
+
+.posit-page-actions .posit-page-action-btn.copy-failed {
+  color: var(--bs-danger, #dc3545);
+}
+
+/* Dark mode feedback colors that meet WCAG AA (4.5:1) */
+.quarto-dark .posit-page-actions .posit-page-action-btn.copied {
+  color: #75b798;
+}
+
+.quarto-dark .posit-page-actions .posit-page-action-btn.copy-failed {
+  color: #ea868f;
+}
+
+@media (max-width: 576px) {
+  .posit-page-actions .posit-page-action-btn .btn-label {
+    display: none;
+  }
+  .posit-page-actions .posit-page-action-btn {
+    padding: 5px 10px;
+  }
+}
+</style>
+
+<script>
+(function () {
+// Run after all DOMContentLoaded handlers, including those of project copies
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(addPageActions, 0);
+});
+
+function addPageActions() {
+  // Replace bars from older project copies. The "posit-" class prefix
+  // keeps their CSS off the theme bar.
+  document.querySelectorAll('.page-actions-bar').forEach(function (el) {
+    el.remove();
+  });
+  if (document.querySelector('.posit-page-actions')) return;
+
+  // Only on pages with a title block
+  var titleBlock = document.getElementById('title-block-header');
+  if (!titleBlock) return;
+
+  // Pages opt out with front matter: body-classes: no-llms-txt
+  var noLlms = document.body.classList.contains('no-llms-txt');
+  if (noLlms) return;
+
+  // URL of the .llms.md file for this page (Quarto llms-txt output)
+  var mdUrl = (function () {
+    var path = window.location.pathname;
+    if (path.endsWith('/')) return path + 'index.llms.md';
+    if (path.endsWith('.html')) return path.replace(/\.html$/, '.llms.md');
+    // Extensionless URL: /foo served from foo.html
+    return path + '.llms.md';
+  })();
+
+  // --- Build the bar ---
+  var bar = document.createElement('div');
+  bar.className = 'posit-page-actions';
+
+  // --- Copy for LLM button ---
+  var copyBtn = document.createElement('button');
+  copyBtn.className = 'posit-page-action-btn';
+  copyBtn.type = 'button';
+  copyBtn.innerHTML = '<i class="bi bi-copy"></i> <span class="btn-label">Copy for LLM</span>';
+  copyBtn.title = 'Copy page content in a format optimized for LLMs';
+
+  copyBtn.addEventListener('click', function () {
+    var contentPromise = fetchMdContent().then(
+      function (text) {
+        return 'Source: ' + window.location.href + '\n\n' + text;
+      },
+      function () {
+        // No .llms.md file: use the rendered page text
+        return getFallbackContent();
+      }
+    );
+
+    copyToClipboard(contentPromise).then(showCopied, showCopyFailed);
+  });
+
+  bar.appendChild(copyBtn);
+
+  // --- View as Markdown button ---
+  var mdBtn = document.createElement('button');
+  mdBtn.className = 'posit-page-action-btn';
+  mdBtn.type = 'button';
+  mdBtn.innerHTML = '<i class="bi bi-markdown"></i> <span class="btn-label">View as Markdown</span>';
+  mdBtn.title = 'View the raw markdown source of this page';
+
+  mdBtn.addEventListener('click', function () {
+    window.open(mdUrl, '_blank');
+  });
+
+  bar.appendChild(mdBtn);
+
+  // --- Screen reader status ---
+  // Announces the copy result; button text changes are not reliably announced
+  var status = document.createElement('span');
+  status.className = 'visually-hidden';
+  status.setAttribute('role', 'status');
+  bar.appendChild(status);
+
+  // --- Insert bar after the title block header ---
+  titleBlock.parentNode.insertBefore(bar, titleBlock.nextSibling);
+
+  // --- Helper functions ---
+
+  function fetchMdContent() {
+    return fetch(mdUrl).then(function (r) {
+      if (!r.ok) throw new Error('not found');
+      return r.text();
+    });
+  }
+
+  // Start the write inside the click handler: Safari rejects writes that
+  // start after a fetch. ClipboardItem takes the content as a promise.
+  function copyToClipboard(contentPromise) {
+    var clipboard = navigator.clipboard;
+    if (!clipboard) return Promise.reject(new Error('Clipboard API unavailable'));
+
+    function writeTextFallback() {
+      return contentPromise.then(function (text) {
+        return clipboard.writeText(text);
+      });
+    }
+
+    if (typeof window.ClipboardItem !== 'function' || typeof clipboard.write !== 'function') {
+      return writeTextFallback();
+    }
+
+    try {
+      var item = new ClipboardItem({
+        'text/plain': contentPromise.then(function (text) {
+          return new Blob([text], { type: 'text/plain' });
+        })
+      });
+      // Rejects where ClipboardItem does not support promises
+      return clipboard.write([item]).catch(writeTextFallback);
+    } catch (e) {
+      return writeTextFallback();
+    }
+  }
+
+  function showCopied() {
+    flashCopyState('Copied!', 'bi bi-check-lg', 'copied');
+  }
+
+  function showCopyFailed() {
+    flashCopyState('Copy failed', 'bi bi-x-lg', 'copy-failed');
+  }
+
+  // Show the copy result on the button for 2 seconds
+  var copyStateTimer = null;
+  function flashCopyState(text, iconClass, stateClass) {
+    var label = copyBtn.querySelector('.btn-label');
+    var icon = copyBtn.querySelector('i');
+    clearTimeout(copyStateTimer);
+    copyBtn.classList.remove('copied', 'copy-failed');
+    label.textContent = text;
+    icon.className = iconClass;
+    copyBtn.classList.add(stateClass);
+    // Clear first, so a repeated message is announced again
+    status.textContent = '';
+    setTimeout(function () { status.textContent = text; }, 100);
+    copyStateTimer = setTimeout(function () {
+      label.textContent = 'Copy for LLM';
+      icon.className = 'bi bi-copy';
+      copyBtn.classList.remove(stateClass);
+      status.textContent = '';
+    }, 2000);
+  }
+
+  function getFallbackContent() {
+    var title = document.querySelector('h1.title');
+    var content = document.getElementById('quarto-document-content');
+    if (!content) return '';
+
+    // Read innerText from the live page: on a detached clone it loses line
+    // and cell breaks. Hide unwanted elements for this synchronous read only.
+    var hidden = [];
+    content.querySelectorAll(
+      'nav, .quarto-page-breadcrumbs, .posit-page-actions, .page-actions-bar, .quarto-title-meta, h1.title'
+    ).forEach(function (el) {
+      hidden.push([el, el.style.getPropertyValue('display'), el.style.getPropertyPriority('display')]);
+      el.style.setProperty('display', 'none', 'important');
+    });
+
+    var text;
+    try {
+      text = content.innerText || content.textContent || '';
+    } finally {
+      hidden.forEach(function (entry) {
+        entry[0].style.setProperty('display', entry[1], entry[2]);
+      });
+    }
+    text = text.replace(/\n{3,}/g, '\n\n').trim();
+
+    var header = '';
+    if (title) header = '# ' + title.textContent.trim() + '\n\n';
+    header += 'Source: ' + window.location.href + '\n\n';
+
+    return header + text;
+  }
+}
+})();
+</script>
