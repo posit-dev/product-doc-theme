@@ -1,3 +1,0 @@
-# Installation
-
-This is a stub page modeling a sub-page within the admin guide.
