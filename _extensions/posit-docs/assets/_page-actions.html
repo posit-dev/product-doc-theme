@@ -94,13 +94,17 @@ function addPageActions() {
   var noLlms = document.body.classList.contains('no-llms-txt');
   if (noLlms) return;
 
-  // URL of the .llms.md file for this page (Quarto llms-txt output)
+  // URL of the Markdown copy of this page (Quarto llms-txt output). Quarto 1
+  // writes foo.llms.md beside foo.html; Quarto 2 writes foo.md.
   var mdUrl = (function () {
+    var generator = document.querySelector('meta[name="generator"]');
+    var isQuarto1 = !!generator && /^quarto-1\./.test(generator.content);
+    var ext = isQuarto1 ? '.llms.md' : '.md';
     var path = window.location.pathname;
-    if (path.endsWith('/')) return path + 'index.llms.md';
-    if (path.endsWith('.html')) return path.replace(/\.html$/, '.llms.md');
+    if (path.endsWith('/')) return path + 'index' + ext;
+    if (path.endsWith('.html')) return path.replace(/\.html$/, ext);
     // Extensionless URL: /foo served from foo.html
-    return path + '.llms.md';
+    return path + ext;
   })();
 
   // --- Build the bar ---
@@ -120,7 +124,7 @@ function addPageActions() {
         return 'Source: ' + window.location.href + '\n\n' + text;
       },
       function () {
-        // No .llms.md file: use the rendered page text
+        // No Markdown copy: use the rendered page text
         return getFallbackContent();
       }
     );
