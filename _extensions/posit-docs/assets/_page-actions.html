@@ -52,7 +52,14 @@ body .page-actions-bar {
   color: var(--bs-danger, #dc3545);
 }
 
-/* Dark mode feedback colors that meet WCAG AA (4.5:1) */
+/* Dark mode hover. Quarto's dark CSS sets --bs-tertiary-bg to a light
+   color, so set the colors here. Text contrast: 10.2:1 */
+.quarto-dark .posit-page-actions .posit-page-action-btn:hover {
+  background-color: #2c3a54;
+  color: #f2f2f2;
+}
+
+/* Dark mode feedback colors that meet WCAG AA (4.5:1), also on hover */
 .quarto-dark .posit-page-actions .posit-page-action-btn.copied {
   color: #75b798;
 }

@@ -2,6 +2,8 @@
 
 * Adds a page actions bar with **Copy for LLM** and **View as Markdown** buttons below each page title
 * Replaces the page actions bar from a project copy of `_page-actions.html` with the theme version
+* Makes the page action buttons legible on hover in dark mode #207
+* Shows light tab cards on the example Grid page in light mode #197
 
 # v8.1.5
 
