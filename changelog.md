@@ -1,9 +1,15 @@
 # Unreleased
 
-* Adds a page actions bar with **Copy for LLM** and **View as Markdown** buttons below each page title
-* Replaces the page actions bar from a project copy of `_page-actions.html` with the theme version
 * Makes the page action buttons legible on hover in dark mode #207
 * Shows light tab cards on the example Grid page in light mode #197
+
+# v8.2.0
+
+* Adds a page actions bar with **Copy for LLM** and **View as Markdown** buttons below each page title
+* Replaces the page actions bar from a project copy of `_page-actions.html` with the theme version
+* Sets the inline code background explicitly.
+* Adds support for Quarto 2's variant of llms-txt in the page actions.
+* Fixes Mermaid subgraph titles rendering under Quarto 2.
 
 # v8.1.5
 

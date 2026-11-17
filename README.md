@@ -172,8 +172,8 @@ The bar has two buttons:
 - **Copy for LLM**: Copies the Markdown of the page to the clipboard, with the page URL at the top.
 - **View as Markdown**: Opens the Markdown of the page in a new browser tab.
 
-The buttons use the `.llms.md` files that Quarto makes when you enable `llms-txt`.
-This feature requires Quarto 1.9 or later.
+The buttons use the Markdown copy of each page that Quarto makes when you enable `llms-txt`.
+This feature requires Quarto 1.9 or later, or Quarto 2.
 To enable it, add the following to your `_quarto.yml`:
 
 ```yaml
@@ -181,7 +181,7 @@ website:
   llms-txt: true
 ```
 
-If a page has no `.llms.md` file, **Copy for LLM** copies the text of the rendered page.
+If a page has no Markdown copy, **Copy for LLM** copies the text of the rendered page.
 For the same page, **View as Markdown** opens a page that shows a 404 (not found) error.
 
 To remove the bar from a page, add the following to the front matter of the page:

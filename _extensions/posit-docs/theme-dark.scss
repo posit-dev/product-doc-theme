@@ -296,5 +296,14 @@ a.footnote-back {
         color: $mermaid-label-fg-color !important;
       }
     }
+
+    /* Mermaid 12 measures subgraph titles as a shrink-to-fit `table-cell` label
+       with no max-width, inside a very wide foreignObject. Flex layout turns
+       that label into a block that fills the whole width, so the title is
+       measured as thousands of pixels wide and the diagram is scaled down to a
+       sliver. Other labels have a max-width and are left alone. */
+    &:has(> div[style*="table-cell"]:not([style*="max-width"])) {
+      display: block;
+    }
   }
 }
