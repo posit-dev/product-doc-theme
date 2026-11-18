@@ -1,4 +1,4 @@
-# Unreleased
+# v8.2.1
 
 * Makes the page action buttons legible on hover in dark mode #207
 * Shows light tab cards on the example Grid page in light mode #197
