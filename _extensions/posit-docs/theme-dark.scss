@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
 // import font
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,700;1,800&display=swap");
 
 /*-- scss:variables --*/
 $primary: $posit-blue-alt;
@@ -12,8 +12,9 @@ $slate-800: #1E293B; // slate-800 vibe
 $dark-contrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
 
 // Feature preview heading colors
-$preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
-$preview-header-border: darken($preview-header, 5%);
+// Matches the light theme. The badge rules are in theme.scss only.
+$preview-header: $posit-blue;
+$preview-header-border: $posit-blue;
 
 // Typography
 $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
@@ -219,6 +220,12 @@ div.callout-warning.callout {
 div.callout-important.callout {
   border-left-color: $posit-dark-burgundy-2 !important;
   border: 1px solid $posit-dark-burgundy-2 !important;
+}
+
+/* Callout titles. Quarto sets these to 600; the brand does not use 600. */
+.callout.callout-style-simple > div.callout-header,
+.callout.callout-style-default > div.callout-header {
+  font-weight: 700;
 }
 
 /* ======== Other UI Elements ======== */

@@ -37,4 +37,19 @@ This table is not using any bootstrap classes:
 
 The image caption, title, and alt text can all be different.
 
-![This is a test image](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg "Title: Posit logo"){fig-alt="testing for alt text stuff" width=240 fig-align="left"}
+![This is a test image](/_extensions/posit-docs/assets/images/posit-logo-fullcolor-TM.svg "Title: Posit logo"){fig-alt="Posit logo" width=240 fig-align="left"}
+
+## Lettered steps
+
+Use the `groovyAlpha` class to show substeps as lettered circles:
+
+1. Open the product in your browser and log in.
+1. Select **New Session** and do these steps:
+
+    <ol class="groovyAlpha">
+      <li>Give your session a name.</li>
+      <li>In the **Editor** field, select an IDE.</li>
+      <li>Select **Launch**.</li>
+    </ol>
+
+1. Use the new session.
