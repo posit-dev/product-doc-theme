@@ -340,10 +340,11 @@ ol.groovyAlpha li > p:before {
   vertical-align: middle;
 }
 
-/* Callout titles. Quarto sets these to 600; the brand does not use 600. */
+/* Callout titles. Quarto sets these to 600; the brand does not use 600.
+   Quarto's callout rule comes later in the CSS, so !important is necessary. */
 .callout.callout-style-simple > div.callout-header,
 .callout.callout-style-default > div.callout-header {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 /* Keyboard Shortcuts */

@@ -12,9 +12,9 @@ $slate-800: #1E293B; // slate-800 vibe
 $dark-contrast: rgb(19, 22.5, 30.5); // dark gray/black for nav bar, grid, footer
 
 // Feature preview heading colors
-// Matches the light theme. The badge rules are in theme.scss only.
-$preview-header: $posit-blue;
-$preview-header-border: $posit-blue;
+// Posit light blue 2 text and border. Contrast: 8.2:1 on the page background.
+$preview-header: $posit-light-blue-2;
+$preview-header-border: $posit-light-blue-2;
 
 // Typography
 $font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
@@ -222,10 +222,23 @@ div.callout-important.callout {
   border: 1px solid $posit-dark-burgundy-2 !important;
 }
 
-/* Callout titles. Quarto sets these to 600; the brand does not use 600. */
+/* Callout titles. Quarto sets these to 600; the brand does not use 600.
+   Quarto's callout rule comes later in the CSS, so !important is necessary. */
 .callout.callout-style-simple > div.callout-header,
 .callout.callout-style-default > div.callout-header {
-  font-weight: 700;
+  font-weight: 700 !important;
+}
+
+/* Feature preview badge. The badge layout rules are in theme.scss.
+   Posit blue is 3.3:1 on the dark background, so use a lighter blue. */
+.preview-header > h1:after,
+.preview-header > h2:after,
+.preview-header > h3:after,
+.preview-header > h4:after,
+header h1 .preview-header,
+div span.preview-feature {
+  color: $preview-header;
+  border: 1px solid $preview-header-border;
 }
 
 /* ======== Other UI Elements ======== */
