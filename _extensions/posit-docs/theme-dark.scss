@@ -79,13 +79,6 @@ $mermaid-font-family: $font-family-sans-serif;
   border-bottom: 1px solid $posit-dark-gray-1 !important;
 }
 
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show {
-  border-bottom: 2px solid $primary;
-  padding-bottom: 24px;
-  margin-bottom: -34px;
-}
-
 /* Sidebar */
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents,
 nav.sidebar.sidebar-navigation:not(.rollup) {
